@@ -31,6 +31,8 @@ public class DomeSpecification {
 	 */
 	protected double panelThickness;
 
+	protected DomeSpecification() {}
+
 	public DomeSpecification(
 		final int frequency,
 		final int layers,

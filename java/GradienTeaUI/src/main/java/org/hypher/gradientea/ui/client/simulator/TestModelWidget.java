@@ -13,6 +13,7 @@ import net.blimster.gwt.threejs.core.Object3D;
 import net.blimster.gwt.threejs.core.Vector3;
 import net.blimster.gwt.threejs.extras.core.Shape;
 import net.blimster.gwt.threejs.extras.geometries.CylinderGeometry;
+import net.blimster.gwt.threejs.extras.geometries.ExtrudeGeometry;
 import net.blimster.gwt.threejs.extras.geometries.SphereGeometry;
 import net.blimster.gwt.threejs.extras.helpers.AxisHelper;
 import net.blimster.gwt.threejs.lights.PointLight;
@@ -21,6 +22,7 @@ import net.blimster.gwt.threejs.materials.MeshPhongMaterial;
 import net.blimster.gwt.threejs.objects.Mesh;
 import net.blimster.gwt.threejs.renderers.WebGLRenderer;
 import net.blimster.gwt.threejs.scenes.Scene;
+import org.hypher.gradientea.lightingmodel.shared.dome.DomeSpecification;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)
@@ -100,7 +102,18 @@ public class TestModelWidget extends Composite {
 	}
 
 	private void createDome(final Scene scene, final Material mat1) {
-		DomeGeometry model = new DomeGeometry(25, 3, 100);
+		DomeGeometry model = new DomeGeometry(new DomeSpecification(
+			4, 100, 20, 2.33, 1
+		));
+
+		Mesh person = Mesh.create(
+			CylinderGeometry.create(20/12.0, 20/12.0, 6.0, 20, 1, false),
+			MeshPhongMaterial.create(0xDDDD00)
+		);
+		person.getRotation().setX(Math.PI/2);
+		person.getScale().setX(0.6);
+		person.getPosition().setZ(3.0);
+		scene.add(person);
 
 		for (Vector3 v : model.getVertices()) {
 			Mesh dot = Mesh.create(DOME_VERTEX_SPHERE, mat1);
@@ -151,25 +164,12 @@ public class TestModelWidget extends Composite {
 		shape.lineTo(-sideLength/2, -sideRadius);
 		shape.closePath();
 
-//		Geometry geometry = shape.extrude(
-//			ExtrudeGeometry.ExtrudeOptions.create()
-//				.setAmount(thickness)
-//				.setSteps(3)
-//				.setBevelEnabled(false)
-//		);
-
-		Geometry geometry = CylinderGeometry.create(
-			sideLength/2,
-			sideLength/2,
-			thickness,
-			10,
-			1,
-			false
+		Geometry geometry = shape.extrude(
+			ExtrudeGeometry.ExtrudeOptions.create()
+				.setAmount(thickness)
+				.setSteps(3)
+				.setBevelEnabled(false)
 		);
-
-		Matrix4 orientation = Matrix4.create();
-		orientation.setRotationFromEuler(Vector3.create(Math.PI / 2, 0, 0));
-		geometry.applyMatrix(orientation);
 
 		Material material = MeshPhongMaterial.create(0xFF0000);
 
@@ -190,16 +190,36 @@ public class TestModelWidget extends Composite {
 		);
 
 		//mesh.add(AxisHelper.create((int) (sideRadius*3)));
-		AxisHelper axisHelper = AxisHelper.create((int) (sideRadius * 3));
+		//AxisHelper axisHelper = AxisHelper.create((int) (sideRadius * 3));
+		//mesh.add(axisHelper);
 
-		mesh.setPosition(middle.clone());
-		mesh.lookAt(Vector3.create());
+		orientPanel(face, mesh, middle);
 
-		mesh.getRotation().setZ(0);
-
-		myObj = mesh;
 		scene.add(mesh);
 		return mesh;
+	}
+
+	protected void orientPanel(DomeGeometry.DomeFace face, Mesh panel, Vector3 pCenter) {
+		Vector3 p0 = face.getA();
+		Vector3 p1 = face.getB();
+		Vector3 p2 = face.getC();
+
+		Vector3 v1 = Vector3.create().sub(p1, p0);
+		Vector3 v2 = Vector3.create().sub(p2, p0);
+
+		Vector3 vKprime = Vector3.create().cross(v1, v2).normalize();
+		Vector3 vJprime = Vector3.create().sub(p0, pCenter).normalize();
+		Vector3 vIprime = Vector3.create().cross(vJprime, vKprime).normalize();
+
+		panel.getMatrix().set(
+			vIprime.getX(), vJprime.getX(), vKprime.getX(), pCenter.getX(),
+			vIprime.getY(), vJprime.getY(), vKprime.getY(), pCenter.getY(),
+			vIprime.getZ(), vJprime.getZ(), vKprime.getZ(), pCenter.getZ(),
+			0,              0,              0,              1
+		);
+
+		panel.getRotation().setEulerFromRotationMatrix(panel.getMatrix(), panel.getEulerOrder());
+		panel.setPosition(pCenter.clone());
 	}
 
 	static Object3D myObj;

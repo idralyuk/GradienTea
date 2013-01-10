@@ -242,12 +242,12 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 			shape.lineTo(-sideLength/2, -sideRadius);
 			shape.closePath();
 
-//		Geometry geometry = shape.extrude(
-//			ExtrudeGeometry.ExtrudeOptions.create()
-//				.setAmount(thickness)
-//				.setSteps(3)
-//				.setBevelEnabled(false)
-//		);
+//			Geometry geometry = shape.extrude(
+//				ExtrudeGeometry.ExtrudeOptions.create()
+//					.setAmount(domeModel.getSpec().getPanelThickness())
+//					.setSteps(3)
+//					.setBevelEnabled(false)
+//			);
 
 			// TODO: This is easier to position than the stupid triangular prism
 			Geometry geometry = CylinderGeometry.create(

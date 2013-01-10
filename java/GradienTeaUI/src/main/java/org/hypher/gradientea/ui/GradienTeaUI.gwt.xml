@@ -20,6 +20,9 @@
 	<!-- Three4g -->
 	<inherits name="net.blimster.gwt.threejs" />
 
+	<!-- Hypher -->
+	<inherits name="org.hypher.gradientea.lightingmodel.LightingModel" />
+
 	<!--==================================================================================================================
 		== MODULE CONFIGURATION
 		-->
