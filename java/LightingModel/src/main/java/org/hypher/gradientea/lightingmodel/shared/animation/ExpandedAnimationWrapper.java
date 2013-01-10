@@ -13,12 +13,16 @@ import java.util.List;
 public class ExpandedAnimationWrapper extends AnimationFunctionWrapper {
 	protected ExpandedAnimationWrapper() {}
 
+	protected double compression = 0.05;
+
 	public ExpandedAnimationWrapper(
 		final PixelGroupAnimation wrappedAnimation,
-		final Function<Double, Double> timeFunction
+		final Function<Double, Double> timeFunction,
+		final double compression
 	) {
 		this.wrappedAnimation = wrappedAnimation;
 		this.function = timeFunction;
+		this.compression = compression;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -33,12 +37,19 @@ public class ExpandedAnimationWrapper extends AnimationFunctionWrapper {
 		final List<PixelGroup> innerGroups = outerGroup.getChildren();
 
 		for (int i=0; i<innerGroups.size(); i++) {
-			double wrappedFractionPosition = ((double) i / innerGroups.size() + time) % 1.0;
+			double wrappedFractionPosition = (((double) i / innerGroups.size()) * compression + time) % 1.0;
+
+//			System.out.printf("%03d ", Math.round(function.apply(wrappedFractionPosition)*100));
+//			for (int j=0; j<function.apply(wrappedFractionPosition)*30; j++) {
+//				System.out.print("=");
+//			}
+//			System.out.println();
 
 			builder.addAll(
 				wrappedAnimation.render(innerGroups.get(i), function.apply(wrappedFractionPosition))
 			);
 		}
+//		System.out.println();
 
 		return builder.build();
 	}

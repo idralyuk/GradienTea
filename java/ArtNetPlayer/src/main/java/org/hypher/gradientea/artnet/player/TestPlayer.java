@@ -1,7 +1,6 @@
 package org.hypher.gradientea.artnet.player;
 
 import fr.azelart.artnetstack.constants.Constants;
-import org.hypher.gradientea.lightingmodel.shared.animation.AnimationScene;
 import org.hypher.gradientea.lightingmodel.shared.animation.ExpandedAnimationWrapper;
 import org.hypher.gradientea.lightingmodel.shared.animation.HsbTween;
 import org.hypher.gradientea.lightingmodel.shared.animation.SingleDefinedAnimation;
@@ -25,43 +24,47 @@ public class TestPlayer {
 			Constants.DEFAULT_ART_NET_UDP_PORT
 		);
 
+
+		player.playAnimations(
+			Arrays.asList(
+				new RenderableAnimation(
+					new SingleDefinedAnimation(
+						new ExpandedAnimationWrapper(
+							new HsbTween(new HsbColor(0, 1.0, .3), new HsbColor(1.0, 1.0, 0.3)),
+							ExpandedAnimationWrapper.SIN,
+							0.15
+						),
+						DmxPixel.pixels(1, 1, 5)
+					),
+					10
+				)
+			)
+		);
+
+
 //		player.playAnimations(Arrays.asList(
 //			new RenderableAnimation(
-//				new SingleDefinedAnimation(
-//					new ExpandedAnimationWrapper(
-//						new HsbTween(new HsbColor(0, .8, .1), new HsbColor(1.0, 1.0, .3)),
-//						ExpandedAnimationWrapper.SIN
+//				AnimationScene.emptyScene()
+//					.with(
+//						new SingleDefinedAnimation(
+//							new ExpandedAnimationWrapper(
+//								new HsbTween(new HsbColor(0, 1, 0.1), new HsbColor(1.0, 1, 0.3)),
+//								ExpandedAnimationWrapper.SIN
+//							),
+//							DmxPixel.pixels(1, 1, 5)
+//						), 0, 1.0
+//					)
+//					.with(
+//						new SingleDefinedAnimation(
+//							new ExpandedAnimationWrapper(
+//								new HsbTween(new HsbColor(0, 0, 0), new HsbColor(0, 1, 0)),
+//								ExpandedAnimationWrapper.TRIANGLE
+//							),
+//							DmxPixel.pixels(1, 1, 5)
+//						), 0, 1.0
 //					),
-//					DmxPixel.pixels(1, 1, 2)
-//				),
 //				10
 //			)
 //		));
-
-
-		player.playAnimations(Arrays.asList(
-			new RenderableAnimation(
-				AnimationScene.emptyScene()
-					.with(
-						new SingleDefinedAnimation(
-							new ExpandedAnimationWrapper(
-								new HsbTween(new HsbColor(0, 1, 0.1), new HsbColor(1.0, 1, 0.3)),
-								ExpandedAnimationWrapper.SIN
-							),
-							DmxPixel.pixels(1, 1, 2)
-						), 0, 1.0
-					)
-					.with(
-						new SingleDefinedAnimation(
-							new ExpandedAnimationWrapper(
-								new HsbTween(new HsbColor(0, 0, 0), new HsbColor(0, 1, 0)),
-								ExpandedAnimationWrapper.TRIANGLE
-							),
-							DmxPixel.pixels(1, 1, 2)
-						), 0, 1.0
-					),
-				10
-			)
-		));
 	}
 }

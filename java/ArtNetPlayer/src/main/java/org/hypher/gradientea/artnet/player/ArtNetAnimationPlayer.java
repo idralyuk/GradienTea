@@ -1,14 +1,11 @@
 package org.hypher.gradientea.artnet.player;
 
-import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
 import fr.azelart.artnetstack.listeners.ServerListener;
 import fr.azelart.artnetstack.server.ArtNetServer;
 import fr.azelart.artnetstack.utils.ArtNetPacketEncoder;
-import org.hypher.gradientea.lightingmodel.shared.dmx.DmxPixel;
-import org.hypher.gradientea.lightingmodel.shared.pixel.Pixel;
+import org.hypher.gradientea.lightingmodel.shared.dmx.DmxRendering;
 import org.hypher.gradientea.lightingmodel.shared.pixel.PixelValue;
 import org.hypher.gradientea.lightingmodel.shared.rendering.RenderableAnimation;
 
@@ -126,49 +123,22 @@ public class ArtNetAnimationPlayer {
 		}
 	}
 
-	protected void display(final List<PixelValue> pixelValues) {
-		Multimap<Pixel, PixelValue> pixelValueMap = ArrayListMultimap.create();
+	/**
+	 * Sends the given pixel values to the hardware.
+	 *
+	 * @param pixelValues
+	 */
+	public void display(final List<PixelValue> pixelValues) {
+		int[][] channelData = DmxRendering.composite(pixelValues);
 
-		for (PixelValue pixelValue : pixelValues) {
-			pixelValueMap.put(pixelValue.getPixel(), pixelValue);
-		}
-
-		int[][] universes = new int[4][512];
-
-		for (Pixel pixel : pixelValueMap.keySet()) {
-			if (pixel instanceof DmxPixel) {
-				DmxPixel dmxPixel = (DmxPixel) pixel;
-
-				int redSum = 0;
-				int greenSum = 0;
-				int blueSum = 0;
-				int count = pixelValueMap.get(pixel).size();
-
-				for (PixelValue value : pixelValueMap.get(pixel)) {
-					int[] rgb = value.getColor().asRgb();
-
-					redSum += rgb[0];
-					greenSum += rgb[1];
-					blueSum += rgb[2];
-				}
-
-				int[] universe = universes[dmxPixel.getUniverse() - 1];
-				int startChannel = dmxPixel.getFirstChannel()-1;
-
-				universe[startChannel+0] = (int) Math.round((double)redSum/count);
-				universe[startChannel+1] = (int) Math.round((double)greenSum/count);
-				universe[startChannel+2] = (int) Math.round((double)greenSum/count);
-			}
-		}
-
-		for (int i=0; i<universes.length; i++) {
-			if (universes[i] != null) {
+		for (int i=0; i<channelData.length; i++) {
+			if (channelData[i] != null) {
 				try {
 					server.sendPacket(ArtNetPacketEncoder.encodeArtDmxPacket(
-						i+1, 0, universes[i]
+						i+1, 0, channelData[i]
 					));
 				} catch (IOException e) {
-					e.printStackTrace();
+					/* Ignore Errors */
 				}
 			}
 		}

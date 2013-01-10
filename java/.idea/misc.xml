@@ -3,13 +3,25 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="gwt" url="file://$PROJECT_DIR$/../../../opensource/java/three4g" />
+    <file type="gwt" url="file://$PROJECT_DIR$/GradienTeaUI" />
+    <file type="web" url="file://$PROJECT_DIR$/GradienTeaUI" />
+  </component>
   <component name="IdProvider" IDEtalkID="9B99BA6F13FC98F6DC987B2B81A91DD8" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../../../opensource/java/ArtNetStack/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/three4g/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/three4g.wdl/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../../../opensource/java/three4g.wdl/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">

@@ -9,7 +9,7 @@
 
 	<artifactId>LightingModel</artifactId>
 	<name>${project.artifactId}</name>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>

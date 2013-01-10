@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="GradienTeaUI:war">
+    <output-path>$PROJECT_DIR$/GradienTeaUI/target</output-path>
+    <root id="archive" name="GradienTeaUI-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="GradienTeaUI:war exploded" />
+    </root>
+  </artifact>
+</component>

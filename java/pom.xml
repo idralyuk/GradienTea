@@ -8,37 +8,69 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<versions.guava>13.0.1</versions.guava>
+		<!-- Hypher Maintained -->
+		<version.artnetstack>1.0.0-SNAPSHOT</version.artnetstack>
+		<version.three4g>1.0.0-SNAPSHOT</version.three4g>
+
+		<!-- GWT Related -->
+		<version.gwt>2.5.0</version.gwt>
+		<version.gin>2.0.0</version.gin>
+		<version.jsr305>1.3.9</version.jsr305>
+
+		<!-- Java Utils -->
+		<version.guava>13.0.1</version.guava>
+		<version.jaxb>2.2.7</version.jaxb>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
-			<!--================================================================================================================
+			<!--==============================================================================================================
 				== Hypher Dependencies
 				-->
 			<dependency>
 				<groupId>fr.azelart.artnetstack</groupId>
 				<artifactId>stack</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${version.artnetstack}</version>
 			</dependency>
 
-			<!--================================================================================================================
+			<dependency>
+				<groupId>net.blimster.gwt.threejs</groupId>
+				<artifactId>three4g</artifactId>
+				<version>${version.three4g}</version>
+			</dependency>
+
+			<!--==============================================================================================================
 				== Third Party Dependencies
 				-->
 			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-user</artifactId>
+				<version>${version.gwt}</version>
+			</dependency>
+			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
-				<version>${versions.guava}</version>
+				<version>${version.guava}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava-gwt</artifactId>
+				<version>${version.guava}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.gwt.inject</groupId>
+				<artifactId>gin</artifactId>
+				<version>${version.gin}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.google.code.findbugs</groupId>
 				<artifactId>jsr305</artifactId>
-				<version>1.3.9</version>
+				<version>${version.jsr305}</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.xml.bind</groupId>
 				<artifactId>jaxb-api</artifactId>
-				<version>2.2.7</version>
+				<version>${version.jaxb}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -46,5 +78,6 @@
 	<modules>
 		<module>LightingModel</module>
 		<module>ArtNetPlayer</module>
+		<module>GradienTeaUI</module>
 	</modules>
 </project>

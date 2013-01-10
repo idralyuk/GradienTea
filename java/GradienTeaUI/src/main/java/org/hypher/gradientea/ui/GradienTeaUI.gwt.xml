@@ -1,0 +1,39 @@
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0//EN"
+		"http://google-web-toolkit.googlecode.com/svn/releases/2.5/distro-source/core/src/gwt-module.dtd">
+<module rename-to="GradienTeaUI">
+	<!-- DO NOT COMMIT -->
+	<collapse-all-properties />
+
+	<!--==================================================================================================================
+		== CORE IMPORTS
+		-->
+	<!-- Core GWT Stuff -->
+	<inherits name='com.google.gwt.user.User'/>
+
+	<!-- GIN -->
+	<inherits name="com.google.gwt.inject.Inject"/>
+
+	<!-- Include Google Guava -->
+	<inherits name="com.google.common.base.Base"/>
+	<inherits name="com.google.common.cache.Cache"/>
+
+	<!-- Three4g -->
+	<inherits name="net.blimster.gwt.threejs" />
+
+	<!--==================================================================================================================
+		== MODULE CONFIGURATION
+		-->
+	<entry-point class="org.hypher.gradientea.ui.client.GradienTeaUI"/>
+
+	<!-- Paths for client code  -->
+	<source path='client'/>
+	<source path='shared'/>
+
+	<!-- Enable more readable CSS names -->
+	<set-configuration-property name="CssResource.style" value="pretty"/>
+
+	<!-- Enable Java stack traces in exception handling -->
+	<set-property name="compiler.stackMode" value="emulated"/>
+	<set-configuration-property name="compiler.emulatedStack.recordLineNumbers" value="true"/>
+	<set-configuration-property name="compiler.emulatedStack.recordFileNames" value="true"/>
+</module>
