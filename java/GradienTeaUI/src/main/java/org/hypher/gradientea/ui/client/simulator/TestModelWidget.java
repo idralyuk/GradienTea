@@ -103,7 +103,7 @@ public class TestModelWidget extends Composite {
 
 	private void createDome(final Scene scene, final Material mat1) {
 		DomeGeometry model = new DomeGeometry(new DomeSpecification(
-			4, 100, 20, 2.33, 1
+			5, 100, 30, 2.33, 1
 		));
 
 		Mesh person = Mesh.create(

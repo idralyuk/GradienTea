@@ -90,7 +90,8 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		protected MeshPhongMaterial joinMaterial = MeshPhongMaterial.create(0xCCCCCC);
 
 		protected MeshPhongMaterial strutMaterial = MeshPhongMaterial.create(0xAAAAAA);
-		protected double strutDiameter = inches(1);
+		protected Geometry strutGeometry = createStrutGeometry(inches(1));
+
 
 		//
 		// Rendering objects
@@ -205,6 +206,8 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		}
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Utility Methods
+
 		protected double inches(final double count) {
 			return count / 12;
 		}
@@ -212,18 +215,12 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		protected Mesh createStrut(DomeGeometry.DomeEdge edge) {
 			double distance = edge.getV1().distanceTo(edge.getV2());
 
-			final Geometry cylinder = CylinderGeometry.create(strutDiameter/2, strutDiameter/2, distance, 10, 1, false);
-
-			Matrix4 orientation = Matrix4.create();
-			orientation.setRotationFromEuler(Vector3.create(Math.PI / 2, 0, 0));
-			orientation.setPosition(Vector3.create(0, 0, distance / 2));
-			cylinder.applyMatrix(orientation);
-
 			Mesh mesh = Mesh.create(
-				cylinder,
+				strutGeometry,
 				strutMaterial
 			);
 
+			mesh.getScale().setY(distance);
 			mesh.setPosition(edge.getV1().clone());
 			mesh.lookAt(edge.getV2());
 			return mesh;
@@ -291,6 +288,17 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 			mesh.getRotation().setZ(0);
 
 			return mesh;
+		}
+
+		private Geometry createStrutGeometry(final double inches) {
+			Geometry cylinder = CylinderGeometry.create(inches(1), inches(1), 1, 10, 1, false);
+
+			Matrix4 orientation = Matrix4.create();
+			orientation.setRotationFromEuler(Vector3.create(Math.PI / 2, 0, 0));
+			orientation.setPosition(Vector3.create(0, 0, 1d / 2));
+			cylinder.applyMatrix(orientation);
+
+			return cylinder;
 		}
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
