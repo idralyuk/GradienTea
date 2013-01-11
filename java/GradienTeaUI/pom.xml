@@ -12,11 +12,12 @@
 	<packaging>war</packaging>
 
 	<properties>
+		<webappDirectory>${project.build.directory}/GradienTeaUI-${project.version}</webappDirectory>
 		<gwtDebugSuspend>false</gwtDebugSuspend>
 		<gwtDebugPort>8000</gwtDebugPort>
 		<gwtRunTarget>index.jsp</gwtRunTarget>
 		<gwtBindAddress>0.0.0.0</gwtBindAddress>
-		<gwtExtraVmArgs></gwtExtraVmArgs>
+		<gwtExtraVmArgs />
 	</properties>
 
 
