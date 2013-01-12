@@ -20,8 +20,8 @@
 	<!-- Include the animation model -->
 	<inherits name="org.hypher.gradientea.lightingmodel.LightingModel" />
 
-	<!-- Parallax -->
-	<inherits name="thothbot.parallax.core.Core" />
+	<!-- ThreeJS -->
+	<inherits name="net.blimster.gwt.threejs" />
 
 	<!--==================================================================================================================
 		== MODULE CONFIGURATION

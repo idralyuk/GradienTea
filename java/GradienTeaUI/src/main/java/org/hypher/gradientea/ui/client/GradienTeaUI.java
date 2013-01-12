@@ -41,7 +41,7 @@ public class GradienTeaUI implements EntryPoint {
 		FlowPanel controls = new FlowPanel();
 
 		final TextBox frequency = new TextBox();
-		frequency.setText("5");
+		frequency.setText("2");
 
 		final TextBox diameter = new TextBox();
 		diameter.setText("40");

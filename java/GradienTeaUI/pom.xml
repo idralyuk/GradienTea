@@ -62,8 +62,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.thothbot.parallax</groupId>
-			<artifactId>parallax</artifactId>
+			<groupId>net.blimster.gwt.threejs</groupId>
+			<artifactId>three4g</artifactId>
 		</dependency>
 
 		<!--================================================================================================================

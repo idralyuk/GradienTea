@@ -16,8 +16,8 @@
           <element id="archive" name="stack-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="stack" />
           </element>
-          <element id="archive" name="parallax-1.0.0-SNAPSHOT.jar">
-            <element id="module-output" name="parallax" />
+          <element id="archive" name="three4g-1.0.0-SNAPSHOT.jar">
+            <element id="module-output" name="three4g" />
           </element>
           <element id="library" level="project" name="Maven: com.google.gwt:gwt-user:2.5.0" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />

@@ -1,16 +1,24 @@
 package org.hypher.gradientea.ui.client.simulator;
 
+import com.google.common.base.Function;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Collections2;
 import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import net.blimster.gwt.threejs.core.Matrix4;
+import net.blimster.gwt.threejs.core.Vector3;
 import org.hypher.gradientea.lightingmodel.shared.dome.DomeSpecification;
-import thothbot.parallax.core.shared.core.Matrix4;
-import thothbot.parallax.core.shared.core.Vector3;
 
+import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,10 +27,10 @@ import java.util.Set;
 public class DomeGeometry {
 //	protected static double t = ( 1 + Math.sqrt( 5 ) ) / 2;
 //
-//	protected static Vector3[] icosahedronVerticies = new Vector3[] {
-//		new Vector3( -1,  t,  0 ), new Vector3(  1, t, 0 ), new Vector3( -1, -t,  0 ), new Vector3(  1, -t,  0 ),
-//		new Vector3(  0, -1,  t ), new Vector3(  0, 1, t ), new Vector3(  0, -1, -t ), new Vector3(  0,  1, -t ),
-//		new Vector3(  t,  0, -1 ), new Vector3(  t, 0, 1 ), new Vector3( -t,  0, -1 ), new Vector3( -t,  0,  1 )
+//	protected static Vector3[] icosahedronVerticies = Vector3.create[] {
+//		Vector3.create( -1,  t,  0 ), Vector3.create(  1, t, 0 ), Vector3.create( -1, -t,  0 ), Vector3.create(  1, -t,  0 ),
+//		Vector3.create(  0, -1,  t ), Vector3.create(  0, 1, t ), Vector3.create(  0, -1, -t ), Vector3.create(  0,  1, -t ),
+//		Vector3.create(  t,  0, -1 ), Vector3.create(  t, 0, 1 ), Vector3.create( -t,  0, -1 ), Vector3.create( -t,  0,  1 )
 //	};
 //
 //	protected static int[][] icosahedronFaces = new int[][] {
@@ -35,7 +43,7 @@ public class DomeGeometry {
 
 	protected static Vector3[] icosahedronVerticies = new Vector3[12];
 	static {
-		icosahedronVerticies[0] = new Vector3(0, 1, 0);
+		icosahedronVerticies[0] = Vector3.create(0, 1, 0);
 
 		for(int i = 0; i < 5; i++) {
 			double alpha, beta, x, y, z;
@@ -44,7 +52,7 @@ public class DomeGeometry {
 			y = Math.cos(beta);
 			x = Math.cos(alpha) * Math.sin(beta);
 			z = Math.sin(alpha) * Math.sin(beta);
-			icosahedronVerticies[i + 1] = new Vector3(x, y, z);
+			icosahedronVerticies[i + 1] = Vector3.create(x, y, z);
 		}
 		for(int i = 0; i < 5; i++) {
 			double alpha, beta, x, y, z;
@@ -53,22 +61,22 @@ public class DomeGeometry {
 			y = Math.cos(beta);
 			x = Math.cos(alpha) * Math.sin(beta);
 			z = Math.sin(alpha) * Math.sin(beta);
-			icosahedronVerticies[i + 6] = new Vector3(x, y, z);
+			icosahedronVerticies[i + 6] = Vector3.create(x, y, z);
 		}
-		icosahedronVerticies[11] = new Vector3(0, -1, 0);
+		icosahedronVerticies[11] = Vector3.create(0, -1, 0);
 
 
-		Matrix4 mat = new Matrix4();
-		mat.setRotationFromEuler(new Vector3(-Math.PI/2, 0, 0));
+		Matrix4 mat = Matrix4.create();
+		mat.setRotationFromEuler(Vector3.create(-Math.PI/2, 0, 0));
 		for (Vector3 v : icosahedronVerticies) {
 			mat.multiplyVector3(v);
 		}
 	}
 //
-//	protected static Vector3[] icosahedronVerticies = new Vector3[] {
-//		new Vector3( -1,  t,  0 ), new Vector3(  1, t, 0 ), new Vector3( -1, -t,  0 ), new Vector3(  1, -t,  0 ),
-//		new Vector3(  0, -1,  t ), new Vector3(  0, 1, t ), new Vector3(  0, -1, -t ), new Vector3(  0,  1, -t ),
-//		new Vector3(  t,  0, -1 ), new Vector3(  t, 0, 1 ), new Vector3( -t,  0, -1 ), new Vector3( -t,  0,  1 )
+//	protected static Vector3[] icosahedronVerticies = Vector3.create[] {
+//		Vector3.create( -1,  t,  0 ), Vector3.create(  1, t, 0 ), Vector3.create( -1, -t,  0 ), Vector3.create(  1, -t,  0 ),
+//		Vector3.create(  0, -1,  t ), Vector3.create(  0, 1, t ), Vector3.create(  0, -1, -t ), Vector3.create(  0,  1, -t ),
+//		Vector3.create(  t,  0, -1 ), Vector3.create(  t, 0, 1 ), Vector3.create( -t,  0, -1 ), Vector3.create( -t,  0,  1 )
 //	};
 
 	protected static int[][] icosahedronFaces = new int[][] {
@@ -84,6 +92,7 @@ public class DomeGeometry {
 
 	protected List<DomeFace> faces = Lists.newArrayList();
 	protected List<List<DomeFace>> layers = Lists.newArrayList();
+	protected Map<Vector3, VertexFaceGrouping> vertexFaceGroupings = Maps.newTreeMap(vector3Comparator);
 
 	protected Set<DomeEdge> edges = Sets.newHashSet();
 
@@ -130,7 +139,7 @@ public class DomeGeometry {
 
 		for (Vector3 v : verticies) {
 			v.normalize();
-			v.multiply(specification.getRadius());
+			v.multiplyScalar(specification.getRadius());
 		}
 
 		for (DomeFace face : faces) {
@@ -188,9 +197,11 @@ public class DomeGeometry {
 		}
 	}
 
+
 	protected Vector3 midpoint(Vector3 v1, Vector3 v2, int divisons, int index) {
 		return include(
-			v1.clone().add(v2.clone().sub(v1).divide(divisons).multiply(index))
+			Vector3.create()
+				.add(v1, Vector3.create().sub(v2, v1).divideScalar(divisons).multiplyScalar(index))
 		);
 	}
 
@@ -290,7 +301,7 @@ public class DomeGeometry {
 	/**
 	 * Represents one face of the dome
 	 */
-	public class DomeFace {
+	public static class DomeFace {
 		protected Vector3 v1;
 		protected Vector3 v2;
 		protected Vector3 v3;
@@ -313,6 +324,18 @@ public class DomeGeometry {
 			return v3;
 		}
 
+		public Collection<Vector3> getVertices() {
+			return Arrays.asList(v1, v2, v3);
+		}
+
+		public static Function<? super DomeFace, Collection<Vector3>> getVertices = new Function<DomeFace, Collection<Vector3>>() {
+			@Override
+			public Collection<Vector3> apply(final DomeFace input) {
+				return input.getVertices();
+			}
+		};
+
+
 		public Collection<? extends DomeEdge> getEdges() {
 			return Arrays.asList(
 				new DomeEdge(v1, v2),
@@ -320,12 +343,32 @@ public class DomeGeometry {
 				new DomeEdge(v3, v1)
 			);
 		}
+
+		public static class ContainsVertex implements Predicate<DomeFace> {
+			protected Collection<Vector3> verticies;
+
+			public ContainsVertex(final Collection<Vector3> verticies) {
+				this.verticies = verticies;
+			}
+
+			@Override
+			public boolean apply(@Nullable final DomeFace face) {
+				return ! Collections2.filter(verticies, new Predicate<Vector3>() {
+					@Override
+					public boolean apply(@Nullable final Vector3 input) {
+						return vector3Comparator.compare(input, face.getA()) == 0
+							|| vector3Comparator.compare(input, face.getB()) == 0
+							|| vector3Comparator.compare(input, face.getC()) == 0;
+					}
+				}).isEmpty();
+			}
+		}
 	}
 
 	/**
 	 * Represents one edge of the dome
 	 */
-	public class DomeEdge {
+	public static class DomeEdge {
 		protected Vector3 v1;
 		protected Vector3 v2;
 
@@ -399,17 +442,20 @@ public class DomeGeometry {
 		protected List<List<DomeFace>> rings = Lists.newArrayList();
 
 		public VertexFaceGrouping(Vector3 vertex) {
-	//		addRing(Lists.newArrayList(faces), Arrays.asList(vertex));
+			addRing(Lists.newArrayList(faces), Arrays.asList(vertex));
 		}
 
-//		private void addRing(final ArrayList<DomeFace> remainingFaces, final List<Vector3> verticies) {
-//			List<DomeFace> ringFaces = facesContaining(remainingFaces, verticies);
-//			rings.addAll(ringFaces);
-//			remainingFaces.removeAll(remainingFaces);
-//
-//			if (! remainingFaces.isEmpty()) {
-//				addRing(remainingFaces, Iter);
-//			}
-//		}
+		private void addRing(final ArrayList<DomeFace> remainingFaces, final List<Vector3> verticies) {
+			List<DomeFace> ringFaces = FluentIterable.from(remainingFaces)
+				.filter(new DomeFace.ContainsVertex(verticies))
+				.toImmutableList();
+
+			rings.add(ringFaces);
+			remainingFaces.removeAll(ringFaces);
+
+			if (! remainingFaces.isEmpty()) {
+				addRing(remainingFaces, FluentIterable.from(ringFaces).transformAndConcat(DomeFace.getVertices).toImmutableList());
+			}
+		}
 	}
 }

@@ -6,32 +6,29 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gwt.animation.client.AnimationScheduler;
+import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.core.client.Duration;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.RequiresResize;
+import net.blimster.gwt.threejs.cameras.PerspectiveCamera;
+import net.blimster.gwt.threejs.core.Color;
+import net.blimster.gwt.threejs.core.Geometry;
+import net.blimster.gwt.threejs.core.Matrix4;
+import net.blimster.gwt.threejs.core.Object3D;
+import net.blimster.gwt.threejs.core.Vector3;
+import net.blimster.gwt.threejs.extras.core.Shape;
+import net.blimster.gwt.threejs.extras.geometries.CylinderGeometry;
+import net.blimster.gwt.threejs.extras.geometries.ExtrudeGeometry;
+import net.blimster.gwt.threejs.extras.helpers.AxisHelper;
+import net.blimster.gwt.threejs.lights.Light;
+import net.blimster.gwt.threejs.lights.PointLight;
+import net.blimster.gwt.threejs.materials.MeshPhongMaterial;
+import net.blimster.gwt.threejs.objects.Mesh;
+import net.blimster.gwt.threejs.renderers.WebGLRenderer;
+import net.blimster.gwt.threejs.scenes.Scene;
 import org.hypher.gradientea.lightingmodel.shared.dome.DomeSpecification;
 import org.hypher.gradientea.ui.client.player.DmxInterface;
-import thothbot.parallax.core.client.context.Canvas3d;
-import thothbot.parallax.core.client.context.Canvas3dAttributes;
-import thothbot.parallax.core.client.renderers.WebGLRenderer;
-import thothbot.parallax.core.shared.cameras.PerspectiveCamera;
-import thothbot.parallax.core.shared.core.Color;
-import thothbot.parallax.core.shared.core.ExtrudeGeometry;
-import thothbot.parallax.core.shared.core.Geometry;
-import thothbot.parallax.core.shared.core.Matrix4;
-import thothbot.parallax.core.shared.core.Vector3;
-import thothbot.parallax.core.shared.curves.Shape;
-import thothbot.parallax.core.shared.geometries.CylinderGeometry;
-import thothbot.parallax.core.shared.helpers.AxisHelper;
-import thothbot.parallax.core.shared.lights.Light;
-import thothbot.parallax.core.shared.lights.PointLight;
-import thothbot.parallax.core.shared.materials.HasColor;
-import thothbot.parallax.core.shared.materials.MeshBasicMaterial;
-import thothbot.parallax.core.shared.materials.MeshPhongMaterial;
-import thothbot.parallax.core.shared.objects.Mesh;
-import thothbot.parallax.core.shared.objects.Object3D;
-import thothbot.parallax.core.shared.scenes.Scene;
 
 import java.util.List;
 import java.util.Map;
@@ -53,16 +50,12 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 
 	protected DomeRenderer domeRenderer;
 
-	protected Canvas3d canvas;
+	protected Canvas canvas = Canvas.createIfSupported();
 
 	protected LayoutPanel layout = new LayoutPanel();
 
 	public DomeModelWidget() {
-		try {
-			canvas = new Canvas3d(new Canvas3dAttributes());
-		} catch (Exception e) {
-			throw new RuntimeException("Failed to create 3d canvas", e);
-		}
+		Preconditions.checkNotNull(canvas, "Canvas not supported");
 
 		layout.add(canvas);
 		initWidget(layout);
@@ -122,7 +115,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 			}
 		}
 
-		//domeRenderer.renderFrame(calculateCameraRotation());
+		domeRenderer.renderFrame(calculateCameraRotation());
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -135,22 +128,18 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		//
 		// Reused globals
 		//
-		protected Vector3 origin = new Vector3();
+		protected Vector3 origin = Vector3.create();
 
 		protected Geometry jointGeometry = createJoinGeometry(inches(3), inches(2));
-		protected MeshPhongMaterial joinMaterial = ParallaxHelper.meshPhongMaterial()
-			.setColor(new Color(0xCCCCCC))
+		protected MeshPhongMaterial joinMaterial = MeshPhongMaterial.create(0xCCCCCC)
 			.setShininess(.8)
 			.setReflectivity(.4)
-			.setMetal(true)
-			.get();
+			.setMetal(true);
 
-		protected MeshPhongMaterial strutMaterial = ParallaxHelper.meshPhongMaterial()
-			.setColor(new Color(0xAAAAAA))
+		protected MeshPhongMaterial strutMaterial = MeshPhongMaterial.create(0xAAAAAA)
 			.setShininess(.8)
 			.setReflectivity(.4)
-			.setMetal(true)
-			.get();
+			.setMetal(true);
 
 		protected Geometry strutGeometry = createStrutGeometry(inches(1));
 
@@ -176,32 +165,31 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		//
 		private DomeGeometry domeModel;
 
-		public DomeRenderer(Canvas3d canvas) {
-			renderer =  new WebGLRenderer(canvas.getGL(), 100, 100);
-			renderer.setClearColor(new Color(0x000000), 1.0f);
+		public DomeRenderer(Canvas canvas) {
+			renderer = WebGLRenderer.create(canvas, true);
+			renderer.setClearColor(Color.create(0x000000), 1.0f);
 
-			scene = new Scene();
+			scene = Scene.create();
 
-			camera = new PerspectiveCamera(75.0f, 1, 1.0f, 1000.0f);
+			camera = PerspectiveCamera.create(75.0f, 1, 1.0f, 1000.0f);
 			camera.getPosition().setZ(20.0);
-			camera.setUp(new Vector3(0.0, 0.0, 1.0));
-			camera.lookAt(new Vector3());
+			camera.setUp(Vector3.create(0.0, 0.0, 1.0));
+			camera.lookAt(Vector3.create());
 
 			lights = ImmutableList.of(
-				new PointLight(0xFFEEFF, 3, 100),
-				new PointLight(0xFFEEFF, 3, 100),
-				new PointLight(0xFFEEFF, 3, 100)
+				PointLight.create(0xFFEEFF, 3, 100),
+				PointLight.create(0xFFEEFF, 3, 100),
+				PointLight.create(0xFFEEFF, 3, 100)
 			);
 
 			for (Light light : lights) {
 				scene.add(light);
 			}
 
-			MeshPhongMaterial personMaterial = new MeshPhongMaterial();
-			personMaterial.setColor(new Color(0xEECEB3));
+			MeshPhongMaterial personMaterial = MeshPhongMaterial.create(0xEECEB3);
 
-			Mesh person = new Mesh(
-				new CylinderGeometry(20 / 12.0, 20 / 12.0, 6.0, 20, 1, false),
+			Mesh person = Mesh.create(
+				CylinderGeometry.create(20 / 12.0, 20 / 12.0, 6.0, 20, 1, false),
 				personMaterial
 			);
 			person.getRotation().setX(Math.PI/2);
@@ -209,7 +197,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 			person.getPosition().setZ(3.0);
 			scene.add(person);
 
-			scene.add(new AxisHelper());
+			scene.add(AxisHelper.create(100));
 		}
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -218,7 +206,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		public void applyFaceColor(final DomeGeometry.DomeFace domeFace, int red, int green, int blue) {
 			Preconditions.checkArgument(panels.containsKey(domeFace), "This model does not have a panel for " + domeFace);
 
-			((HasColor) panels.get(domeFace).getMaterial()).getColor().setRGB(
+			((MeshPhongMaterial) panels.get(domeFace).getMaterial()).getEmissive().setRGB(
 				(double) red / 255,
 				(double) green / 255,
 				(double) blue / 255
@@ -227,7 +215,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 
 		public void setSize(int width, int height) {
 			renderer.setSize(width, height);
-			camera.setAspectRatio((double) width / height);
+			camera.setAspect((double) width / height);
 			camera.updateProjectionMatrix();
 		}
 
@@ -258,7 +246,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 
 			camera.getPosition().setZ(radius * 0.9);
 			camera.lookAt(origin);
-			camera.setUp(new Vector3(0.0, 0.0, 1.0));
+			camera.setUp(Vector3.create(0.0, 0.0, 1.0));
 
 			for (int i=0; i<lights.size(); i++) {
 				PointLight light = lights.get(i);
@@ -283,7 +271,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 
 		private void buildJoints() {
 			for (Vector3 vertex : domeModel.getVertices()) {
-				Mesh mesh = new Mesh(
+				Mesh mesh = Mesh.create(
 					jointGeometry,
 					joinMaterial
 				);
@@ -327,7 +315,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		protected Mesh createStrut(DomeGeometry.DomeEdge edge) {
 			double distance = edge.getV1().distanceTo(edge.getV2());
 
-			Mesh mesh = new Mesh(
+			Mesh mesh = Mesh.create(
 				strutGeometry,
 				strutMaterial
 			);
@@ -346,10 +334,11 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 
 			Geometry geometry = panelGeometryFor(sideLength);
 
-			MeshBasicMaterial material = new MeshBasicMaterial();
-			material.setColor(new Color(0x000000));
+			MeshPhongMaterial material = MeshPhongMaterial.create(0x000000).setTransparent(true);
+			material.getAmbient().setRGB(1.0, 1.0, 1.0);
+			material.setOpacity(0.8);
 
-			Mesh mesh = new Mesh(geometry, material);
+			Mesh mesh = Mesh.create(geometry, material);
 			mesh.setMatrixAutoUpdate(false);
 
 			orientPanel(face, mesh);
@@ -358,15 +347,15 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		}
 
 		protected void orientPanel(DomeGeometry.DomeFace face, Mesh panel) {
-			Vector3 vABmidpoint = new Vector3().add(face.getA(), face.getB()).divide(2);
+			Vector3 vABmidpoint = face.getA().clone().addSelf(face.getB()).divideScalar(2);
 
 			double faceSideLength = face.getA().distanceTo(face.getB());
 			double faceRadius = faceSideLength * Math.sqrt(3d)/3d;
 			double faceHeight = faceSideLength * Math.sqrt(3d)/2d;
 
-			Vector3 pFaceCenter = new Vector3().add(
+			Vector3 pFaceCenter = Vector3.create().add(
 				vABmidpoint,
-				new Vector3().sub(face.getC(), vABmidpoint).multiply(1 - faceRadius / faceHeight)
+				Vector3.create().sub(face.getC(), vABmidpoint).multiplyScalar(1 - faceRadius / faceHeight)
 			);
 
 
@@ -374,12 +363,12 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 			Vector3 p1 = face.getB();
 			Vector3 p2 = face.getC();
 
-			Vector3 v1 = new Vector3().sub(p1, p0);
-			Vector3 v2 = new Vector3().sub(p2, p0);
+			Vector3 v1 = Vector3.create().sub(p1, p0);
+			Vector3 v2 = Vector3.create().sub(p2, p0);
 
-			Vector3 vKprime = new Vector3().cross(v1, v2).normalize();
-			Vector3 vJprime = new Vector3().sub(p0, pFaceCenter).normalize();
-			Vector3 vIprime = new Vector3().cross(vJprime, vKprime).normalize();
+			Vector3 vKprime = Vector3.create().cross(v1, v2).normalize();
+			Vector3 vJprime = Vector3.create().sub(p0, pFaceCenter).normalize();
+			Vector3 vIprime = Vector3.create().cross(vJprime, vKprime).normalize();
 
 			panel.getMatrix().set(
 				vIprime.getX(), vJprime.getX(), vKprime.getX(), pFaceCenter.getX(),
@@ -393,21 +382,21 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		}
 
 		private Geometry createStrutGeometry(final double radius) {
-			Geometry cylinder = new CylinderGeometry(radius, radius, 1, 10, 1, false);
+			Geometry cylinder = CylinderGeometry.create(radius, radius, 1, 10, 1, false);
 
-			Matrix4 orientation = new Matrix4();
-			orientation.setRotationFromEuler(new Vector3(Math.PI / 2, 0, 0));
-			orientation.setPosition(new Vector3(0, 0, 1d / 2));
+			Matrix4 orientation = Matrix4.create();
+			orientation.setRotationFromEuler(Vector3.create(Math.PI / 2, 0, 0));
+			orientation.setPosition(Vector3.create(0, 0, 1d / 2));
 			cylinder.applyMatrix(orientation);
 
 			return cylinder;
 		}
 
 		private Geometry createJoinGeometry(final double radius, final double height) {
-			Geometry cylinder = new CylinderGeometry(radius, radius, height, 10, 1, false);
+			Geometry cylinder = CylinderGeometry.create(radius, radius, height, 10, 1, false);
 
-			Matrix4 orientation = new Matrix4();
-			orientation.setRotationFromEuler(new Vector3(Math.PI / 2, 0, 0));
+			Matrix4 orientation = Matrix4.create();
+			orientation.setRotationFromEuler(Vector3.create(Math.PI / 2, 0, 0));
 			cylinder.applyMatrix(orientation);
 
 			return cylinder;
@@ -422,18 +411,18 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 			double sideRadius = (1.0/6)*Math.sqrt(3)*sideLength;
 			double connerRadius = (1.0/3)*Math.sqrt(3)*sideLength;
 
-			Shape shape = new Shape();
+			Shape shape = Shape.createShape();
 			shape.moveTo(0, connerRadius);
 			shape.lineTo(sideLength/2, -sideRadius);
 			shape.lineTo(-sideLength/2, -sideRadius);
 			shape.closePath();
 
-			final ExtrudeGeometry.ExtrudeGeometryParameters params = new ExtrudeGeometry.ExtrudeGeometryParameters();
-			params.amount = domeModel.getSpec().getPanelThickness();
-			params.steps = 3;
-			params.bevelEnabled = false;
-
-			Geometry geometry = shape.extrude(params);
+			Geometry geometry = shape.extrude(
+				ExtrudeGeometry.ExtrudeOptions.create()
+				.setAmount(domeModel.getSpec().getPanelThickness())
+				.setSteps(3)
+				.setBevelEnabled(false)
+			);
 
 			panelGeometries.put(sideLength, geometry);
 

@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="" />
+    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="Added GAE web.xml and logging properties">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/ParallaxHelper.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" afterPath="$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/GradienTeaUI_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/GradienTeaUI_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../opensource/java/three4g/src/net/blimster/gwt/threejs/materials/MeshPhongMaterial.java" afterPath="$PROJECT_DIR$/../../../opensource/java/three4g/src/net/blimster/gwt/threejs/materials/MeshPhongMaterial.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/pom.xml" afterPath="$PROJECT_DIR$/GradienTeaUI/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="GradienTeaParent.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357952470869" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357877582681" ignored="false" />
+    <file path="/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357954536840" ignored="false" />
     <file path="/PixelGroup.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357528144378" ignored="false" />
     <file path="/PixelValue.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357527384910" ignored="false" />
     <file path="/PixelColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357527918734" ignored="false" />
@@ -18,7 +29,7 @@
     <file path="/HsbTween.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357535010699" ignored="false" />
     <file path="/BaseSingleGroupAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357534728786" ignored="false" />
     <file path="/AnimationFunctionWrapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357543461670" ignored="false" />
-    <file path="/Dummy.txt" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357954367835" ignored="false" />
+    <file path="/Dummy.txt" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357957661615" ignored="false" />
     <file path="/StandalonePlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357538183729" ignored="false" />
     <file path="/RenderableAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536703553" ignored="false" />
     <file path="/DefinedAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536205196" ignored="false" />
@@ -62,7 +73,7 @@
     <file path="/AbstractEmbedded.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357608802787" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsPersistor/src/main/java/com/cengage/analytics/persistor/actors/ActivityAggregatePersistor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357608819772" ignored="false" />
     <file path="/ActivityAggregatePersistor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607535444" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357954331091" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357956989887" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsPersistor/src/test/java/com/cengage/analytics/persistor/test/ActivityAggregatePersistorTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357669923213" ignored="false" />
     <file path="/GradientTeaUI.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357610710968" ignored="false" />
     <file path="/GradienTeaUI.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357881245752" ignored="false" />
@@ -76,7 +87,7 @@
     <file path="/Geometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357675565874" ignored="false" />
     <file path="/Matrix4.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357710272038" ignored="false" />
     <file path="/MeshLambertMaterial.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357636281355" ignored="false" />
-    <file path="/MeshPhongMaterial.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357878398139" ignored="false" />
+    <file path="/MeshPhongMaterial.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357955749114" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCommon/CengageAnalyticsAkkaSupport/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357669890969" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsTakeAggregator/src/main/resources/META-INF/spring/analytics/take/analytics-take.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357669923213" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsTakeAggregator/src/main/java/com/cengage/analytics/aggregator/ServerRoutes.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357669923213" ignored="false" />
@@ -111,15 +122,15 @@
     <file path="/DmxPixelRender.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357791045612" ignored="false" />
     <file path="/DmxRendering.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357791420408" ignored="false" />
     <file path="/ClientDmxAnimationPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357876254580" ignored="false" />
-    <file path="/DomeModelWidget.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357951359470" ignored="false" />
+    <file path="/DomeModelWidget.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357956547442" ignored="false" />
     <file path="/DomeSpecification.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357801701650" ignored="false" />
     <file path="/Camera.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357792599811" ignored="false" />
     <file path="/Light.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357793006309" ignored="false" />
     <file path="/PointLight.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357793053439" ignored="false" />
-    <file path="/DomeGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357950855386" ignored="false" />
+    <file path="/DomeGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357957630038" ignored="false" />
     <file path="/LightingModel.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357801959780" ignored="false" />
-    <file path="/GradienTeaUI.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357951172246" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCourseMateIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357954331091" ignored="false" />
+    <file path="/GradienTeaUI.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357954553399" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCourseMateIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357956989887" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357848751054" ignored="false" />
     <file path="/a.js" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357846779893" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/src/main/java/com/cengage/analytics/grading/Scored.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357862404023" ignored="false" />
@@ -194,110 +205,182 @@
     <favorites_list name="GradienTeaParent" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="MeshDepthMaterial.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/materials/MeshDepthMaterial.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="53" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#2515#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XMLHttpRequestBinary.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/core/XMLHttpRequestBinary.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#953#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompressedTexture.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/textures/CompressedTexture.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#CompressedTexture#1;class#CompressedTexture#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArrayBuffer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/gl2/arrays/ArrayBuffer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="19" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1357953735000" expanded="false" signature="1233:1278" placeholder="{...}" />
-                <marker date="1357953735000" expanded="false" signature="1408:1438" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SocketInputStream.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../opensource/java/openjdk-6-src-b26-21_sep_2012/jdk/src/share/classes/java/net/SocketInputStream.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="23" selection-start="3307" selection-end="3307" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GradienTeaUI.gwt.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="19" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebGLRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/renderers/WebGLRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="0" selection-start="9773" selection-end="9773" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DomeGeometry.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="13" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1357950893000" expanded="false" signature="10422:10762" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParallaxHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/ParallaxHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="46" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="MeshDepthMaterial.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/materials/MeshDepthMaterial.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="26" column="53" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="XMLHttpRequestBinary.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/core/XMLHttpRequestBinary.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="29" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CompressedTexture.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/textures/CompressedTexture.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="42" column="0" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/GradienTeaUI/pom.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="65" column="25" selection-start="2379" selection-end="2379" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ArrayBuffer.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/gl2/arrays/ArrayBuffer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="23" column="19" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <marker date="1357953735000" expanded="false" signature="1233:1278" placeholder="{...}" />
+                    <marker date="1357953735000" expanded="false" signature="1408:1438" placeholder="{...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GradienTeaUI.gwt.xml" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="23" column="46" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DomeModelWidget.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="417" column="30" selection-start="12408" selection-end="12408" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#DomeModelWidget#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#displayDome#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#calculateCameraRotation#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#onResize#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#onLoad#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="e#2967#3098#0" expanded="true" />
+                    <element signature="e#3093#3094#0" expanded="true" />
+                    <element signature="method#display#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#DomeRenderer#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#applyFaceColor#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#setSize#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#renderDome#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#renderFrame#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#updateCameraAndLights#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#clear#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#buildJoints#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#buildStruts#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#buildPanels#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#inches#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#createStrut#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#createPanel#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#orientPanel#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#createStrutGeometry#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#createJoinGeometry#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#getJoints#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#getStruts#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                    <element signature="method#getPanels#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GradienTeaUI.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="49" column="29" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DomeGeometry.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="94" column="66" selection-start="3982" selection-end="4001" vertical-scroll-proportion="0.25195822">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="initializer##0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#DomeGeometry#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#build#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#splitFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#doSplit#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#midpoint#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#divide#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#include#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#azimuth#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#inclination#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getSpec#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getVertices#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getFaces#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getEdges#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="e#8447#8694#0" expanded="true" />
+                    <element signature="e#8461#8470#0" expanded="true" />
+                    <element signature="e#8690#8691#0" expanded="true" />
+                    <element signature="class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#DomeFace#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getA#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getB#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getC#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getVertices#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="e#9278#9439#0" expanded="true" />
+                    <element signature="e#9434#9435#0" expanded="true" />
+                    <element signature="method#getEdges#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="class#ContainsVertex#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#ContainsVertex#0;class#ContainsVertex#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#apply#0;class#ContainsVertex#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="e#9940#10240#0" expanded="true" />
+                    <element signature="e#10233#10234#0" expanded="true" />
+                    <element signature="class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#DomeEdge#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#equals#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#hashCode#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#lessThan#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#toString#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getV1#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#getV2#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="class#VertexFaceGrouping#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#VertexFaceGrouping#0;class#VertexFaceGrouping#0;class#DomeGeometry#0" expanded="true" />
+                    <element signature="method#addRing#0;class#VertexFaceGrouping#0;class#DomeGeometry#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/pom.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="34" column="39" selection-start="1177" selection-end="1199" vertical-scroll-proportion="0.51428574">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -320,22 +403,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../../../opensource/java/three4g/src/net/blimster/gwt/threejs/renderers/WebGLRenderer.java" />
-        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java" />
         <option value="$PROJECT_DIR$/GradienTeaUI/src/main/webapp/WEB-INF/appengine-web.xml" />
-        <option value="$PROJECT_DIR$/GradienTeaUI/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/TestModelWidget.java" />
         <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/ParallaxHelper.java" />
-        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java" />
         <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/core/ExtrudeGeometry.java" />
-        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml" />
         <option value="$PROJECT_DIR$/../../../opensource/java/parallax/pom.xml" />
-        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java" />
         <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/Log.java" />
         <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/materials/MeshDepthMaterial.java" />
         <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/core/XMLHttpRequestBinary.java" />
         <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/textures/CompressedTexture.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/pom.xml" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/three4g/src/net/blimster/gwt/threejs/materials/MeshPhongMaterial.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java" />
       </list>
     </option>
   </component>
@@ -385,7 +468,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="2" />
+    <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
@@ -400,13 +483,144 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="GradienTeaParent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="three4g" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="three4g" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gwt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="three4g" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gwt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="threejs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="three4g" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gwt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="threejs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="materials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="three4g" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gwt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="threejs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extras" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="three4g" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gwt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="threejs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extras" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geometries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -433,9 +647,134 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -451,17 +790,17 @@
     <property name="options.lastSelected" value="editor.preferences.import" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../opensource/java/parallax/pom.xml" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -567,6 +906,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -595,19 +947,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -621,10 +960,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="GWT.ConfigurationType" factoryName="GWT Configuration">
-      <module name="" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -646,6 +981,10 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="GWT.ConfigurationType" factoryName="GWT Configuration">
+      <module name="" />
       <method />
     </configuration>
     <configuration default="false" name="GradienTeaUI" type="GWT.ConfigurationType" factoryName="GWT Configuration">
@@ -818,12 +1157,12 @@
     <frame x="0" y="22" width="2560" height="1414" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5656878" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40185472" sideWeight="0.9411297" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32689336" sideWeight="0.9411297" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -836,7 +1175,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2124105" sideWeight="0.8238022" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.159109" sideWeight="0.43431222" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.159109" sideWeight="0.6707882" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24111283" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="823" y="372" width="755" height="443" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.67387944" order="2" side_tool="false" content_ui="combo" />
@@ -946,40 +1285,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/context/Canvas3d.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.23599523">
-          <folding>
-            <element signature="method#Canvas3d#0;class#Canvas3d#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="30" selection-start="5019" selection-end="5019" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="0" selection-start="2136" selection-end="2136" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="method#info#0;class#Log#0" expanded="true" />
-            <element signature="method#error#0;class#Log#0" expanded="true" />
-            <element signature="method#error#1;class#Log#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/shaders/chunk/envmap_pars_vertex.chunk">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="34" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
@@ -994,13 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="19" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/renderers/WebGLRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="248" column="0" selection-start="9773" selection-end="9773" vertical-scroll-proportion="0.0">
@@ -1008,28 +1306,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1357950893000" expanded="false" signature="10422:10762" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/ParallaxHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="46" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/materials/MeshDepthMaterial.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="53" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#2515#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,33 +1318,6 @@
         <state line="200" column="34" selection-start="6068" selection-end="6348" vertical-scroll-proportion="0.34597155">
           <folding>
             <element signature="class#ResponseType#0;class#XMLHttpRequest#0" expanded="true" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="//..." />
-            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="//..." />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="//..." />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
-            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1072,9 +1325,7 @@
     <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/core/XMLHttpRequestBinary.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#953#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1091,17 +1342,187 @@
     <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/textures/CompressedTexture.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="0" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CompressedTexture#1;class#CompressedTexture#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="34" column="39" selection-start="1177" selection-end="1199" vertical-scroll-proportion="0.51428574">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="25" selection-start="2379" selection-end="2379" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="46" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/three4g/src/net/blimster/gwt/threejs/materials/MeshPhongMaterial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="38" selection-start="3003" selection-end="3003" vertical-scroll-proportion="0.845122">
+          <folding>
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357955762000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="29" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/three4g/src/net/blimster/gwt/threejs/extras/geometries/ExtrudeGeometry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="24" selection-start="870" selection-end="870" vertical-scroll-proportion="-0.8219512">
+          <folding>
+            <element signature="class#ExtrudeOptions#0;class#ExtrudeGeometry#0" expanded="true" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1357697016000" expanded="false" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="417" column="30" selection-start="12408" selection-end="12408" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#DomeModelWidget#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#displayDome#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#calculateCameraRotation#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#onResize#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#onLoad#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="e#2967#3098#0" expanded="true" />
+            <element signature="e#3093#3094#0" expanded="true" />
+            <element signature="method#display#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#DomeRenderer#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#applyFaceColor#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#setSize#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#renderDome#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#renderFrame#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#updateCameraAndLights#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#clear#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#buildJoints#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#buildStruts#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#buildPanels#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#inches#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#createStrut#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#createPanel#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#orientPanel#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#createStrutGeometry#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#createJoinGeometry#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#getJoints#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#getStruts#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+            <element signature="method#getPanels#0;class#DomeRenderer#0;class#DomeModelWidget#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="66" selection-start="3982" selection-end="4001" vertical-scroll-proportion="0.25195822">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="initializer##0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#DomeGeometry#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#build#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#splitFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#doSplit#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#midpoint#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#divide#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#include#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#azimuth#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#inclination#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getSpec#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getVertices#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getFaces#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getEdges#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="e#8447#8694#0" expanded="true" />
+            <element signature="e#8461#8470#0" expanded="true" />
+            <element signature="e#8690#8691#0" expanded="true" />
+            <element signature="class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#DomeFace#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getA#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getB#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getC#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getVertices#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="e#9278#9439#0" expanded="true" />
+            <element signature="e#9434#9435#0" expanded="true" />
+            <element signature="method#getEdges#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="class#ContainsVertex#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#ContainsVertex#0;class#ContainsVertex#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#apply#0;class#ContainsVertex#0;class#DomeFace#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="e#9940#10240#0" expanded="true" />
+            <element signature="e#10233#10234#0" expanded="true" />
+            <element signature="class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#DomeEdge#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#equals#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#hashCode#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#lessThan#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#toString#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getV1#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#getV2#0;class#DomeEdge#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="class#VertexFaceGrouping#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#VertexFaceGrouping#0;class#VertexFaceGrouping#0;class#DomeGeometry#0" expanded="true" />
+            <element signature="method#addRing#0;class#VertexFaceGrouping#0;class#DomeGeometry#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
