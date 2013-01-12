@@ -1,0 +1,1199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="" />
+    <ignored path="GradienTeaParent.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357952470869" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357877582681" ignored="false" />
+    <file path="/PixelGroup.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357528144378" ignored="false" />
+    <file path="/PixelValue.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357527384910" ignored="false" />
+    <file path="/PixelColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357527918734" ignored="false" />
+    <file path="/RgbColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357526996463" ignored="false" />
+    <file path="/a.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357846801084" ignored="false" />
+    <file path="/HsbColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357720994439" ignored="false" />
+    <file path="/DmxPixel.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357877016679" ignored="false" />
+    <file path="/ListPixelGroup.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357533698311" ignored="false" />
+    <file path="/PixelAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536093755" ignored="false" />
+    <file path="/HsbTween.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357535010699" ignored="false" />
+    <file path="/BaseSingleGroupAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357534728786" ignored="false" />
+    <file path="/AnimationFunctionWrapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357543461670" ignored="false" />
+    <file path="/Dummy.txt" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357954367835" ignored="false" />
+    <file path="/StandalonePlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357538183729" ignored="false" />
+    <file path="/RenderableAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536703553" ignored="false" />
+    <file path="/DefinedAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536205196" ignored="false" />
+    <file path="/PixelGroupAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536091994" ignored="false" />
+    <file path="/fragment.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357875596205" ignored="false" />
+    <file path="/SingleDefinedAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536205688" ignored="false" />
+    <file path="/AnimationScene.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357537025011" ignored="false" />
+    <file path="/ArtNetAnimationPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357791358996" ignored="false" />
+    <file path="/TestPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357722704736" ignored="false" />
+    <file path="/ExpandedAnimationWrapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357722684841" ignored="false" />
+    <file path="/ChaseAnimationWrapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357543306137" ignored="false" />
+    <file path="/RgbTween.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357541005776" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageJaxbExtensions/2.0.0-SNAPSHOT/CengageJaxbExtensions-2.0.0-SNAPSHOT.jar!/rebel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607031775" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/generated-sources/test-annotations/com/cengage/mongo/test/entities/InverseEntity_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212266" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/mongoAnnotationProcessing.log" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212267" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/generated-sources/test-annotations/com/cengage/mongo/test/entities/InverseChildEntity_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212326" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/generated-sources/test-annotations/com/cengage/mongo/test/entities/SimpleEmbedded_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212326" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/generated-sources/test-annotations/com/cengage/mongo/test/superentities/SuperEntity_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212326" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/generated-sources/test-annotations/com/cengage/mongo/test/entities/SortingEntity_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212326" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/generated-sources/test-annotations/com/cengage/mongo/test/entities/TestEntity_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212326" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/generated-sources/test-annotations/com/cengage/mongo/test/entities/UnusedChildEntity_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212326" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/generated-sources/test-annotations/com/cengage/mongo/test/entities/CollectionHolder_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212326" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/target/generated-sources/test-annotations/com/cengage/mongo/test/entities/EmbeddedEntity_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607212326" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/cengage-general-utils/2.0.0-SNAPSHOT/cengage-general-utils-2.0.0-SNAPSHOT.jar!/com/cengage/util/CengageGeneralUtils.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215032" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageGwtExtensions/2.0.0-SNAPSHOT/CengageGwtExtensions-2.0.0-SNAPSHOT.jar!/com/cengage/gwt/popup/Popup.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageGwtExtensions/2.0.0-SNAPSHOT/CengageGwtExtensions-2.0.0-SNAPSHOT.jar!/rebel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageGwtExtensions/2.0.0-SNAPSHOT/CengageGwtExtensions-2.0.0-SNAPSHOT.jar!/com/cengage/gwt/scrolltable/ScrollTable.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/cengage-jpa-utils/2.0.0-SNAPSHOT/cengage-jpa-utils-2.0.0-SNAPSHOT.jar!/rebel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageGwtExtensions/2.0.0-SNAPSHOT/CengageGwtExtensions-2.0.0-SNAPSHOT.jar!/com/cengage/gwt/cell/Cell.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageGwtExtensions/2.0.0-SNAPSHOT/CengageGwtExtensions-2.0.0-SNAPSHOT.jar!/com/cengage/gwt/jreemulation/CengageGwtExtensions.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageGwtExtensions/2.0.0-SNAPSHOT/CengageGwtExtensions-2.0.0-SNAPSHOT.jar!/com/cengage/gwt/charting/Charting.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/cengage-general-utils/2.0.0-SNAPSHOT/cengage-general-utils-2.0.0-SNAPSHOT.jar!/rebel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageGwtExtensions/2.0.0-SNAPSHOT/CengageGwtExtensions-2.0.0-SNAPSHOT.jar!/com/google/gwt/dom/ExCanvasSupport.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageGwtExtensions/2.0.0-SNAPSHOT/CengageGwtExtensions-2.0.0-SNAPSHOT.jar!/com/cengage/gwt/layout/Layout.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215033" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageScalaTest/2.0.0-SNAPSHOT/CengageScalaTest-2.0.0-SNAPSHOT.jar!/rebel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215406" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageActiveMqWar/2.0.0-SNAPSHOT/CengageActiveMqWar-2.0.0-SNAPSHOT.war!/WEB-INF/classes/broker-config.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215406" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageActiveMqWar/2.0.0-SNAPSHOT/CengageActiveMqWar-2.0.0-SNAPSHOT.war!/WEB-INF/classes/rebel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215406" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageActiveMqWar/2.0.0-SNAPSHOT/CengageActiveMqWar-2.0.0-SNAPSHOT.war!/WEB-INF/classes/activemq.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215406" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageDataManager/2.0.0-SNAPSHOT/CengageDataManager-2.0.0-SNAPSHOT.jar!/rebel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607215406" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/src/main/java/com/cengage/mongo/entities/AbstractEmbedded.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357608819772" ignored="false" />
+    <file path="/AbstractEmbedded.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357608802787" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsPersistor/src/main/java/com/cengage/analytics/persistor/actors/ActivityAggregatePersistor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357608819772" ignored="false" />
+    <file path="/ActivityAggregatePersistor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357607535444" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357954331091" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsPersistor/src/test/java/com/cengage/analytics/persistor/test/ActivityAggregatePersistorTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357669923213" ignored="false" />
+    <file path="/GradientTeaUI.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357610710968" ignored="false" />
+    <file path="/GradienTeaUI.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357881245752" ignored="false" />
+    <file path="/GradienTeaGinjector.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357610339561" ignored="false" />
+    <file path="/TestModelWidget.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357949437170" ignored="false" />
+    <file path="/web.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357612203162" ignored="false" />
+    <file path="/index.jsp" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357708271953" ignored="false" />
+    <file path="/Material.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357876047201" ignored="false" />
+    <file path="/IcosahedronGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357615215507" ignored="false" />
+    <file path="/CylinderGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357625143754" ignored="false" />
+    <file path="/Geometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357675565874" ignored="false" />
+    <file path="/Matrix4.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357710272038" ignored="false" />
+    <file path="/MeshLambertMaterial.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357636281355" ignored="false" />
+    <file path="/MeshPhongMaterial.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357878398139" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCommon/CengageAnalyticsAkkaSupport/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357669890969" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsTakeAggregator/src/main/resources/META-INF/spring/analytics/take/analytics-take.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357669923213" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsTakeAggregator/src/main/java/com/cengage/analytics/aggregator/ServerRoutes.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357669923213" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/CengageAnalyticsCore/3.0.0-SNAPSHOT/CengageAnalyticsCore-3.0.0-SNAPSHOT.pom" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357670873895" ignored="false" />
+    <file path="/Vector3.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357704954641" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageCommon/CengageMongoExtensions/src/main/java/com/cengage/mongo/entities/MongoEmbedded.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357672824520" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsTakeAggregator/src/test/java/com/cengage/analytics/aggregator/test/ActivityAggregationActorTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357951848611" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModelServices/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-CengageAnalyticsModelServices-version-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357676898883" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-CengageAnalyticsModel-version-defaults-mvn.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357676898883" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-CengageAnalyticsModel-version-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357676898884" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsAggregationMessages/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-CengageAnalyticsAggregationMessages-version-defaults-mvn.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357676898884" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsAggregationMessages/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-CengageAnalyticsAggregationMessages-version-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357676898885" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModelServices/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-CengageAnalyticsModelServices-version-defaults-mvn.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357677037149" ignored="false" />
+    <file path="/ActivityAggregationActorTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357861176274" ignored="false" />
+    <file path="/Shape.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357696251544" ignored="false" />
+    <file path="/Curve.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357696325821" ignored="false" />
+    <file path="/CurvePath.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357696011496" ignored="false" />
+    <file path="/Path.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357695994553" ignored="false" />
+    <file path="/ExtrudeGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357951081605" ignored="false" />
+    <file path="/AxisHelper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357697536550" ignored="false" />
+    <file path="/Object3D.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357701232354" ignored="false" />
+    <file path="/DomeModelAnimationRenderer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357718876398" ignored="false" />
+    <file path="/ValueTween.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357722158742" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsTakeAggregator/src/main/java/com/cengage/analytics/aggregator/actors/ActivityAggregationActor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357857405997" ignored="false" />
+    <file path="/ActivityAggregationActor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357780984555" ignored="false" />
+    <file path="/a.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357774984846" ignored="false" />
+    <file path="/a.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357774969814" ignored="false" />
+    <file path="/sample.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357774990667" ignored="false" />
+    <file path="/ClientAnimationPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357792011388" ignored="false" />
+    <file path="/ClientDmxRenderer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357790989565" ignored="false" />
+    <file path="/DmxRenderer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357791172758" ignored="false" />
+    <file path="/DmxPixelRender.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357791045612" ignored="false" />
+    <file path="/DmxRendering.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357791420408" ignored="false" />
+    <file path="/ClientDmxAnimationPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357876254580" ignored="false" />
+    <file path="/DomeModelWidget.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357951359470" ignored="false" />
+    <file path="/DomeSpecification.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357801701650" ignored="false" />
+    <file path="/Camera.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357792599811" ignored="false" />
+    <file path="/Light.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357793006309" ignored="false" />
+    <file path="/PointLight.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357793053439" ignored="false" />
+    <file path="/DomeGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357950855386" ignored="false" />
+    <file path="/LightingModel.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357801959780" ignored="false" />
+    <file path="/GradienTeaUI.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357951172246" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCourseMateIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357954331091" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357848751054" ignored="false" />
+    <file path="/a.js" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357846779893" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/src/main/java/com/cengage/analytics/grading/Scored.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357862404023" ignored="false" />
+    <file path="/Scored.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357862404023" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageDeploymentTools/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357944794099" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/cengage-general-utils/2.1.0-SNAPSHOT/cengage-general-utils-2.1.0-SNAPSHOT-sources.jar!/com/cengage/util/general/Comparison.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357867221584" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/CengageAnalyticsAkkaTestSupport/3.1.0-SNAPSHOT/CengageAnalyticsAkkaTestSupport-3.1.0-SNAPSHOT-sources.jar!/com/cengage/analytics/test/AbstractAnalyticsTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357952458783" ignored="false" />
+    <file path="/appengine-web.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357869291762" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/src/main/java/com/cengage/analytics/model/course/Course.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357944889175" ignored="false" />
+    <file path="/Course.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357944856873" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/MindTapUI/src/main/deploymentconfig/caddis/context.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357947351840" ignored="false" />
+    <file path="/context.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357947273592" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/MindTapAggregator/src/main/deploymentconfig/caddis/context.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357947351840" ignored="false" />
+    <file path="/ParallaxHelper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357950582200" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/CengageAnalyticsAkkaTestSupport/3.1.0-SNAPSHOT/CengageAnalyticsAkkaTestSupport-3.1.0-SNAPSHOT.jar!/com/cengage/analytics/test/SimpleActorTest.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357952303664" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/MindTapUI/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357952443358" ignored="false" />
+    <file path="/CompressedTexture.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357953929066" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="false" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="GradienTeaParent" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="MeshDepthMaterial.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/materials/MeshDepthMaterial.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="53" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#2515#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XMLHttpRequestBinary.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/core/XMLHttpRequestBinary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#953#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompressedTexture.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/textures/CompressedTexture.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="0" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#CompressedTexture#1;class#CompressedTexture#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrayBuffer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/gl2/arrays/ArrayBuffer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="19" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1357953735000" expanded="false" signature="1233:1278" placeholder="{...}" />
+                <marker date="1357953735000" expanded="false" signature="1408:1438" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SocketInputStream.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../opensource/java/openjdk-6-src-b26-21_sep_2012/jdk/src/share/classes/java/net/SocketInputStream.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="93" column="23" selection-start="3307" selection-end="3307" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GradienTeaUI.gwt.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="19" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebGLRenderer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/renderers/WebGLRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="248" column="0" selection-start="9773" selection-end="9773" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DomeGeometry.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="13" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1357950893000" expanded="false" signature="10422:10762" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParallaxHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/ParallaxHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="46" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="GwtCompilerConfiguration">
+    <show-output>
+      <module name="GradienTeaUI" />
+    </show-output>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../../../opensource/java/three4g/src/net/blimster/gwt/threejs/renderers/WebGLRenderer.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/webapp/WEB-INF/appengine-web.xml" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/TestModelWidget.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/ParallaxHelper.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/core/ExtrudeGeometry.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/parallax/pom.xml" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/Log.java" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/materials/MeshDepthMaterial.java" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/core/XMLHttpRequestBinary.java" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/textures/CompressedTexture.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="2560" />
+    <option name="height" value="1414" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Google App Engine</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="2" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource ProjectPane="true" />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/LightingModel/src/main/java" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="false" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="GOOGLE_APP_ENGINE_ACCOUNT_EMAIL" value="hypher@gmail.com" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="options.lastSelected" value="editor.preferences.import" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../opensource/java/parallax/pom.xml" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.blimster.gwt.threejs.materials" />
+      <recent name="net.blimster.gwt.threejs.extras.geometries" />
+      <recent name="org.hypher.gradientea.lightingmodel.shared.animation" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/GradienTeaUI/src/main/resources" />
+      <recent name="$PROJECT_DIR$/GradienTeaUI/src/main/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/GradienTeaUI" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.hypher.gradientea.lightingmodel.shared.animation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel" />
+    </key>
+  </component>
+  <component name="RunManager" selected="GWT Configuration.GradienTeaUI">
+    <configuration default="false" name="TestPlayer" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.hypher.gradientea.artnet.player.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.hypher.gradientea.artnet.player.TestPlayer" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ArtNetPlayer" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradienTeaTestServer" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="fr.azelart.artnetstack.runners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="fr.azelart.artnetstack.runners.GradienTeaTestServer" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="stack" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GWT.ConfigurationType" factoryName="GWT Configuration">
+      <module name="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="GradienTeaUI" type="GWT.ConfigurationType" factoryName="GWT Configuration">
+      <module name="GradienTeaUI" />
+      <option name="VM_PARAMETERS" value="-Xmx1024m -XX:MaxPermSize=512m" />
+      <option name="RUN_PAGE" value="index.jsp" />
+      <option name="GWT_MODULE" value="org.hypher.gradientea.ui.GradienTeaUI" />
+      <option name="BROWSER" value="Firefox" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="GWT Configuration.GradienTeaUI" />
+      <item index="1" class="java.lang.String" itemvalue="Application.TestPlayer" />
+      <item index="2" class="java.lang.String" itemvalue="Application.GradienTeaTestServer" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.TestPlayer" />
+        <item index="1" class="java.lang.String" itemvalue="Application.GradienTeaTestServer" />
+      </list>
+    </recent_temporary>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="" />
+      <created>1357526321397</created>
+      <updated>1357526321397</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Added IntelliJ IDEA project">
+      <created>1357549438520</created>
+      <updated>1357549438520</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fixed encoding of ArtNet DMX version">
+      <created>1357549469126</created>
+      <updated>1357549469126</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Reformatted POM; updated version to 1.0.0-SNAPSHOT">
+      <created>1357549498823</created>
+      <updated>1357549498823</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added IntelliJ module file">
+      <created>1357549513849</created>
+      <updated>1357549513849</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updatd .gitignore">
+      <created>1357549521794</created>
+      <updated>1357549521794</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Improved example server, various comment and constant name fixes">
+      <created>1357549543671</created>
+      <updated>1357549543671</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Updated .gitignore">
+      <created>1357549555173</created>
+      <updated>1357549555173</updated>
+    </task>
+    <task id="LOCAL-00008" summary="IntelliJ project">
+      <created>1357549590502</created>
+      <updated>1357549590502</updated>
+    </task>
+    <task id="LOCAL-00009" summary="First working version of model, ArtNet player and parent">
+      <created>1357549619587</created>
+      <updated>1357549619587</updated>
+    </task>
+    <task id="LOCAL-00010" summary="WIP on updated modeler">
+      <created>1357795928566</created>
+      <updated>1357795928566</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fixed triangle bug (thanks Alex!), updated maven and gwt configs">
+      <created>1357805401877</created>
+      <updated>1357805401877</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Diverging from original and abandoning template-generated code. Merged generated and non-generated classes, added many new methods and classes.">
+      <created>1357868414035</created>
+      <updated>1357868414035</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Updated rendering code">
+      <created>1357868470270</created>
+      <updated>1357868470270</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added classes missing from last commit">
+      <created>1357868518028</created>
+      <updated>1357868518028</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Updating .idea project">
+      <created>1357868532922</created>
+      <updated>1357868532922</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updating .idea project">
+      <created>1357868550289</created>
+      <updated>1357868550289</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added three.js js file">
+      <created>1357868561621</created>
+      <updated>1357868561621</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Updated pom">
+      <created>1357868682313</created>
+      <updated>1357868682313</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Parallax Support and UI improvements">
+      <created>1357954180364</created>
+      <updated>1357954180364</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added parallax GWT dependency">
+      <created>1357954207558</created>
+      <updated>1357954207558</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added parallax and GAE, other minor changes">
+      <created>1357954348865</created>
+      <updated>1357954348865</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added GAE web.xml and logging properties">
+      <created>1357954370096</created>
+      <updated>1357954370096</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="2560" height="1414" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5656878" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40185472" sideWeight="0.9411297" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.67387944" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2124105" sideWeight="0.8238022" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.159109" sideWeight="0.43431222" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24111283" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="823" y="372" width="755" height="443" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.67387944" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added GAE web.xml and logging properties" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="Added IntelliJ IDEA project" />
+    <MESSAGE value="Fixed encoding of ArtNet DMX version" />
+    <MESSAGE value="Reformatted POM; updated version to 1.0.0-SNAPSHOT" />
+    <MESSAGE value="Added IntelliJ module file" />
+    <MESSAGE value="Updatd .gitignore" />
+    <MESSAGE value="Improved example server, various comment and constant name fixes" />
+    <MESSAGE value="Updated .gitignore" />
+    <MESSAGE value="IntelliJ project" />
+    <MESSAGE value="First working version of model, ArtNet player and parent" />
+    <MESSAGE value="WIP on updated modeler" />
+    <MESSAGE value="Fixed triangle bug (thanks Alex!), updated maven and gwt configs" />
+    <MESSAGE value="Diverging from original and abandoning template-generated code. Merged generated and non-generated classes, added many new methods and classes." />
+    <MESSAGE value="Updated rendering code" />
+    <MESSAGE value="Added classes missing from last commit" />
+    <MESSAGE value="Updating .idea project" />
+    <MESSAGE value="Added three.js js file" />
+    <MESSAGE value="Updated pom" />
+    <MESSAGE value="Parallax Support and UI improvements" />
+    <MESSAGE value="Added parallax GWT dependency" />
+    <MESSAGE value="Added parallax and GAE, other minor changes" />
+    <MESSAGE value="Added GAE web.xml and logging properties" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="atlassian-ide-plugin-workspace">
+    <option name="bambooConfiguration">
+      <BambooWorkspaceConfiguration>
+        <option name="view">
+          <BambooViewConfigurationBean />
+        </option>
+      </BambooWorkspaceConfiguration>
+    </option>
+    <option name="defaultCredentials">
+      <UserCfgBean />
+    </option>
+  </component>
+  <component name="atlassian-ide-plugin-workspace-issues">
+    <option name="view">
+      <JiraViewConfigurationBean>
+        <option name="viewFilterId" value="" />
+      </JiraViewConfigurationBean>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/context/Canvas3d.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.23599523">
+          <folding>
+            <element signature="method#Canvas3d#0;class#Canvas3d#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="30" selection-start="5019" selection-end="5019" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="0" selection-start="2136" selection-end="2136" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="method#info#0;class#Log#0" expanded="true" />
+            <element signature="method#error#0;class#Log#0" expanded="true" />
+            <element signature="method#error#1;class#Log#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/shaders/chunk/envmap_pars_vertex.chunk">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="34" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/openjdk-6-src-b26-21_sep_2012/jdk/src/share/classes/java/net/SocketInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="23" selection-start="3307" selection-end="3307" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="19" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/renderers/WebGLRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="248" column="0" selection-start="9773" selection-end="9773" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="13" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1357950893000" expanded="false" signature="10422:10762" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/ParallaxHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="46" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/materials/MeshDepthMaterial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="53" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#2515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-user/2.5.0/gwt-user-2.5.0-sources.jar!/com/google/gwt/xhr/client/XMLHttpRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="200" column="34" selection-start="6068" selection-end="6348" vertical-scroll-proportion="0.34597155">
+          <folding>
+            <element signature="class#ResponseType#0;class#XMLHttpRequest#0" expanded="true" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348246320000" expanded="false" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/shared/core/XMLHttpRequestBinary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#953#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/gl2/arrays/ArrayBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="19" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1357953735000" expanded="false" signature="1233:1278" placeholder="{...}" />
+            <marker date="1357953735000" expanded="false" signature="1408:1438" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../opensource/java/parallax/src/thothbot/parallax/core/client/textures/CompressedTexture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#CompressedTexture#1;class#CompressedTexture#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>GaeTestApp:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>GWT</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>GWT|GradienTeaUI</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.20000002" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.google.code.findbugs:jsr305:1.3.9</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+
