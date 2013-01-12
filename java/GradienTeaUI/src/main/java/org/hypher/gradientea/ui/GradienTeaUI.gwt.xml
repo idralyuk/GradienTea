@@ -17,11 +17,11 @@
 	<inherits name="com.google.common.base.Base"/>
 	<inherits name="com.google.common.cache.Cache"/>
 
-	<!-- Three4g -->
-	<inherits name="net.blimster.gwt.threejs" />
-
-	<!-- Hypher -->
+	<!-- Include the animation model -->
 	<inherits name="org.hypher.gradientea.lightingmodel.LightingModel" />
+
+	<!-- Parallax -->
+	<inherits name="thothbot.parallax.core.Core" />
 
 	<!--==================================================================================================================
 		== MODULE CONFIGURATION
