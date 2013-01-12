@@ -34,7 +34,7 @@ public class TestPlayer {
 							ExpandedAnimationWrapper.SIN,
 							0.15
 						),
-						DmxPixel.pixels(1, 1, 5)
+						DmxPixel.pixels(1, 5)
 					),
 					10
 				)

@@ -4,8 +4,12 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="gwt" url="file://$PROJECT_DIR$/../../../opensource/java/parallax" />
     <file type="gwt" url="file://$PROJECT_DIR$/../../../opensource/java/three4g" />
+    <file type="gwt" url="file://$PROJECT_DIR$/GaeTestApp" />
     <file type="gwt" url="file://$PROJECT_DIR$/GradienTeaUI" />
+    <file type="gwt" url="file://$PROJECT_DIR$/LightingModel" />
+    <file type="web" url="file://$PROJECT_DIR$/GaeTestApp" />
     <file type="web" url="file://$PROJECT_DIR$/GradienTeaUI" />
   </component>
   <component name="IdProvider" IDEtalkID="9B99BA6F13FC98F6DC987B2B81A91DD8" />
@@ -16,11 +20,14 @@
         <option value="$PROJECT_DIR$/../../../opensource/java/ArtNetStack/pom.xml" />
         <option value="$PROJECT_DIR$/../../../opensource/java/three4g/pom.xml" />
         <option value="$PROJECT_DIR$/../../../opensource/java/three4g.wdl/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../opensource/java/parallax/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/../../../opensource/java/parallax/pom.xml" />
         <option value="$PROJECT_DIR$/../../../opensource/java/three4g.wdl/pom.xml" />
+        <option value="$PROJECT_DIR$/GaeTestApp/pom.xml" />
       </set>
     </option>
   </component>

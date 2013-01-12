@@ -37,13 +37,23 @@ public class DmxPixel implements Pixel {
 		this.firstChannel = firstChannel;
 	}
 
-	public static PixelGroup pixels(final int universe, final int firstChannel, final int count) {
-		Preconditions.checkArgument(universe >= 1 && universe <= 4, "Universe (%s) must be between 1 and 4 (inclusive)", universe);
-		Preconditions.checkArgument(firstChannel >= 1 && firstChannel <= 512-(count*3), "First Channel (%s) must be between 1 and %s (inclusive)", firstChannel, 512-(count*3));
+	public static PixelGroup pixels(final int firstChannel, final int count) {
+		Preconditions.checkArgument(firstChannel >= 1 && firstChannel <= (512*4)-(count*3), "First Channel (%s) must be between 1 and %s (inclusive)", firstChannel, (512*4)-(count*3));
 
 		ImmutableList.Builder<DmxPixel> pixels = ImmutableList.builder();
-		for (int i=0; i<count; i++) {
-			pixels.add(new DmxPixel(universe, firstChannel + i*3));
+
+		int currentUniverse = 1;
+		int currentUniverseChannel = firstChannel;
+
+		for (int pixelIndex=0; pixelIndex<count; pixelIndex++) {
+			pixels.add(new DmxPixel(currentUniverse, currentUniverseChannel));
+
+			currentUniverseChannel += 3;
+
+			if (currentUniverseChannel > 510) {
+				currentUniverseChannel = 1;
+				currentUniverse ++;
+			}
 		}
 
 		return new ListPixelGroup(pixels.build());

@@ -30,6 +30,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="GaeTestApp" target="1.6" />
+      <module name="GradienTeaParent" target="1.6" />
       <module name="stack" target="1.6" />
     </bytecodeTargetLevel>
   </component>

@@ -12,12 +12,34 @@
 	<packaging>war</packaging>
 
 	<properties>
+		<!-- Sets the project's default encoding.
+				 http://docs.codehaus.org/display/MAVENUSER/POM+Element+for+Source+File+Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 		<webappDirectory>${project.build.directory}/GradienTeaUI-${project.version}</webappDirectory>
+
+		<!-- GWT -->
 		<gwtDebugSuspend>false</gwtDebugSuspend>
 		<gwtDebugPort>8000</gwtDebugPort>
 		<gwtRunTarget>index.jsp</gwtRunTarget>
 		<gwtBindAddress>0.0.0.0</gwtBindAddress>
 		<gwtExtraVmArgs />
+
+		<!--================================================================================================================
+		  == Google App Engine
+		 -->
+		<!-- Specify AppEngine version for your project. It should match SDK version pointed to
+      by ${gae.home} property (Typically, one used by your Eclipse plug-in) -->
+		<gae.version>1.6.5</gae.version>
+
+		<!-- Upload to http://test.latest.<applicationName>.appspot.com by default -->
+		<gae.application.version>test</gae.application.version>
+
+		<!-- port defaults to 8080 -->
+		<gae.port>8080</gae.port>
+
+		<!-- Produce detailed JS during GWT compilation for development environment -->
+		<gwt.style>DETAILED</gwt.style>
 	</properties>
 
 
@@ -40,8 +62,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>net.blimster.gwt.threejs</groupId>
-			<artifactId>three4g</artifactId>
+			<groupId>org.thothbot.parallax</groupId>
+			<artifactId>parallax</artifactId>
 		</dependency>
 
 		<!--================================================================================================================
@@ -99,6 +121,73 @@
 					<strict>true</strict>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webResources>
+						<resource>
+							<directory>src/main/webapp</directory>
+							<filtering>true</filtering>
+							<includes>
+								<include>**/appengine-web.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+
+			<!-- The actual maven-gae-plugin. Type "mvn gae:run" to run project, "mvn gae:deploy"
+				to upload to GAE. -->
+			<plugin>
+				<groupId>net.kindleit</groupId>
+				<artifactId>maven-gae-plugin</artifactId>
+				<version>0.9.4</version>
+			</plugin>
+
+			<!-- Upload application to the appspot automatically, during release:perform -->
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<goals>gae:deploy</goals>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<!-- We can configure our integration server to activate this profile and perform gae:deploy,
+			thus uploading latest snapshot to the http://1.latest.<applicationName>.appspot.com automatically -->
+		<profile>
+			<id>integration-build</id>
+			<properties>
+				<gae.application.version>stage</gae.application.version>
+
+				<!-- Produce pretty JS during GWT compilation for test environment -->
+				<gwt.style>PRETTY</gwt.style>
+			</properties>
+		</profile>
+
+		<!-- This profile will activate automatically during release and upload application to
+			the http://2.latest.<applicationName>.appspot.com (We might want to set the 2nd version as
+			our applications Default version to be accessible at http://<applicationName>.appspot.com) -->
+		<profile>
+			<id>release-build</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+
+			<properties>
+				<!-- During release, set application version in appengine-web.xml to 2 -->
+				<gae.application.version>release</gae.application.version>
+
+				<!-- Produce compressed JS during GWT compilation for production environment -->
+				<gwt.style>OBFUSCATED</gwt.style>
+			</properties>
+		</profile>
+	</profiles>
 </project>

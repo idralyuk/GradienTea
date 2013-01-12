@@ -39,13 +39,13 @@ public class ClientDmxAnimationPlayer {
 		AnimationScheduler.get().requestAnimationFrame(new AnimationScheduler.AnimationCallback() {
 			@Override
 			public void execute(final double timestamp) {
-				if (! playing) return;
+			if (! playing) return;
 
-				double progress = (Duration.currentTimeMillis() - startTime) % (animation.getSuggestedDurationSeconds()*1000);
+			double progress = ((Duration.currentTimeMillis() - startTime) / (animation.getSuggestedDurationSeconds()*1000)) % 1.0;
 
-				render(progress);
+			render(progress);
 
-
+			AnimationScheduler.get().requestAnimationFrame(this);
 			}
 		});
 	}
