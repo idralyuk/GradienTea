@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="Added GAE web.xml and logging properties">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/DomeMatrix4.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeProjection.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeoEdge.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeoFace.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeoVector3.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeodesicDomeGeometry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeodesicDomeSpec.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeodesicSphereGeometry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeodesicSphereSpec.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeodesicTeaGeometry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GradienTeaDomeGeometry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/GradienTeaDomeRenderer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/test/java/org/hypher/gradientea/lightingmodel/shared/dome/GradienTeaDomeSpecTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/groups/VertexRingPixelGroup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeGeometry.java" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/OldDomeGeometry.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/DomeSpecification.java" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GradienTeaDomeSpec.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dmx/DmxPixel.java" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dmx/DmxPixel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LightingModel/LightingModel.iml" afterPath="$PROJECT_DIR$/LightingModel/LightingModel.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../opensource/java/three4g/src/net/blimster/gwt/threejs/materials/MeshPhongMaterial.java" afterPath="$PROJECT_DIR$/../../../opensource/java/three4g/src/net/blimster/gwt/threejs/materials/MeshPhongMaterial.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/TestPlayer.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/TestPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/pom.xml" afterPath="$PROJECT_DIR$/GradienTeaUI/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LightingModel/pom.xml" afterPath="$PROJECT_DIR$/LightingModel/pom.xml" />
+    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GradienTeaParent.iws" />
@@ -46,7 +19,7 @@
     <file path="/HsbTween.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357535010699" ignored="false" />
     <file path="/BaseSingleGroupAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357534728786" ignored="false" />
     <file path="/AnimationFunctionWrapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357543461670" ignored="false" />
-    <file path="/Dummy.txt" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357971405146" ignored="false" />
+    <file path="/Dummy.txt" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358112650085" ignored="false" />
     <file path="/StandalonePlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357538183729" ignored="false" />
     <file path="/RenderableAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536703553" ignored="false" />
     <file path="/DefinedAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536205196" ignored="false" />
@@ -147,7 +120,7 @@
     <file path="/DomeGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357977395470" ignored="false" />
     <file path="/LightingModel.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357801959780" ignored="false" />
     <file path="/GradienTeaUI.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357954553399" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCourseMateIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358065955231" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCourseMateIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358112677366" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/atlassian-ide-plugin.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357848751054" ignored="false" />
     <file path="/a.js" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357846779893" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/src/main/java/com/cengage/analytics/grading/Scored.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357862404023" ignored="false" />
@@ -178,7 +151,7 @@
     <file path="/GeodesicTeaGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358027456666" ignored="false" />
     <file path="/a.dummy" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358032539834" ignored="false" />
     <file path="/GradientTeaDomeRenderer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358037356337" ignored="false" />
-    <file path="/DomeProjection.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358033949891" ignored="false" />
+    <file path="/DomeProjection.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358111024720" ignored="false" />
     <file path="/GradienTeaDomeGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358034540682" ignored="false" />
     <file path="/VertexRingPixelGroup.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358034833954" ignored="false" />
     <file path="/GradienTeaDomeRenderer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358065059343" ignored="false" />
@@ -266,7 +239,7 @@
           <file leaf-file-name="TestPlayer.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/TestPlayer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="29" column="40" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.0">
+                <state line="38" column="22" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -275,9 +248,10 @@
           <file leaf-file-name="GradienTeaDomeRenderer.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/GradienTeaDomeRenderer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="83" column="100" selection-start="2862" selection-end="2862" vertical-scroll-proportion="-12.72">
+                <state line="49" column="31" selection-start="1960" selection-end="1977" vertical-scroll-proportion="-22.08">
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="method#GradienTeaDomeRenderer#0;class#GradienTeaDomeRenderer#0" expanded="true" />
                     <element signature="method#applyFaceColor#0;class#GradienTeaDomeRenderer#0" expanded="true" />
                     <element signature="method#setSize#0;class#GradienTeaDomeRenderer#0" expanded="true" />
                     <element signature="method#renderDome#0;class#GradienTeaDomeRenderer#0" expanded="true" />
@@ -322,15 +296,34 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GradienTeaUI.java" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="GradienTeaUI.java" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="100" column="47" selection-start="3623" selection-end="3623" vertical-scroll-proportion="0.58506733">
+                <state line="100" column="47" selection-start="3623" selection-end="3623" vertical-scroll-proportion="0.0">
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#2842#3243#0" expanded="true" />
                     <element signature="e#3238#3239#0" expanded="true" />
                     <element signature="method#setup#0;class#GradienTeaUI#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DomeProjection.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeProjection.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="14" column="30" selection-start="600" selection-end="600" vertical-scroll-proportion="0.30844554">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#DomeProjection#0;class#DomeProjection#0" expanded="true" />
+                    <element signature="method#vertex#0;class#DomeProjection#0" expanded="true" />
+                    <element signature="method#face#0;class#DomeProjection#0" expanded="true" />
+                    <element signature="method#edge#0;class#DomeProjection#0" expanded="true" />
+                    <element signature="method#vertices#0;class#DomeProjection#0" expanded="true" />
+                    <element signature="method#build#0;class#DomeProjection#0" expanded="true" />
+                    <element signature="method#project#0;class#DomeProjection#0" expanded="true" />
+                    <element signature="method#getGeometry#0;class#DomeProjection#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -373,19 +366,6 @@
                     <element signature="e#1011#1012#0" expanded="true" />
                     <element signature="class#ContainsVertex#0;class#GeoFace#0" expanded="true" />
                     <element signature="method#apply#0;class#ContainsVertex#0;class#GeoFace#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="VertexRingPixelGroup.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/groups/VertexRingPixelGroup.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="28" column="34" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#963#1136#0" expanded="true" />
-                    <element signature="e#1129#1130#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -440,19 +420,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="OldDomeGeometry.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/OldDomeGeometry.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="27" column="13" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="GeoVector3.java" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeoVector3.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="247" column="0" selection-start="4417" selection-end="4417" vertical-scroll-proportion="0.35214725">
+                <state line="261" column="4" selection-start="4747" selection-end="4747" vertical-scroll-proportion="0.50674844">
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#636#892#0" expanded="true" />
@@ -501,18 +472,18 @@
         <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/GeodesicTeaGeometry.java" />
         <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeodesicTeaGeometry.java" />
         <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/GradientTeaDomeRenderer.java" />
-        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeProjection.java" />
         <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GradienTeaDomeGeometry.java" />
         <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/groups/VertexRingPixelGroup.java" />
         <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeoFace.java" />
         <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeModelWidget.java" />
         <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeodesicSphereGeometry.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/TestPlayer.java" />
         <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeoVector3.java" />
         <option value="$PROJECT_DIR$/GradienTeaUI/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/GradienTeaUI/pom.xml" />
         <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/GradienTeaDomeRenderer.java" />
         <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java" />
+        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeProjection.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/TestPlayer.java" />
       </list>
     </option>
   </component>
@@ -1918,7 +1889,15 @@
       <created>1357957679678</created>
       <updated>1357957679678</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="New model working, some improvements">
+      <created>1358065978389</created>
+      <updated>1358065978389</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Removed old geometry; added docs; tweaked test animation">
+      <created>1358112652726</created>
+      <updated>1358112652726</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2011,7 +1990,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reverted to threejs, started work on layer removal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed old geometry; added docs; tweaked test animation" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2046,6 +2025,8 @@
     <MESSAGE value="Added parallax and GAE, other minor changes" />
     <MESSAGE value="Added GAE web.xml and logging properties" />
     <MESSAGE value="Reverted to threejs, started work on layer removal" />
+    <MESSAGE value="New model working, some improvements" />
+    <MESSAGE value="Removed old geometry; added docs; tweaked test animation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2074,30 +2055,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeProjection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#DomeProjection#0;class#DomeProjection#0" expanded="true" />
-            <element signature="method#vertex#0;class#DomeProjection#0" expanded="true" />
-            <element signature="method#face#0;class#DomeProjection#0" expanded="true" />
-            <element signature="method#edge#0;class#DomeProjection#0" expanded="true" />
-            <element signature="method#vertices#0;class#DomeProjection#0" expanded="true" />
-            <element signature="method#build#0;class#DomeProjection#0" expanded="true" />
-            <element signature="method#project#0;class#DomeProjection#0" expanded="true" />
-            <element signature="method#getGeometry#0;class#DomeProjection#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/OldDomeGeometry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="13" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GradienTeaDomeGeometry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="57" selection-start="453" selection-end="453" vertical-scroll-proportion="0.0">
@@ -2178,13 +2135,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/TestPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="40" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/GradienTeaUI.gwt.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -2222,11 +2172,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/GradienTeaDomeRenderer.java">
+    <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeoVector3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="100" selection-start="2862" selection-end="2862" vertical-scroll-proportion="-12.72">
+        <state line="261" column="4" selection-start="4747" selection-end="4747" vertical-scroll-proportion="0.50674844">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#636#892#0" expanded="true" />
+            <element signature="e#650#662#0" expanded="true" />
+            <element signature="e#888#889#0" expanded="true" />
+            <element signature="e#968#1200#0" expanded="true" />
+            <element signature="e#982#994#0" expanded="true" />
+            <element signature="e#1196#1197#0" expanded="true" />
+            <element signature="method#GeoVector3#0;class#GeoVector3#0" expanded="true" />
+            <element signature="method#lengthManhattan#0;class#GeoVector3#0" expanded="true" />
+            <element signature="method#withLength#0;class#GeoVector3#0" expanded="true" />
+            <element signature="method#equals#0;class#GeoVector3#0" expanded="true" />
+            <element signature="method#toString#0;class#GeoVector3#0" expanded="true" />
+            <element signature="method#hashCode#0;class#GeoVector3#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/GradienTeaDomeRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="31" selection-start="1960" selection-end="1977" vertical-scroll-proportion="-22.08">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GradienTeaDomeRenderer#0;class#GradienTeaDomeRenderer#0" expanded="true" />
             <element signature="method#applyFaceColor#0;class#GradienTeaDomeRenderer#0" expanded="true" />
             <element signature="method#setSize#0;class#GradienTeaDomeRenderer#0" expanded="true" />
             <element signature="method#renderDome#0;class#GradienTeaDomeRenderer#0" expanded="true" />
@@ -2252,35 +2224,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeoVector3.java">
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/TestPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="0" selection-start="4417" selection-end="4417" vertical-scroll-proportion="0.35214725">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#636#892#0" expanded="true" />
-            <element signature="e#650#662#0" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#968#1200#0" expanded="true" />
-            <element signature="e#982#994#0" expanded="true" />
-            <element signature="e#1196#1197#0" expanded="true" />
-            <element signature="method#GeoVector3#0;class#GeoVector3#0" expanded="true" />
-            <element signature="method#lengthManhattan#0;class#GeoVector3#0" expanded="true" />
-            <element signature="method#withLength#0;class#GeoVector3#0" expanded="true" />
-            <element signature="method#equals#0;class#GeoVector3#0" expanded="true" />
-            <element signature="method#toString#0;class#GeoVector3#0" expanded="true" />
-            <element signature="method#hashCode#0;class#GeoVector3#0" expanded="true" />
-          </folding>
+        <state line="38" column="22" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/GradienTeaUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="47" selection-start="3623" selection-end="3623" vertical-scroll-proportion="0.58506733">
+        <state line="100" column="47" selection-start="3623" selection-end="3623" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2842#3243#0" expanded="true" />
             <element signature="e#3238#3239#0" expanded="true" />
             <element signature="method#setup#0;class#GradienTeaUI#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator/DomeProjection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="30" selection-start="600" selection-end="600" vertical-scroll-proportion="0.30844554">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#DomeProjection#0;class#DomeProjection#0" expanded="true" />
+            <element signature="method#vertex#0;class#DomeProjection#0" expanded="true" />
+            <element signature="method#face#0;class#DomeProjection#0" expanded="true" />
+            <element signature="method#edge#0;class#DomeProjection#0" expanded="true" />
+            <element signature="method#vertices#0;class#DomeProjection#0" expanded="true" />
+            <element signature="method#build#0;class#DomeProjection#0" expanded="true" />
+            <element signature="method#project#0;class#DomeProjection#0" expanded="true" />
+            <element signature="method#getGeometry#0;class#DomeProjection#0" expanded="true" />
           </folding>
         </state>
       </provider>
