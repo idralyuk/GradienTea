@@ -11,7 +11,8 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * Translates between dome geometry and ThreeJS coordinates.
+ * Translates between dome geometry and ThreeJS coordinates, projecting the coordinates to the radius
+ * of the dome in the process.
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
