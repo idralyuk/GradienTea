@@ -39,7 +39,7 @@
 		<gae.port>8080</gae.port>
 
 		<!-- Produce detailed JS during GWT compilation for development environment -->
-		<gwt.style>DETAILED</gwt.style>
+		<!--<gwt.style>DETAILED</gwt.style>-->
 	</properties>
 
 

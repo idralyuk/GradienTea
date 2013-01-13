@@ -42,8 +42,13 @@ public class DmxPixel implements Pixel {
 
 		ImmutableList.Builder<DmxPixel> pixels = ImmutableList.builder();
 
-		int currentUniverse = 1;
-		int currentUniverseChannel = firstChannel;
+		int currentUniverse = (firstChannel-1) / 512 + 1;
+		int currentUniverseChannel = firstChannel - (currentUniverse-1)*512;
+
+		if (currentUniverseChannel > 510) {
+			currentUniverseChannel = 1;
+			currentUniverse ++;
+		}
 
 		for (int pixelIndex=0; pixelIndex<count; pixelIndex++) {
 			pixels.add(new DmxPixel(currentUniverse, currentUniverseChannel));

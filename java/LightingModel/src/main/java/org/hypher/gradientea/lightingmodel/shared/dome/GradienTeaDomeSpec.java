@@ -5,43 +5,33 @@ package org.hypher.gradientea.lightingmodel.shared.dome;
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public class DomeSpecification {
+public class GradienTeaDomeSpec extends GeodesicDomeSpec {
 	/**
-	 * The frequency of the dome, this describes how many "cuts" are made in the icosahedron to create the dome.
-	 */
-	protected int frequency;
-
-	/**
-	 * The number of layers in the dome.
-	 */
-	protected int layers;
-
-	/**
-	 * The radius of the dome, in arbitrary units.
+	 * The radius of the dome, in feet
 	 */
 	protected double radius;
 
 	/**
-	 * The length of the side of the glowing panels.
+	 * The length of the side of the glowing panels, in feet
 	 */
 	protected double panelSideLength;
 
 	/**
-	 * The thickness of the glowing panels
+	 * The thickness of the glowing panels, in feet
 	 */
 	protected double panelThickness;
 
-	protected DomeSpecification() {}
+	protected GradienTeaDomeSpec() {}
 
-	public DomeSpecification(
+	public GradienTeaDomeSpec(
 		final int frequency,
 		final int layers,
 		final double radius,
 		final double panelSideLength,
 		final double panelThickness
 	) {
-		this.frequency = frequency;
-		this.layers = layers;
+		super(frequency, layers);
+
 		this.radius = radius;
 		this.panelSideLength = panelSideLength;
 		this.panelThickness = panelThickness;
@@ -50,12 +40,40 @@ public class DomeSpecification {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Instance Methods
 
+	public int calculateFaceCount() {
+		final int top;
+		{
+			final int topLayerCount = Math.min(layers, frequency);
+			top = topLayerCount*topLayerCount*5;
+		}
+
+		final int middle;
+		if (layers > frequency) {
+			int midLayerCount = Math.min(layers - frequency, frequency);
+
+			middle = midLayerCount*midLayerCount*5 + // Up facing
+					 ((frequency*frequency) - ((frequency-midLayerCount)*(frequency-midLayerCount)))*5; // Down facing
+		} else {
+			middle = 0;
+		}
+
+		final int bottom;
+		if (layers > frequency*2) {
+			int bottomLayerCount = Math.min(layers - frequency*2, frequency);
+			bottom = ((frequency*frequency) - ((frequency-bottomLayerCount)*(frequency-bottomLayerCount)))*5;
+		} else {
+			bottom = 0;
+		}
+
+		return top + middle + bottom;
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Generated Methods
 
 	@Override
 	public String toString() {
-		return "DomeSpecification{" +
+		return "GradienTeaDomeSpec{" +
 			"panelSideLength=" + panelSideLength +
 			", radius=" + radius +
 			", layers=" + layers +
@@ -65,14 +83,6 @@ public class DomeSpecification {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
-
-	public int getFrequency() {
-		return frequency;
-	}
-
-	public int getLayers() {
-		return layers;
-	}
 
 	public double getRadius() {
 		return radius;

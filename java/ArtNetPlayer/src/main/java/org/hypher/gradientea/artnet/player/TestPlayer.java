@@ -20,7 +20,7 @@ public class TestPlayer {
 		ArtNetAnimationPlayer player = new ArtNetAnimationPlayer();
 		player.start(
 			InetAddress.getLocalHost(),
-			InetAddress.getLocalHost(),
+			InetAddress.getByName("10.0.77.7"),
 			Constants.DEFAULT_ART_NET_UDP_PORT
 		);
 
@@ -30,13 +30,13 @@ public class TestPlayer {
 				new RenderableAnimation(
 					new SingleDefinedAnimation(
 						new ExpandedAnimationWrapper(
-							new HsbTween(new HsbColor(0, 1.0, .3), new HsbColor(1.0, 1.0, 0.3)),
+							new HsbTween(new HsbColor(0, 0.8, .5), new HsbColor(1.0, 1.0, 1.0)),
 							ExpandedAnimationWrapper.SIN,
 							0.15
 						),
-						DmxPixel.pixels(1, 5)
+						DmxPixel.pixels(1, 9)
 					),
-					10
+					4
 				)
 			)
 		);

@@ -1,0 +1,42 @@
+package org.hypher.gradientea.lightingmodel.shared.dome;
+
+import java.io.Serializable;
+
+/**
+ * @author Yona Appletree (yona@concentricsky.com)
+ */
+public class GradienTeaDomeGeometry implements Serializable {
+
+	protected GeodesicDomeGeometry domeGeometry;
+	protected GradienTeaDomeSpec spec;
+
+	protected GradienTeaDomeGeometry() {}
+
+	public GradienTeaDomeGeometry(
+		final GradienTeaDomeSpec spec
+	) {
+		this.domeGeometry = new GeodesicDomeGeometry(spec);
+		this.spec = spec;
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Instance Methods
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Generated Methods
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Getters and Setters
+
+	public GeodesicDomeGeometry getDomeGeometry() {
+		return domeGeometry;
+	}
+
+	public GradienTeaDomeSpec getSpec() {
+		return spec;
+	}
+
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Inner Classes
+}

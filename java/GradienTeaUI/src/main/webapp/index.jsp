@@ -47,6 +47,25 @@
     <style type="text/css">
         body {
             background-color: black;
+            color: white;
+        }
+
+        input {
+            border: 2px solid #FFF;
+            background-color: black;
+            width: 5em;
+            padding: .2em;
+            color: white;
+            font-family: monospace;
+            margin-left: .5em;
+            margin-right: 1em;
+        }
+
+        button {
+            border: 2px solid #FFF;
+            padding: .2em;
+            background-color: black;
+            color: yellow;
         }
     </style>
 

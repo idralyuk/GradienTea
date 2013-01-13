@@ -1,6 +1,7 @@
 package org.hypher.gradientea.ui.client.simulator;
 
 import com.google.common.base.Function;
+import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.ComparisonChain;
@@ -10,7 +11,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import net.blimster.gwt.threejs.core.Matrix4;
 import net.blimster.gwt.threejs.core.Vector3;
-import org.hypher.gradientea.lightingmodel.shared.dome.DomeSpecification;
+import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeSpec;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import java.util.Set;
 /**
 * @author Yona Appletree (yona@concentricsky.com)
 */
-public class DomeGeometry {
+public class OldDomeGeometry {
 //	protected static double t = ( 1 + Math.sqrt( 5 ) ) / 2;
 //
 //	protected static Vector3[] icosahedronVerticies = Vector3.create[] {
@@ -91,15 +92,14 @@ public class DomeGeometry {
 	protected Set<Vector3> usedVerticies = Sets.newHashSet();
 
 	protected List<DomeFace> faces = Lists.newArrayList();
-	protected List<List<DomeFace>> layers = Lists.newArrayList();
 	protected Map<Vector3, VertexFaceGrouping> vertexFaceGroupings = Maps.newTreeMap(vector3Comparator);
 
 	protected Set<DomeEdge> edges = Sets.newHashSet();
 
-	private final DomeSpecification specification;
+	private final GradienTeaDomeSpec specification;
 
-	public DomeGeometry(
-		DomeSpecification specification
+	public OldDomeGeometry(
+		GradienTeaDomeSpec specification
 	) {
 		this.specification = specification;
 		build();
@@ -131,11 +131,13 @@ public class DomeGeometry {
 				faces.add(face);
 			}
 		}
+//
+//		for (Vector3 v : icosahedronVerticies) {
+//			vertexFaceGroupings.put(v, new VertexFaceGrouping(v));
+//		}
 
-		// Remove extra faces
-		for (int i = specification.getLayers(); i<layers.size(); i++) {
-			faces.removeAll(layers.get(i));
-		}
+		// Trim the dome
+		trim();
 
 		for (Vector3 v : verticies) {
 			v.normalize();
@@ -148,6 +150,14 @@ public class DomeGeometry {
 			usedVerticies.add(face.getA());
 			usedVerticies.add(face.getB());
 			usedVerticies.add(face.getC());
+		}
+	}
+
+	private void trim() {
+		List<List<DomeFace>> primaryRings = new VertexFaceGrouping(icosahedronVerticies[11]).getRings();
+
+		for (int i=specification.getLayers(); i<primaryRings.size(); i++) {
+			faces.removeAll(primaryRings.get(i));
 		}
 	}
 
@@ -265,7 +275,20 @@ public class DomeGeometry {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
 
-	public DomeSpecification getSpec() {
+	public VertexFaceGrouping vertexFaceGroupings(int vertexIndex) {
+		Preconditions.checkArgument(vertexIndex >= 0 && vertexIndex < 12, "vertexIndex must be between 0 and 11 (inclusive)");
+
+		Vector3 vertex = icosahedronVerticies[vertexIndex];
+
+		VertexFaceGrouping grouping = vertexFaceGroupings.get(vertex);
+		if (grouping == null) {
+			vertexFaceGroupings.put(vertex, grouping = new VertexFaceGrouping(vertex));
+		}
+
+		return grouping;
+	}
+
+	public GradienTeaDomeSpec getSpec() {
 		return specification;
 	}
 
@@ -417,7 +440,7 @@ public class DomeGeometry {
 
 		@Override
 		public String toString() {
-			return "DomeEdge{" +
+			return "GeoEdge{" +
 				"v1=" + v1 +
 				", v2=" + v2 +
 				'}';
@@ -450,12 +473,20 @@ public class DomeGeometry {
 				.filter(new DomeFace.ContainsVertex(verticies))
 				.toImmutableList();
 
+			if (ringFaces.isEmpty()) {
+				throw new IllegalArgumentException("No faces contain any vertices in " + verticies);
+			}
+
 			rings.add(ringFaces);
 			remainingFaces.removeAll(ringFaces);
 
 			if (! remainingFaces.isEmpty()) {
 				addRing(remainingFaces, FluentIterable.from(ringFaces).transformAndConcat(DomeFace.getVertices).toImmutableList());
 			}
+		}
+
+		public List<List<DomeFace>> getRings() {
+			return rings;
 		}
 	}
 }

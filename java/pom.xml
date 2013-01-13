@@ -24,6 +24,9 @@
 		<!-- Java Utils -->
 		<version.guava>13.0.1</version.guava>
 		<version.jaxb>2.2.7</version.jaxb>
+
+		<!-- Testing -->
+		<version.junit>4.9</version.junit>
 	</properties>
 
 	<dependencyManagement>
@@ -81,6 +84,12 @@
 				<groupId>javax.xml.bind</groupId>
 				<artifactId>jaxb-api</artifactId>
 				<version>${version.jaxb}</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${version.junit}</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
