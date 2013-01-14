@@ -12,19 +12,19 @@ public class GradienTeaDomeSpecTest {
 	public void testFaceCalculation() {
 		// A 1v dome
 		for (int i=0; i<=3; i++) {
-			GradienTeaDomeSpec spec = new GradienTeaDomeSpec(1, i, 1, 1, 1);
+			GradienTeaDomeSpec spec = new GradienTeaDomeSpec(1, i, 0, 1, 1, 1);
 
 			int layers = 0;
 			if (i > 0) layers += 5;
 			if (i > 1) layers += 10;
 			if (i > 2) layers += 5;
 
-			Assert.assertThat(spec.getFrequency() +"v dome of " + i + " layer face count", spec.calculateFaceCount(), equalTo(layers));
+			Assert.assertThat(spec.getFrequency() +"v dome of " + i + " layer face count", spec.faceCount(), equalTo(layers));
 		}
 
 		// A 2v dome
 		for (int i=0; i<=6; i++) {
-			GradienTeaDomeSpec spec = new GradienTeaDomeSpec(2, i, 1, 1, 1);
+			GradienTeaDomeSpec spec = new GradienTeaDomeSpec(2, i, 0, 1, 1, 1);
 
 			int layers = 0;
 
@@ -40,7 +40,7 @@ public class GradienTeaDomeSpecTest {
 			if (i > 4) layers += 5 * 3;
 			if (i > 5) layers += 5 * 1;
 
-			Assert.assertThat(spec.getFrequency() +"v dome of " + i + " layer face count", spec.calculateFaceCount(), equalTo(layers));
+			Assert.assertThat(spec.getFrequency() +"v dome of " + i + " layer face count", spec.faceCount(), equalTo(layers));
 		}
 	}
 }

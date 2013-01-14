@@ -15,12 +15,32 @@ public class GeoVector3 implements Serializable {
 	public final static double equalityTolerance = 0.0000001;
 	public final static GeoVector3 origin = new GeoVector3();
 
-	public final transient static Comparator<GeoVector3> componentComparator = new Comparator<GeoVector3>() {
+	public final transient static Comparator<GeoVector3> xyzComparator = new Comparator<GeoVector3>() {
 		public int compare(final GeoVector3 o1, final GeoVector3 o2) {
 			return ComparisonChain.start()
-				.compare(o1.getX(), o2.getX())
-				.compare(o1.getY(), o2.getY())
-				.compare(o1.getZ(), o2.getZ())
+				.compare(o1.getX(), o2.getX(), tolerantDoubleComparator)
+				.compare(o1.getY(), o2.getY(), tolerantDoubleComparator)
+				.compare(o1.getZ(), o2.getZ(), tolerantDoubleComparator)
+				.result();
+		}
+	};
+
+	public final transient static Comparator<GeoVector3> zxyComparator = new Comparator<GeoVector3>() {
+		public int compare(final GeoVector3 o1, final GeoVector3 o2) {
+			return ComparisonChain.start()
+				.compare(o1.getZ(), o2.getZ(), tolerantDoubleComparator)
+				.compare(o1.getX(), o2.getX(), tolerantDoubleComparator)
+				.compare(o1.getY(), o2.getY(), tolerantDoubleComparator)
+				.result();
+		}
+	};
+
+	public final transient static Comparator<GeoVector3> yzzComparator = new Comparator<GeoVector3>() {
+		public int compare(final GeoVector3 o1, final GeoVector3 o2) {
+			return ComparisonChain.start()
+				.compare(o1.getY(), o2.getY(), tolerantDoubleComparator)
+				.compare(o1.getZ(), o2.getZ(), tolerantDoubleComparator)
+				.compare(o1.getX(), o2.getX(), tolerantDoubleComparator)
 				.result();
 		}
 	};
@@ -28,11 +48,24 @@ public class GeoVector3 implements Serializable {
 	public final transient static Comparator<GeoVector3> lengthComparator = new Comparator<GeoVector3>() {
 		public int compare(final GeoVector3 o1, final GeoVector3 o2) {
 			return ComparisonChain.start()
-				.compare(o1.length(), o2.length())
-				.compare(o1, o2, componentComparator)
+				.compare(o1.length(), o2.length(), tolerantDoubleComparator)
+				.compare(o1, o2, xyzComparator)
 				.result();
 		}
 	};
+
+	public final transient static Comparator<Double> tolerantDoubleComparator = new Comparator<Double>() {
+		@Override
+		public int compare(final Double o1, final Double o2) {
+			if (o1 == o2) return 0;
+			if (o1 == null) return -1;
+			if (o2 == null) return 1;
+			if (Math.abs(o1 - o2) < equalityTolerance) return 0;
+
+			return Double.compare(o1, o2);
+		}
+	};
+
 
 	/**
 	 * The X-coordinate

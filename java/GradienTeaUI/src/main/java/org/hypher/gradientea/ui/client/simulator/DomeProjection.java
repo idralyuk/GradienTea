@@ -50,6 +50,10 @@ public class DomeProjection {
 		return vertexMap.values();
 	}
 
+	public double bottomZ() {
+		return vertex(geometry.getDomeGeometry().getLowestVertex()).getZ();
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Construction methods
 

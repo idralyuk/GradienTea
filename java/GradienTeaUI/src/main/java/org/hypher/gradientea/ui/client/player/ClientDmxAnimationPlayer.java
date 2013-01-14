@@ -34,6 +34,8 @@ public class ClientDmxAnimationPlayer {
 	}
 
 	protected void start() {
+		if (playing) return;
+
 		playing = true;
 
 		AnimationScheduler.get().requestAnimationFrame(new AnimationScheduler.AnimationCallback() {

@@ -6,14 +6,15 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Ordering;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.dom.client.Style;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.google.gwt.user.client.ui.TextBox;
 import org.hypher.gradientea.lightingmodel.shared.animation.ExpandedAnimationWrapper;
 import org.hypher.gradientea.lightingmodel.shared.animation.HsbTween;
 import org.hypher.gradientea.lightingmodel.shared.animation.SingleDefinedAnimation;
@@ -26,8 +27,11 @@ import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeSpec;
 import org.hypher.gradientea.lightingmodel.shared.pixel.ListPixelGroup;
 import org.hypher.gradientea.lightingmodel.shared.pixel.PixelGroup;
 import org.hypher.gradientea.lightingmodel.shared.rendering.RenderableAnimation;
+import org.hypher.gradientea.lightingmodel.shared.versions.GradienTeaDomeSpecs;
 import org.hypher.gradientea.ui.client.player.ClientDmxAnimationPlayer;
 import org.hypher.gradientea.ui.client.simulator.DomeModelWidget;
+import org.hypher.gradientea.ui.client.widgets.DomeInfoPanel;
+import org.hypher.gradientea.ui.client.widgets.DomeSpecEditor;
 
 import java.util.List;
 import java.util.Map;
@@ -43,8 +47,8 @@ public class GradienTeaUI implements EntryPoint {
 	protected ClientDmxAnimationPlayer player;
 	protected DomeModelWidget widget;
 
-	protected InlineLabel faceCountLabel = new InlineLabel();
-	protected TextBox animationVertex = new TextBox();
+	protected DomeSpecEditor specEditor = new DomeSpecEditor();
+	protected DomeInfoPanel domeInfoPanel = new DomeInfoPanel();
 
 	@Override
 	public void onModuleLoad() {
@@ -56,84 +60,56 @@ public class GradienTeaUI implements EntryPoint {
 
 		FlowPanel controls = new FlowPanel();
 
-		final TextBox frequency = new TextBox();
-		frequency.setText("5");
+		final ListBox presets = new ListBox();
+		presets.addItem("Full Dome", "0");
+		presets.addItem("Demo Dome", "1");
+		presets.addItem("Full Dome w/ Small Panels", "2");
+		presets.addItem("Larger Dome w/ Small Panels", "3");
 
-		final TextBox diameter = new TextBox();
-		diameter.setText("50");
-
-		final TextBox layers = new TextBox();
-		layers.setText("8");
-
-		final TextBox triangleSideLength = new TextBox();
-		triangleSideLength.setText("2.33");
-
-		animationVertex.setText("2");
-
-		Button button = new Button("Update");
-		button.addClickHandler(new ClickHandler() {
+		presets.addChangeHandler(new ChangeHandler() {
 			@Override
-			public void onClick(final ClickEvent event) {
-				setup(
-					new GradienTeaDomeSpec(
-						Integer.parseInt(frequency.getText()), // 4v
-						Integer.parseInt(layers.getText()),
-						Integer.parseInt(diameter.getText()) / 2, // radius
-						Double.parseDouble(triangleSideLength.getText()), // standard panel size
-						1d / 24 // 1/2 inch
-					)
-				);
+			public void onChange(final ChangeEvent event) {
+				specEditor.applySpec(GradienTeaDomeSpecs.ALL[presets.getSelectedIndex()]);
+				setup();
 			}
 		});
 
-		controls.add(new InlineLabel("Frequency (1-5):"));
-		controls.add(frequency);
+		Button updateButton = new Button("Update");
+		updateButton.addClickHandler(
+			new ClickHandler() {
+				@Override
+				public void onClick(final ClickEvent event) {
+					setup();
+				}
+			}
+		);
 
-		controls.add(new InlineLabel("Diameter (ft):"));
-		controls.add(diameter);
+		controls.add(presets);
 
-		controls.add(new InlineLabel("Layers (1 to 3*(f^2)):"));
-		controls.add(layers);
+		controls.add(specEditor);
+		controls.add(updateButton);
+		controls.add(domeInfoPanel);
 
-		controls.add(new InlineLabel("Panel Size (2.33):"));
-		controls.add(triangleSideLength);
-
-		controls.add(new InlineLabel("Animation Vertex (0-11)"));
-		controls.add(animationVertex);
-
-		controls.add(button);
-
-		controls.add(new InlineLabel("Faces:"));
-		controls.add(faceCountLabel);
-
-		layoutPanel.addSouth(controls, 5);
+		layoutPanel.addWest(controls, 20);
 		layoutPanel.add(widget);
 
 		RootLayoutPanel.get().add(layoutPanel);
 
-		setup(
-			new GradienTeaDomeSpec(
-				Integer.parseInt(frequency.getText()), // 4v
-				Integer.parseInt(layers.getText()),
-				Integer.parseInt(diameter.getText()) / 2, // radius
-				Double.parseDouble(triangleSideLength.getText()), // standard panel size
-				1d / 24 // 1/2 inch
-			)
-		);
+		setup();
 	}
 
-	protected void setup(GradienTeaDomeSpec spec) {
-		GradienTeaDomeGeometry geometry = new GradienTeaDomeGeometry(spec);
+	protected void setup() {
+		GradienTeaDomeSpec spec = specEditor.buildSpec();
 
-		faceCountLabel.setText(Integer.toString(spec.calculateFaceCount()));
+		GradienTeaDomeGeometry geometry = new GradienTeaDomeGeometry(spec);
+		domeInfoPanel.showGeometryInfo(geometry);
 
 		widget.displayDome(geometry);
 
 		// Calculate groups
 		final List<GeoFace> faces = Ordering.from(GeoFace.arbitraryComparator).sortedCopy(
 			ImmutableList.copyOf(
-				geometry.getDomeGeometry()
-					.getFaces()
+				geometry.getLightedFaces()
 			));
 
 		int dmxChannel = 1;
@@ -151,11 +127,13 @@ public class GradienTeaUI implements EntryPoint {
 
 		List<PixelGroup> ringGroups = Lists.newArrayList();
 		for (List<GeoFace> ring : geometry.getDomeGeometry()
-			.ringsFrom(GeodesicSphereGeometry.icosahedronVerticies[Integer.parseInt(animationVertex.getText())])) {
+			.ringsFrom(GeodesicSphereGeometry.icosahedronVerticies[2])) {
 			List<DmxPixel> pixels = Lists.newArrayList();
 
 			for (GeoFace face : ring) {
-				pixels.add(new DmxPixel(faceChannels.get(face)[0], faceChannels.get(face)[1]));
+				if (faces.contains(face)) {
+					pixels.add(new DmxPixel(faceChannels.get(face)[0], faceChannels.get(face)[1]));
+				}
 			}
 
 			ringGroups.add(new ListPixelGroup(pixels));

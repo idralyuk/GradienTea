@@ -12,35 +12,47 @@ public class GradienTeaDomeSpec extends GeodesicDomeSpec {
 	protected double radius;
 
 	/**
-	 * The length of the side of the glowing panels, in feet
+	 * The maximum height of the glowing panels, in feet.
 	 */
-	protected double panelSideLength;
+	protected double maxPanelHeight;
 
 	/**
 	 * The thickness of the glowing panels, in feet
 	 */
 	protected double panelThickness;
 
+	protected int lightedLayers;
+
 	protected GradienTeaDomeSpec() {}
 
 	public GradienTeaDomeSpec(
 		final int frequency,
 		final int layers,
+		final int lightedLayers,
 		final double radius,
-		final double panelSideLength,
+		final double maxPanelHeight,
 		final double panelThickness
 	) {
 		super(frequency, layers);
 
+		this.lightedLayers = lightedLayers;
 		this.radius = radius;
-		this.panelSideLength = panelSideLength;
+		this.maxPanelHeight = maxPanelHeight;
 		this.panelThickness = panelThickness;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Instance Methods
 
-	public int calculateFaceCount() {
+	public int faceCount() {
+		return calculateFaceCount(layers);
+	}
+
+	public int lightedFaceCount() {
+		return calculateFaceCount(lightedLayers);
+	}
+
+	protected int calculateFaceCount(int layers) {
 		final int top;
 		{
 			final int topLayerCount = Math.min(layers, frequency);
@@ -68,28 +80,38 @@ public class GradienTeaDomeSpec extends GeodesicDomeSpec {
 		return top + middle + bottom;
 	}
 
+
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Generated Methods
 
 	@Override
 	public String toString() {
 		return "GradienTeaDomeSpec{" +
-			"panelSideLength=" + panelSideLength +
+			"maxPanelHeight=" + maxPanelHeight +
 			", radius=" + radius +
 			", layers=" + layers +
 			", frequency=" + frequency +
-			'}';
+		'}';
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
 
+	public int getLightedLayers() {
+		return lightedLayers;
+	}
+
 	public double getRadius() {
 		return radius;
 	}
 
+	public double getMaxPanelHeight() {
+		return maxPanelHeight;
+	}
+
 	public double getPanelSideLength() {
-		return panelSideLength;
+		return (2.0/Math.sqrt(3)) * maxPanelHeight;
 	}
 
 	public double getPanelThickness() {

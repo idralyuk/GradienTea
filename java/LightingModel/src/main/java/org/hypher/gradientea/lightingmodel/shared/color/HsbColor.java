@@ -8,6 +8,10 @@ public class HsbColor implements PixelColor {
 	private double saturation;
 	private double brightness;
 
+	private double hueOpacity;
+	private double saturationOpacity;
+	private double brightnessOpacity;
+
 	protected HsbColor() {}
 
 	public HsbColor(final double hue, final double saturation, final double brightness) {
@@ -24,7 +28,6 @@ public class HsbColor implements PixelColor {
 	 *
 	 * @return
 	 */
-	@Override
 	public int[] asRgb() {
 		return HSBtoRGB((float) hue, (float) saturation, (float) brightness);
 	}
@@ -91,6 +94,11 @@ public class HsbColor implements PixelColor {
 
 	public double getBrightness() {
 		return brightness;
+	}
+
+	@Override
+	public double getPriority() {
+		return 1.0;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

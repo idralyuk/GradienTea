@@ -24,9 +24,9 @@ public class GeoFace implements Serializable {
 			final GeoFace o1, final GeoFace o2
 		) {
 			return ComparisonChain.start()
-				.compare(o1.getA(), o2.getA(), GeoVector3.componentComparator)
-				.compare(o1.getB(), o2.getB(), GeoVector3.componentComparator)
-				.compare(o1.getC(), o2.getC(), GeoVector3.componentComparator)
+				.compare(o1.getA(), o2.getA(), GeoVector3.xyzComparator)
+				.compare(o1.getB(), o2.getB(), GeoVector3.xyzComparator)
+				.compare(o1.getC(), o2.getC(), GeoVector3.xyzComparator)
 				.result();
 		}
 	};

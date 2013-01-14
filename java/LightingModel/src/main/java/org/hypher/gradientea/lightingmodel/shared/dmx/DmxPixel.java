@@ -2,21 +2,16 @@ package org.hypher.gradientea.lightingmodel.shared.dmx;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import org.hypher.gradientea.lightingmodel.shared.color.PixelColor;
+import org.hypher.gradientea.lightingmodel.shared.pixel.AbstractPixel;
 import org.hypher.gradientea.lightingmodel.shared.pixel.ListPixelGroup;
-import org.hypher.gradientea.lightingmodel.shared.pixel.Pixel;
 import org.hypher.gradientea.lightingmodel.shared.pixel.PixelGroup;
-import org.hypher.gradientea.lightingmodel.shared.pixel.PixelValue;
-
-import java.util.Collections;
-import java.util.List;
 
 /**
  * A pixel in a DMX multiverse.
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public class DmxPixel implements Pixel {
+public class DmxPixel extends AbstractPixel {
 	/**
 	 * The DMX universe of the pixel.
 	 */
@@ -66,19 +61,6 @@ public class DmxPixel implements Pixel {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Instance Methods
-
-	@Override
-	public List<PixelValue> applyColor(final PixelColor color) {
-		return Collections.singletonList(new PixelValue(
-			this,
-			color
-		));
-	}
-
-	@Override
-	public List<PixelGroup> getChildren() {
-		return Collections.<PixelGroup>singletonList(this);
-	}
 
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

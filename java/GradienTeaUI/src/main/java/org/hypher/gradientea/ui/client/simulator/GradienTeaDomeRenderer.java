@@ -15,7 +15,7 @@ import net.blimster.gwt.threejs.core.Vector3;
 import net.blimster.gwt.threejs.extras.core.Shape;
 import net.blimster.gwt.threejs.extras.geometries.CylinderGeometry;
 import net.blimster.gwt.threejs.extras.geometries.ExtrudeGeometry;
-import net.blimster.gwt.threejs.extras.helpers.AxisHelper;
+import net.blimster.gwt.threejs.extras.geometries.PlaneGeometry;
 import net.blimster.gwt.threejs.lights.Light;
 import net.blimster.gwt.threejs.lights.PointLight;
 import net.blimster.gwt.threejs.materials.MeshPhongMaterial;
@@ -28,6 +28,7 @@ import org.hypher.gradientea.lightingmodel.shared.dome.GeoEdge;
 import org.hypher.gradientea.lightingmodel.shared.dome.GeoFace;
 import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeGeometry;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -61,15 +62,27 @@ class GradienTeaDomeRenderer {
 	//
 	protected Renderer renderer;
 	protected Scene scene;
-	protected PerspectiveCamera camera;
+	protected PerspectiveCamera outsideCamera;
+	protected PerspectiveCamera insideCamera;
 	protected List<PointLight> lights;
+	protected Mesh groundMesh;
 
 	//
 	// Dome-related meshes
 	//
+	private Object3D domeObject;
 	private List<Mesh> joints = Lists.newArrayList();
 	private Map<GeoEdge, Mesh> struts = Maps.newHashMap();
 	private Map<GeoFace, Mesh> panels = Maps.newHashMap();
+	private Map<GeoFace, PointLight> panelLights = Maps.newHashMap();
+
+	//
+	// Unused meshes
+	//
+	private LinkedList<Mesh> unusedJoints = Lists.newLinkedList();
+	private LinkedList<Mesh> unusedStruts = Lists.newLinkedList();
+	private LinkedList<Mesh> unusedPanels = Lists.newLinkedList();
+	private LinkedList<Object3D> unusedPanelLights = Lists.newLinkedList();
 
 	//
 	// Dome geometry
@@ -92,15 +105,19 @@ class GradienTeaDomeRenderer {
 
 		scene = Scene.create();
 
-		camera = PerspectiveCamera.create(75.0f, 1, 1.0f, 1000.0f);
-		camera.getPosition().setZ(20.0);
-		camera.setUp(Vector3.create(0.0, 0.0, 1.0));
-		camera.lookAt(Vector3.create());
+		outsideCamera = PerspectiveCamera.create(75.0f, 1, 1.0f, 1000.0f);
+		outsideCamera.getPosition().setZ(20.0);
+		outsideCamera.setUp(Vector3.create(0.0, 0.0, 1.0));
+		outsideCamera.lookAt(Vector3.create());
+
+		insideCamera = PerspectiveCamera.create(55.0f, 1, 1.0f, 1000.0f);
+		insideCamera.getPosition().setZ(5.0);
+		insideCamera.setUp(Vector3.create(0.0, 0.0, 1.0));
 
 		lights = ImmutableList.of(
-			PointLight.create(0xFFEEFF, 3, 100),
-			PointLight.create(0xFFEEFF, 3, 100),
-			PointLight.create(0xFFEEFF, 3, 100)
+			PointLight.create(0xFFEEFF, 0.6, 100),
+			PointLight.create(0xFFEEFF, 0.6, 100),
+			PointLight.create(0xFFEEFF, 0.6, 100)
 		);
 
 		for (Light light : lights) {
@@ -118,7 +135,17 @@ class GradienTeaDomeRenderer {
 		person.getPosition().setZ(3.0);
 		scene.add(person);
 
-		scene.add(AxisHelper.create(100));
+		//scene.add(AxisHelper.create(100));
+
+		groundMesh = Mesh.create(
+			PlaneGeometry.create(1000, 1000),
+			MeshPhongMaterial.create(0xAFAC90)
+		);
+		groundMesh.getPosition().setZ(-0);
+		scene.add(groundMesh);
+
+		domeObject = Object3D.create();
+		scene.add(domeObject);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -132,12 +159,23 @@ class GradienTeaDomeRenderer {
 			(double) green / 255,
 			(double) blue / 255
 		);
+
+		if (panelLights.containsKey(domeFace)) {
+			panelLights.get(domeFace).getColor().setRGB(
+				(double) red / 255,
+				(double) green / 255,
+				(double) blue / 255
+			);
+		}
 	}
 
 	public void setSize(int width, int height) {
 		renderer.setSize(width, height);
-		camera.setAspect((double) width / height);
-		camera.updateProjectionMatrix();
+		outsideCamera.setAspect((double) width / height);
+		outsideCamera.updateProjectionMatrix();
+
+		insideCamera.setAspect((double) width / height);
+		insideCamera.updateProjectionMatrix();
 	}
 
 	public void renderDome(GradienTeaDomeGeometry geometry) {
@@ -147,28 +185,34 @@ class GradienTeaDomeRenderer {
 		domePanelSideLength = geometry.getSpec().getPanelSideLength();
 
 		clear();
+
 		buildJoints();
 		buildStruts();
 		buildPanels();
 
+		domeObject.getPosition().setZ(-domeProjection.bottomZ());
+
 		updateCameraAndLights();
 	}
 
-	public void renderFrame(double cameraRotation) {
-		camera.getPosition().setX(domeRadius*2 * Math.cos(cameraRotation));
-		camera.getPosition().setY(domeRadius*2 * Math.sin(cameraRotation));
-		camera.lookAt(origin);
+	public void renderFrame(double cameraRotation, boolean useInsideCamera) {
+		outsideCamera.getPosition().setX(domeRadius*2 * Math.cos(cameraRotation));
+		outsideCamera.getPosition().setY(domeRadius*2 * Math.sin(cameraRotation));
+		outsideCamera.lookAt(origin);
 
-		renderer.render(scene, camera);
+		insideCamera.lookAt(outsideCamera.getPosition());
+		insideCamera.getUp().set(0, 0, 1.0);
+
+		renderer.render(scene, useInsideCamera ? insideCamera : outsideCamera);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Setup Methods
 
 	protected void updateCameraAndLights() {
-		camera.getPosition().setZ(domeRadius * 0.9);
-		camera.lookAt(origin);
-		camera.setUp(Vector3.create(0.0, 0.0, 1.0));
+		outsideCamera.getPosition().setZ(domeRadius * 0.9);
+		outsideCamera.lookAt(origin);
+		outsideCamera.setUp(Vector3.create(0.0, 0.0, 1.0));
 
 		for (int i=0; i<lights.size(); i++) {
 			PointLight light = lights.get(i);
@@ -182,21 +226,31 @@ class GradienTeaDomeRenderer {
 	}
 
 	private void clear() {
-		for (Object3D obj : Iterables.concat(joints, struts.values(), panels.values())) {
-			scene.remove(obj);
+		unusedJoints.addAll(joints);
+		unusedStruts.addAll(struts.values());
+		unusedPanels.addAll(panels.values());
+		unusedPanelLights.addAll(panelLights.values());
+
+		for (Object3D o : Iterables.concat(unusedJoints, unusedStruts, unusedPanels, unusedPanelLights)) {
+			o.setVisible(false);
 		}
 
 		joints.clear();
 		struts.clear();
 		panels.clear();
+		panelLights.clear();
 	}
 
 	private void buildJoints() {
 		for (Vector3 vertex : domeProjection.vertices()) {
-			Mesh mesh = Mesh.create(
-				jointGeometry,
-				joinMaterial
-			);
+			Mesh mesh = unusedJoints.isEmpty()
+				? domeObject.add(Mesh.create(
+					jointGeometry,
+					joinMaterial
+				))
+				: unusedJoints.remove();
+
+			mesh.setVisible(true);
 
 			mesh.setPosition(vertex);
 			mesh.lookAt(origin);
@@ -204,8 +258,6 @@ class GradienTeaDomeRenderer {
 
 			mesh.updateMatrix();
 			mesh.setMatrixAutoUpdate(false);
-
-			scene.add(mesh);
 		}
 	}
 
@@ -213,17 +265,21 @@ class GradienTeaDomeRenderer {
 		for (GeoEdge edge : edges()) {
 			Mesh mesh = createStrut(edge);
 
-			scene.add(mesh);
 			struts.put(edge, mesh);
 		}
 	}
 
 	private void buildPanels() {
-		for (GeoFace face : faces()) {
+		for (GeoFace face : lightedFaces()) {
 			Mesh mesh = createPanel(face);
 
-			scene.add(mesh);
 			panels.put(face, mesh);
+
+//			PointLight light = PointLight.create(0x000000, .05, 20);
+//			panelLights.put(face, light);
+//			domeObject.add(light);
+//			light.getPosition().copy(mesh.getPosition());
+//			light.getPosition().setLength(light.getPosition().length()+0.2);
 		}
 	}
 
@@ -235,13 +291,14 @@ class GradienTeaDomeRenderer {
 	}
 
 	protected Mesh createStrut(GeoEdge edge) {
-
 		Vector3[] edgeVertices = domeProjection.edge(edge);
 
-		Mesh mesh = Mesh.create(
+		Mesh mesh = unusedStruts.isEmpty() ? domeObject.add(Mesh.create(
 			strutGeometry,
 			strutMaterial
-		);
+		)) : unusedStruts.remove();
+
+		mesh.setVisible(true);
 
 		mesh.getScale().setZ(edgeVertices[0].distanceTo(edgeVertices[1]));
 		mesh.setPosition(edgeVertices[0].clone());
@@ -255,16 +312,36 @@ class GradienTeaDomeRenderer {
 	protected Mesh createPanel(GeoFace face) {
 		double sideLength = domePanelSideLength;
 
-		Geometry geometry = panelGeometryFor(sideLength);
 
-		MeshPhongMaterial material = MeshPhongMaterial.create(0x000000).setTransparent(true);
-		material.getAmbient().setRGB(1.0, 1.0, 1.0);
-		material.setOpacity(0.8);
+		MeshPhongMaterial material;
+		Mesh mesh;
+		if (unusedPanels.isEmpty()) {
+			Geometry geometry = panelGeometryFor(1.0);
 
-		Mesh mesh = Mesh.create(geometry, material);
-		mesh.setMatrixAutoUpdate(false);
+			material = MeshPhongMaterial.create(0x000000).setTransparent(true);
+			material.getAmbient().setRGB(1.0, 1.0, 1.0);
+			material.setOpacity(0.8);
+
+			mesh = Mesh.create(geometry, material);
+			mesh.setMatrixAutoUpdate(false);
+
+			domeObject.add(mesh);
+		}
+		else {
+			mesh = unusedPanels.remove();
+			material = (MeshPhongMaterial) mesh.getMaterial();
+			mesh.setVisible(true);
+		}
 
 		orientPanel(face, mesh);
+
+		mesh.getMatrix().scale(
+			Vector3.create(
+				domeProjection.getGeometry().getSpec().getPanelSideLength(),
+				domeProjection.getGeometry().getSpec().getMaxPanelHeight(),
+				domeProjection.getGeometry().getSpec().getPanelThickness()
+			)
+		);
 
 		return mesh;
 	}
@@ -339,7 +416,7 @@ class GradienTeaDomeRenderer {
 
 		Geometry geometry = shape.extrude(
 			ExtrudeGeometry.ExtrudeOptions.create()
-				.setAmount(domeProjection.getGeometry().getSpec().getPanelThickness())
+				.setAmount(1.0)
 				.setSteps(3)
 				.setBevelEnabled(false)
 		);
@@ -358,6 +435,10 @@ class GradienTeaDomeRenderer {
 
 	protected Set<GeoFace> faces() {
 		return domeProjection.getGeometry().getDomeGeometry().getFaces();
+	}
+
+	protected Set<GeoFace> lightedFaces() {
+		return domeProjection.getGeometry().getLightedFaces();
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////

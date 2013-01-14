@@ -51,7 +51,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 	public void displayDome(GradienTeaDomeGeometry geometry) {
 		domeGeometry = geometry;
 		faceList = Ordering.from(GeoFace.arbitraryComparator).sortedCopy(
-			ImmutableList.copyOf(geometry.getDomeGeometry().getFaces())
+			ImmutableList.copyOf(geometry.getLightedFaces())
 		);
 
 		domeRenderer.renderDome(geometry);
@@ -69,7 +69,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 			layout.getElement().getClientHeight()
 		);
 
-		domeRenderer.renderFrame(calculateCameraRotation());
+		domeRenderer.renderFrame(calculateCameraRotation(), false);
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 			}
 		}
 
-		domeRenderer.renderFrame(calculateCameraRotation());
+		domeRenderer.renderFrame(calculateCameraRotation(), false);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

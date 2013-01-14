@@ -1,28 +1,31 @@
-package org.hypher.gradientea.lightingmodel.shared.color;
+package org.hypher.gradientea.lightingmodel.shared.pixel;
+
+import org.hypher.gradientea.lightingmodel.shared.color.PixelColor;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public class RgbColor implements PixelColor {
-	private /*final*/ int red;
-	private /*final*/ int green;
-	private /*final*/ int blue;
-
-	protected RgbColor() { }
-
-	public RgbColor(final int red, final int green, final int blue) {
-		this.red = red;
-		this.green = green;
-		this.blue = blue;
-	}
+public class AbstractPixel implements Pixel {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Instance Methods
 
+	@Override
+	public List<PixelValue> applyColor(final PixelColor color) {
+		return Collections.singletonList(
+			new PixelValue(
+				this,
+				color
+			)
+		);
+	}
 
 	@Override
-	public int[] asRgb() {
-		return new int[] { red, green, blue };
+	public List<PixelGroup> getChildren() {
+		return Collections.<PixelGroup>singletonList(this);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,24 +33,6 @@ public class RgbColor implements PixelColor {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
-
-	public int getRed() {
-		return red;
-	}
-
-	public int getGreen() {
-		return green;
-	}
-
-	public int getBlue() {
-		return blue;
-	}
-
-	@Override
-	public double getPriority() {
-		return 0;
-	}
-
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Inner Classes

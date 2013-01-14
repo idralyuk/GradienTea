@@ -1,53 +1,21 @@
-package org.hypher.gradientea.lightingmodel.shared.color;
+package org.hypher.gradientea.lightingmodel.shared.dome.mapping;
 
 /**
+ * Defines a mapping from {@link org.hypher.gradientea.lightingmodel.shared.dome.GeoFace}s to DMX pixels for the
+ * purposes of rendering.
+ *
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public class RgbColor implements PixelColor {
-	private /*final*/ int red;
-	private /*final*/ int green;
-	private /*final*/ int blue;
-
-	protected RgbColor() { }
-
-	public RgbColor(final int red, final int green, final int blue) {
-		this.red = red;
-		this.green = green;
-		this.blue = blue;
-	}
+public class DomeDmxMapping {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Instance Methods
-
-
-	@Override
-	public int[] asRgb() {
-		return new int[] { red, green, blue };
-	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Generated Methods
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
-
-	public int getRed() {
-		return red;
-	}
-
-	public int getGreen() {
-		return green;
-	}
-
-	public int getBlue() {
-		return blue;
-	}
-
-	@Override
-	public double getPriority() {
-		return 0;
-	}
-
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Inner Classes

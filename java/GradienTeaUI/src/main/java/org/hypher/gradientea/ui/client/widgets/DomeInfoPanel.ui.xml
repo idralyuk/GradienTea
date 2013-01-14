@@ -1,0 +1,76 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+	<ui:style>
+		.container {
+			padding: .5em;
+		}
+
+		.formRow {
+			display: block;
+			margin-right: 1em;
+			margin-top: .25em;
+		}
+
+		.formRow .restrictions {
+			margin-left: .25em;
+			font-size: .8em;
+			opacity: 0.8;
+		}
+
+		.formRow .label:after {
+			content: ":";
+			margin-right: .5em;
+		}
+
+		.formRow .value {
+			font-family: monospace;
+			margin-left: .5em;
+		}
+	</ui:style>
+	<g:FlowPanel addStyleNames="{style.container}">
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Height" addStyleNames="{style.label}" />
+			<g:InlineLabel ui:field="heightLabel" addStyleNames="{style.value}" />
+			<g:InlineLabel text="ft" addStyleNames="{style.restrictions}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Joint Count" addStyleNames="{style.label}"/>
+			<g:InlineLabel ui:field="jointCountLabel" addStyleNames="{style.value}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Strut Count" addStyleNames="{style.label}"/>
+			<g:InlineLabel ui:field="strutCountLabel" addStyleNames="{style.value}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Total Strut Length" addStyleNames="{style.label}" />
+			<g:InlineLabel ui:field="totalStrutLengthLabel" addStyleNames="{style.value}" />
+			<g:InlineLabel text="ft" addStyleNames="{style.restrictions}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Face Count" addStyleNames="{style.label}"/>
+			<g:InlineLabel ui:field="faceCountLabel" addStyleNames="{style.value}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Lighted Panel Count" addStyleNames="{style.label}"/>
+			<g:InlineLabel ui:field="lightedFaceCountLabel" addStyleNames="{style.value}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Single Panel Area" addStyleNames="{style.label}"/>
+			<g:InlineLabel ui:field="singlePanelAreaLabel" addStyleNames="{style.value}" />
+			<g:InlineLabel text="ft²" addStyleNames="{style.restrictions}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Total Panel Area" addStyleNames="{style.label}" />
+			<g:InlineLabel ui:field="totalPanelAreaLabel" addStyleNames="{style.value}"/>
+			<g:InlineLabel text="ft²" addStyleNames="{style.restrictions}" />
+		</g:FlowPanel>
+	</g:FlowPanel>
+</ui:UiBinder>

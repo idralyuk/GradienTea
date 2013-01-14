@@ -5,12 +5,14 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Ordering;
 import com.google.common.collect.Sets;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)
@@ -22,6 +24,8 @@ public class GeodesicDomeGeometry implements Serializable {
 	protected Set<GeoVector3> verticies;
 	protected Set<GeoFace> faces;
 	protected Set<GeoEdge> edges;
+
+	protected GeoVector3 lowestVertex;
 
 	protected transient Map<GeoVector3, List<List<GeoFace>>> vertexRings;
 
@@ -37,6 +41,8 @@ public class GeodesicDomeGeometry implements Serializable {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Instance Methods
 	public List<List<GeoFace>> ringsFrom(GeoVector3 vertex) {
+		ensureBuilt();
+
 		if (vertexRings.containsKey(vertex)) {
 			return vertexRings.get(vertex);
 		}
@@ -65,6 +71,28 @@ public class GeodesicDomeGeometry implements Serializable {
 		vertexRings.put(vertex, newRings);
 		return newRings;
 	}
+
+	public SortedSet<Double> getStrutLengths() {
+		SortedSet<Double> lengths = Sets.newTreeSet(GeoVector3.tolerantDoubleComparator);
+
+		for (GeoEdge edge : getEdges()) {
+			lengths.add(edge.getV1().distanceTo(edge.getV2()));
+		}
+
+		return lengths;
+	}
+
+	/**
+	 * Gives the Z coordinate of the bottom of the dome
+	 *
+	 * @return
+	 */
+	public GeoVector3 getLowestVertex() {
+		ensureBuilt();
+
+		return lowestVertex;
+	}
+
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Building Methods
@@ -95,6 +123,8 @@ public class GeodesicDomeGeometry implements Serializable {
 				edges.addAll(face.getEdges());
 			}
 		}
+
+		lowestVertex = Ordering.from(GeoVector3.zxyComparator).min(verticies);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
