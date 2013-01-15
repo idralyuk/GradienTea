@@ -18,6 +18,8 @@ import net.blimster.gwt.threejs.extras.geometries.ExtrudeGeometry;
 import net.blimster.gwt.threejs.extras.geometries.PlaneGeometry;
 import net.blimster.gwt.threejs.lights.Light;
 import net.blimster.gwt.threejs.lights.PointLight;
+import net.blimster.gwt.threejs.materials.Material;
+import net.blimster.gwt.threejs.materials.MeshBasicMaterial;
 import net.blimster.gwt.threejs.materials.MeshPhongMaterial;
 import net.blimster.gwt.threejs.objects.Mesh;
 import net.blimster.gwt.threejs.renderers.CanvasRenderer;
@@ -37,21 +39,30 @@ import java.util.Set;
  * Renderer for domes. Each unit in the 3d space is considered to be 1 foot.
  */
 class GradienTeaDomeRenderer {
+	protected static final boolean openGlSupported;
+	static {
+		Canvas canvas = Canvas.createIfSupported();
+		openGlSupported = (canvas != null
+			&& (canvas.getContext("webgl") != null || canvas.getContext("experimental-webgl") != null));
+	}
+
 	//
 	// Reused globals
 	//
 	protected Vector3 origin = Vector3.create();
 
 	protected Geometry jointGeometry = createJoinGeometry(inches(3), inches(2));
-	protected MeshPhongMaterial joinMaterial = MeshPhongMaterial.create(0xCCCCCC)
-		.setShininess(.8)
-		.setReflectivity(.4)
-		.setMetal(true);
+	protected Material joinMaterial = MeshPhongMaterial.create(0xCCCCCC)
+			.setShininess(.8)
+			.setReflectivity(.4)
+			.setMetal(true);
 
-	protected MeshPhongMaterial strutMaterial = MeshPhongMaterial.create(0xAAAAAA)
-		.setShininess(.8)
-		.setReflectivity(.4)
-		.setMetal(true);
+	protected Material strutMaterial = openGlSupported
+		? MeshPhongMaterial.create(0x999999)
+			.setShininess(.8)
+			.setReflectivity(.4)
+			.setMetal(true)
+		: MeshBasicMaterial.create(0x999999);
 
 	protected Geometry strutGeometry = createStrutGeometry(inches(1));
 
@@ -66,6 +77,7 @@ class GradienTeaDomeRenderer {
 	protected PerspectiveCamera insideCamera;
 	protected List<PointLight> lights;
 	protected Mesh groundMesh;
+	protected boolean lowQualityMode;
 
 	//
 	// Dome-related meshes
@@ -74,7 +86,6 @@ class GradienTeaDomeRenderer {
 	private List<Mesh> joints = Lists.newArrayList();
 	private Map<GeoEdge, Mesh> struts = Maps.newHashMap();
 	private Map<GeoFace, Mesh> panels = Maps.newHashMap();
-	private Map<GeoFace, PointLight> panelLights = Maps.newHashMap();
 
 	//
 	// Unused meshes
@@ -82,7 +93,6 @@ class GradienTeaDomeRenderer {
 	private LinkedList<Mesh> unusedJoints = Lists.newLinkedList();
 	private LinkedList<Mesh> unusedStruts = Lists.newLinkedList();
 	private LinkedList<Mesh> unusedPanels = Lists.newLinkedList();
-	private LinkedList<Object3D> unusedPanelLights = Lists.newLinkedList();
 
 	//
 	// Dome geometry
@@ -93,13 +103,13 @@ class GradienTeaDomeRenderer {
 
 
 	public GradienTeaDomeRenderer(Canvas canvas) {
+		lowQualityMode = (canvas.getContext("webgl") == null && canvas.getContext("experimental-webgl") == null);
 
-		if (canvas.getContext("webgl") == null && canvas.getContext("experimental-webgl") == null) {
+		if (lowQualityMode) {
 			renderer = CanvasRenderer.create(canvas);
 		} else {
 			renderer = WebGLRenderer.create(canvas, true);
 		}
-
 
 		renderer.setClearColor(Color.create(0x000000), 1.0f);
 
@@ -120,14 +130,18 @@ class GradienTeaDomeRenderer {
 			PointLight.create(0xFFEEFF, 0.7, 100)
 		);
 
-		for (Light light : lights) {
-			scene.add(light);
+		if (openGlSupported) {
+			for (Light light : lights) {
+				scene.add(light);
+			}
 		}
 
-		MeshPhongMaterial personMaterial = MeshPhongMaterial.create(0xEECEB3);
+		Material personMaterial = openGlSupported
+			? MeshPhongMaterial.create(0xEECEB3)
+			: MeshBasicMaterial.create(0xEECEB3);
 
 		Mesh person = Mesh.create(
-			CylinderGeometry.create(20 / 12.0, 20 / 12.0, 6.0, 20, 1, false),
+			CylinderGeometry.create(20 / 12.0, 20 / 12.0, 6.0, openGlSupported ? 20 : 3, 1, false),
 			personMaterial
 		);
 		person.getRotation().setX(Math.PI/2);
@@ -142,7 +156,10 @@ class GradienTeaDomeRenderer {
 			MeshPhongMaterial.create(0xAFAC90)
 		);
 		groundMesh.getPosition().setZ(-0);
-		scene.add(groundMesh);
+
+		if (openGlSupported) {
+			scene.add(groundMesh);
+		}
 
 		domeObject = Object3D.create();
 		scene.add(domeObject);
@@ -154,14 +171,14 @@ class GradienTeaDomeRenderer {
 	public void applyFaceColor(final GeoFace domeFace, int red, int green, int blue) {
 		Preconditions.checkArgument(panels.containsKey(domeFace), "This model does not have a panel for " + domeFace);
 
-		((MeshPhongMaterial) panels.get(domeFace).getMaterial()).getEmissive().setRGB(
-			(double) red / 255,
-			(double) green / 255,
-			(double) blue / 255
-		);
-
-		if (panelLights.containsKey(domeFace)) {
-			panelLights.get(domeFace).getColor().setRGB(
+		if (openGlSupported) {
+			((MeshPhongMaterial) panels.get(domeFace).getMaterial()).getEmissive().setRGB(
+				(double) red / 255,
+				(double) green / 255,
+				(double) blue / 255
+			);
+		} else {
+			((MeshBasicMaterial) panels.get(domeFace).getMaterial()).getColor().setRGB(
 				(double) red / 255,
 				(double) green / 255,
 				(double) blue / 255
@@ -170,7 +187,14 @@ class GradienTeaDomeRenderer {
 	}
 
 	public void setSize(int width, int height) {
+
+		if (!openGlSupported) {
+			// Using a small square saves rendering resources
+			width = height = Math.min(width, height);
+		}
+
 		renderer.setSize(width, height);
+
 		outsideCamera.setAspect((double) width / height);
 		outsideCamera.updateProjectionMatrix();
 
@@ -229,35 +253,36 @@ class GradienTeaDomeRenderer {
 		unusedJoints.addAll(joints);
 		unusedStruts.addAll(struts.values());
 		unusedPanels.addAll(panels.values());
-		unusedPanelLights.addAll(panelLights.values());
 
-		for (Object3D o : Iterables.concat(unusedJoints, unusedStruts, unusedPanels, unusedPanelLights)) {
+		for (Object3D o : Iterables.concat(unusedJoints, unusedStruts, unusedPanels)) {
 			o.setVisible(false);
 		}
 
 		joints.clear();
 		struts.clear();
 		panels.clear();
-		panelLights.clear();
 	}
 
 	private void buildJoints() {
-		for (Vector3 vertex : domeProjection.vertices()) {
-			Mesh mesh = unusedJoints.isEmpty()
-				? domeObject.add(Mesh.create(
-					jointGeometry,
-					joinMaterial
-				))
-				: unusedJoints.remove();
+		if (openGlSupported) {
+			// Only render joints on accelerated systems
+			for (Vector3 vertex : domeProjection.vertices()) {
+				Mesh mesh = unusedJoints.isEmpty()
+					? domeObject.add(Mesh.create(
+						jointGeometry,
+						joinMaterial
+					))
+					: unusedJoints.remove();
 
-			mesh.setVisible(true);
+				mesh.setVisible(true);
 
-			mesh.setPosition(vertex);
-			mesh.lookAt(origin);
-			joints.add(mesh);
+				mesh.setPosition(vertex);
+				mesh.lookAt(origin);
+				joints.add(mesh);
 
-			mesh.updateMatrix();
-			mesh.setMatrixAutoUpdate(false);
+				mesh.updateMatrix();
+				mesh.setMatrixAutoUpdate(false);
+			}
 		}
 	}
 
@@ -313,14 +338,18 @@ class GradienTeaDomeRenderer {
 		double sideLength = domePanelSideLength;
 
 
-		MeshPhongMaterial material;
+		Material material;
 		Mesh mesh;
 		if (unusedPanels.isEmpty()) {
 			Geometry geometry = panelGeometryFor(1.0);
 
-			material = MeshPhongMaterial.create(0x000000).setTransparent(true);
-			material.getAmbient().setRGB(1.0, 1.0, 1.0);
-			material.setOpacity(0.8);
+			if (openGlSupported) {
+				material = MeshPhongMaterial.create(0x000000).setTransparent(true);
+				((MeshPhongMaterial) material).getAmbient().setRGB(1.0, 1.0, 1.0);
+				material.setOpacity(0.8);
+			} else {
+				material = MeshBasicMaterial.create(0x000000);
+			}
 
 			mesh = Mesh.create(geometry, material);
 			mesh.setMatrixAutoUpdate(false);
@@ -379,7 +408,7 @@ class GradienTeaDomeRenderer {
 	}
 
 	private Geometry createStrutGeometry(final double radius) {
-		Geometry cylinder = CylinderGeometry.create(radius, radius, 1, 10, 1, false);
+		Geometry cylinder = CylinderGeometry.create(radius, radius, 1, openGlSupported ? 10 : 3, 1, false);
 
 		Matrix4 orientation = Matrix4.create();
 		orientation.setRotationFromEuler(Vector3.create(Math.PI / 2, 0, 0));
@@ -390,7 +419,7 @@ class GradienTeaDomeRenderer {
 	}
 
 	private Geometry createJoinGeometry(final double radius, final double height) {
-		Geometry cylinder = CylinderGeometry.create(radius, radius, height, 10, 1, false);
+		Geometry cylinder = CylinderGeometry.create(radius, radius, height, openGlSupported ? 10 : 3, 1, false);
 
 		Matrix4 orientation = Matrix4.create();
 		orientation.setRotationFromEuler(Vector3.create(Math.PI / 2, 0, 0));
