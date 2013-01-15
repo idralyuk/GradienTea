@@ -61,18 +61,20 @@ public class GradienTeaUI implements EntryPoint {
 		FlowPanel controls = new FlowPanel();
 
 		final ListBox presets = new ListBox();
-		presets.addItem("Full Dome", "0");
-		presets.addItem("Demo Dome", "1");
-		presets.addItem("Full Dome w/ Small Panels", "2");
-		presets.addItem("Larger Dome w/ Small Panels", "3");
+		for (String name : GradienTeaDomeSpecs.NAMED.keySet()) {
+			presets.addItem(name);
+		}
+		presets.setSelectedIndex(0);
 
 		presets.addChangeHandler(new ChangeHandler() {
 			@Override
 			public void onChange(final ChangeEvent event) {
-				specEditor.applySpec(GradienTeaDomeSpecs.ALL[presets.getSelectedIndex()]);
+				specEditor.applySpec(GradienTeaDomeSpecs.NAMED.get(presets.getItemText(presets.getSelectedIndex())));
 				setup();
 			}
 		});
+
+		specEditor.applySpec(GradienTeaDomeSpecs.NAMED.get(presets.getItemText(presets.getSelectedIndex())));
 
 		Button updateButton = new Button("Update");
 		updateButton.addClickHandler(
@@ -143,7 +145,7 @@ public class GradienTeaUI implements EntryPoint {
 			new RenderableAnimation(
 				new SingleDefinedAnimation(
 					new ExpandedAnimationWrapper(
-						new HsbTween(new HsbColor(0, 0.8, .5), new HsbColor(1.0, 1.0, 1.0)),
+						new HsbTween(new HsbColor(0, 1.0, 1.0), new HsbColor(1.0, 1.0, 1.0)),
 						ExpandedAnimationWrapper.SIN,
 						0.3
 					),

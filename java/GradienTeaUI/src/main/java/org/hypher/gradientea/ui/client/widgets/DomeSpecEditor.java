@@ -44,7 +44,7 @@ public class DomeSpecEditor extends Composite {
 	public DomeSpecEditor() {
 		initWidget(ourUiBinder.createAndBindUi(this));
 
-		applySpec(GradienTeaDomeSpecs.FULL_DOME);
+		applySpec(GradienTeaDomeSpecs.MEDIUM_DOME_LARGE_PANELS);
 
 		final ChangeHandler updateLabelsChangeHandler = new ChangeHandler() {
 			@Override

@@ -36,7 +36,7 @@ public class TestPlayer {
 						),
 						DmxPixel.pixels(1, 9)
 					),
-					20
+					5
 				)
 			)
 		);

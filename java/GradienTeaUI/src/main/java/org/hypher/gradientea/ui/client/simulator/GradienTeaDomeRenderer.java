@@ -115,9 +115,9 @@ class GradienTeaDomeRenderer {
 		insideCamera.setUp(Vector3.create(0.0, 0.0, 1.0));
 
 		lights = ImmutableList.of(
-			PointLight.create(0xFFEEFF, 0.6, 100),
-			PointLight.create(0xFFEEFF, 0.6, 100),
-			PointLight.create(0xFFEEFF, 0.6, 100)
+			PointLight.create(0xFFEEFF, 0.7, 100),
+			PointLight.create(0xFFEEFF, 0.7, 100),
+			PointLight.create(0xFFEEFF, 0.7, 100)
 		);
 
 		for (Light light : lights) {
