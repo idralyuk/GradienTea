@@ -146,7 +146,7 @@ public class GradienTeaUI implements EntryPoint {
 				new SingleDefinedAnimation(
 					new ExpandedAnimationWrapper(
 						new HsbTween(new HsbColor(0, 1.0, 1.0), new HsbColor(1.0, 1.0, 1.0)),
-						ExpandedAnimationWrapper.SIN,
+						ExpandedAnimationWrapper.TRIANGLE,
 						0.3
 					),
 					new ListPixelGroup(ringGroups)

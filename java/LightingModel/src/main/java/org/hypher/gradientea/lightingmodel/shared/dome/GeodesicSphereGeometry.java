@@ -1,6 +1,7 @@
 package org.hypher.gradientea.lightingmodel.shared.dome;
 
 import com.google.common.collect.FluentIterable;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
@@ -98,6 +99,14 @@ public class GeodesicSphereGeometry implements Serializable {
 
 		for (GeoFace face : faces) {
 			edges.addAll(face.getEdges());
+		}
+
+
+		ImmutableSet<GeoVector3> vertexCopies = ImmutableSet.copyOf(verticies.values());
+		verticies.clear();
+		for (GeoVector3 vector3 : vertexCopies) {
+			vector3.normalizeInPlace();
+			verticies.put(vector3, vector3);
 		}
 	}
 

@@ -1,11 +1,13 @@
 package org.hypher.gradientea.ui.client.simulator;
 
+import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gwt.canvas.client.Canvas;
+import com.google.gwt.core.client.JsArray;
 import net.blimster.gwt.threejs.cameras.PerspectiveCamera;
 import net.blimster.gwt.threejs.core.Color;
 import net.blimster.gwt.threejs.core.Geometry;
@@ -26,6 +28,7 @@ import net.blimster.gwt.threejs.renderers.CanvasRenderer;
 import net.blimster.gwt.threejs.renderers.Renderer;
 import net.blimster.gwt.threejs.renderers.WebGLRenderer;
 import net.blimster.gwt.threejs.scenes.Scene;
+import net.blimster.gwt.threejsx.util.JsArrays;
 import org.hypher.gradientea.lightingmodel.shared.dome.GeoEdge;
 import org.hypher.gradientea.lightingmodel.shared.dome.GeoFace;
 import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeGeometry;
@@ -40,6 +43,10 @@ import java.util.Set;
  */
 class GradienTeaDomeRenderer {
 	protected static final boolean openGlSupported;
+	/**
+	 * Enables the inclusion of extra triangles to double the size of the panels.
+	 */
+	protected static final boolean includeExtraTriangles = false;
 	static {
 		Canvas canvas = Canvas.createIfSupported();
 		openGlSupported = (canvas != null
@@ -74,10 +81,32 @@ class GradienTeaDomeRenderer {
 	protected Renderer renderer;
 	protected Scene scene;
 	protected PerspectiveCamera outsideCamera;
-	protected PerspectiveCamera insideCamera;
 	protected List<PointLight> lights;
 	protected Mesh groundMesh;
 	protected boolean lowQualityMode;
+
+	//
+	// Rendering Options
+	//
+	/**
+	 * The angle the camera should be positioned.
+	 */
+	protected double cameraAngleRadians;
+
+	/**
+	 * The height the camera should be positioned off the ground.
+	 */
+	protected double cameraHeightFeet;
+
+	/**
+	 * The height the camera should be pointed at. The camera always looks towards the center of the dome.
+	 */
+	protected double cameraViewHeightFeet;
+
+	/**
+	 * The distance the camera should be positioned from the center of the dome.
+	 */
+	protected double cameraDistanceFeet;
 
 	//
 	// Dome-related meshes
@@ -85,14 +114,14 @@ class GradienTeaDomeRenderer {
 	private Object3D domeObject;
 	private List<Mesh> joints = Lists.newArrayList();
 	private Map<GeoEdge, Mesh> struts = Maps.newHashMap();
-	private Map<GeoFace, Mesh> panels = Maps.newHashMap();
+	private Map<GeoFace, PanelObject> panels = Maps.newHashMap();
 
 	//
 	// Unused meshes
 	//
 	private LinkedList<Mesh> unusedJoints = Lists.newLinkedList();
 	private LinkedList<Mesh> unusedStruts = Lists.newLinkedList();
-	private LinkedList<Mesh> unusedPanels = Lists.newLinkedList();
+	private LinkedList<PanelObject> unusedPanels = Lists.newLinkedList();
 
 	//
 	// Dome geometry
@@ -120,10 +149,6 @@ class GradienTeaDomeRenderer {
 		outsideCamera.setUp(Vector3.create(0.0, 0.0, 1.0));
 		outsideCamera.lookAt(Vector3.create());
 
-		insideCamera = PerspectiveCamera.create(55.0f, 1, 1.0f, 1000.0f);
-		insideCamera.getPosition().setZ(5.0);
-		insideCamera.setUp(Vector3.create(0.0, 0.0, 1.0));
-
 		lights = ImmutableList.of(
 			PointLight.create(0xFFEEFF, 0.7, 100),
 			PointLight.create(0xFFEEFF, 0.7, 100),
@@ -138,7 +163,7 @@ class GradienTeaDomeRenderer {
 
 		Material personMaterial = openGlSupported
 			? MeshPhongMaterial.create(0xEECEB3)
-			: MeshBasicMaterial.create(0xEECEB3);
+			: MeshBasicMaterial.create(0x706155);
 
 		Mesh person = Mesh.create(
 			CylinderGeometry.create(20 / 12.0, 20 / 12.0, 6.0, openGlSupported ? 20 : 3, 1, false),
@@ -152,7 +177,7 @@ class GradienTeaDomeRenderer {
 		//scene.add(AxisHelper.create(100));
 
 		groundMesh = Mesh.create(
-			PlaneGeometry.create(1000, 1000),
+			PlaneGeometry.create(100000, 100000),
 			MeshPhongMaterial.create(0xAFAC90)
 		);
 		groundMesh.getPosition().setZ(-0);
@@ -172,13 +197,13 @@ class GradienTeaDomeRenderer {
 		Preconditions.checkArgument(panels.containsKey(domeFace), "This model does not have a panel for " + domeFace);
 
 		if (openGlSupported) {
-			((MeshPhongMaterial) panels.get(domeFace).getMaterial()).getEmissive().setRGB(
+			((MeshPhongMaterial) panels.get(domeFace).mesh.getMaterial()).getEmissive().setRGB(
 				(double) red / 255,
 				(double) green / 255,
 				(double) blue / 255
 			);
 		} else {
-			((MeshBasicMaterial) panels.get(domeFace).getMaterial()).getColor().setRGB(
+			((MeshBasicMaterial) panels.get(domeFace).mesh.getMaterial()).getColor().setRGB(
 				(double) red / 255,
 				(double) green / 255,
 				(double) blue / 255
@@ -197,9 +222,6 @@ class GradienTeaDomeRenderer {
 
 		outsideCamera.setAspect((double) width / height);
 		outsideCamera.updateProjectionMatrix();
-
-		insideCamera.setAspect((double) width / height);
-		insideCamera.updateProjectionMatrix();
 	}
 
 	public void renderDome(GradienTeaDomeGeometry geometry) {
@@ -219,15 +241,15 @@ class GradienTeaDomeRenderer {
 		updateCameraAndLights();
 	}
 
-	public void renderFrame(double cameraRotation, boolean useInsideCamera) {
-		outsideCamera.getPosition().setX(domeRadius*2 * Math.cos(cameraRotation));
-		outsideCamera.getPosition().setY(domeRadius*2 * Math.sin(cameraRotation));
-		outsideCamera.lookAt(origin);
+	public void renderFrame() {
+		outsideCamera.getPosition().set(
+			cameraDistanceFeet * Math.cos(cameraAngleRadians),
+			cameraDistanceFeet * Math.sin(cameraAngleRadians),
+			cameraHeightFeet
+		);
+		outsideCamera.lookAt(Vector3.create(0, 0, cameraViewHeightFeet));
 
-		insideCamera.lookAt(outsideCamera.getPosition());
-		insideCamera.getUp().set(0, 0, 1.0);
-
-		renderer.render(scene, useInsideCamera ? insideCamera : outsideCamera);
+		renderer.render(scene, outsideCamera);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -254,7 +276,11 @@ class GradienTeaDomeRenderer {
 		unusedStruts.addAll(struts.values());
 		unusedPanels.addAll(panels.values());
 
-		for (Object3D o : Iterables.concat(unusedJoints, unusedStruts, unusedPanels)) {
+		for (Object3D o : Iterables.concat(
+			unusedJoints,
+			unusedStruts,
+			Iterables.transform(unusedPanels, PanelObject.getContainer)
+		)) {
 			o.setVisible(false);
 		}
 
@@ -296,15 +322,8 @@ class GradienTeaDomeRenderer {
 
 	private void buildPanels() {
 		for (GeoFace face : lightedFaces()) {
-			Mesh mesh = createPanel(face);
-
-			panels.put(face, mesh);
-
-//			PointLight light = PointLight.create(0x000000, .05, 20);
-//			panelLights.put(face, light);
-//			domeObject.add(light);
-//			light.getPosition().copy(mesh.getPosition());
-//			light.getPosition().setLength(light.getPosition().length()+0.2);
+			PanelObject panelObject = createPanel(face);
+			panels.put(face, panelObject);
 		}
 	}
 
@@ -334,14 +353,15 @@ class GradienTeaDomeRenderer {
 		return mesh;
 	}
 
-	protected Mesh createPanel(GeoFace face) {
+	protected PanelObject createPanel(GeoFace face) {
 		double sideLength = domePanelSideLength;
 
+		PanelObject panel;
 
-		Material material;
-		Mesh mesh;
 		if (unusedPanels.isEmpty()) {
-			Geometry geometry = panelGeometryFor(1.0);
+			Geometry geometry = createPanelGeometry();
+
+			Material material;
 
 			if (openGlSupported) {
 				material = MeshPhongMaterial.create(0x000000).setTransparent(true);
@@ -351,31 +371,31 @@ class GradienTeaDomeRenderer {
 				material = MeshBasicMaterial.create(0x000000);
 			}
 
-			mesh = Mesh.create(geometry, material);
-			mesh.setMatrixAutoUpdate(false);
+			panel = new PanelObject(
+				Mesh.create(geometry, material)
+			);
 
-			domeObject.add(mesh);
+			domeObject.add(panel.container);
 		}
 		else {
-			mesh = unusedPanels.remove();
-			material = (MeshPhongMaterial) mesh.getMaterial();
-			mesh.setVisible(true);
+			panel = unusedPanels.remove();
+			panel.container.setVisible(true);
 		}
 
-		orientPanel(face, mesh);
-
-		mesh.getMatrix().scale(
+		panel.mesh.setScale(
 			Vector3.create(
 				domeProjection.getGeometry().getSpec().getPanelSideLength(),
-				domeProjection.getGeometry().getSpec().getMaxPanelHeight(),
+				domeProjection.getGeometry().getSpec().getPanelSideLength(),
 				domeProjection.getGeometry().getSpec().getPanelThickness()
 			)
 		);
 
-		return mesh;
+		orientPanel(face, panel.container);
+
+		return panel;
 	}
 
-	protected void orientPanel(GeoFace face, Mesh panel) {
+	protected void orientPanel(GeoFace face, Object3D panel) {
 		Vector3[] faceVertices = domeProjection.face(face);
 
 		Vector3 vABmidpoint = faceVertices[0].clone().addSelf(faceVertices[1]).divideScalar(2);
@@ -428,7 +448,9 @@ class GradienTeaDomeRenderer {
 		return cylinder;
 	}
 
-	private Geometry panelGeometryFor(final double sideLength) {
+	private Geometry createPanelGeometry() {
+		double sideLength = 1.0;
+
 		if (panelGeometries.containsKey(sideLength)) {
 			return panelGeometries.get(sideLength);
 		}
@@ -437,18 +459,45 @@ class GradienTeaDomeRenderer {
 		double sideRadius = (1.0/6)*Math.sqrt(3)*sideLength;
 		double connerRadius = (1.0/3)*Math.sqrt(3)*sideLength;
 
+		JsArray<Shape> shapes = JsArrays.newArray();
+
 		Shape shape = Shape.createShape();
 		shape.moveTo(0, connerRadius);
 		shape.lineTo(sideLength / 2, -sideRadius);
 		shape.lineTo(-sideLength/2, -sideRadius);
 		shape.closePath();
 
-		Geometry geometry = shape.extrude(
-			ExtrudeGeometry.ExtrudeOptions.create()
-				.setAmount(1.0)
-				.setSteps(3)
-				.setBevelEnabled(false)
+		shapes.push(shape);
+
+		if (includeExtraTriangles) {
+			for (int i=0; i<3; i++) {
+				double cx = 2.1*sideRadius*Math.cos(Math.PI/6 + i*(Math.PI*(2d/3)));
+				double cy = 2.1*sideRadius*Math.sin(Math.PI/6 + i * (Math.PI*(2d/3)));
+
+				shape = Shape.createShape();
+				shape.moveTo(cx, cy-connerRadius);
+				shape.lineTo(cx-sideLength/2, cy+sideRadius);
+				shape.lineTo(cx+sideLength/2, cy+sideRadius);
+				shape.closePath();
+
+				shapes.push(shape);
+			}
+		}
+
+		Geometry geometry = ExtrudeGeometry.createExtrudeGeometry(
+			shapes, ExtrudeGeometry.ExtrudeOptions.create()
+			.setAmount(1/24d)
+			.setSteps(3)
+			.setBevelEnabled(false)
 		);
+//
+//		Geometry geometry = CylinderGeometry.create(sideLength/2, sideLength/2, 1.0, 3, 1, false);
+//
+		if (includeExtraTriangles) {
+			Matrix4 orientation = Matrix4.create();
+			orientation.setRotationFromEuler(Vector3.create(0, 0, Math.PI));
+			geometry.applyMatrix(orientation);
+		}
 
 		panelGeometries.put(sideLength, geometry);
 
@@ -481,7 +530,61 @@ class GradienTeaDomeRenderer {
 		return struts;
 	}
 
-	public Map<GeoFace, Mesh> getPanels() {
+	public Map<GeoFace, PanelObject> getPanels() {
 		return panels;
+	}
+
+	public double getCameraAngleRadians() {
+		return cameraAngleRadians;
+	}
+
+	public void setCameraAngleRadians(final double cameraAngleRadians) {
+		this.cameraAngleRadians = cameraAngleRadians;
+	}
+
+	public double getCameraHeightFeet() {
+		return cameraHeightFeet;
+	}
+
+	public void setCameraHeightFeet(final double cameraHeightFeet) {
+		this.cameraHeightFeet = cameraHeightFeet;
+	}
+
+	public double getCameraViewHeightFeet() {
+		return cameraViewHeightFeet;
+	}
+
+	public void setCameraViewHeightFeet(final double cameraViewHeightFeet) {
+		this.cameraViewHeightFeet = cameraViewHeightFeet;
+	}
+
+	public double getCameraDistanceFeet() {
+		return cameraDistanceFeet;
+	}
+
+	public void setCameraDistanceFeet(final double cameraDistanceFeet) {
+		this.cameraDistanceFeet = cameraDistanceFeet;
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Inner Classes
+
+	protected static class PanelObject {
+		protected Mesh mesh;
+		protected Object3D container;
+
+		public PanelObject(final Mesh mesh) {
+			this.mesh = mesh;
+
+			this.container = Object3D.create();
+			this.container.setMatrixAutoUpdate(false);
+			this.container.add(mesh);
+		}
+
+		public static final Function<PanelObject, Object3D> getContainer = new Function<PanelObject, Object3D>(){
+			public Object3D apply(final PanelObject input) {
+				return input.container;
+			}
+		};
 	}
 }

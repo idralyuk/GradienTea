@@ -12,7 +12,7 @@ import java.util.Comparator;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class GeoVector3 implements Serializable {
-	public final static double equalityTolerance = 0.0000001;
+	public final static double equalityTolerance = 0.0000000001;
 	public final static GeoVector3 origin = new GeoVector3();
 
 	public final transient static Comparator<GeoVector3> xyzComparator = new Comparator<GeoVector3>() {
@@ -70,17 +70,17 @@ public class GeoVector3 implements Serializable {
 	/**
 	 * The X-coordinate
 	 */
-	protected final double x;
+	protected double x;
 	
 	/**
 	 * The Y-coordinate
 	 */
-	protected final double y;
+	protected double y;
 	
 	/**
 	 * The Y-coordinate
 	 */
-	protected final double z;
+	protected double z;
 
 	/**
 	 * This default constructor will initialize vector (0, 0, 0), for internal use only. External users should
@@ -117,6 +117,18 @@ public class GeoVector3 implements Serializable {
 	public double getZ()
 	{
 		return this.z;
+	}
+
+	public GeoVector3 withX(final double x) {
+		return new GeoVector3(x, y, z);
+	}
+
+	public GeoVector3 withY(final double y) {
+		return new GeoVector3(x, y, z);
+	}
+
+	public GeoVector3 withZ(final double z) {
+		return new GeoVector3(x, y, z);
 	}
 
 	public GeoVector3 add(GeoVector3 v)
@@ -286,9 +298,9 @@ public class GeoVector3 implements Serializable {
 
 	public double distanceToSquared(GeoVector3 v1)
 	{
-		double dx = this.getX() - ((GeoVector3) v1).getX();
-		double dy = this.getY() - ((GeoVector3) v1).getY();
-		double dz = this.getZ() - ((GeoVector3) v1).getZ();
+		double dx = this.getX() - v1.getX();
+		double dy = this.getY() - v1.getY();
+		double dz = this.getZ() - v1.getZ();
 		return (dx * dx + dy * dy + dz * dz);
 	}
 
@@ -338,5 +350,16 @@ public class GeoVector3 implements Serializable {
 	@Override
 	public int hashCode() {
 		return (int) (this.x * 1000000)*31 + (int) (this.y * 1000000)*31 + (int) (this.z * 1000000)*31;
+	}
+
+	/**
+	 * Normalize the values of <em>this</em> vector, without making a copy. This should only be used carefully.
+	 */
+	protected void normalizeInPlace() {
+		GeoVector3 normal = normalize();
+
+		this.x = normal.x;
+		this.y = normal.y;
+		this.z = normal.z;
 	}
 }

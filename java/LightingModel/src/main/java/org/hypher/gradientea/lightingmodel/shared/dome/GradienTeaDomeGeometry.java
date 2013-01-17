@@ -2,9 +2,12 @@ package org.hypher.gradientea.lightingmodel.shared.dome;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
+import com.google.common.collect.Sets;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Set;
+import java.util.SortedSet;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)
@@ -61,6 +64,37 @@ public class GradienTeaDomeGeometry implements Serializable {
 		return total;
 	}
 
+	public double getFloorRadius() {
+		final GeoVector3 lowestVertex = domeGeometry.getLowestVertex();
+
+		return lowestVertex.distanceTo(GeoVector3.origin.withZ(lowestVertex.getZ())) * spec.getRadius();
+	}
+
+	public SortedSet<Double> getStrutLengths() {
+		SortedSet<Double> lengths = Sets.newTreeSet(new Comparator <Double>() {
+			@Override
+			public int compare(final Double o1, final Double o2) {
+				// Equal if less than one eighth of an inch different
+				if (Math.abs(o1 - o2) < (1d/(12*8))) return 0;
+
+				return Double.compare(o1, o2);
+			}
+		});
+		double radius = spec.getRadius();
+
+		for (GeoEdge edge : domeGeometry.getEdges()) {
+			lengths.add(
+				edge.getV1().withLength(radius).distanceTo(edge.getV2().withLength(radius))
+			);
+		}
+
+		return lengths;
+	}
+
+	public double getFloorArea() {
+		return Math.PI * getFloorRadius()*getFloorRadius();
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Generated Methods
 
@@ -74,6 +108,7 @@ public class GradienTeaDomeGeometry implements Serializable {
 	public GradienTeaDomeSpec getSpec() {
 		return spec;
 	}
+
 
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

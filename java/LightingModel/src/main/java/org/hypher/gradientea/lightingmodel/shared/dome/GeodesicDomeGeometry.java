@@ -26,6 +26,7 @@ public class GeodesicDomeGeometry implements Serializable {
 	protected Set<GeoEdge> edges;
 
 	protected GeoVector3 lowestVertex;
+	protected GeoVector3 highestVertex;
 
 	protected transient Map<GeoVector3, List<List<GeoFace>>> vertexRings;
 
@@ -93,6 +94,11 @@ public class GeodesicDomeGeometry implements Serializable {
 		return lowestVertex;
 	}
 
+	public GeoVector3 getHighestVertex() {
+		ensureBuilt();
+
+		return highestVertex;
+	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Building Methods
@@ -125,6 +131,7 @@ public class GeodesicDomeGeometry implements Serializable {
 		}
 
 		lowestVertex = Ordering.from(GeoVector3.zxyComparator).min(verticies);
+		highestVertex = Ordering.from(GeoVector3.zxyComparator).max(verticies);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

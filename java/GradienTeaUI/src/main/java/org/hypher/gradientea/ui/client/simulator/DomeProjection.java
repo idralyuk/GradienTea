@@ -54,6 +54,10 @@ public class DomeProjection {
 		return vertex(geometry.getDomeGeometry().getLowestVertex()).getZ();
 	}
 
+	public Vector3 highestVertex() {
+		return vertex(geometry.getDomeGeometry().getHighestVertex());
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Construction methods
 
@@ -76,4 +80,5 @@ public class DomeProjection {
 	public GradienTeaDomeGeometry getGeometry() {
 		return geometry;
 	}
+
 }

@@ -36,6 +36,18 @@
 		</g:FlowPanel>
 
 		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Floor Diameter" addStyleNames="{style.label}" />
+			<g:InlineLabel ui:field="floorDiameterLabel" addStyleNames="{style.value}" />
+			<g:InlineLabel text="ft" addStyleNames="{style.restrictions}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Floor Area" addStyleNames="{style.label}" />
+			<g:InlineLabel ui:field="floorAreaLabel" addStyleNames="{style.value}" />
+			<g:InlineLabel text="ft" addStyleNames="{style.restrictions}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
 			<g:InlineLabel text="Joint Count" addStyleNames="{style.label}"/>
 			<g:InlineLabel ui:field="jointCountLabel" addStyleNames="{style.value}" />
 		</g:FlowPanel>
@@ -43,6 +55,11 @@
 		<g:FlowPanel addStyleNames="{style.formRow}">
 			<g:InlineLabel text="Strut Count" addStyleNames="{style.label}"/>
 			<g:InlineLabel ui:field="strutCountLabel" addStyleNames="{style.value}" />
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{style.formRow}">
+			<g:InlineLabel text="Strut Lengths" addStyleNames="{style.label}" />
+			<g:InlineLabel ui:field="strutLengthsLabel" addStyleNames="{style.value}" />
 		</g:FlowPanel>
 
 		<g:FlowPanel addStyleNames="{style.formRow}">
