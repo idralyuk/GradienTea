@@ -57,8 +57,8 @@ public class GradienTeaDomeSpecs {
 	);
 
 	public final static transient Map<String, GradienTeaDomeSpec> NAMED = new LinkedHashMap<String, GradienTeaDomeSpec>(){{
-		put("Large Dome w/ Small Panels", LARGE_DOME_SMALL_PANELS);
 		put("Medium Dome w/ Small Panels", MEDIUM_DOME_SMALL_PANELS);
+		put("Large Dome w/ Small Panels", LARGE_DOME_SMALL_PANELS);
 		put("Demo Dome w/ Small Panels", DEMO_DOME_SMALL_PANELS);
 		put("Medium Dome w/ Large Panels", MEDIUM_DOME_LARGE_PANELS);
 		put("Demo Dome w/ Large Panels", DEMO_DOME_LARGE_PANELS);
