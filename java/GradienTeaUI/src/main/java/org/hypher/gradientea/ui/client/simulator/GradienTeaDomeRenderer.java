@@ -279,7 +279,7 @@ class GradienTeaDomeRenderer {
 		for (Object3D o : Iterables.concat(
 			unusedJoints,
 			unusedStruts,
-			Iterables.transform(unusedPanels, PanelObject.getContainer)
+			Iterables.transform(unusedPanels, PanelObject.getMesh)
 		)) {
 			o.setVisible(false);
 		}
@@ -327,7 +327,7 @@ class GradienTeaDomeRenderer {
 		}
 	}
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Utility Methods
 
 	protected double inches(final double count) {
@@ -379,7 +379,7 @@ class GradienTeaDomeRenderer {
 		}
 		else {
 			panel = unusedPanels.remove();
-			panel.container.setVisible(true);
+			panel.mesh.setVisible(true);
 		}
 
 		panel.mesh.setScale(
@@ -504,7 +504,7 @@ class GradienTeaDomeRenderer {
 		return geometry;
 	}
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Geometry Utility Methods
 
 	protected Set<GeoEdge> edges() {
@@ -519,7 +519,7 @@ class GradienTeaDomeRenderer {
 		return domeProjection.getGeometry().getLightedFaces();
 	}
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
 
 	public List<Mesh> getJoints() {
@@ -566,7 +566,7 @@ class GradienTeaDomeRenderer {
 		this.cameraDistanceFeet = cameraDistanceFeet;
 	}
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Inner Classes
 
 	protected static class PanelObject {
@@ -581,9 +581,9 @@ class GradienTeaDomeRenderer {
 			this.container.add(mesh);
 		}
 
-		public static final Function<PanelObject, Object3D> getContainer = new Function<PanelObject, Object3D>(){
+		public static final Function<PanelObject, Object3D> getMesh = new Function<PanelObject, Object3D>(){
 			public Object3D apply(final PanelObject input) {
-				return input.container;
+				return input.mesh;
 			}
 		};
 	}

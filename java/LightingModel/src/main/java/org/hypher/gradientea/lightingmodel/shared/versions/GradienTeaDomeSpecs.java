@@ -39,9 +39,9 @@ public class GradienTeaDomeSpecs {
 	);
 
 	public final static transient GradienTeaDomeSpec MEDIUM_DOME_SMALL_PANELS = new GradienTeaDomeSpec(
-		4,
+		5,
+		8,
 		7,
-		6,
 		20,
 		2,
 		1d/24
