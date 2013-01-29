@@ -91,9 +91,9 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		if (! initialCameraValuesSet) {
 			initialCameraValuesSet = true;
 
-			domeRenderer.setCameraHeightFeet(5.0);
-			domeRenderer.setCameraViewHeightFeet(geometry.getHeight());
-			domeRenderer.setCameraDistanceFeet(geometry.getSpec().getRadius()*2);
+			domeRenderer.setCameraHeightFeet(geometry.getHeight()/2);
+			domeRenderer.setCameraViewHeightFeet(geometry.getHeight()/2);
+			domeRenderer.setCameraDistanceFeet(geometry.getSpec().getRadius()*2.5);
 		}
 
 		onResize();

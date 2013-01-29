@@ -279,7 +279,7 @@ class GradienTeaDomeRenderer {
 		for (Object3D o : Iterables.concat(
 			unusedJoints,
 			unusedStruts,
-			Iterables.transform(unusedPanels, PanelObject.getContainer)
+			Iterables.transform(unusedPanels, PanelObject.getMesh)
 		)) {
 			o.setVisible(false);
 		}
@@ -379,7 +379,7 @@ class GradienTeaDomeRenderer {
 		}
 		else {
 			panel = unusedPanels.remove();
-			panel.container.setVisible(true);
+			panel.mesh.setVisible(true);
 		}
 
 		panel.mesh.setScale(
@@ -581,9 +581,9 @@ class GradienTeaDomeRenderer {
 			this.container.add(mesh);
 		}
 
-		public static final Function<PanelObject, Object3D> getContainer = new Function<PanelObject, Object3D>(){
+		public static final Function<PanelObject, Object3D> getMesh = new Function<PanelObject, Object3D>(){
 			public Object3D apply(final PanelObject input) {
-				return input.container;
+				return input.mesh;
 			}
 		};
 	}
