@@ -1,7 +1,7 @@
 package org.hypher.gradientea.lightingmodel.shared.dome.mapping;
 
 /**
- * Defines a mapping from {@link org.hypher.gradientea.lightingmodel.shared.dome.GeoFace}s to DMX pixels for the
+ * Defines a mapping from {@link org.hypher.gradientea.lightingmodel.shared.dome.geometry.GeoFace}s to DMX pixels for the
  * purposes of rendering.
  *
  * @author Yona Appletree (yona@concentricsky.com)

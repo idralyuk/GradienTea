@@ -22,7 +22,7 @@
 		<version.gae>1.7.0</version.gae>
 
 		<!-- Java Utils -->
-		<version.guava>13.0.1</version.guava>
+		<version.guava>14.0-rc2</version.guava>
 		<version.jaxb>2.2.7</version.jaxb>
 
 		<!-- Testing -->
@@ -96,6 +96,7 @@
 
 	<modules>
 		<module>LightingModel</module>
+		<module>AnimationModel</module>
 		<module>ArtNetPlayer</module>
 		<module>GradienTeaUI</module>
 	</modules>

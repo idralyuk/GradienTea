@@ -6,6 +6,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="gwt" url="file://$PROJECT_DIR$/../../../opensource/java/parallax" />
     <file type="gwt" url="file://$PROJECT_DIR$/../../../opensource/java/three4g" />
+    <file type="gwt" url="file://$PROJECT_DIR$/AnimationModel" />
     <file type="gwt" url="file://$PROJECT_DIR$/GaeTestApp" />
     <file type="gwt" url="file://$PROJECT_DIR$/GradienTeaUI" />
     <file type="gwt" url="file://$PROJECT_DIR$/LightingModel" />

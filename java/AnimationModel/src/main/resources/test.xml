@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stuff>
+	<pattern uuid="" name="Color Wave" description="Sends a single color wave through a group">
+		<function-expansion>
+			<sin-function />
+			<hsb-tween>
+				<color-stop>
+					<position>
+						<constant>0.0</constant>
+					</position>
+					<color>
+						<variable name="color1" />
+					</color>
+				</color-stop>
+
+				<color-stop>
+					<position>
+						<constant>1.0</constant>
+					</position>
+					<color>
+						<variable name="color2" />
+					</color>
+				</color-stop>
+			</hsb-tween>
+		</function-expansion>
+	</pattern>
+
+	<scene>
+		<entry start="0.0" end="0.5">
+			<pattern-ref name="Color Wave" />
+		</entry>
+	</scene>
+
+	<!--
+		Groups:
+
+	-->
+</stuff>

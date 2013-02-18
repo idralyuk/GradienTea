@@ -1,9 +1,9 @@
 package org.hypher.gradientea.lightingmodel.shared.rendering;
 
-import org.hypher.gradientea.lightingmodel.shared.animation.DefinedAnimation;
+import org.hypher.gradientea.lightingmodel.shared.animation.AttachedAnimation;
 
 /**
- * A {@link org.hypher.gradientea.lightingmodel.shared.animation.DefinedAnimation} with all necessary components to be rendered.
+ * A {@link org.hypher.gradientea.lightingmodel.shared.animation.AttachedAnimation} with all necessary components to be rendered.
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
@@ -11,7 +11,7 @@ public class RenderableAnimation {
 	/**
 	 * The animation definition
 	 */
-	protected DefinedAnimation animation;
+	protected AttachedAnimation animation;
 
 	/**
 	 * The suggested duration for the animation in seconds.
@@ -21,7 +21,7 @@ public class RenderableAnimation {
 	public RenderableAnimation() {
 	}
 
-	public RenderableAnimation(final DefinedAnimation animation, final double suggestedDurationSeconds) {
+	public RenderableAnimation(final AttachedAnimation animation, final double suggestedDurationSeconds) {
 		this.animation = animation;
 		this.suggestedDurationSeconds = suggestedDurationSeconds;
 	}
@@ -44,7 +44,7 @@ public class RenderableAnimation {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
 
-	public DefinedAnimation getAnimation() {
+	public AttachedAnimation getAnimation() {
 		return animation;
 	}
 

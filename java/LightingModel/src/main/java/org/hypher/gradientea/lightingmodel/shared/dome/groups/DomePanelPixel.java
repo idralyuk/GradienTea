@@ -2,8 +2,9 @@ package org.hypher.gradientea.lightingmodel.shared.dome.groups;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
+import com.google.common.collect.FluentIterable;
 import org.hypher.gradientea.lightingmodel.shared.color.PixelColor;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoFace;
+import org.hypher.gradientea.lightingmodel.shared.dome.geometry.GeoFace;
 import org.hypher.gradientea.lightingmodel.shared.pixel.AbstractPixel;
 import org.hypher.gradientea.lightingmodel.shared.pixel.ListPixelGroup;
 import org.hypher.gradientea.lightingmodel.shared.pixel.PixelGroup;
@@ -27,7 +28,7 @@ public class DomePanelPixel extends AbstractPixel {
 
 	public final static transient Function<Collection<? extends GeoFace>, PixelGroup> createGroup = new Function<Collection<? extends GeoFace>, PixelGroup>() {
 		public PixelGroup apply(final Collection<? extends GeoFace> input) {
-			return new ListPixelGroup(Collections2.transform(input, create));
+			return group(input);
 		}
 	};
 
@@ -35,6 +36,15 @@ public class DomePanelPixel extends AbstractPixel {
 
 	public DomePanelPixel(final GeoFace face) {
 		this.face = face;
+	}
+
+	public static List<DomePanelPixel> pixels(Iterable<? extends GeoFace> faces) {
+		return FluentIterable.from(faces).transform(create).toImmutableList();
+	}
+
+
+	public static PixelGroup group(Iterable<? extends GeoFace> faces) {
+		return new ListPixelGroup(pixels(faces));
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,7 +62,7 @@ public class DomePanelPixel extends AbstractPixel {
 
 	@Override
 	public List<PixelGroup> getChildren() {
-		return Collections.<PixelGroup>singletonList(this);
+		return Collections.emptyList();
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

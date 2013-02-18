@@ -1,5 +1,6 @@
 package org.hypher.gradientea.lightingmodel.shared.pixel;
 
+import org.hypher.gradientea.lightingmodel.shared.context.AnimationElement;
 import org.hypher.gradientea.lightingmodel.shared.color.PixelColor;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public interface PixelGroup {
+public interface PixelGroup extends AnimationElement {
 	/**
 	 * Applies the given {@link PixelColor} to all the pixels in this group, returning all the {@link PixelValue}s
 	 * that result from the application.

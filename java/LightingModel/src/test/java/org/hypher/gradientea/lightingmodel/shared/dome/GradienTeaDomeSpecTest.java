@@ -1,5 +1,6 @@
 package org.hypher.gradientea.lightingmodel.shared.dome;
 
+import org.hypher.gradientea.lightingmodel.shared.dome.spec.GradienTeaDomeSpec;
 import org.junit.Assert;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.*;

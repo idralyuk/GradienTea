@@ -2,7 +2,7 @@ package org.hypher.gradientea.lightingmodel.shared.dmx;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import org.hypher.gradientea.lightingmodel.shared.animation.DefinedAnimation;
+import org.hypher.gradientea.lightingmodel.shared.animation.AttachedAnimation;
 import org.hypher.gradientea.lightingmodel.shared.pixel.Pixel;
 import org.hypher.gradientea.lightingmodel.shared.pixel.PixelValue;
 
@@ -17,7 +17,7 @@ public class DmxRendering {
 	protected DmxRendering() {}
 	
 	
-	public static int[][] render(DefinedAnimation animation, double percentage) {
+	public static int[][] render(AttachedAnimation animation, double percentage) {
 		return composite(animation.render(percentage));
 	}
 

@@ -1,9 +1,11 @@
 package org.hypher.gradientea.artnet.player;
 
 import fr.azelart.artnetstack.constants.Constants;
-import org.hypher.gradientea.lightingmodel.shared.animation.ExpandedAnimationWrapper;
+import org.hypher.gradientea.lightingmodel.shared.animation.AnimationFunctionExpansion;
+import org.hypher.gradientea.lightingmodel.shared.animation.AnimationFunctionExpansion;
 import org.hypher.gradientea.lightingmodel.shared.animation.HsbTween;
-import org.hypher.gradientea.lightingmodel.shared.animation.SingleDefinedAnimation;
+import org.hypher.gradientea.lightingmodel.shared.animation.SingleAttachedAnimation;
+import org.hypher.gradientea.lightingmodel.shared.animation.SingleAttachedAnimation;
 import org.hypher.gradientea.lightingmodel.shared.color.HsbColor;
 import org.hypher.gradientea.lightingmodel.shared.dmx.DmxPixel;
 import org.hypher.gradientea.lightingmodel.shared.rendering.RenderableAnimation;
@@ -28,15 +30,15 @@ public class TestPlayer {
 		player.playAnimations(
 			Arrays.asList(
 				new RenderableAnimation(
-					new SingleDefinedAnimation(
-						new ExpandedAnimationWrapper(
-							new HsbTween(new HsbColor(0, 0.8, .5), new HsbColor(1.0, 1.0, 1.0)),
-							ExpandedAnimationWrapper.SIN,
+					new SingleAttachedAnimation(
+						new AnimationFunctionExpansion(
+							new HsbTween(new HsbColor(0, 1.0, .2), new HsbColor(1.0, 1.0, 0.4)),
+							AnimationFunctionExpansion.TRIANGLE,
 							0.15
 						),
 						DmxPixel.pixels(1, 9)
 					),
-					5
+					15
 				)
 			)
 		);
@@ -46,19 +48,19 @@ public class TestPlayer {
 //			new RenderableAnimation(
 //				AnimationScene.emptyScene()
 //					.with(
-//						new SingleDefinedAnimation(
-//							new ExpandedAnimationWrapper(
+//						new SingleAttachedAnimation(
+//							new AnimationFunctionExpansion(
 //								new HsbTween(new HsbColor(0, 1, 0.1), new HsbColor(1.0, 1, 0.3)),
-//								ExpandedAnimationWrapper.SIN
+//								AnimationFunctionExpansion.SIN
 //							),
 //							DmxPixel.pixels(1, 1, 5)
 //						), 0, 1.0
 //					)
 //					.with(
-//						new SingleDefinedAnimation(
-//							new ExpandedAnimationWrapper(
+//						new SingleAttachedAnimation(
+//							new AnimationFunctionExpansion(
 //								new HsbTween(new HsbColor(0, 0, 0), new HsbColor(0, 1, 0)),
-//								ExpandedAnimationWrapper.TRIANGLE
+//								AnimationFunctionExpansion.TRIANGLE
 //							),
 //							DmxPixel.pixels(1, 1, 5)
 //						), 0, 1.0

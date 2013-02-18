@@ -15,15 +15,17 @@ import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import org.hypher.gradientea.lightingmodel.shared.animation.ExpandedAnimationWrapper;
+import org.hypher.gradientea.lightingmodel.shared.animation.AnimationFunctionExpansion;
+import org.hypher.gradientea.lightingmodel.shared.animation.AnimationFunctionExpansion;
 import org.hypher.gradientea.lightingmodel.shared.animation.HsbTween;
-import org.hypher.gradientea.lightingmodel.shared.animation.SingleDefinedAnimation;
+import org.hypher.gradientea.lightingmodel.shared.animation.SingleAttachedAnimation;
+import org.hypher.gradientea.lightingmodel.shared.animation.SingleAttachedAnimation;
 import org.hypher.gradientea.lightingmodel.shared.color.HsbColor;
 import org.hypher.gradientea.lightingmodel.shared.dmx.DmxPixel;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoFace;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeodesicSphereGeometry;
-import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeGeometry;
-import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeSpec;
+import org.hypher.gradientea.lightingmodel.shared.dome.geometry.GeoFace;
+import org.hypher.gradientea.lightingmodel.shared.dome.geometry.GeodesicSphereGeometry;
+import org.hypher.gradientea.lightingmodel.shared.dome.geometry.GradienTeaDomeGeometry;
+import org.hypher.gradientea.lightingmodel.shared.dome.spec.GradienTeaDomeSpec;
 import org.hypher.gradientea.lightingmodel.shared.pixel.ListPixelGroup;
 import org.hypher.gradientea.lightingmodel.shared.pixel.PixelGroup;
 import org.hypher.gradientea.lightingmodel.shared.rendering.RenderableAnimation;
@@ -143,10 +145,10 @@ public class GradienTeaUI implements EntryPoint {
 
 		player.play(
 			new RenderableAnimation(
-				new SingleDefinedAnimation(
-					new ExpandedAnimationWrapper(
+				new SingleAttachedAnimation(
+					new AnimationFunctionExpansion(
 						new HsbTween(new HsbColor(0, 1.0, 1.0), new HsbColor(1.0, 1.0, 1.0)),
-						ExpandedAnimationWrapper.TRIANGLE,
+						AnimationFunctionExpansion.TRIANGLE,
 						0.3
 					),
 					new ListPixelGroup(ringGroups)

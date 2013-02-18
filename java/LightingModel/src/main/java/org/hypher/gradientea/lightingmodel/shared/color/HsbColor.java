@@ -1,81 +1,89 @@
 package org.hypher.gradientea.lightingmodel.shared.color;
 
 /**
+ * A color (or partially defined color) in the HSB color space.
+ *
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class HsbColor implements PixelColor {
-	private double hue;
-	private double saturation;
-	private double brightness;
-
-	private double hueOpacity;
-	private double saturationOpacity;
-	private double brightnessOpacity;
+	private Double hue;
+	private Double saturation;
+	private Double brightness;
+	private double priority;
 
 	protected HsbColor() {}
 
-	public HsbColor(final double hue, final double saturation, final double brightness) {
+	public HsbColor(final Double hue, final Double saturation, final Double brightness, final double priority) {
 		this.hue = hue;
 		this.saturation = saturation;
 		this.brightness = brightness;
+		this.priority = priority;
+	}
+
+	public HsbColor(final Double hue, final Double saturation, final Double brightness) {
+		this(hue, saturation, brightness, 1.0);
+	}
+
+	public static Double[] HSBtoRGB(double hue, double saturation, double brightness) {
+		double r = 0, g = 0, b = 0;
+		if (saturation == 0) {
+			r = g = b = (int) (brightness * 255.0d + 0.5d);
+		} else {
+			double h = (hue - (double)Math.floor(hue)) * 6.0d;
+			double f = h - (double)java.lang.Math.floor(h);
+			double p = brightness * (1.0d - saturation);
+			double q = brightness * (1.0d - saturation * f);
+			double t = brightness * (1.0d - (saturation * (1.0d - f)));
+			switch ((int) h) {
+				case 0:
+					r = (brightness + 0.5d);
+					g = (t + 0.5d);
+					b = (p + 0.5d);
+					break;
+				case 1:
+					r = (q + 0.5d);
+					g = (brightness + 0.5d);
+					b = (p + 0.5d);
+					break;
+				case 2:
+					r = (p * 0.5d);
+					g = (brightness * 0.5d);
+					b = (t * 0.5d);
+					break;
+				case 3:
+					r = (p * 0.5d);
+					g = (q * 0.5d);
+					b = (brightness * 0.5d);
+					break;
+				case 4:
+					r = (t * 0.5d);
+					g = (p * 0.5d);
+					b = (brightness * 0.5d);
+					break;
+				case 5:
+					r = (brightness * 0.5d);
+					g = (p * 0.5d);
+					b = (q * 0.5d);
+					break;
+			}
+		}
+		return new Double[] {r, g, b};
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Instance Methods
-
-	/**
-	 * A slightly modified version of {@link java.awt.Color#HSBtoRGB(float, float, float)}
-	 *
-	 * @return
-	 */
-	public int[] asRgb() {
-		return HSBtoRGB((float) hue, (float) saturation, (float) brightness);
+	@Override
+	public Double[] asHSB() {
+		return new Double[] { hue, saturation, brightness };
 	}
 
-	protected static int[] HSBtoRGB(float hue, float saturation, float brightness) {
-		int r = 0, g = 0, b = 0;
-		if (saturation == 0) {
-			r = g = b = (int) (brightness * 255.0f + 0.5f);
-		} else {
-			float h = (hue - (float)Math.floor(hue)) * 6.0f;
-			float f = h - (float)java.lang.Math.floor(h);
-			float p = brightness * (1.0f - saturation);
-			float q = brightness * (1.0f - saturation * f);
-			float t = brightness * (1.0f - (saturation * (1.0f - f)));
-			switch ((int) h) {
-				case 0:
-					r = (int) (brightness * 255.0f + 0.5f);
-					g = (int) (t * 255.0f + 0.5f);
-					b = (int) (p * 255.0f + 0.5f);
-					break;
-				case 1:
-					r = (int) (q * 255.0f + 0.5f);
-					g = (int) (brightness * 255.0f + 0.5f);
-					b = (int) (p * 255.0f + 0.5f);
-					break;
-				case 2:
-					r = (int) (p * 255.0f + 0.5f);
-					g = (int) (brightness * 255.0f + 0.5f);
-					b = (int) (t * 255.0f + 0.5f);
-					break;
-				case 3:
-					r = (int) (p * 255.0f + 0.5f);
-					g = (int) (q * 255.0f + 0.5f);
-					b = (int) (brightness * 255.0f + 0.5f);
-					break;
-				case 4:
-					r = (int) (t * 255.0f + 0.5f);
-					g = (int) (p * 255.0f + 0.5f);
-					b = (int) (brightness * 255.0f + 0.5f);
-					break;
-				case 5:
-					r = (int) (brightness * 255.0f + 0.5f);
-					g = (int) (p * 255.0f + 0.5f);
-					b = (int) (q * 255.0f + 0.5f);
-					break;
-			}
-		}
-		return new int[] {r, g, b};
+	@Override
+	public Double[] asRGB() {
+		return HSBtoRGB(
+			hue == null ? 0 : hue,
+			saturation == null ? 0 : saturation,
+			brightness == null ? 0 : brightness
+		);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,21 +92,21 @@ public class HsbColor implements PixelColor {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
 
-	public double getHue() {
+	public Double getHue() {
 		return hue;
 	}
 
-	public double getSaturation() {
+	public Double getSaturation() {
 		return saturation;
 	}
 
-	public double getBrightness() {
+	public Double getBrightness() {
 		return brightness;
 	}
 
 	@Override
 	public double getPriority() {
-		return 1.0;
+		return priority;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,25 +1,25 @@
 package org.hypher.gradientea.lightingmodel.shared.animation;
 
-import com.google.common.base.Function;
+import org.hypher.gradientea.lightingmodel.shared.context.RenderingContext;
 import org.hypher.gradientea.lightingmodel.shared.pixel.PixelGroup;
 import org.hypher.gradientea.lightingmodel.shared.pixel.PixelValue;
 
-import javax.annotation.Nullable;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public class AnimationFunctionWrapper implements PixelGroupAnimation {
-	protected PixelGroupAnimation wrappedAnimation;
-	protected Function<Double, Double> function;
+public class AnimationFunctionWrapper implements Animation {
+	protected Animation wrappedAnimation;
+	protected AnimationFunction function;
 
 	protected AnimationFunctionWrapper() {}
 
 	public AnimationFunctionWrapper(
-		final PixelGroupAnimation wrappedAnimation,
-		final Function<Double, Double> timeFunction
+		final Animation wrappedAnimation,
+		final AnimationFunction timeFunction
 	) {
 		this.wrappedAnimation = wrappedAnimation;
 		this.function = timeFunction;
@@ -30,10 +30,11 @@ public class AnimationFunctionWrapper implements PixelGroupAnimation {
 
 	@Override
 	public List<PixelValue> render(
+		final RenderingContext renderingContext,
 		final PixelGroup group,
 		final double fraction
 	) {
-		return wrappedAnimation.render(group, function.apply(fraction));
+		return wrappedAnimation.render(renderingContext, group, function.apply(renderingContext, fraction));
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,11 +52,11 @@ public class AnimationFunctionWrapper implements PixelGroupAnimation {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
 
-	public PixelGroupAnimation getWrappedAnimation() {
+	public Animation getWrappedAnimation() {
 		return wrappedAnimation;
 	}
 
-	public Function<Double, Double> getFunction() {
+	public AnimationFunction getFunction() {
 		return function;
 	}
 
@@ -63,18 +64,20 @@ public class AnimationFunctionWrapper implements PixelGroupAnimation {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Inner Classes
 
-	public final static Function<Double, Double> SIN = new Function<Double, Double>() {
-		@Nullable
+	public interface AnimationFunction extends Serializable {
+		double apply(RenderingContext renderingContext, double input);
+	}
+
+	public final static AnimationFunction SIN = new AnimationFunction() {
 		@Override
-		public Double apply(final Double input) {
+		public double apply(RenderingContext renderingContext, final double input) {
 			return (Math.sin(input * Math.PI*2 ) + 1)/2;
 		}
 	};
 
-	public final static Function<Double, Double> TRIANGLE = new Function<Double, Double>() {
-		@Nullable
+	public final static AnimationFunction TRIANGLE = new AnimationFunction() {
 		@Override
-		public Double apply(final Double input) {
+		public double apply(RenderingContext renderingContext, final double input) {
 			if (input < 0.5) {
 				return input / 0.5;
 			} else {

@@ -1,11 +1,7 @@
 package org.hypher.gradientea.lightingmodel.shared.pixel;
 
-import com.google.common.base.Function;
-import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
-import org.hypher.gradientea.lightingmodel.shared.color.PixelColor;
 
-import javax.annotation.Nullable;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,7 +11,7 @@ import java.util.List;
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public class ListPixelGroup implements PixelGroup {
+public class ListPixelGroup extends AbstractPixelGroup {
 	protected ImmutableList<PixelGroup> children;
 
 	protected ListPixelGroup() {}
@@ -28,14 +24,8 @@ public class ListPixelGroup implements PixelGroup {
 	// Instance Methods
 
 	@Override
-	public List<PixelValue> applyColor(final PixelColor color) {
-		return FluentIterable.from(children)
-			.transformAndConcat(new Function<PixelGroup, Collection<PixelValue>>() {
-				@Override
-				public Collection<PixelValue> apply(@Nullable final PixelGroup input) {
-					return input.applyColor(color);
-				}
-			}).toImmutableList();
+	public List<PixelGroup> getChildren() {
+		return children;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,9 +34,6 @@ public class ListPixelGroup implements PixelGroup {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
 
-	public ImmutableList<PixelGroup> getChildren() {
-		return children;
-	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Inner Classes

@@ -1,6 +1,6 @@
 package org.hypher.gradientea.lightingmodel.shared.versions;
 
-import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeSpec;
+import org.hypher.gradientea.lightingmodel.shared.dome.spec.GradienTeaDomeSpec;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

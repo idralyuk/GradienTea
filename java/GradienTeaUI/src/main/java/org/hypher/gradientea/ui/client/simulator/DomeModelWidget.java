@@ -23,8 +23,8 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoFace;
-import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeGeometry;
+import org.hypher.gradientea.lightingmodel.shared.dome.geometry.GeoFace;
+import org.hypher.gradientea.lightingmodel.shared.dome.geometry.GradienTeaDomeGeometry;
 import org.hypher.gradientea.ui.client.player.DmxInterface;
 
 import java.util.List;
