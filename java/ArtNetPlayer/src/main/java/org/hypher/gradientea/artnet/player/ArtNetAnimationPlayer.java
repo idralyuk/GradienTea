@@ -69,7 +69,7 @@ public class ArtNetAnimationPlayer {
 
 	protected class Player implements Runnable {
 		protected boolean running = true;
-		protected double fps = 45;
+		protected double fps = 60;
 
 		List<RenderableAnimation> animations = Lists.newArrayList();
 		protected volatile boolean animationsUpdated = true;
@@ -131,6 +131,7 @@ public class ArtNetAnimationPlayer {
 	public void display(final List<PixelValue> pixelValues) {
 		int[][] channelData = DmxRendering.composite(pixelValues);
 
+		boolean errored = false;
 		for (int i=0; i<channelData.length; i++) {
 			if (channelData[i] != null) {
 				try {
@@ -138,8 +139,19 @@ public class ArtNetAnimationPlayer {
 						i+1, 0, channelData[i]
 					));
 				} catch (IOException e) {
-					/* Ignore Errors */
+					System.out.println(e.getClass().getSimpleName() + ": " + e.getMessage());
+					errored = true;
+					break;
 				}
+			}
+		}
+
+		if (errored) {
+			try {
+				// TODO: Come up with a less hacky method to avoid error spam when we can't send data
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				/* Do nothing */
 			}
 		}
 	}

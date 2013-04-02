@@ -4,13 +4,19 @@ package org.hypher.gradientea.lightingmodel.shared.color;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class RgbColor implements PixelColor {
-	private /*final*/ int red;
-	private /*final*/ int green;
-	private /*final*/ int blue;
+	private /*final*/ double red;
+	private /*final*/ double green;
+	private /*final*/ double blue;
 
 	protected RgbColor() { }
 
 	public RgbColor(final int red, final int green, final int blue) {
+		this.red = red;
+		this.green = green;
+		this.blue = blue;
+	}
+
+	public RgbColor(final double red, final double green, final double blue) {
 		this.red = red;
 		this.green = green;
 		this.blue = blue;
@@ -22,7 +28,7 @@ public class RgbColor implements PixelColor {
 
 	@Override
 	public int[] asRgb() {
-		return new int[] { red, green, blue };
+		return new int[] { (int)red, (int)green, (int)blue };
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,15 +37,15 @@ public class RgbColor implements PixelColor {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Getters and Setters
 
-	public int getRed() {
+	public double getRed() {
 		return red;
 	}
 
-	public int getGreen() {
+	public double getGreen() {
 		return green;
 	}
 
-	public int getBlue() {
+	public double getBlue() {
 		return blue;
 	}
 

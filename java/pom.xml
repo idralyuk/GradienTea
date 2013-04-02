@@ -25,8 +25,14 @@
 		<version.guava>13.0.1</version.guava>
 		<version.jaxb>2.2.7</version.jaxb>
 
+		<!-- Apache Commons -->
+		<version.commonsMath>2.2</version.commonsMath>
+
 		<!-- Testing -->
 		<version.junit>4.9</version.junit>
+
+		<!-- PI4J -->
+		<version.pi4j>0.0.5</version.pi4j>
 	</properties>
 
 	<dependencyManagement>
@@ -90,6 +96,17 @@
 				<artifactId>junit</artifactId>
 				<version>${version.junit}</version>
 				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-math</artifactId>
+				<version>${version.commonsMath}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.pi4j</groupId>
+				<artifactId>pi4j-core</artifactId>
+				<version>${version.pi4j}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

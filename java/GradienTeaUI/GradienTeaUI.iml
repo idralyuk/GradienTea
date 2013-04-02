@@ -3,6 +3,7 @@
   <component name="FacetManager">
     <facet type="gwt" name="GWT">
       <configuration>
+        <setting name="additionalCompilerParameters" value="-Xmx512m -XX:MaxPermSize=512m" />
         <setting name="compilerMaxHeapSize" value="2048" />
         <setting name="gwtScriptOutputStyle" value="DETAILED" />
         <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.5.0/" />
