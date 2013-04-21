@@ -69,7 +69,7 @@ public class ArtNetAnimationPlayer {
 
 	protected class Player implements Runnable {
 		protected boolean running = true;
-		protected double fps = 60;
+		protected double fps = 45;
 
 		List<RenderableAnimation> animations = Lists.newArrayList();
 		protected volatile boolean animationsUpdated = true;

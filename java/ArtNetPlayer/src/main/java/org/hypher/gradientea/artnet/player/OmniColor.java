@@ -4,6 +4,8 @@ package org.hypher.gradientea.artnet.player;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class OmniColor {
+	public final static OmniColor instance = new OmniColor();
+
 	protected double[] mappings = new double[] {
 		/*0*/ 1, 1, 1, 1, 1, 1, 1, 1, // Red to Green
 		/*8*/ 1, 1, 1, 1, 1, 1, 1, 1, // Green to Blue
@@ -35,10 +37,6 @@ public class OmniColor {
 		add(22, 23, 0.5);
 
 		updateMapping();
-
-		for (double i=0; i<=1.0; i += 0.01) {
-			System.out.println(i);
-		}
 	}
 
 	private void updateMapping() {

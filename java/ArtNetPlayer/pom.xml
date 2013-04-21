@@ -64,9 +64,9 @@
 							<mainClass>org.hypher.gradientea.artnet.player.TestPlayer</mainClass>
 						</manifest>
 					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<descriptors>
+						<descriptor>src/assembly/bin-with-deps.xml</descriptor>
+					</descriptors>
 				</configuration>
 
 				<executions>

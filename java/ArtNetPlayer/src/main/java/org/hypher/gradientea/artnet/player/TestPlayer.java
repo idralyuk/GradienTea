@@ -7,12 +7,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
-import com.pi4j.io.gpio.GpioController;
-import com.pi4j.io.gpio.GpioFactory;
-import com.pi4j.io.gpio.GpioPinDigitalInput;
+import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.RaspiPin;
-import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
-import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import fr.azelart.artnetstack.constants.Constants;
 import org.hypher.gradientea.lightingmodel.shared.animation.DefinedAnimation;
 import org.hypher.gradientea.lightingmodel.shared.animation.ExpandedAnimationWrapper;
@@ -47,7 +43,13 @@ import java.util.Map;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class TestPlayer {
-	public final static int PIXEL_COUNT = 50;
+	public final static int PIXEL_COUNT = 100;
+
+	interface GPIOMapping {
+		Pin SCROLL_CLK = RaspiPin.GPIO_02; // Marked 17
+		Pin SCROLL_DATA = RaspiPin.GPIO_00; // Marked 27
+		Pin SCROLL_PUSH = RaspiPin.GPIO_03; // Marked 22
+	}
 
 	public static void main(String[] args) throws Exception {
 		if (args.length != 1) {
@@ -57,7 +59,7 @@ public class TestPlayer {
 
 		String broadcastAddress = args[0];
 
-		ArtNetAnimationPlayer player = new ArtNetAnimationPlayer();
+		final ArtNetAnimationPlayer player = new ArtNetAnimationPlayer();
 
 		player.start(
 			InetAddress.getLocalHost(),
@@ -65,22 +67,39 @@ public class TestPlayer {
 			Constants.DEFAULT_ART_NET_UDP_PORT
 		);
 
-		final GpioController gpio = GpioFactory.getInstance();
-		GpioPinDigitalInput pin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_00);
-		pin.addListener(new GpioPinListenerDigital() {
-			@Override
-			public void handleGpioPinDigitalStateChangeEvent(final GpioPinDigitalStateChangeEvent event) {
-				System.out.println("Pin state is now " + event.getState().getName());
-			}
-		});
+		while (true) {
+			for (int v : new int[] {0,75,125,255}) {
+				List<PixelValue> values = Lists.newArrayList();
+				for (int i=1;i<510;i+=3) {
+					values.add(new PixelValue(new DmxPixel(1, i), new RgbColor(v,v,v)));
+				}
+				player.display(values);
 
-		//omniRainbow(player, PIXEL_COUNT);
-		//solidColor(player, PIXEL_COUNT, new HsbColor(0,0,0));
-		//movingRainbow(player, PIXEL_COUNT);
-		//movingDot(player, PIXEL_COUNT, 1);
-		//strobe(player, PIXEL_COUNT, 8, 0.005);
-		//movingVuMeter(player, PIXEL_COUNT);
-		//fft(player, PIXEL_COUNT);
+				System.out.println(v + " / 255");
+				System.in.read();
+			}
+		}
+
+	}
+
+	private final static int ANIMATION_COUNT = 6;
+
+	private static void playAnimation(ArtNetAnimationPlayer player, int index) {
+		int correctedIndex = index % ANIMATION_COUNT;
+		if (correctedIndex < 0) {
+			correctedIndex = ANIMATION_COUNT + correctedIndex;
+		}
+
+		System.out.println("Playing " + correctedIndex);
+
+		switch (correctedIndex) {
+			case 0: omniRainbow(player, PIXEL_COUNT); break;
+			case 1: solidColor(player, PIXEL_COUNT, new HsbColor(255,0,1.0)); break;
+			case 2: movingRainbow(player, PIXEL_COUNT); break;
+			case 3: fadingRainbow(player, PIXEL_COUNT); break;
+			case 4: movingDot(player, PIXEL_COUNT, 1); break;
+			case 5: strobe(player, PIXEL_COUNT, 8, 0.005); break;
+		}
 	}
 
 	private static void omniRainbow(final ArtNetAnimationPlayer player, final int pixelCount) {
@@ -102,7 +121,7 @@ public class TestPlayer {
 						return frame.render();
 					}
 				},
-					5
+					10
 				)
 			)
 		);
@@ -210,6 +229,7 @@ public class TestPlayer {
 			)
 		);
 	}
+
 	private static void movingRainbow(final ArtNetAnimationPlayer player, final int pixelCount) {
 		player.playAnimations(
 			Arrays.asList(
@@ -220,8 +240,34 @@ public class TestPlayer {
 							ExpandedAnimationWrapper.TRIANGLE,
 							1.0
 						),
-						DmxPixel.pixels(512, 10)
+						DmxPixel.pixels(1, pixelCount)
 					),
+					5
+				)
+			)
+		);
+	}
+
+
+	private static void fadingRainbow(final ArtNetAnimationPlayer player, final int pixelCount) {
+		final OmniColor omni = new OmniColor();
+
+		player.playAnimations(
+			Arrays.asList(
+				new RenderableAnimation(new DefinedAnimation() {
+					CompositingFrameBuffer frame = new CompositingFrameBuffer(pixelCount);
+
+					@Override
+					public List<PixelValue> render(final double fraction) {
+						frame.clear();
+
+						for (int i=0; i<pixelCount; i++) {
+							frame.pixel(i, omni.mapHue(fraction), 1.0, 1.0);
+						}
+
+						return frame.render();
+					}
+				},
 					5
 				)
 			)
@@ -332,43 +378,54 @@ public class TestPlayer {
 	protected static void movingDot(ArtNetAnimationPlayer player, final int pixelCount, double duration) {
 		player.playAnimations(
 			Arrays.asList(
-				new RenderableAnimation(new DefinedAnimation() {
-					CompositingFrameBuffer frame = new CompositingFrameBuffer(pixelCount);
+				new RenderableAnimation(
+					new DefinedAnimation() {
+						CompositingFrameBuffer frame = new CompositingFrameBuffer(pixelCount);
 
-					double step = 0;
+						double step = 0;
 
-					@Override
-					public List<PixelValue> render(final double fraction) {
-						frame.clear();
-						step++;
-						drawDot(rotate(1-fraction, 0.0));
+						@Override
+						public List<PixelValue> render(final double fraction) {
+							frame.clear();
+							step++;
+							drawDot(rotate(1 - fraction, 0.0));
 
-						return frame.render();
-					}
-
-					private double rotate(double value, final double by) {
-						value = value + by;
-						while (value < 0) value += 1;
-						while (value > 1) value -= 1;
-
-						return value;
-					}
-
-					private double compress(final double value, final double by) {
-						return value * by;
-					}
-
-					private void drawDot(final double fraction) {
-
-						frame.pixel((int) (pixelCount*fraction),     fraction, 1.0, 1.0);
-
-						int trailSize = 3;
-						for (int i=1; i<=trailSize; i++) {
-							frame.pixel((int) (pixelCount*fraction) + i, fraction, 1.0, 1-i/(double)trailSize);
-							frame.pixel((int) (pixelCount*fraction) + -i, fraction, 1.0, 1-i/(double)trailSize);
+							return frame.render();
 						}
-					}
-				},
+
+						private double rotate(double value, final double by) {
+							value = value + by;
+							while (value < 0) value += 1;
+							while (value > 1) value -= 1;
+
+							return value;
+						}
+
+						private double compress(final double value, final double by) {
+							return value * by;
+						}
+
+						private void drawDot(final double fraction) {
+
+							frame.pixel((int) (pixelCount * fraction), fraction, 1.0, 1.0);
+
+							int trailSize = 2;
+							for (int i = 1; i <= trailSize; i++) {
+								frame.pixel(
+									(int) (pixelCount * fraction) + i,
+									fraction,
+									1.0,
+									1 - i / (double) trailSize
+								);
+								frame.pixel(
+									(int) (pixelCount * fraction) + -i,
+									fraction,
+									1.0,
+									1 - i / (double) trailSize
+								);
+							}
+						}
+					},
 					duration
 				)
 			)
