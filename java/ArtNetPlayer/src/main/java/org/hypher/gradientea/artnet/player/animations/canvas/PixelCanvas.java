@@ -2,11 +2,11 @@ package org.hypher.gradientea.artnet.player.animations.canvas;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import org.hypher.gradientea.lightingmodel.shared.color.HsbColor;
-import org.hypher.gradientea.lightingmodel.shared.color.PixelColor;
-import org.hypher.gradientea.lightingmodel.shared.color.RgbColor;
+import org.hypher.gradientea.animation.shared.color.HsbColor;
+import org.hypher.gradientea.animation.shared.color.PixelColor;
+import org.hypher.gradientea.animation.shared.color.RgbColor;
 import org.hypher.gradientea.lightingmodel.shared.dmx.DmxPixel;
-import org.hypher.gradientea.lightingmodel.shared.pixel.PixelValue;
+import org.hypher.gradientea.animation.shared.pixel.PixelValue;
 
 import java.util.List;
 import java.util.Map;

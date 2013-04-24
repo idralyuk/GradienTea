@@ -11,4 +11,5 @@ public interface ConfigurableAnimation {
 	Collection<? extends AnimationParameter> getParameters();
 	void play(ArtNetAnimationPlayer player);
 	void init();
+	void stop();
 }

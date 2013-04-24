@@ -6,9 +6,9 @@ import org.hypher.gradientea.artnet.player.animations.canvas.PixelCanvas;
 import org.hypher.gradientea.artnet.player.animations.canvas.PixelCompositor;
 import org.hypher.gradientea.artnet.player.animations.params.AnimationParameter;
 import org.hypher.gradientea.artnet.player.animations.params.ConfigurableAnimation;
-import org.hypher.gradientea.lightingmodel.shared.animation.DefinedAnimation;
-import org.hypher.gradientea.lightingmodel.shared.pixel.PixelValue;
-import org.hypher.gradientea.lightingmodel.shared.rendering.RenderableAnimation;
+import org.hypher.gradientea.animation.shared.function.DefinedAnimation;
+import org.hypher.gradientea.animation.shared.pixel.PixelValue;
+import org.hypher.gradientea.animation.shared.RenderableAnimation;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -80,6 +80,24 @@ public abstract class BaseAnimation implements ConfigurableAnimation {
 			animationDuration = 1000 + (1-getFractionalParamValue(id))*10000;
 		}
 	}
+
+	protected double pixelFraction(final int index) {
+		return (double)index / pixelCount();
+	}
+
+	protected String pad(double v, int zeroPadding, int decimals) {
+		String s = String.valueOf(v);
+
+		int dot = s.indexOf('.');
+		s = s.substring(0, Math.min(dot + decimals + 1, s.length()));
+
+		for (int i=0; i<decimals - dot + 1; i ++) {
+			s = "0" + s;
+		}
+
+		return s;
+	}
+
 	//endregion
 
 
@@ -104,6 +122,9 @@ public abstract class BaseAnimation implements ConfigurableAnimation {
 			10
 		)));
 	}
+
+	@Override
+	public void stop() {}
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

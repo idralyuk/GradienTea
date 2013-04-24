@@ -2,14 +2,14 @@ package org.hypher.gradientea.lightingmodel.shared.dmx;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import org.hypher.gradientea.lightingmodel.shared.animation.DefinedAnimation;
-import org.hypher.gradientea.lightingmodel.shared.pixel.Pixel;
-import org.hypher.gradientea.lightingmodel.shared.pixel.PixelValue;
+import org.hypher.gradientea.animation.shared.function.DefinedAnimation;
+import org.hypher.gradientea.animation.shared.pixel.Pixel;
+import org.hypher.gradientea.animation.shared.pixel.PixelValue;
 
 import java.util.List;
 
 /**
- * Holds utility methods for rendering {@link org.hypher.gradientea.lightingmodel.shared.rendering.RenderableAnimation}s which are composed of {@link DmxPixel}s.
+ * Holds utility methods for rendering {@link org.hypher.gradientea.animation.shared.RenderableAnimation}s which are composed of {@link DmxPixel}s.
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */

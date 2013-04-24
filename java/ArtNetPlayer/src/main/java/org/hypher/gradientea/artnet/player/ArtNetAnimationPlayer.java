@@ -6,8 +6,8 @@ import fr.azelart.artnetstack.listeners.ServerListener;
 import fr.azelart.artnetstack.server.ArtNetServer;
 import fr.azelart.artnetstack.utils.ArtNetPacketEncoder;
 import org.hypher.gradientea.lightingmodel.shared.dmx.DmxRendering;
-import org.hypher.gradientea.lightingmodel.shared.pixel.PixelValue;
-import org.hypher.gradientea.lightingmodel.shared.rendering.RenderableAnimation;
+import org.hypher.gradientea.animation.shared.pixel.PixelValue;
+import org.hypher.gradientea.animation.shared.RenderableAnimation;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -69,7 +69,7 @@ public class ArtNetAnimationPlayer {
 
 	protected class Player implements Runnable {
 		protected boolean running = true;
-		protected double fps = 45;
+		protected double fps = 60;
 
 		List<RenderableAnimation> animations = Lists.newArrayList();
 		protected volatile boolean animationsUpdated = true;

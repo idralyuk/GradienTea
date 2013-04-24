@@ -7,7 +7,10 @@
         <setting name="gwtScriptOutputStyle" value="DETAILED" />
         <setting name="gwtSdkUrl" value="file://" />
         <packaging>
+          <module name="org.hypher.gradientea.animation.PredefinedAnimationModel" enabled="false" />
+          <module name="org.hypher.gradientea.geometry.DomeGeometry" enabled="false" />
           <module name="org.hypher.gradientea.lightingmodel.LightingModel" enabled="false" />
+          <module name="org.hypher.gradientea.transport.AnimationTransport" enabled="false" />
         </packaging>
       </configuration>
     </facet>

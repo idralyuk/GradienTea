@@ -5,15 +5,13 @@ import com.google.common.collect.Lists;
 import com.pi4j.io.gpio.RaspiPin;
 import fr.azelart.artnetstack.constants.Constants;
 import org.hypher.gradientea.artnet.player.animations.AnimationContext;
-import org.hypher.gradientea.artnet.player.animations.MovingDotAnimation;
+import org.hypher.gradientea.artnet.player.animations.AudioStrobe;
 import org.hypher.gradientea.artnet.player.animations.OmniRainbowAnimation;
-import org.hypher.gradientea.artnet.player.animations.RandomBlipsAnimation;
+import org.hypher.gradientea.artnet.player.animations.RelativeVuMeter;
 import org.hypher.gradientea.artnet.player.animations.params.AnimationParameter;
 import org.hypher.gradientea.artnet.player.animations.params.ConfigurableAnimation;
-import org.hypher.gradientea.artnet.player.io.BasicAudioReader;
 import org.hypher.gradientea.artnet.player.io.RotarySwitchReader;
 
-import javax.sound.sampled.LineUnavailableException;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.List;
@@ -22,7 +20,7 @@ import java.util.List;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class ControllablePlayer {
-	public static final int PIXEL_COUNT = 100;
+	public static final int PIXEL_COUNT = 6;
 	public static final int CONFIG_TIMEOUT_MS = 2000;
 	public static final int DOUBLE_PRESS_MS = 200;
 
@@ -73,15 +71,12 @@ public class ControllablePlayer {
 	}
 
 	private void setupAnimations() {
-		try {
-			new BasicAudioReader();
-		} catch (LineUnavailableException e) {
-			e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-		}
-
-		animations.add(new MovingDotAnimation(context));
-		animations.add(new RandomBlipsAnimation(context));
+		animations.add(new RelativeVuMeter(context));
+		animations.add(new AudioStrobe(context));
 		animations.add(new OmniRainbowAnimation(context));
+
+		//animations.add(new MovingDotAnimation(context));
+		//animations.add(new RandomBlipsAnimation(context));
 	}
 
 	private class AnimationConfigurer implements RotarySwitchReader.RotarySwitchCallback {
@@ -148,6 +143,10 @@ public class ControllablePlayer {
 
 		if (currentAnimationIndex != index) {
 			System.out.println("Playing " + index);
+
+			if (currentAnimationIndex >= 0) {
+				currentAnimation().stop();
+			}
 
 			currentAnimationIndex = index;
 			currentAnimation().play(player);

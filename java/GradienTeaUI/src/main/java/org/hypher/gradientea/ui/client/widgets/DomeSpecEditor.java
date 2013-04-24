@@ -10,8 +10,8 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
-import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeSpec;
-import org.hypher.gradientea.lightingmodel.shared.versions.GradienTeaDomeSpecs;
+import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpec;
+import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)

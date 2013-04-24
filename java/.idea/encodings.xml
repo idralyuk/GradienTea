@@ -5,8 +5,8 @@
     <file url="file://$PROJECT_DIR$/GradienTeaUI" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GradienTeaUI/src/main/resources/logging.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GradienTeaUI/src/main/webapp/WEB-INF/appengine-web.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeodesicSphereGeometry.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel/shared/dome/GeodesicTeaGeometry.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GeodesicSphereGeometry.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GeodesicTeaGeometry.java" charset="UTF-8" />
   </component>
 </project>
 

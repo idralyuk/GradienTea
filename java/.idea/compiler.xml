@@ -23,6 +23,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="ArtNetPlayer" />
+        <module name="DomeController" />
         <module name="GradienTeaUI" />
         <module name="LightingModel" />
         <module name="stack" />

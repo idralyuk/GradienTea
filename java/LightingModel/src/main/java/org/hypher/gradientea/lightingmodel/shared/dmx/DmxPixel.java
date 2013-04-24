@@ -2,9 +2,9 @@ package org.hypher.gradientea.lightingmodel.shared.dmx;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import org.hypher.gradientea.lightingmodel.shared.pixel.AbstractPixel;
-import org.hypher.gradientea.lightingmodel.shared.pixel.ListPixelGroup;
-import org.hypher.gradientea.lightingmodel.shared.pixel.PixelGroup;
+import org.hypher.gradientea.animation.shared.pixel.AbstractPixel;
+import org.hypher.gradientea.animation.shared.pixel.ListPixelGroup;
+import org.hypher.gradientea.animation.shared.pixel.PixelGroup;
 
 /**
  * A pixel in a DMX multiverse.

@@ -4,7 +4,7 @@ import com.google.gwt.animation.client.AnimationScheduler;
 import com.google.gwt.core.client.Duration;
 import org.hypher.gradientea.lightingmodel.shared.dmx.DmxPixel;
 import org.hypher.gradientea.lightingmodel.shared.dmx.DmxRendering;
-import org.hypher.gradientea.lightingmodel.shared.rendering.RenderableAnimation;
+import org.hypher.gradientea.animation.shared.RenderableAnimation;
 
 /**
  * Class which handles playing a {@link RenderableAnimation} consisting of {@link DmxPixel}s.

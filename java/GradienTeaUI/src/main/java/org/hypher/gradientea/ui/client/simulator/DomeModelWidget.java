@@ -23,14 +23,14 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoFace;
-import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeGeometry;
+import org.hypher.gradientea.geometry.shared.GeoFace;
+import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.ui.client.player.DmxInterface;
 
 import java.util.List;
 
 /**
- * Renders a {@link org.hypher.gradientea.lightingmodel.shared.rendering.RenderableAnimation} onto a model
+ * Renders a {@link org.hypher.gradientea.animation.shared.RenderableAnimation} onto a model
  * of a geodesic dome.
  *
  * @author Yona Appletree (yona@concentricsky.com)

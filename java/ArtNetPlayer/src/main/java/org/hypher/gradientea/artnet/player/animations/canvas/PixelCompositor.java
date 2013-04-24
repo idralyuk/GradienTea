@@ -1,7 +1,7 @@
 package org.hypher.gradientea.artnet.player.animations.canvas;
 
-import org.hypher.gradientea.lightingmodel.shared.color.PixelColor;
-import org.hypher.gradientea.lightingmodel.shared.color.RgbColor;
+import org.hypher.gradientea.animation.shared.color.PixelColor;
+import org.hypher.gradientea.animation.shared.color.RgbColor;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)

@@ -2,12 +2,12 @@ package org.hypher.gradientea.lightingmodel.shared.dome.groups;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
-import org.hypher.gradientea.lightingmodel.shared.color.PixelColor;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoFace;
-import org.hypher.gradientea.lightingmodel.shared.pixel.AbstractPixel;
-import org.hypher.gradientea.lightingmodel.shared.pixel.ListPixelGroup;
-import org.hypher.gradientea.lightingmodel.shared.pixel.PixelGroup;
-import org.hypher.gradientea.lightingmodel.shared.pixel.PixelValue;
+import org.hypher.gradientea.animation.shared.color.PixelColor;
+import org.hypher.gradientea.geometry.shared.GeoFace;
+import org.hypher.gradientea.animation.shared.pixel.AbstractPixel;
+import org.hypher.gradientea.animation.shared.pixel.ListPixelGroup;
+import org.hypher.gradientea.animation.shared.pixel.PixelGroup;
+import org.hypher.gradientea.animation.shared.pixel.PixelValue;
 
 import java.util.Collection;
 import java.util.Collections;

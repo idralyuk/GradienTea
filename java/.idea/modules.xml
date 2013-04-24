@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ArtNetPlayer/ArtNetPlayer.iml" filepath="$PROJECT_DIR$/ArtNetPlayer/ArtNetPlayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DomeController/DomeController.iml" filepath="$PROJECT_DIR$/DomeController/DomeController.iml" />
       <module fileurl="file://$PROJECT_DIR$/GradienTeaParent.iml" filepath="$PROJECT_DIR$/GradienTeaParent.iml" />
       <module fileurl="file://$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" filepath="$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" />
       <module fileurl="file://$PROJECT_DIR$/LightingModel/LightingModel.iml" filepath="$PROJECT_DIR$/LightingModel/LightingModel.iml" />

@@ -29,9 +29,9 @@ import net.blimster.gwt.threejs.renderers.Renderer;
 import net.blimster.gwt.threejs.renderers.WebGLRenderer;
 import net.blimster.gwt.threejs.scenes.Scene;
 import net.blimster.gwt.threejsx.util.JsArrays;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoEdge;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoFace;
-import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeGeometry;
+import org.hypher.gradientea.geometry.shared.GeoEdge;
+import org.hypher.gradientea.geometry.shared.GeoFace;
+import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 
 import java.util.LinkedList;
 import java.util.List;

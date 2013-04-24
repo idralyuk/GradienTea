@@ -114,6 +114,7 @@
 	<modules>
 		<module>LightingModel</module>
 		<module>ArtNetPlayer</module>
+		<module>DomeController</module>
 		<module>GradienTeaUI</module>
 	</modules>
 </project>

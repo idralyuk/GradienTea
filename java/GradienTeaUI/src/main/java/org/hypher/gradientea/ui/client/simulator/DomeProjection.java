@@ -2,10 +2,10 @@ package org.hypher.gradientea.ui.client.simulator;
 
 import com.google.common.collect.Maps;
 import net.blimster.gwt.threejs.core.Vector3;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoEdge;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoFace;
-import org.hypher.gradientea.lightingmodel.shared.dome.GeoVector3;
-import org.hypher.gradientea.lightingmodel.shared.dome.GradienTeaDomeGeometry;
+import org.hypher.gradientea.geometry.shared.GeoEdge;
+import org.hypher.gradientea.geometry.shared.GeoFace;
+import org.hypher.gradientea.geometry.shared.GeoVector3;
+import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 
 import java.util.Collection;
 import java.util.Map;
