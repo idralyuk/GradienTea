@@ -5,6 +5,6 @@ package org.hypher.gradientea.transport.shared;
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public class DomeAnimationTransport {
-
+public interface DomeAnimationTransport {
+	void displayFrame(DomeAnimationFrame frame);
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="windows-1252"?>
+
+<atmosphere-handlers>
+	<atmosphere-handler context-root="/GradienTeaUI/gwtComet"
+	                    class-name="org.hypher.gradientea.ui.server.DomeAnimationAtmosphereHandler">
+		<property name="heartbeat" value="20000"/>
+	</atmosphere-handler>
+</atmosphere-handlers>

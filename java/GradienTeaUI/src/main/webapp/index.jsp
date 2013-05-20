@@ -12,6 +12,11 @@
 
     <title>GradienTea Dome Pattern Designer</title>
     <script src="js/three.min.js" type="text/javascript"></script>
+		<%
+			// Establish a session
+			long current = new java.util.Date().getTime();
+			session.setAttribute("time", new Long(current));
+		%>
     <%
         String appName = "GradienTeaUI";
 

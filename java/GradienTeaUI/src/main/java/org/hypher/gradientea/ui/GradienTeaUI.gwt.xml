@@ -10,6 +10,10 @@
 	<!-- Core GWT Stuff -->
 	<inherits name='com.google.gwt.user.User'/>
 
+	<!-- Logging
+	<inherits name="com.google.gwt.logging.Logging"/>
+	 -->
+
 	<!-- GIN -->
 	<inherits name="com.google.gwt.inject.Inject"/>
 
@@ -22,6 +26,12 @@
 
 	<!-- ThreeJS -->
 	<inherits name="net.blimster.gwt.threejs" />
+	<inherits name="org.hypher.gradientea.animation.PredefinedAnimationModel" />
+	<inherits name="org.hypher.gradientea.geometry.DomeGeometry" />
+	<inherits name="org.hypher.gradientea.transport.AnimationTransport" />
+
+	<!-- Atmosphere -->
+	<inherits name="org.atmosphere.gwt.Client"/>
 
 	<!--==================================================================================================================
 		== MODULE CONFIGURATION

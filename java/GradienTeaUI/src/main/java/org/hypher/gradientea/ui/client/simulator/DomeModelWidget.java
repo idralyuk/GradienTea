@@ -2,7 +2,6 @@ package org.hypher.gradientea.ui.client.simulator;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Ordering;
 import com.google.gwt.animation.client.AnimationScheduler;
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.core.client.Duration;
@@ -25,6 +24,8 @@ import com.google.gwt.user.client.ui.RequiresResize;
 import com.google.gwt.user.client.ui.Widget;
 import org.hypher.gradientea.geometry.shared.GeoFace;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
+import org.hypher.gradientea.transport.shared.DomeAnimationFrame;
+import org.hypher.gradientea.transport.shared.DomeAnimationTransport;
 import org.hypher.gradientea.ui.client.player.DmxInterface;
 
 import java.util.List;
@@ -35,7 +36,7 @@ import java.util.List;
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public class DomeModelWidget extends Composite implements RequiresResize, DmxInterface {
+public class DomeModelWidget extends Composite implements RequiresResize, DmxInterface, DomeAnimationTransport {
 	interface OurUiBinder extends UiBinder<Widget, DomeModelWidget> { }
 	private static OurUiBinder ourUiBinder = GWT.create(OurUiBinder.class);
 
@@ -82,9 +83,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 
 	public void displayDome(GradienTeaDomeGeometry geometry) {
 		domeGeometry = geometry;
-		faceList = Ordering.from(GeoFace.arbitraryComparator).sortedCopy(
-			ImmutableList.copyOf(geometry.getLightedFaces())
-		);
+		faceList = ImmutableList.copyOf(geometry.getLightedFaces());
 
 		domeRenderer.renderDome(geometry);
 
@@ -97,6 +96,22 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		}
 
 		onResize();
+	}
+
+	@Override
+	public void displayFrame(DomeAnimationFrame frame) {
+		byte[] pixelData = frame.getPixelData();
+
+		for (int dataIndex=0, faceIndex=0; dataIndex<pixelData.length; dataIndex+=3, faceIndex++) {
+			domeRenderer.applyFaceColor(
+				faceList.get(faceIndex),
+				pixelData[dataIndex] & 0xFF,
+				pixelData[dataIndex+1] & 0xFF,
+				pixelData[dataIndex+2] & 0xFF
+			);
+		}
+
+		renderFrame();
 	}
 
 	@Override
@@ -153,7 +168,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		return ((rotationsPerMinute * Duration.currentTimeMillis()) / (60 * 1000.0))%1.0 * Math.PI * 2;
 	}
 
-	protected void renderFrame() {
+	public void renderFrame() {
 		if (autoRotateCheckbox.getValue()) {
 			domeRenderer.setCameraAngleRadians(calculateCameraRotation());
 		}

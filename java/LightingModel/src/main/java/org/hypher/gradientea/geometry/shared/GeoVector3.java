@@ -205,6 +205,14 @@ public class GeoVector3 implements Serializable {
 		return this.multiply(-1);
 	}
 
+	public GeoVector3 midpointBetween(GeoVector3 other, double fraction) {
+		return add(other.sub(this).multiply(fraction));
+	}
+
+	public GeoVector3 midpointBetween(GeoVector3 other) {
+		return midpointBetween(other, 0.5);
+	}
+
 	/**
 	 * Computes the dot product of this vector and vector v1.
 	 *

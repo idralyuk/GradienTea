@@ -4,12 +4,14 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.ImmutableSet;
 
 import javax.annotation.Nullable;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Set;
 
 /**
  * Represents one face of the dome
@@ -55,8 +57,8 @@ public class GeoFace implements Serializable {
 		return v3;
 	}
 
-	public Collection<GeoVector3> getVertices() {
-		return Arrays.asList(v1, v2, v3);
+	public Set<GeoVector3> getVertices() {
+		return ImmutableSet.of(v1,v2,v3);
 	}
 
 	public static transient Function<? super GeoFace, Collection<GeoVector3>> getVertices = new Function<GeoFace, Collection<GeoVector3>>() {
@@ -73,6 +75,19 @@ public class GeoFace implements Serializable {
 			new GeoEdge(v2, v3),
 			new GeoEdge(v3, v1)
 		);
+	}
+
+	public GeoVector3 center() {
+		return v1.midpointBetween(v2).midpointBetween(v3);
+	}
+
+	public int commonVerticiesWith(final GeoFace other) {
+		Set<GeoVector3> verticies = getVertices();
+
+		return
+			(verticies.contains(other.getA()) ? 1 : 0) +
+			(verticies.contains(other.getB()) ? 1 : 0) +
+			(verticies.contains(other.getC()) ? 1 : 0);
 	}
 
 	public static class ContainsVertex implements Predicate<GeoFace> {

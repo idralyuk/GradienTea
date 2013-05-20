@@ -13,7 +13,7 @@ public class GradienTeaDomeSpecs {
 		5, // Frequency
 		8, // Layers
 		7, // Lighted Layers
-		20, // Radius (ft)
+		19, // Radius (ft)
 		2, // Panel Height (ft)
 		8 /*mm*/ / 25.4 / 12 // Panel thickness (ft)
 	);

@@ -17,6 +17,7 @@
 		<version.gwt>2.5.0</version.gwt>
 		<version.gin>2.0.0</version.gin>
 		<version.jsr305>1.3.9</version.jsr305>
+		<version.atmosphere>1.1.0.beta2</version.atmosphere>
 
 		<!-- GAE Related -->
 		<version.gae>1.7.0</version.gae>
@@ -33,6 +34,9 @@
 
 		<!-- PI4J -->
 		<version.pi4j>0.0.5</version.pi4j>
+
+		<!-- JSONLib -->
+		<version.json-lib>2.4</version.json-lib>
 	</properties>
 
 	<dependencyManagement>
@@ -107,6 +111,25 @@
 				<groupId>com.pi4j</groupId>
 				<artifactId>pi4j-core</artifactId>
 				<version>${version.pi4j}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.sf.json-lib</groupId>
+				<artifactId>json-lib</artifactId>
+				<version>${version.json-lib}</version>
+				<classifier>jdk15</classifier>
+			</dependency>
+
+			<dependency>
+				<groupId>org.atmosphere</groupId>
+				<artifactId>atmosphere-gwt-client</artifactId>
+				<scope>provided</scope>
+				<version>${version.atmosphere}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.atmosphere</groupId>
+				<artifactId>atmosphere-gwt-server</artifactId>
+				<version>${version.atmosphere}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

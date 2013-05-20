@@ -1,13 +1,12 @@
 package org.hypher.gradientea.geometry.shared;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.Sets;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 
@@ -15,34 +14,19 @@ import java.util.SortedSet;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class GradienTeaDomeGeometry implements Serializable {
-
-	/**
-	 * Comparator for GeoFaces giving them the addressing order used by the GradienTea animation system. This ordering
-	 * is arbitrary but consistent. The algorithm is as follows:
-	 *
-	 * - Find vertex of each face which is closest to the top vertex of the dome; use this as the "comparison vertex"
-	 * - Faces with comparison vertices with smaller Y coordinates are considered "smaller" in addressing order
-	 * - If the comparison vertices have the same Y coordinate, compare their angle of rotation around the Y axis
-	 *
-	 */
-	public static transient final Comparator<GeoFace> FACE_ADDRESSING_COMPARATOR = new Comparator<GeoFace>() {
-		Comparator<GeoVector3> distanceToTopVertexComparator = new GeoVector3.DistanceComparator(GeodesicSphereGeometry.topVertex);
-
+	public static transient final Comparator<GeoFace> ROTATION_ABOUT_Z_COMPARATOR = new Comparator<GeoFace>() {
 		@Override
 		public int compare(
 			final GeoFace face1, final GeoFace face2
 		) {
-			GeoVector3 vertex1 = Collections.min(face1.getVertices(), distanceToTopVertexComparator);
-			GeoVector3 vertex2 = Collections.min(face2.getVertices(), distanceToTopVertexComparator);
+			GeoVector3 vertex1 = face1.center();
+			GeoVector3 vertex2 = face2.center();
 
-			final int yDelta = GeoVector3.tolerantDoubleComparator.compare(vertex1.getY(), vertex2.getY());
-			if (yDelta != 0) return yDelta;
+			// Calculate angle around z axis
+			final double angle1 = Math.atan2(vertex1.getY(), vertex1.getX());
+			final double angle2 = Math.atan2(vertex2.getY(), vertex2.getX());
 
-			// Calculate angle around y axis
-			final double angle1 = Math.atan2(Math.sqrt(vertex1.getX()*vertex1.getX()+vertex1.getY()*vertex1.getY()), vertex1.getZ());
-			final double angle2 = Math.atan2(Math.sqrt(vertex2.getX()*vertex2.getX()+vertex2.getY()*vertex2.getY()), vertex2.getZ());
-
-			return GeoVector3.tolerantDoubleComparator.compare(angle1, angle2);
+			return GeoVector3.tolerantDoubleComparator.compare(angle2, angle1);
 		}
 	};
 
@@ -65,18 +49,23 @@ public class GradienTeaDomeGeometry implements Serializable {
 
 	public Set<GeoFace> getLightedFaces() {
 		if (lightedFaces == null) {
-			lightedFaces = ImmutableSet.copyOf(
-				Ordering.from(FACE_ADDRESSING_COMPARATOR).immutableSortedCopy(
-					Iterables.concat(
-						domeGeometry
-							.ringsFrom(GeodesicSphereGeometry.topVertex)
-							.subList(0, spec.getLightedLayers())
-					)
-				)
-			);
+			lightedFaces = new LinkedHashSet<GeoFace>();
+
+			for(List<GeoFace> ring : domeGeometry.ringsFrom(GeodesicSphereGeometry.topVertex)) {
+				ring = Ordering.from(ROTATION_ABOUT_Z_COMPARATOR).sortedCopy(ring);
+				lightedFaces.addAll(ring);
+			}
 		}
 
 		return lightedFaces;
+	}
+
+	private static <T> void rotateList(List<T> list, boolean forward) {
+		if (forward) {
+			list.add(0, list.remove(list.size()-1));
+		} else {
+			list.add(list.size()-1, list.remove(0));
+		}
 	}
 
 	public double getHeight() {

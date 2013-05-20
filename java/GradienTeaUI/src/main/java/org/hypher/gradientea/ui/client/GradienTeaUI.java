@@ -1,33 +1,28 @@
 package org.hypher.gradientea.ui.client;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Ordering;
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import org.hypher.gradientea.animation.shared.function.ExpandedAnimationWrapper;
-import org.hypher.gradientea.animation.shared.function.HsbTween;
-import org.hypher.gradientea.animation.shared.function.SingleDefinedAnimation;
 import org.hypher.gradientea.animation.shared.color.HsbColor;
-import org.hypher.gradientea.lightingmodel.shared.dmx.DmxPixel;
 import org.hypher.gradientea.geometry.shared.GeoFace;
-import org.hypher.gradientea.geometry.shared.GeodesicSphereGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpec;
-import org.hypher.gradientea.animation.shared.pixel.ListPixelGroup;
-import org.hypher.gradientea.animation.shared.pixel.PixelGroup;
-import org.hypher.gradientea.animation.shared.RenderableAnimation;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
+import org.hypher.gradientea.transport.shared.DomeAnimationFrame;
+import org.hypher.gradientea.ui.client.gin.GradienTeaGinjector;
 import org.hypher.gradientea.ui.client.player.ClientDmxAnimationPlayer;
 import org.hypher.gradientea.ui.client.simulator.DomeModelWidget;
 import org.hypher.gradientea.ui.client.widgets.DomeInfoPanel;
@@ -40,6 +35,8 @@ import java.util.Map;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class GradienTeaUI implements EntryPoint {
+
+	public final static GradienTeaGinjector ginjector = GWT.create(GradienTeaGinjector.class);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Instance Methods
@@ -56,7 +53,6 @@ public class GradienTeaUI implements EntryPoint {
 
 		widget = new DomeModelWidget();
 		player = new ClientDmxAnimationPlayer(widget);
-
 
 		FlowPanel controls = new FlowPanel();
 
@@ -127,33 +123,48 @@ public class GradienTeaUI implements EntryPoint {
 			}
 		}
 
-		List<PixelGroup> ringGroups = Lists.newArrayList();
-		for (List<GeoFace> ring : geometry.getDomeGeometry()
-			.ringsFrom(GeodesicSphereGeometry.icosahedronVerticies[2])) {
-			List<DmxPixel> pixels = Lists.newArrayList();
+		byte[] frame = new byte[3 * 225];
+		List<Integer> layerTransitions = ImmutableList.of(
+			5,
+			5 + 5*3,
+			5 + 5*3 + 5*5,
+			5 + 5*3 + 5*5 + 5*7,
+			5 + 5*3 + 5*5 + 5*7 + 5*9,
+			5 + 5*3 + 5*5 + 5*7 + 5*9 + 5*9 + 5,
+			225,
+			275
+		);
 
-			for (GeoFace face : ring) {
-				if (faces.contains(face)) {
-					pixels.add(new DmxPixel(faceChannels.get(face)[0], faceChannels.get(face)[1]));
-				}
-			}
+		for (
+			int i=0, layer=0, layerI=0, layerCount=5;
+			i<225;
+			i++,
+			layerI++,
+			layer += layerTransitions.contains(i) ? 1 : 0,
+			layerI = layerTransitions.contains(i) ? 0 : layerI,
+			layerCount = layerTransitions.contains(i) ? (layerTransitions.get(layerTransitions.indexOf(i)+1) - i) : layerCount
+		) {
+			int[] color = new HsbColor(
+				layer / 6.0,
+				1.0,
+				(double)layerI / layerCount
+			).asRgb();
 
-			ringGroups.add(new ListPixelGroup(pixels));
+			frame[i*3+0] = (byte) color[0];
+			frame[i*3+1] = (byte) color[1];
+			frame[i*3+2] = (byte) color[2];
 		}
 
-		player.play(
-			new RenderableAnimation(
-				new SingleDefinedAnimation(
-					new ExpandedAnimationWrapper(
-						new HsbTween(new HsbColor(0, 1.0, 1.0), new HsbColor(1.0, 1.0, 1.0)),
-						ExpandedAnimationWrapper.TRIANGLE,
-						0.3
-					),
-					new ListPixelGroup(ringGroups)
-				),
-				5
-			)
-		);
+		widget.displayFrame(new DomeAnimationFrame(frame));
+
+		new Timer(){
+			@Override
+			public void run() {
+				widget.renderFrame();
+			}
+		}.scheduleRepeating(60);
+
+		ginjector.getDomeAnimationCometTransport().start(widget);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
