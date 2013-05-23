@@ -1,9 +1,12 @@
 package org.hypher.gradientea.geometry.shared;
 
+import com.google.common.base.Function;
+import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.Sets;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -34,6 +37,7 @@ public class GradienTeaDomeGeometry implements Serializable {
 	protected GradienTeaDomeSpec spec;
 
 	private Set<GeoFace> lightedFaces;
+	private Double lightedPanelArc;
 
 	protected GradienTeaDomeGeometry() {}
 
@@ -51,7 +55,7 @@ public class GradienTeaDomeGeometry implements Serializable {
 		if (lightedFaces == null) {
 			lightedFaces = new LinkedHashSet<GeoFace>();
 
-			for(List<GeoFace> ring : domeGeometry.ringsFrom(GeodesicSphereGeometry.topVertex)) {
+			for(List<GeoFace> ring : domeGeometry.ringsFrom(GeodesicSphereGeometry.topVertex).subList(0, spec.getLightedLayers())) {
 				ring = Ordering.from(ROTATION_ABOUT_Z_COMPARATOR).sortedCopy(ring);
 				lightedFaces.addAll(ring);
 			}
@@ -116,6 +120,23 @@ public class GradienTeaDomeGeometry implements Serializable {
 
 	public double getFloorArea() {
 		return Math.PI * getFloorRadius()*getFloorRadius();
+	}
+
+
+	public double getLightedPanelArc() {
+		if (lightedPanelArc == null) {
+			GeoVector3 lowestPoint = Collections.min(
+				FluentIterable.from(getLightedFaces()).transformAndConcat(new Function<GeoFace, Iterable<GeoVector3>>() {
+					public Iterable<GeoVector3> apply(final GeoFace input) {
+						return input.getVertices();
+					}
+				}).toImmutableList(),
+				GeoVector3.yzxComparator
+			);
+
+			lightedPanelArc = lowestPoint.angleTo(GeodesicSphereGeometry.topVertex);
+		}
+		return lightedPanelArc;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

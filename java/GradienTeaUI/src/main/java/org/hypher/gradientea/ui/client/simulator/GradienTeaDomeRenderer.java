@@ -18,6 +18,7 @@ import net.blimster.gwt.threejs.extras.core.Shape;
 import net.blimster.gwt.threejs.extras.geometries.CylinderGeometry;
 import net.blimster.gwt.threejs.extras.geometries.ExtrudeGeometry;
 import net.blimster.gwt.threejs.extras.geometries.PlaneGeometry;
+import net.blimster.gwt.threejs.extras.helpers.AxisHelper;
 import net.blimster.gwt.threejs.lights.Light;
 import net.blimster.gwt.threejs.lights.PointLight;
 import net.blimster.gwt.threejs.materials.Material;
@@ -29,6 +30,7 @@ import net.blimster.gwt.threejs.renderers.Renderer;
 import net.blimster.gwt.threejs.renderers.WebGLRenderer;
 import net.blimster.gwt.threejs.scenes.Scene;
 import net.blimster.gwt.threejsx.util.JsArrays;
+import org.hypher.gradientea.animation.shared.color.HsbColor;
 import org.hypher.gradientea.geometry.shared.GeoEdge;
 import org.hypher.gradientea.geometry.shared.GeoFace;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
@@ -174,7 +176,7 @@ class GradienTeaDomeRenderer {
 		person.getPosition().setZ(3.0);
 		scene.add(person);
 
-		//scene.add(AxisHelper.create(100));
+		scene.add(AxisHelper.create(100));
 
 		groundMesh = Mesh.create(
 			PlaneGeometry.create(100000, 100000),
@@ -182,9 +184,9 @@ class GradienTeaDomeRenderer {
 		);
 		groundMesh.getPosition().setZ(-0);
 
-		if (openGlSupported) {
-			scene.add(groundMesh);
-		}
+//		if (openGlSupported) {
+//			scene.add(groundMesh);
+//		}
 
 		domeObject = Object3D.create();
 		scene.add(domeObject);
@@ -197,11 +199,19 @@ class GradienTeaDomeRenderer {
 		Preconditions.checkArgument(panels.containsKey(domeFace), "This model does not have a panel for " + domeFace);
 
 		if (openGlSupported) {
-			((MeshPhongMaterial) panels.get(domeFace).mesh.getMaterial()).getEmissive().setRGB(
-				(double) red / 255,
-				(double) green / 255,
-				(double) blue / 255
+			// Transform the colors to map brightness to alpha
+			float[] hsb = HsbColor.RGBtoHSB(red, green, blue);
+			int rgb[] = HsbColor.HSBtoRGB(hsb[0], hsb[1], 1.0f);
+
+			final MeshPhongMaterial material = (MeshPhongMaterial) panels.get(domeFace).mesh.getMaterial();
+
+			material.getEmissive().setRGB(
+				(double) rgb[0] / 255,
+				(double) rgb[1] / 255,
+				(double) rgb[2] / 255
 			);
+
+			material.setOpacity(0.05 + 0.85*hsb[2]);
 		} else {
 			((MeshBasicMaterial) panels.get(domeFace).mesh.getMaterial()).getColor().setRGB(
 				(double) red / 255,
@@ -366,7 +376,6 @@ class GradienTeaDomeRenderer {
 			if (openGlSupported) {
 				material = MeshPhongMaterial.create(0x000000).setTransparent(true);
 				((MeshPhongMaterial) material).getAmbient().setRGB(1.0, 1.0, 1.0);
-				material.setOpacity(0.8);
 			} else {
 				material = MeshBasicMaterial.create(0x000000);
 			}

@@ -162,7 +162,7 @@ public class GradienTeaUI implements EntryPoint {
 			public void run() {
 				widget.renderFrame();
 			}
-		}.scheduleRepeating(60);
+		}.scheduleRepeating(1000/30);
 
 		ginjector.getDomeAnimationCometTransport().start(widget);
 	}

@@ -61,7 +61,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>org.hypher.gradientea.artnet.player.demo.TestPlayer</mainClass>
+							<mainClass>org.hypher.gradientea.artnet.player.linear.TestPlayer</mainClass>
 						</manifest>
 					</archive>
 					<descriptors>

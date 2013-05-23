@@ -16,8 +16,8 @@ public class HsbColor implements PixelColor {
 
 	public HsbColor(final double hue, final double saturation, final double brightness) {
 		this.hue = hue;
-		this.saturation = saturation;
-		this.brightness = brightness;
+		this.saturation = Math.max(0, Math.min(1, saturation));
+		this.brightness = Math.max(0, Math.min(1, brightness));
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,7 +32,7 @@ public class HsbColor implements PixelColor {
 		return HSBtoRGB((float) hue, (float) saturation, (float) brightness);
 	}
 
-	protected static int[] HSBtoRGB(float hue, float saturation, float brightness) {
+	public static int[] HSBtoRGB(float hue, float saturation, float brightness) {
 		int r = 0, g = 0, b = 0;
 		if (saturation == 0) {
 			r = g = b = (int) (brightness * 255.0f + 0.5f);
@@ -76,6 +76,58 @@ public class HsbColor implements PixelColor {
 			}
 		}
 		return new int[] {r, g, b};
+	}
+
+	public static float[] RGBtoHSB(int r, int g, int b) {
+		float hue, saturation, brightness;
+		float[] hsbvals = new float[3];
+
+		int cmax = (r > g) ? r : g;
+		if (b > cmax) cmax = b;
+		int cmin = (r < g) ? r : g;
+		if (b < cmin) cmin = b;
+
+		brightness = ((float) cmax) / 255.0f;
+		if (cmax != 0)
+			saturation = ((float) (cmax - cmin)) / ((float) cmax);
+		else
+			saturation = 0;
+		if (saturation == 0)
+			hue = 0;
+		else {
+			float redc = ((float) (cmax - r)) / ((float) (cmax - cmin));
+			float greenc = ((float) (cmax - g)) / ((float) (cmax - cmin));
+			float bluec = ((float) (cmax - b)) / ((float) (cmax - cmin));
+			if (r == cmax)
+				hue = bluec - greenc;
+			else if (g == cmax)
+				hue = 2.0f + redc - bluec;
+			else
+				hue = 4.0f + greenc - redc;
+			hue = hue / 6.0f;
+			if (hue < 0)
+				hue = hue + 1.0f;
+		}
+		hsbvals[0] = hue;
+		hsbvals[1] = saturation;
+		hsbvals[2] = brightness;
+		return hsbvals;
+	}
+
+	public HsbColor multiply(double hueFactor, double saturationFactor, double brightnessFactor) {
+		return new HsbColor(
+			this.hue * hueFactor,
+			this.saturation * saturationFactor,
+			this.brightness * brightnessFactor
+		);
+	}
+
+	public HsbColor add(double hueAddition, double saturationAddition, double brightnessAddition) {
+		return new HsbColor(
+			this.hue + hueAddition,
+			this.saturation + saturationAddition,
+			this.brightness + brightnessAddition
+		);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

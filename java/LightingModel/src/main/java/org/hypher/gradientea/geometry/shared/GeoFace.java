@@ -36,6 +36,7 @@ public class GeoFace implements Serializable {
 	protected GeoVector3 v1;
 	protected GeoVector3 v2;
 	protected GeoVector3 v3;
+	protected transient GeoVector3 center;
 
 	protected GeoFace() {}
 
@@ -78,7 +79,30 @@ public class GeoFace implements Serializable {
 	}
 
 	public GeoVector3 center() {
-		return v1.midpointBetween(v2).midpointBetween(v3);
+		if (center == null) {
+			center = v1.midpointBetween(v2).midpointBetween(v3);
+		}
+		return center;
+	}
+
+	/**
+	 * @return The angle of the center of this face in the xy plane.
+	 */
+	public double theta() {
+		return center().theta();
+	}
+
+	/**
+	 * @return The angle of the center of this face in the yz plane.
+	 */
+	public double phi() {
+		return center().phi();
+	}
+
+	private double normalizeAngle(double radians) {
+		radians = radians % (2*Math.PI);
+		if (radians < 0) radians += 2*Math.PI;
+		return radians;
 	}
 
 	public int commonVerticiesWith(final GeoFace other) {

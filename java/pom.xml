@@ -37,6 +37,9 @@
 
 		<!-- JSONLib -->
 		<version.json-lib>2.4</version.json-lib>
+
+		<!-- JInput -->
+		<version.jinput>2.0.5</version.jinput>
 	</properties>
 
 	<dependencyManagement>
@@ -130,6 +133,12 @@
 				<groupId>org.atmosphere</groupId>
 				<artifactId>atmosphere-gwt-server</artifactId>
 				<version>${version.atmosphere}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.java.jinput</groupId>
+				<artifactId>jinput</artifactId>
+				<version>${version.jinput}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -1,10 +1,11 @@
 package org.hypher.gradientea.ui.server;
 
+import com.google.common.collect.Sets;
 import org.atmosphere.cpr.Broadcaster;
 import org.atmosphere.gwt.server.AtmosphereGwtHandler;
 import org.atmosphere.gwt.server.GwtAtmosphereResource;
-import org.hypher.gradientea.artnet.player.DomeAnimationServerMain;
-import org.hypher.gradientea.artnet.player.HttpReceiver;
+import org.hypher.gradientea.artnet.player.HttpDomeAnimationReceiver;
+import org.hypher.gradientea.artnet.player.UdpDomeAnimationReceiver;
 import org.hypher.gradientea.transport.shared.DomeAnimationFrame;
 import org.hypher.gradientea.transport.shared.DomeAnimationTransport;
 
@@ -14,13 +15,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class DomeAnimationAtmosphereHandler extends AtmosphereGwtHandler {
-	private static Broadcaster broadcaster;
+	private static Set<Broadcaster> broadcasters = Sets.newHashSet();
 
 	@Override
 	public void init(ServletConfig servletConfig) throws ServletException {
@@ -32,14 +35,22 @@ public class DomeAnimationAtmosphereHandler extends AtmosphereGwtHandler {
 //		logger.trace("Updated logging levels");
 
 		try {
-			new HttpReceiver(new DomeAnimationTransport() {
+			final DomeAnimationTransport animationTransport = new DomeAnimationTransport() {
 				@Override
 				public void displayFrame(final DomeAnimationFrame frame) {
-					if (broadcaster != null) {
-						broadcaster.broadcast(frame);
+					for (Iterator<Broadcaster> i=broadcasters.iterator(); i.hasNext();) {
+						try {
+							i.next().broadcast(frame);
+						} catch (Exception e) {
+							i.remove();
+						}
 					}
 				}
-			}).start(DomeAnimationServerMain.DOME_PORT);
+			};
+
+			new HttpDomeAnimationReceiver(animationTransport).start();
+			new UdpDomeAnimationReceiver(animationTransport).start();
+
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -62,7 +73,7 @@ public class DomeAnimationAtmosphereHandler extends AtmosphereGwtHandler {
 		String agent = resource.getRequest().getHeader("user-agent");
 		logger.info(agent);
 
-		broadcaster = resource.getBroadcaster();
+		broadcasters.add(resource.getBroadcaster());
 
 		return NO_TIMEOUT;
 	}
@@ -70,6 +81,7 @@ public class DomeAnimationAtmosphereHandler extends AtmosphereGwtHandler {
 	@Override
 	public void cometTerminated(GwtAtmosphereResource cometResponse, boolean serverInitiated) {
 		super.cometTerminated(cometResponse, serverInitiated);
+		broadcasters.remove(cometResponse.getBroadcaster());
 		logger.info("Comet disconnected");
 	}
 

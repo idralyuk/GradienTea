@@ -18,6 +18,15 @@ public class GradienTeaDomeSpecs {
 		8 /*mm*/ / 25.4 / 12 // Panel thickness (ft)
 	);
 
+	public final static transient GradienTeaDomeSpec GRADIENTEA_SPHERE = new GradienTeaDomeSpec(
+		5, // Frequency
+		15, // Layers
+		15, // Lighted Layers
+		19, // Radius (ft)
+		2, // Panel Height (ft)
+		8 /*mm*/ / 25.4 / 12 // Panel thickness (ft)
+	);
+
 	public final static transient GradienTeaDomeSpec PROTOTYPE_DOME = new GradienTeaDomeSpec(
 		2, // Frequency
 		3, // Layers
@@ -27,8 +36,19 @@ public class GradienTeaDomeSpecs {
 		8 /*mm*/ / 25.4 / 12 // Panel thickness (ft)
 	);
 
+	public final static transient GradienTeaDomeSpec GRADIENTEA_QUAD = new GradienTeaDomeSpec(
+		9, // Frequency
+		14, // Layers
+		13, // Lighted Layers
+		19, // Radius (ft)
+		1, // Panel Height (ft)
+		8 /*mm*/ / 25.4 / 12 // Panel thickness (ft)
+	);
+
 	public final static transient Map<String, GradienTeaDomeSpec> NAMED = new LinkedHashMap<String, GradienTeaDomeSpec>(){{
 		put("Planned GradienTea Dome", GRADIENTEA_DOME);
 		put("Prototype GradienTea Dome", PROTOTYPE_DOME);
+		put("GradienTea Sphere", GRADIENTEA_SPHERE);
+		put("GradienTea Quad", GRADIENTEA_QUAD);
 	}};
 }

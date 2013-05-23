@@ -1,6 +1,8 @@
 package org.hypher.gradientea.geometry.shared;
 
 import com.google.common.collect.ComparisonChain;
+import org.hypher.gradientea.geometry.shared.math.DomeMath;
+import org.hypher.gradientea.geometry.shared.math.GeoPolarVector2;
 
 import java.io.Serializable;
 import java.util.Comparator;
@@ -35,7 +37,7 @@ public class GeoVector3 implements Serializable {
 		}
 	};
 
-	public final transient static Comparator<GeoVector3> yzzComparator = new Comparator<GeoVector3>() {
+	public final transient static Comparator<GeoVector3> yzxComparator = new Comparator<GeoVector3>() {
 		public int compare(final GeoVector3 o1, final GeoVector3 o2) {
 			return ComparisonChain.start()
 				.compare(o1.getY(), o2.getY(), tolerantDoubleComparator)
@@ -361,7 +363,8 @@ public class GeoVector3 implements Serializable {
 	}
 
 	/**
-	 * Normalize the values of <em>this</em> vector, without making a copy. This should only be used carefully.
+	 * Normalize the values of <em>this</em> vector, without making a copy. This should only be used when the vector
+	 * needs to be normalized, but there are other references to it which need to refer to the update value.
 	 */
 	protected void normalizeInPlace() {
 		GeoVector3 normal = normalize();
@@ -369,6 +372,21 @@ public class GeoVector3 implements Serializable {
 		this.x = normal.x;
 		this.y = normal.y;
 		this.z = normal.z;
+	}
+
+	public double theta() {
+		return DomeMath.normalizeAngle(Math.atan2(z, x)) - Math.PI/2;
+	}
+
+	public double phi() {
+		return DomeMath.normalizeAngle(Math.atan2(z, y)) - Math.PI/2;
+	}
+
+	public GeoPolarVector2 toPolar() {
+		return new GeoPolarVector2(
+			theta(),
+			phi()
+		);
 	}
 
 	public static class DistanceComparator implements Comparator<GeoVector3> {

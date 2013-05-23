@@ -17,6 +17,7 @@ import com.google.gwt.event.dom.client.MouseWheelHandler;
 import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.InlineLabel;
@@ -102,7 +103,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 	public void displayFrame(DomeAnimationFrame frame) {
 		byte[] pixelData = frame.getPixelData();
 
-		for (int dataIndex=0, faceIndex=0; dataIndex<pixelData.length; dataIndex+=3, faceIndex++) {
+		for (int dataIndex=0, faceIndex=0; dataIndex<pixelData.length && faceIndex<faceList.size(); dataIndex+=3, faceIndex++) {
 			domeRenderer.applyFaceColor(
 				faceList.get(faceIndex),
 				pixelData[dataIndex] & 0xFF,
@@ -150,12 +151,14 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 	@Override
 	protected void onLoad() {
 		super.onLoad();
-		AnimationScheduler.get().requestAnimationFrame(new AnimationScheduler.AnimationCallback() {
-			@Override
-			public void execute(final double timestamp) {
-				onResize();
+		AnimationScheduler.get().requestAnimationFrame(
+			new AnimationScheduler.AnimationCallback() {
+				@Override
+				public void execute(final double timestamp) {
+					onResize();
+				}
 			}
-		});
+		);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -168,20 +171,27 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 		return ((rotationsPerMinute * Duration.currentTimeMillis()) / (60 * 1000.0))%1.0 * Math.PI * 2;
 	}
 
-	public void renderFrame() {
-		if (autoRotateCheckbox.getValue()) {
-			domeRenderer.setCameraAngleRadians(calculateCameraRotation());
+	private Timer renderTimer = new Timer() {
+		@Override
+		public void run() {
+			if (autoRotateCheckbox.getValue()) {
+				domeRenderer.setCameraAngleRadians(calculateCameraRotation());
+			}
+
+			cameraDistanceLabel.setText(NumberFormat.getDecimalFormat().format(
+				domeRenderer.getCameraDistanceFeet()
+			) + " ft");
+
+			cameraHeightLabel.setText(NumberFormat.getDecimalFormat().format(
+				domeRenderer.getCameraHeightFeet()
+			) + " ft");
+
+			domeRenderer.renderFrame();
 		}
+	};
 
-		cameraDistanceLabel.setText(NumberFormat.getDecimalFormat().format(
-			domeRenderer.getCameraDistanceFeet()
-		) + " ft");
-
-		cameraHeightLabel.setText(NumberFormat.getDecimalFormat().format(
-			domeRenderer.getCameraHeightFeet()
-		) + " ft");
-
-		domeRenderer.renderFrame();
+	public void renderFrame() {
+		renderTimer.schedule(5);
 	}
 
 

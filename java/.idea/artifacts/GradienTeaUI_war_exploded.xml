@@ -29,6 +29,12 @@
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.5" />
           <element id="library" level="project" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" />
+          <element id="library" level="project" name="Maven: net.java.jinput:jinput:2.0.5" />
+          <element id="library" level="project" name="Maven: net.java.jutils:jutils:1.0.0" />
+          <element id="library" level="project" name="Maven: net.java.jinput:jinput-platform:natives-linux:2.0.5" />
+          <element id="library" level="project" name="Maven: net.java.jinput:jinput-platform:natives-windows:2.0.5" />
+          <element id="library" level="project" name="Maven: net.java.jinput:jinput-platform:natives-osx:2.0.5" />
+          <element id="library" level="project" name="Maven: com.github.rwl:jtransforms:2.4.0" />
           <element id="archive" name="three4g-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="three4g" />
           </element>
