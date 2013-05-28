@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import org.hypher.gradientea.animation.shared.color.RgbColor;
 import org.hypher.gradientea.geometry.shared.GeoFace;
+import org.hypher.gradientea.geometry.shared.GeoVector3;
+import org.hypher.gradientea.geometry.shared.GeodesicSphereGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.math.GeoPolarVector2;
 
@@ -19,10 +21,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static java.lang.Math.PI;
-import static java.lang.Math.sin;
-import static org.hypher.gradientea.geometry.shared.math.DomeMath.TWO_PI;
-import static org.hypher.gradientea.geometry.shared.math.DomeMath.atanh;
+import static java.lang.Math.*;
 
 /**
 * @author Yona Appletree (yona@concentricsky.com)
@@ -45,9 +44,9 @@ class DomeImageMapper {
 
 	private void buildPixelFaceMap() {
 		for (GeoFace face : lightedFaces) {
-			double[] a = mercator(face.getA().toPolar());
-			double[] b = mercator(face.getB().toPolar());
-			double[] c = mercator(face.getC().toPolar());
+			double[] a = mercator(face.getA());
+			double[] b = mercator(face.getB());
+			double[] c = mercator(face.getC());
 
 			facePolygonMap.put(
 				face,
@@ -122,7 +121,7 @@ class DomeImageMapper {
 		}
 	}
 
-	public void drawMask(final Graphics2D g, final int width, final int height) {
+	public void drawMask(final Graphics2D g, final int x, final int y, final int width, final int height) {
 		g.setColor(Color.gray);
 		Composite oldComposite = g.getComposite();
 
@@ -131,14 +130,14 @@ class DomeImageMapper {
 		for (Polygon originalPolygon : facePolygonMap.values()) {
 			Polygon imageSpacePolygon = new Polygon(
 				new int[] {
-					(int) polyToScaled(originalPolygon.xpoints[0], width),
-					(int) polyToScaled(originalPolygon.xpoints[1], width),
-					(int) polyToScaled(originalPolygon.xpoints[2], width),
+					x + (int) polyToScaled(originalPolygon.xpoints[0], width),
+					x + (int) polyToScaled(originalPolygon.xpoints[1], width),
+					x + (int) polyToScaled(originalPolygon.xpoints[2], width),
 				},
 				new int[] {
-					(int) polyToScaled(originalPolygon.ypoints[0], height),
-					(int) polyToScaled(originalPolygon.ypoints[1], height),
-					(int) polyToScaled(originalPolygon.ypoints[2], height),
+					y + (int) polyToScaled(originalPolygon.ypoints[0], height),
+					y + (int) polyToScaled(originalPolygon.ypoints[1], height),
+					y + (int) polyToScaled(originalPolygon.ypoints[2], height),
 				},
 
 				3
@@ -162,11 +161,32 @@ class DomeImageMapper {
 		return ((double)i / POLYGON_SPACE_SIZE) * scale;
 	}
 
-	private double[] mercator(GeoPolarVector2 polarPoint) {
+	private double[] mercator(GeoVector3 point) {
+		GeoPolarVector2 polarPoint = point.toPolar();
+
+		final GeoPolarVector2 topVertex = GeodesicSphereGeometry.topVertex.toPolar();
+		double theta0 = 0;
+		double phi0 = PI/2;
+
 		double[] result = new double[2];
 
-		result[0] = atanh(sin(((polarPoint.getTheta()) / (geometry.getLightedPanelArc())) * (PI / 2))) / TWO_PI;
-		result[1] = atanh(sin(((polarPoint.getPhi()) / (geometry.getLightedPanelArc())) * (PI/2))) / TWO_PI;
+		double theta = polarPoint.getTheta();
+		double phi = polarPoint.getPhi();
+
+		// From http://mathworld.wolfram.com/AzimuthalEquidistantProjection.html
+		// and http://stackoverflow.com/questions/11945814/formulas-in-azimuthal-equidistant-projection
+		double c = acos(sin(phi0)*sin(phi) + cos(phi0)*cos(phi)*cos(theta-theta0));
+		double kPrime = c / sin(c);
+		if (Double.isNaN(kPrime)) kPrime = 0;
+
+		result[0] = kPrime * cos(phi) * sin(theta-theta0);
+		result[1] = kPrime * (cos(phi0)*sin(phi)-sin(phi0)*cos(phi)*cos(theta-theta0));
+
+		result[0] /= Math.PI;
+		result[1] /= Math.PI;
+
+//		result[0] = point.getX()*0.4;
+//		result[1] = point.getY()*0.4;
 
 		return result;
 	}

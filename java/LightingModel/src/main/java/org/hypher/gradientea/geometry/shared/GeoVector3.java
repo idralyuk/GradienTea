@@ -1,7 +1,6 @@
 package org.hypher.gradientea.geometry.shared;
 
 import com.google.common.collect.ComparisonChain;
-import org.hypher.gradientea.geometry.shared.math.DomeMath;
 import org.hypher.gradientea.geometry.shared.math.GeoPolarVector2;
 
 import java.io.Serializable;
@@ -14,7 +13,8 @@ import java.util.Comparator;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class GeoVector3 implements Serializable {
-	public final static double equalityTolerance = 0.0000000001;
+	public final static double equalityTolerance = 0.0000001;
+	public final static double equalityPower = 1/equalityTolerance;
 	public final static GeoVector3 origin = new GeoVector3();
 
 	public final transient static Comparator<GeoVector3> xyzComparator = new Comparator<GeoVector3>() {
@@ -329,15 +329,21 @@ public class GeoVector3 implements Serializable {
 	 * Returns true if all of the data members of v1 are equal to the
 	 * corresponding data members in this GeoVector3.
 	 *
-	 * @param v1
+	 * @param obj
 	 *            the vector with which the comparison is made
 	 * @return true or false
 	 */
-	public boolean equals(GeoVector3 v1)
+	@Override
+	public boolean equals(Object obj)
 	{
-		return Math.abs(this.x - v1.x) < equalityTolerance
-			&& Math.abs(this.y - v1.y) < equalityTolerance
-			&& Math.abs(this.z - v1.z) < equalityTolerance;
+		if (obj instanceof GeoVector3) {
+			GeoVector3 other = (GeoVector3) obj;
+			return Math.abs(this.x - other.x) < equalityTolerance
+				&& Math.abs(this.y - other.y) < equalityTolerance
+				&& Math.abs(this.z - other.z) < equalityTolerance;
+		} else {
+			return false;
+		}
 	}
 
 	public boolean isZero()
@@ -354,12 +360,16 @@ public class GeoVector3 implements Serializable {
 	
 	public String toString()
 	{
-		return "(" + this.x + ", " + this.y + ", " + this.z + ")";
+		return "(" +
+			(Math.abs(x) < 0.000001 ? 0 : x) + ", " +
+			(Math.abs(y) < 0.000001 ? 0 : y) + ", " +
+			(Math.abs(z) < 0.000001 ? 0 : z) +
+		")";
 	}
 
 	@Override
 	public int hashCode() {
-		return (int) (this.x * 1000000)*31 + (int) (this.y * 1000000)*31 + (int) (this.z * 1000000)*31;
+		return ((int) (this.x * equalityPower))*31 + ((int) (this.y * equalityPower))*31 + ((int) (this.z * equalityPower))*31;
 	}
 
 	/**
@@ -374,18 +384,10 @@ public class GeoVector3 implements Serializable {
 		this.z = normal.z;
 	}
 
-	public double theta() {
-		return DomeMath.normalizeAngle(Math.atan2(z, x)) - Math.PI/2;
-	}
-
-	public double phi() {
-		return DomeMath.normalizeAngle(Math.atan2(z, y)) - Math.PI/2;
-	}
-
 	public GeoPolarVector2 toPolar() {
 		return new GeoPolarVector2(
-			theta(),
-			phi()
+			Math.atan2(y, x),
+			Math.asin(z / length())
 		);
 	}
 

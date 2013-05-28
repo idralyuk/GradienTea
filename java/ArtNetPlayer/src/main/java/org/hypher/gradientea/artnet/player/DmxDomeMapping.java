@@ -5,11 +5,9 @@ import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Maps;
+import org.hypher.gradientea.artnet.player.io.DomeProperties;
 import org.hypher.gradientea.transport.shared.DomeAnimationFrame;
 
-import javax.annotation.Nullable;
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -67,7 +65,13 @@ public class DmxDomeMapping {
 	private int litLayers;
 	private Map<Integer, DmxAddress> pixelMapping = Maps.newHashMap();
 	private int pixelCount = 0;
-	private int universeCount = 0;
+
+	private int firstUniverse = 0;
+	private int lastUniverse = 0;
+	private int universeCount;
+
+	private int intensityMin = 0;
+	private int intensityMax = 255;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//region// Interface Methods
@@ -77,7 +81,7 @@ public class DmxDomeMapping {
 	}
 
 	private void applyProperties(final Reader reader) {
-		applyProperties(parseProperties(reader));
+		applyProperties(DomeProperties.parseProperties(reader));
 	}
 
 	public void applyProperties(LinkedHashMap<String, String> properties) {
@@ -91,16 +95,27 @@ public class DmxDomeMapping {
 			}
 		}
 
-		universeCount = Collections.max(
+		firstUniverse = Collections.min(
 			Collections2.transform(
-				pixelMapping.values(), new Function<DmxAddress, Integer>() {
-				@Nullable
-				@Override
-				public Integer apply(@Nullable final DmxAddress input) {
-					return input.universe;
-				}
-			})
+				pixelMapping.values(),
+				DmxAddress.getUniverse
+			)
+		);
+
+		lastUniverse = Collections.max(
+			Collections2.transform(
+				pixelMapping.values(),
+				DmxAddress.getUniverse
+			)
 		) + 1;
+
+		universeCount = lastUniverse - firstUniverse;
+
+		pixelCount = Collections.max(pixelMapping.keySet());
+
+		for (int i=0; i<pixelCount; i++) {
+			System.out.println(i + ": " + pixelMapping.get(i));
+		}
 	}
 
 	public int[][] allocateBuffer() {
@@ -122,8 +137,11 @@ public class DmxDomeMapping {
 					domePixelData,
 					dataIndex,
 
-					dmxData[dmxAddress.universe-1],
-					dmxAddress.channel-1 // DMX is 1-based
+					dmxData[dmxAddress.universe-firstUniverse],
+					dmxAddress.channel-1, // DMX is 1-based,
+
+					intensityMin,
+					intensityMax
 				);
 			} else {
 				// Oh well... we don't have a mapping for this pixel.
@@ -148,6 +166,10 @@ public class DmxDomeMapping {
 			this.litLayers = Integer.parseInt(value);
 		} else if (key.equals("metadata.hardware.colorOrder")) {
 			this.colorOrder = ColorChannelOrder.valueOf(value.toUpperCase());
+		} else if (key.equals("metadata.hardware.intensityMin")) {
+			this.intensityMin = Integer.parseInt(value);
+		} else if (key.equals("metadata.hardware.intensityMax")) {
+			this.intensityMax = Integer.parseInt(value);
 		}
 	}
 
@@ -176,38 +198,6 @@ public class DmxDomeMapping {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//region// Utility Methods
 
-	private LinkedHashMap<String, String> parseProperties(final Reader reader) {
-		LinkedHashMap<String, String> properties = Maps.newLinkedHashMap();
-
-		BufferedReader bufferedReader = new BufferedReader(reader);
-
-		try {
-			for (String line; (line = bufferedReader.readLine()) != null;) {
-				// Remove whitespace
-				line = line.trim();
-
-				// Remove comments
-				if (line.contains("#")) {
-					line = line.substring(0, line.indexOf('#'));
-				}
-
-				// Remove whitespace again
-				line = line.trim();
-
-				if (! line.isEmpty() && line.contains("=")) {
-					int equals = line.indexOf("=");
-					String key = line.substring(0,equals).trim();
-					String value = line.substring(equals+1).trim();
-
-					properties.put(key, value);
-				}
-			}
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-
-		return properties;
-	}
 	//endregion
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -225,9 +215,28 @@ public class DmxDomeMapping {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//region// Getters and Setters
 
+	public int getFirstUniverse() {
+		return firstUniverse;
+	}
+
+	public int getLastUniverse() {
+		return lastUniverse;
+	}
+
+	public int getUniverseCount() {
+		return universeCount;
+	}
+
+
 	//endregion
 
 	protected static class DmxAddress {
+		public static Function<DmxAddress, Integer> getUniverse = new Function<DmxAddress, Integer>() {
+			public Integer apply(final DmxAddress input) {
+				return input.universe;
+			}
+		};
+
 		private int universe;
 		private int channel;
 
@@ -257,6 +266,11 @@ public class DmxDomeMapping {
 		public DmxAddress next() {
 			return new DmxAddress(universe, channel + 3);
 		}
+
+		@Override
+		public String toString() {
+			return universe + ":" + channel;
+		}
 	}
 
 	protected enum ColorChannelOrder {
@@ -275,10 +289,20 @@ public class DmxDomeMapping {
 			this.blueOffset = blueOffset;
 		}
 
-		public void mapFromRgb(byte[] rgbInput, int rgbIndex, int[] output, int outputIndex) {
-			output[outputIndex+redOffset] = rgbInput[rgbIndex] & 0xFF;
-			output[outputIndex+greenOffset] = rgbInput[rgbIndex+1] & 0xFF;
-			output[outputIndex+blueOffset] = rgbInput[rgbIndex+2] & 0xFF;
+		public void mapFromRgb(
+			byte[] rgbInput,
+			int rgbIndex,
+			int[] output,
+			int outputIndex,
+			int intensityMin,
+			int intensityMax
+		) {
+			output[outputIndex+redOffset] =
+				(int) (intensityMin + ((rgbInput[rgbIndex] & 0xFF)/255d) * (intensityMax-intensityMin));
+			output[outputIndex+greenOffset] =
+				(int) (intensityMin + ((rgbInput[rgbIndex+1] & 0xFF)/255d) * (intensityMax-intensityMin));
+			output[outputIndex+blueOffset] =
+				(int) (intensityMin + ((rgbInput[rgbIndex+2] & 0xFF) / 255d) * (intensityMax-intensityMin));
 		}
 	}
 }

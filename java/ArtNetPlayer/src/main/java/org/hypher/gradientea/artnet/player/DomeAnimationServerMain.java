@@ -17,23 +17,25 @@ public class DomeAnimationServerMain {
 	public static final short DOME_PORT = 2314;
 
 	public static void main(String[] args) throws IOException {
-		String artnetBroadcastAddress = args[0];
-		String domeMappingFilename = args[1];
 
-		DmxDomeMapping mapping = new DmxDomeMapping();
-		mapping.applyProperties(new FileInputStream(domeMappingFilename));
+		for (int i=0; i<args.length; i+=2) {
+			String domeMappingFilename = args[i + 1];
 
-		ArtNetDomePlayer player = new ArtNetDomePlayer(mapping);
-		player.start(
-			InetAddress.getLocalHost(),
-			InetAddress.getByName(artnetBroadcastAddress),
-			Constants.DEFAULT_ART_NET_UDP_PORT
-		);
+			DmxDomeMapping mapping = new DmxDomeMapping();
+			mapping.applyProperties(new FileInputStream(domeMappingFilename));
 
-		HttpDomeAnimationReceiver httpReceiver = new HttpDomeAnimationReceiver(player);
-		httpReceiver.start();
+			ArtNetDomePlayer player = new ArtNetDomePlayer(mapping);
+			player.start(
+				InetAddress.getLocalHost(),
+				InetAddress.getByName(args[i]),
+				Constants.DEFAULT_ART_NET_UDP_PORT
+			);
 
-		UdpDomeAnimationReceiver udpReceiver = new UdpDomeAnimationReceiver(player);
-		udpReceiver.start();
+			HttpDomeAnimationReceiver httpReceiver = new HttpDomeAnimationReceiver(player);
+			httpReceiver.start(DOME_PORT+i/2);
+
+			UdpDomeAnimationReceiver udpReceiver = new UdpDomeAnimationReceiver(player);
+			udpReceiver.start(DOME_PORT+i/2);
+		}
 	}
 }

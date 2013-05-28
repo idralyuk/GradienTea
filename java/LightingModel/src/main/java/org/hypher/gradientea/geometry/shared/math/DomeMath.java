@@ -1,5 +1,7 @@
 package org.hypher.gradientea.geometry.shared.math;
 
+import java.util.List;
+
 /**
  * @author Yona Appletree (yona@concentricsky.com)
  */
@@ -40,5 +42,29 @@ public class DomeMath {
 
 		return negative ? -absAtanh : absAtanh;
 
+	}
+
+	public static float[] average(final List<float[]> sampleQueue) {
+		float[] result = new float[sampleQueue.get(0).length];
+
+		for (float[] sample : sampleQueue) {
+			for (int i=0; i<result.length; i++) {
+				result[i] += sample[i];
+			}
+		}
+
+		for (int i=0; i<result.length; i++) {
+			result[i] += result[i] / sampleQueue.size();
+		}
+
+		return result;
+	}
+
+	public static float f(double n) {
+		return (float) n;
+	}
+
+	public static float f(int n) {
+		return (float) n;
 	}
 }

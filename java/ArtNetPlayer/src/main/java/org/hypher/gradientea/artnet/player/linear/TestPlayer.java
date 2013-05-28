@@ -43,7 +43,7 @@ import java.util.Map;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class TestPlayer {
-	public final static int PIXEL_COUNT = 100;
+	public final static int PIXEL_COUNT = 50;
 
 	interface GPIOMapping {
 		Pin SCROLL_CLK = RaspiPin.GPIO_02; // Marked 17
@@ -67,18 +67,12 @@ public class TestPlayer {
 			Constants.DEFAULT_ART_NET_UDP_PORT
 		);
 
-		while (true) {
-			for (int v : new int[] {0,75,125,255}) {
-				List<PixelValue> values = Lists.newArrayList();
-				for (int i=1;i<510;i+=3) {
-					values.add(new PixelValue(new DmxPixel(1, i), new RgbColor(v,v,v)));
-				}
-				player.display(values);
-
-				System.out.println(v + " / 255");
-				System.in.read();
-			}
-		}
+		strobe(
+			player,
+			PIXEL_COUNT,
+			0.001,
+			0.9
+		);
 
 	}
 
@@ -444,7 +438,7 @@ public class TestPlayer {
 						if (fraction > ratio) {
 							frame.fill(0,0,0);
 						} else {
-							frame.fill(Math.random(),1.0,1.0);
+							frame.fill(0,0,1.0);
 						}
 
 						return frame.render();

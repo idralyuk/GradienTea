@@ -44,7 +44,7 @@ public class ArtNetDomePlayer implements DomeAnimationTransport {
 		try {
 			for (int i=0; i<dmxBuffer.length; i++) {
 				server.sendPacket(ArtNetPacketEncoder.encodeArtDmxPacket(
-					i + 1,
+					i + mapping.getFirstUniverse(),
 					0,
 					dmxBuffer[i]
 				));

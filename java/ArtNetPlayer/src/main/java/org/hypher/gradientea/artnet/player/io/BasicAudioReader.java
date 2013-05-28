@@ -19,6 +19,7 @@ import java.util.Map;
  */
 public class BasicAudioReader {
 	public static String[] DESIRED_MIXERS = new String[]{
+		//"fast",
 		"display audio",
 		"built-in micro"
 	};
@@ -39,6 +40,7 @@ public class BasicAudioReader {
 	private byte sampleSizeInBytes;
 	private int bufferSizeInSamples;
 	private int buffersToHold;
+	public static final long DESIRED_FRAME_MS = 1000/30;
 
 	public BasicAudioReader(float historyLengthSeconds) {
 		this.inputLine = selectDesiredInput();
@@ -88,7 +90,6 @@ public class BasicAudioReader {
 					inputLine.open(DESIRED_FORMAT, byteBuffer.length*2);
 					inputLine.start();
 
-					long desiredFrameMs = 1000/33;
 					while (running) {
 						long start = System.currentTimeMillis();
 						AudioBuffer normalizedBuffer = buffers[
@@ -109,7 +110,7 @@ public class BasicAudioReader {
 							currentBufferIndex ++;
 						}
 
-						Thread.sleep(Math.max(0, desiredFrameMs - (System.currentTimeMillis() - start)));
+						Thread.sleep(Math.max(0, DESIRED_FRAME_MS - (System.currentTimeMillis() - start)));
 					}
 				} catch (Exception e) {
 					System.err.println("Audio Capture Failed!");

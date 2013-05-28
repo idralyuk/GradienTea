@@ -2,10 +2,12 @@ package org.hypher.gradientea.artnet.player.animations;
 
 import com.google.common.base.Optional;
 import org.hypher.gradientea.animation.shared.color.HsbColor;
+import org.hypher.gradientea.artnet.player.DomeAnimationServerMain;
 import org.hypher.gradientea.artnet.player.UdpDomeClient;
 import org.hypher.gradientea.artnet.player.io.BasicAudioReader;
 import org.hypher.gradientea.artnet.player.io.GlobalAudioReader;
 import org.hypher.gradientea.artnet.player.io.TrackballInput;
+import org.hypher.gradientea.artnet.player.io.osc.OSCValueMapper;
 import org.hypher.gradientea.geometry.shared.GeoFace;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
@@ -13,6 +15,7 @@ import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
+import static org.hypher.gradientea.artnet.player.io.osc.OSCValueMapper.multitouch;
 import static org.hypher.gradientea.geometry.shared.math.DomeMath.normalizeAngle;
 
 /**
@@ -36,8 +39,10 @@ public class FirstDomeSphere implements Runnable {
 	protected double ballPhi = 0;
 	protected double ballRadius = Math.PI*0.25;
 
+	private OSCValueMapper.OscMultitouch manualEmitters = multitouch("/gt/manualEmitter", 0.1);
+
 	public FirstDomeSphere() throws SocketException, UnknownHostException {
-		transport.connect("localhost");
+		transport.connect("localhost", DomeAnimationServerMain.DOME_PORT+1);
 
 		new Thread(this).start();
 	}
@@ -63,6 +68,7 @@ public class FirstDomeSphere implements Runnable {
 	}
 
 	double intensity = 0.5;
+	int frameCount=0;
 
 	private void draw(final DomePixelCanvas canvas) {
 		Optional<TrackballInput.TrackballReading> trackballReading = TrackballInput.instance().read();
@@ -70,9 +76,19 @@ public class FirstDomeSphere implements Runnable {
 		thetaVelocity *= 0.95;
 		phiVelocity *= 0.95;
 
+		frameCount++;
+
 		if (trackballReading.isPresent()) {
 			thetaVelocity += trackballReading.get().getDeltaX() * -0.001;
 			phiVelocity += trackballReading.get().getDeltaY() * 0.001;
+		}
+
+		if (! manualEmitters.getTouches().isEmpty())
+		{
+			for (OSCValueMapper.OscMultitouch.Touch touch : manualEmitters.getTouches().values()) {
+				thetaVelocity += touch.getDeltaX() * 0.5;
+				phiVelocity += touch.getDeltaY() * 0.5;
+			}
 		}
 
 		thetaOffset += thetaVelocity;
@@ -99,7 +115,7 @@ public class FirstDomeSphere implements Runnable {
 			final double theta = face.theta();
 			final double phi = face.phi();
 
-			HsbColor color = colorAt(theta + thetaOffset, phi + phiOffset);
+			HsbColor color = colorAt(theta + thetaOffset, phi + phiOffset, thetaOffset, phiOffset);
 
 			double distanceSq = Math.pow(normalizeAngle(theta-ballTheta), 2) + Math.pow(normalizeAngle(phi-ballPhi), 2);
 
@@ -116,11 +132,11 @@ public class FirstDomeSphere implements Runnable {
 		}
 	}
 
-	private HsbColor colorAt(double theta, double phi) {
+	private HsbColor colorAt(double theta, double phi, double thetaOffset, double phiOffset) {
 		return new HsbColor(
-			0,
-			0,
-			Math.sin(phi*5)*Math.sin(theta*5) < 0.5 ? 0 : 1
+			Math.sin(thetaOffset) * Math.sin(phiOffset) * Math.sin(frameCount/200d),
+			0.5+((Math.sin(phi)*Math.sin(theta*2)+1)/2)*0.5,
+			Math.max(0, (-1*(Math.sin(phi*3)*Math.sin(theta*3)+0.5)/2))
 		);
 	}
 

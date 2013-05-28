@@ -21,7 +21,7 @@ import java.util.List;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class ControllablePlayer {
-	public static final int PIXEL_COUNT = 50;
+	public static final int PIXEL_COUNT = 40;
 	public static final int CONFIG_TIMEOUT_MS = 2000;
 	public static final int DOUBLE_PRESS_MS = 200;
 

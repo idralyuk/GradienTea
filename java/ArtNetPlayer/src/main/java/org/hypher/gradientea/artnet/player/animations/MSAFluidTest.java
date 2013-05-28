@@ -31,7 +31,7 @@ public class MSAFluidTest implements Runnable {
 	}
 	private UdpDomeClient transport = new UdpDomeClient();
 
-	private GradienTeaDomeGeometry geometry = new GradienTeaDomeGeometry(GradienTeaDomeSpecs.GRADIENTEA_DOME);
+	private GradienTeaDomeGeometry geometry = new GradienTeaDomeGeometry(GradienTeaDomeSpecs.PROTOTYPE_DOME);
 	private DomeImageMapper mapper = new DomeImageMapper(geometry);
 
 	private BufferedImage image;
@@ -89,7 +89,7 @@ public class MSAFluidTest implements Runnable {
 					);
 
 					graphics.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-					mapper.drawMask(g2, getWidth(), getHeight());
+					mapper.drawMask(g2, 0, 0, getWidth(), getHeight());
 				}
 			}
 		};
@@ -155,8 +155,8 @@ public class MSAFluidTest implements Runnable {
 		float oldMouseY = mouseY;
 
 		for (TrackballInput.TrackballReading reading : TrackballInput.instance().read().asSet()) {
-			mouseX = (float) (mouseX + reading.getDeltaX()*0.005 + Math.cos(audioDirection)*audioVelocity);
-			mouseY = (float) (mouseY + reading.getDeltaY()*0.005 + Math.sin(audioDirection)*audioVelocity);
+			mouseX = (float) (mouseX + reading.getDeltaX()*0.015 + Math.cos(audioDirection)*audioVelocity);
+			mouseY = (float) (mouseY + reading.getDeltaY()*0.015 + Math.sin(audioDirection)*audioVelocity);
 		}
 
 		// Wrap

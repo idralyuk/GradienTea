@@ -58,14 +58,10 @@ public class UdpDomeClient implements DomeAnimationTransport {
 		}
 		catch (IOException e) {
 			if (e instanceof PortUnreachableException) {
-				System.err.println("Dome server not available");
+				System.err.println("Dome server at " + socket.getInetAddress() + " not available");
 			} else {
 				e.printStackTrace();
 			}
-
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e1) {}
 		}
 	}
 }

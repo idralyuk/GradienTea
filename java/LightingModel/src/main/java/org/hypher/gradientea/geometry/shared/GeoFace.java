@@ -5,12 +5,14 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Ordering;
 
 import javax.annotation.Nullable;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -36,7 +38,9 @@ public class GeoFace implements Serializable {
 	protected GeoVector3 v1;
 	protected GeoVector3 v2;
 	protected GeoVector3 v3;
+
 	protected transient GeoVector3 center;
+	protected transient List<GeoVector3> sortedVertices;
 
 	protected GeoFace() {}
 
@@ -85,18 +89,12 @@ public class GeoFace implements Serializable {
 		return center;
 	}
 
-	/**
-	 * @return The angle of the center of this face in the xy plane.
-	 */
 	public double theta() {
-		return center().theta();
+		return center().toPolar().getTheta();
 	}
 
-	/**
-	 * @return The angle of the center of this face in the yz plane.
-	 */
 	public double phi() {
-		return center().phi();
+		return center().toPolar().getPhi();
 	}
 
 	private double normalizeAngle(double radians) {
@@ -112,6 +110,32 @@ public class GeoFace implements Serializable {
 			(verticies.contains(other.getA()) ? 1 : 0) +
 			(verticies.contains(other.getB()) ? 1 : 0) +
 			(verticies.contains(other.getC()) ? 1 : 0);
+	}
+
+	@Override
+	public boolean equals(final Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		final Collection<GeoVector3> otherVertices = ((GeoFace) o).getSortedVertices();
+
+		return otherVertices.contains(getA())
+			&& otherVertices.contains(getB())
+			&& otherVertices.contains(getC());
+	}
+
+	@Override
+	public int hashCode() {
+		return getSortedVertices().hashCode();
+	}
+
+	private List<GeoVector3> getSortedVertices() {
+		if (sortedVertices == null) {
+			sortedVertices = Ordering.from(GeoVector3.xyzComparator).sortedCopy(Arrays.asList(
+				v1, v2, v3
+			));
+		}
+		return sortedVertices;
 	}
 
 	public static class ContainsVertex implements Predicate<GeoFace> {
