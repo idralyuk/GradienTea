@@ -61,6 +61,7 @@
     <orderEntry type="library" name="Maven: com.github.rwl:jtransforms:2.4.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.9" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.illposed.osc:javaosc-core:0.2" level="project" />
     <orderEntry type="module" module-name="three4g" />
     <orderEntry type="library" name="Maven: com.google.gwt:gwt-user:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />

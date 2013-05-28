@@ -14,7 +14,7 @@
 		<version.parallax>1.0.0-SNAPSHOT</version.parallax>
 
 		<!-- GWT Related -->
-		<version.gwt>2.5.0</version.gwt>
+		<version.gwt>2.5.1</version.gwt>
 		<version.gin>2.0.0</version.gin>
 		<version.jsr305>1.3.9</version.jsr305>
 		<version.atmosphere>1.1.0.beta2</version.atmosphere>
