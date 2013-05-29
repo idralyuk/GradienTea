@@ -149,6 +149,10 @@ public class MSAFluidSolver2D {
 		return this;
 	}
 
+	public double getDeltaT() {
+		return _dt;
+	}
+
 
 	/**
 	 * (OPTIONAL SETUP) set how quickly the fluid dye dissipates and fades out 

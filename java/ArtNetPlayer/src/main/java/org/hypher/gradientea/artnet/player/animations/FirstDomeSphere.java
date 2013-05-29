@@ -7,7 +7,7 @@ import org.hypher.gradientea.artnet.player.UdpDomeClient;
 import org.hypher.gradientea.artnet.player.io.BasicAudioReader;
 import org.hypher.gradientea.artnet.player.io.GlobalAudioReader;
 import org.hypher.gradientea.artnet.player.io.TrackballInput;
-import org.hypher.gradientea.artnet.player.io.osc.OSCValueMapper;
+import org.hypher.gradientea.artnet.player.io.osc.OscHelper;
 import org.hypher.gradientea.geometry.shared.GeoFace;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
@@ -15,7 +15,7 @@ import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
-import static org.hypher.gradientea.artnet.player.io.osc.OSCValueMapper.multitouch;
+import static org.hypher.gradientea.artnet.player.io.osc.OscHelper.multitouch;
 import static org.hypher.gradientea.geometry.shared.math.DomeMath.normalizeAngle;
 
 /**
@@ -39,10 +39,10 @@ public class FirstDomeSphere implements Runnable {
 	protected double ballPhi = 0;
 	protected double ballRadius = Math.PI*0.25;
 
-	private OSCValueMapper.OscMultitouch manualEmitters = multitouch("/gt/manualEmitter", 0.1);
+	private OscHelper.OscMultitouch manualEmitters = multitouch("/gt/manualEmitter", 0.1);
 
 	public FirstDomeSphere() throws SocketException, UnknownHostException {
-		transport.connect("localhost", DomeAnimationServerMain.DOME_PORT+1);
+		transport.connect("localhost", DomeAnimationServerMain.DOME_PORT);
 
 		new Thread(this).start();
 	}
@@ -85,7 +85,7 @@ public class FirstDomeSphere implements Runnable {
 
 		if (! manualEmitters.getTouches().isEmpty())
 		{
-			for (OSCValueMapper.OscMultitouch.Touch touch : manualEmitters.getTouches().values()) {
+			for (OscHelper.OscMultitouch.Touch touch : manualEmitters.getTouches().values()) {
 				thetaVelocity += touch.getDeltaX() * 0.5;
 				phiVelocity += touch.getDeltaY() * 0.5;
 			}

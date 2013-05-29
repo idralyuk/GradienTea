@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: com.illposed.osc:javaosc-core:0.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.2/javaosc-core-0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.2/javaosc-core-0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.2/javaosc-core-0.2-sources.jar!/" />
+      <root url="file:///var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad" />
+    </SOURCES>
+  </library>
+</component>

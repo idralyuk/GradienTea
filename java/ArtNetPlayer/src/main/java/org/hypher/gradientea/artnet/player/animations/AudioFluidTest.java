@@ -6,7 +6,7 @@ import org.hypher.gradientea.artnet.player.DomeAnimationServerMain;
 import org.hypher.gradientea.artnet.player.UdpDomeClient;
 import org.hypher.gradientea.artnet.player.io.BasicAudioReader;
 import org.hypher.gradientea.artnet.player.io.GlobalAudioReader;
-import org.hypher.gradientea.artnet.player.io.osc.OSCValueMapper;
+import org.hypher.gradientea.artnet.player.io.osc.OscHelper;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
 import org.hypher.gradientea.geometry.shared.math.DomeMath;
@@ -25,7 +25,7 @@ import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.hypher.gradientea.artnet.player.io.osc.OSCValueMapper.*;
+import static org.hypher.gradientea.artnet.player.io.osc.OscHelper.*;
 import static org.hypher.gradientea.geometry.shared.math.DomeMath.TWO_PI;
 import static org.hypher.gradientea.geometry.shared.math.DomeMath.f;
 
@@ -42,58 +42,58 @@ public class AudioFluidTest implements Runnable {
 	public static final int LOW_FREQ_BUCKET = 4;
 	public static final int HIGH_FREQ_BUCKET = 128;
 	private static final int FPS = 30;
-	private OSCValueMapper.OscXY circleEmitterTarget = xyValue("/gt/emitter/pad", .5, .5);
+	private OscHelper.OscXY circleEmitterTarget = xyValue("/gt/emitter/pad", .5, .5);
 
-	private OSCValueMapper.OscDouble intensityDecayRate = doubleValue(
+	private OscHelper.OscDouble intensityDecayRate = doubleValue(
 		"/gt/emitter/intensityDecay",
 		0,
 		1.0,
 		0.85
 	);
-	private OSCValueMapper.OscDouble fadeSpeedCoefficient = doubleValue(
+	private OscHelper.OscDouble fadeSpeedCoefficient = doubleValue(
 		"/gt/fluid/fadeBeatCoefficient",
 		0,
 		1.0,
 		.2
 	);
-	private OSCValueMapper.OscDouble fadeSpeedBase = doubleValue("/gt/fluid/fade", 0.00, 0.10, .04);
+	private OscHelper.OscDouble fadeSpeedBase = doubleValue("/gt/fluid/fade", 0.00, 0.10, .04);
 
-	private OSCValueMapper.OscDouble velocityCoefficient = doubleValue(
+	private OscHelper.OscDouble velocityCoefficient = doubleValue(
 		"/gt/emitter/velocity",
 		0,
 		0.10,
 		0.02
 	);
-	private OSCValueMapper.OscDouble intensityCoefficient = doubleValue(
+	private OscHelper.OscDouble intensityCoefficient = doubleValue(
 		"/gt/emitter/intensity",
 		0,
 		10,
 		4
 	);
 
-	private OSCValueMapper.OscMultitouch manualEmitters = multitouch("/gt/manualEmitter", 0.1);
+	private OscHelper.OscMultitouch manualEmitters = multitouch("/gt/manualEmitter");
 
-	private OSCValueMapper.OscBoolean enableSoundEmitters = booleanValue("/gt/enableSoundEmitters", true);
+	private OscHelper.OscBoolean enableSoundEmitters = booleanValue("/gt/enableSoundEmitters", true);
 
-	private OSCValueMapper.OscBoolean ballEnabled = booleanValue(
+	private OscHelper.OscBoolean ballEnabled = booleanValue(
 		"/gt/vuBall/enabled",
 		true
 	);
 
-	private OSCValueMapper.OscDouble ballRadius = doubleValue(
+	private OscHelper.OscDouble ballRadius = doubleValue(
 		"/gt/vuBall/radius",
 		0,
 		Math.PI,
 		Math.PI / 4
 	);
 
-	private OSCValueMapper.OscXY ballPosition = xyValue(
+	private OscHelper.OscXY ballPosition = xyValue(
 		"/gt/vuBall/position",
 		0, 0
 	);
 
 	public static void main(String[] args) throws IOException {
-		OSCValueMapper.instance();
+		OscHelper.instance();
 		new AudioFluidTest();
 		AudioVisualizationTest.main(args);
 	}
@@ -137,20 +137,30 @@ public class AudioFluidTest implements Runnable {
 
 		image = new BufferedImage(fluidSolver.getWidth(), fluidSolver.getHeight(), BufferedImage.TYPE_INT_RGB);
 
-		OSCValueMapper.instance().mapValue(
-			"/gt/fluid/viscosity", new OSCValueMapper.MappedDouble(0.00001, 0.00500) {
+		OscHelper.instance().mapValue(
+			"/gt/fluid/viscosity", new OscDouble("/gt/fluid/viscosity", 0.00001, 0.00100, fluidSolver.getVisc()) {
 			@Override
 			public void applyDouble(final double value) {
 				fluidSolver.setVisc(f(value));
 			}
+
+			@Override
+			public double getValue() {
+				return fluidSolver.getVisc();
+			}
 		}
 		);
 
-		OSCValueMapper.instance().mapValue(
-			"/gt/fluid/dt", new OSCValueMapper.MappedDouble(0.1, 2.0) {
+		OscHelper.instance().mapValue(
+			"/gt/fluid/dt", new OscHelper.OscDouble("/gt/fluid/dt", 0.1, 2.0, fluidSolver.getVisc()) {
 			@Override
 			public void applyDouble(final double value) {
 				fluidSolver.setDeltaT(f(value));
+			}
+
+			@Override
+			public double getValue() {
+				return fluidSolver.getDeltaT();
 			}
 		}
 		);
@@ -314,7 +324,7 @@ public class AudioFluidTest implements Runnable {
 		fluidSolver.setFadeSpeed(f(fadeSpeedBase.floatValue() -overallBeatLevel* fadeSpeedCoefficient.floatValue()));
 
 		// Add manual touches
-		for (OSCValueMapper.OscMultitouch.Touch touch : manualEmitters.getTouches().values()) {
+		for (OscHelper.OscMultitouch.Touch touch : manualEmitters.getTouches().values()) {
 			emitDirectional(
 				(float) touch.getCurrentX(), (float) touch.getCurrentY(),
 				(float) touch.getAngle(),
