@@ -10,8 +10,11 @@ import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.math.GeoPolarVector2;
 
 import java.awt.AlphaComposite;
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Composite;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
@@ -99,8 +102,8 @@ class DomeImageMapper {
 
 				if (faceIndex >= 0) {
 					data.getPixel((int)polyToScaled(x, imageWidth), (int)polyToScaled(y, imageHeight), pixelRgb);
-					faceRgbSums[faceIndex][0] += pixelRgb[0];
-					faceRgbSums[faceIndex][1] += pixelRgb[1];
+					faceRgbSums[faceIndex][0] += pixelRgb[1];
+					faceRgbSums[faceIndex][1] += pixelRgb[0];
 					faceRgbSums[faceIndex][2] += pixelRgb[2];
 					faceRgbSums[faceIndex][3] ++;
 				}
@@ -121,13 +124,29 @@ class DomeImageMapper {
 		}
 	}
 
-	public void drawMask(final Graphics2D g, final int x, final int y, final int width, final int height) {
-		g.setColor(Color.gray);
+	public void drawMask(final Graphics2D g, int x, int y, int width, int height) {
 		Composite oldComposite = g.getComposite();
+//		g.setColor(Color.white);
+//		g.fillRect(x, y, width, height);
 
+
+		// Hack to make it prettier
+//		y += 15;
+//		height -= 15;
+//
+//		x += 15;
+//		width -= 15;
+
+		g.setFont(new Font("Arial", Font.BOLD, 12));
+		g.setStroke(new BasicStroke(1));
+		g.setColor(Color.white);
 		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.5f));
 
-		for (Polygon originalPolygon : facePolygonMap.values()) {
+		final FontMetrics fontMetrics = g.getFontMetrics();
+		int textHeight = fontMetrics.getHeight();
+
+		for (Map.Entry<GeoFace, Polygon> entry : facePolygonMap.entrySet()) {
+			Polygon originalPolygon = entry.getValue();
 			Polygon imageSpacePolygon = new Polygon(
 				new int[] {
 					x + (int) polyToScaled(originalPolygon.xpoints[0], width),
@@ -141,6 +160,16 @@ class DomeImageMapper {
 				},
 
 				3
+			);
+
+			final String numberStr = String.valueOf(lightedFaces.indexOf(entry.getKey()));
+			int textWidth = fontMetrics.charsWidth(numberStr.toCharArray(), 0, numberStr.length());
+
+
+			g.drawString(
+				numberStr,
+				(imageSpacePolygon.xpoints[0] + imageSpacePolygon.xpoints[1] + imageSpacePolygon.xpoints[2])/3 - textWidth/2,
+				(imageSpacePolygon.ypoints[0] + imageSpacePolygon.ypoints[1] + imageSpacePolygon.ypoints[2])/3 + textHeight/2
 			);
 
 			g.drawPolygon(imageSpacePolygon);
@@ -184,6 +213,8 @@ class DomeImageMapper {
 
 		result[0] /= Math.PI;
 		result[1] /= Math.PI;
+
+		result[0] *= -1;
 
 //		result[0] = point.getX()*0.4;
 //		result[1] = point.getY()*0.4;

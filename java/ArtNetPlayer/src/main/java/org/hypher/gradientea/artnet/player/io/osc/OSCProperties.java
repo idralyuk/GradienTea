@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  * Holds a collection of configurable properties which are both persistent between program executions and can be
- * modified via OSC. An instance of this class should be created for each grouping of properties.
+ * modified via OSC. An touchOsch of this class should be created for each grouping of properties.
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */

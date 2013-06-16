@@ -15,7 +15,6 @@ import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
-import static org.hypher.gradientea.artnet.player.io.osc.OscHelper.multitouch;
 import static org.hypher.gradientea.geometry.shared.math.DomeMath.normalizeAngle;
 
 /**
@@ -39,7 +38,7 @@ public class FirstDomeSphere implements Runnable {
 	protected double ballPhi = 0;
 	protected double ballRadius = Math.PI*0.25;
 
-	private OscHelper.OscMultitouch manualEmitters = multitouch("/gt/manualEmitter", 0.1);
+	private OscHelper.OscMultitouch manualEmitters = OscHelper.instance().multitouch("/gt/manualEmitter", 0.1);
 
 	public FirstDomeSphere() throws SocketException, UnknownHostException {
 		transport.connect("localhost", DomeAnimationServerMain.DOME_PORT);

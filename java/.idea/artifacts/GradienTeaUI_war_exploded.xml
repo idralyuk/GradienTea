@@ -19,6 +19,12 @@
           <element id="archive" name="stack-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="stack" />
           </element>
+          <element id="archive" name="minim-java-2.0.2.jar">
+            <element id="module-output" name="minim-java" />
+          </element>
+          <element id="library" level="project" name="Maven: com.googlecode.soundlibs:tritonus-share:0.3.7-2" />
+          <element id="library" level="project" name="Maven: com.googlecode.soundlibs:jlayer:1.0.1-1" />
+          <element id="library" level="project" name="Maven: com.googlecode.soundlibs:mp3spi:1.9.5-1" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-math:2.2" />
           <element id="library" level="project" name="Maven: edu.ucla.sspace:sspace:2.0.3" />
           <element id="library" level="project" name="Maven: net.sf.trove4j:trove4j:3.0.2" />
@@ -39,7 +45,7 @@
           <element id="archive" name="three4g-1.0.0-SNAPSHOT.jar">
             <element id="module-output" name="three4g" />
           </element>
-          <element id="library" level="project" name="Maven: com.google.gwt:gwt-user:2.5.0" />
+          <element id="library" level="project" name="Maven: com.google.gwt:gwt-user:2.5.1" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.0.0.GA" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:sources:1.0.0.GA" />
           <element id="library" level="project" name="Maven: org.json:json:20090211" />

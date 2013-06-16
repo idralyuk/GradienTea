@@ -38,6 +38,7 @@ public class UdpDomeClient implements DomeAnimationTransport {
 		}
 	}
 
+	private int frameIndex = 0;
 	@Override
 	public void displayFrame(final DomeAnimationFrame frame) {
 		byte[] pixelData = frame.getPixelData();
@@ -58,7 +59,9 @@ public class UdpDomeClient implements DomeAnimationTransport {
 		}
 		catch (IOException e) {
 			if (e instanceof PortUnreachableException) {
-				System.err.println("Dome server at " + socket.getInetAddress() + " not available");
+				if ((frameIndex++)%100 == 0) {
+					System.err.println("Dome server at " + socket.getInetAddress() + " not available");
+				}
 			} else {
 				e.printStackTrace();
 			}

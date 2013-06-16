@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_gwt_gwt_user_2_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_illposed_osc_javaosc_core_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/SourceAwareOSCPortIn.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OSCValueMapper.java" afterPath="" />
+    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="Refactoring and improving OSC support">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/KinectTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_soundlibs_jlayer_1_0_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_soundlibs_mp3spi_1_9_5_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_soundlibs_tritonus_share_0_3_7_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscSynapse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../opensource/java/minim-java/minim-java.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_gwt_gwt_user_2_5_0.xml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/DomeController/src/main/java/org/hypher/gradientea/controller/DomeControllerMain.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/MiniMTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/ArtNetPlayer.iml" afterPath="$PROJECT_DIR$/ArtNetPlayer/ArtNetPlayer.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/AudioFluidTest.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/AudioFluidTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DmxDomeMapping.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DmxDomeMapping.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/FirstDomeSphere.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/FirstDomeSphere.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" afterPath="$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/GradienTeaUI_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/GradienTeaUI_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/msafluid/MSAFluidSolver2D.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/msafluid/MSAFluidSolver2D.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OSCProperties.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OSCProperties.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/linear/TestPlayer.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/linear/TestPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/UdpDomeClient.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/UdpDomeClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/pom.xml" afterPath="$PROJECT_DIR$/ArtNetPlayer/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties" afterPath="$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/webapp/js/three.min.js" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/webapp/js/three.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GradienTeaParent.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369433470185" ignored="false" />
+    <file path="/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369872861635" ignored="false" />
     <file path="/PixelGroup.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357528144378" ignored="false" />
     <file path="/PixelValue.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357527384910" ignored="false" />
     <file path="/PixelColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358122848170" ignored="false" />
@@ -27,16 +48,16 @@
     <file path="/HsbTween.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357535010699" ignored="false" />
     <file path="/BaseSingleGroupAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357534728786" ignored="false" />
     <file path="/AnimationFunctionWrapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357543461670" ignored="false" />
-    <file path="/Dummy.txt" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369779649199" ignored="false" />
+    <file path="/Dummy.txt" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371379452588" ignored="false" />
     <file path="/StandalonePlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357538183729" ignored="false" />
     <file path="/RenderableAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536703553" ignored="false" />
     <file path="/DefinedAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536205196" ignored="false" />
     <file path="/PixelGroupAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536091994" ignored="false" />
-    <file path="/fragment.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369787171936" ignored="false" />
+    <file path="/fragment.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371373021800" ignored="false" />
     <file path="/SingleDefinedAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536205688" ignored="false" />
     <file path="/AnimationScene.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357537025011" ignored="false" />
     <file path="/ArtNetAnimationPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363475928724" ignored="false" />
-    <file path="/TestPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369551730877" ignored="false" />
+    <file path="/TestPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370227546088" ignored="false" />
     <file path="/ExpandedAnimationWrapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357722684841" ignored="false" />
     <file path="/ChaseAnimationWrapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357543306137" ignored="false" />
     <file path="/RgbTween.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357541005776" ignored="false" />
@@ -78,7 +99,7 @@
     <file path="/GradienTeaGinjector.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369003904167" ignored="false" />
     <file path="/TestModelWidget.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357949437170" ignored="false" />
     <file path="/web.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369004633476" ignored="false" />
-    <file path="/index.jsp" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369253679998" ignored="false" />
+    <file path="/index.jsp" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370299021235" ignored="false" />
     <file path="/Material.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357876047201" ignored="false" />
     <file path="/IcosahedronGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357615215507" ignored="false" />
     <file path="/CylinderGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357625143754" ignored="false" />
@@ -112,7 +133,7 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsTakeAggregator/src/main/java/com/cengage/analytics/aggregator/actors/ActivityAggregationActor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1366147483744" ignored="false" />
     <file path="/ActivityAggregationActor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363638571318" ignored="false" />
     <file path="/a.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364681798630" ignored="false" />
-    <file path="/a.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1365106279474" ignored="false" />
+    <file path="/a.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369860639610" ignored="false" />
     <file path="/sample.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357774990667" ignored="false" />
     <file path="/ClientAnimationPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357792011388" ignored="false" />
     <file path="/ClientDmxRenderer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357790989565" ignored="false" />
@@ -157,7 +178,7 @@
     <file path="/GeoVector3.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369698368020" ignored="false" />
     <file path="/GeoFace.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369698702629" ignored="false" />
     <file path="/GeodesicTeaGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358027456666" ignored="false" />
-    <file path="/a.dummy" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369340352430" ignored="false" />
+    <file path="/a.dummy" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370989647259" ignored="false" />
     <file path="/GradientTeaDomeRenderer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358037356337" ignored="false" />
     <file path="/DomeProjection.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358223137638" ignored="false" />
     <file path="/GradienTeaDomeGeometry.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369198669130" ignored="false" />
@@ -690,7 +711,7 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/MindTapAggregator/overlays/com.cengage.analytics.CengageAnalyticsCommonWAR-3.2.0-20130214.020421-7/status.jsp" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363111531269" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/MindTapReportConfigurationMetadata/src/main/resources/META-INF/spring/analytics/reportconfig-downloader/analytics-mindtap-reportconfig-downloader.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1365026482828" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsCore30IntegrationTests/src/test/scala/com/cengage/analytics/integration/mindtap/Core30IntegrationTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364247295924" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369432919897" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369854818972" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367269130836" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/MindTapAggregator/src/test/resources/META-INF/spring-test/local/analytics-nageo-aggregator-test.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1365117907759" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsApi/CengageAnalyticsApiJAXB/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1365103437351" ignored="false" />
@@ -895,7 +916,7 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoIds/src/main/java/com/cengage/analytics/reports/natgeo/ids/shared/DistrictAdminIdentifier.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724281" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoAggregationMessages/src/main/resources/com/cengage/analytics/reports/natgeo/messages/NatGeoAggregationMessages.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364331774222" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoIds/src/main/java/com/cengage/analytics/reports/natgeo/ids/shared/DistrictId.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724281" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoUI/src/main/java/com/cengage/analytics/reports/natgeo/ui/client/pages/views/desktop/user/institutionscoped/InstitutionHomeViewDesktop.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724282" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoUI/src/main/java/com/cengage/analytics/reports/natgeo/ui/client/pages/views/desktop/user/institutionscoped/InstitutionHomeViewDesktop.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267839" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoIds/src/main/java/com/cengage/analytics/reports/natgeo/ids/shared/InstructorIdentifier.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724282" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoUI/src/main/java/com/cengage/analytics/reports/natgeo/ui/client/pages/places/user/institutionscoped/AbstractInstitutionScopedPlace.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724282" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoIds/src/main/java/com/cengage/analytics/reports/natgeo/ids/shared/LevelUri.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724282" ignored="false" />
@@ -1002,13 +1023,13 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoAggregator/src/main/webapp/WEB-INF/web.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724281" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/.gitignore" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724284" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageSpringParent/.gitignore" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724284" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageSpringParent/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364937071231" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageSpringParent/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267839" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoConfiguration/src/main/resources/META-INF/spring/analytics/natgeo/analytics-natgeo-camel-caddis.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724288" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoConfiguration/src/main/resources/META-INF/spring/analytics/natgeo/analytics-natgeo-camel-local.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724289" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoConfiguration/src/main/resources/META-INF/spring/analytics/natgeo/analytics-natgeo-camel-production.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724289" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoConfiguration/src/main/resources/META-INF/spring/analytics/natgeo/analytics-natgeo-camel-staging.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363887724289" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoAggregationMessages/src/main/java/com/cengage/analytics/reports/natgeo/messages/shared/reports/summaries/scopes/HasIdentifier.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363890016129" ignored="false" />
-    <file path="/HasIdentifier.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363889918377" ignored="false" />
+    <file path="/HasIdentifier.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370042562252" ignored="false" />
     <file path="/AbstractEntityAware.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363889955808" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCourseMateIntegration/CourseMateImporter/CourseMateImporterProcessor/src/main/scala/com/cengage/analytics/reports/coursemate/importer/CourseMateDataPublisherImpl.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363893844091" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCourseMateIntegration/CourseMateAggregator/src/main/scala/com/cengage/analytics/reports/coursemate/AbstractAggregatorComponent.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363893844091" ignored="false" />
@@ -1358,7 +1379,7 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsIntegrationTestCore30/src/main/scala/com/cengage/analytics/integration/mindtap/DataHolder.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364247295923" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCommon/CengageAnalyticsContentDeploymentMessages/src/main/java/com/cengage/analytics/contentdeployment/messages/shared/DeployedContentSummaryRequest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364249054451" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCommon/CengageAnalyticsContentDeploymentMessages/src/main/java/com/cengage/analytics/contentdeployment/messages/shared/ContentArtifactDeployed.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364249054451" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsIntegrationTestCore30/src/main/scala/com/cengage/analytics/integration/mindtap/Core30TestSuite.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364247295923" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsIntegrationTestCore30/src/main/scala/com/cengage/analytics/integration/mindtap/Core30TestSuite.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369862965189" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCommon/CengageAnalyticsContentDeploymentMessages/src/main/java/com/cengage/analytics/contentdeployment/messages/shared/exceptions/ContentArtifactDeploymentException.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364247295923" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/MindTapIds/target/generated-test-sources/gwt/com/cengage/analytics/reports/mindtap/ids/MindTapIdsSerializabilityTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1365103474119" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCommon/CengageAnalyticsOperationsModel/src/main/java/com/cengage/analytics/operations/model/tracing/FailureMessageEvent.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364247295924" ignored="false" />
@@ -1722,7 +1743,7 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingUtils/ReportingClientEntities/src/main/java/com/cengage/analytics/reports/utils/entity/shared/AbstractEntityAware.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1365199656135" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingUtils/ReportingClientEntities/src/main/java/com/cengage/analytics/reports/utils/entity/shared/AbstractEntityAwareContainer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1365199656135" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/src/main/java/com/cengage/analytics/model/resourceinteraction/DurationResourceInteraction.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364513404479" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingUtils/ReportingClientEntities/src/main/java/com/cengage/analytics/reports/utils/entity/shared/HasIdentifier.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1365199656135" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingUtils/ReportingClientEntities/src/main/java/com/cengage/analytics/reports/utils/entity/shared/HasIdentifier.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370043371365" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/src/main/java/com/cengage/analytics/model/resourceinteraction/ViewResourceInteraction.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1364513404479" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/MindTapDataTools/src/main/scala/com/cengage/analytics/reports/mindtap/data/MindTapActivityAggregateCreator.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1366147483746" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsMindTapIntegration/MindTapDataTools/src/main/scala/com/cengage/analytics/reports/mindtap/data/MindTapCourseCreator.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1366147483746" ignored="false" />
@@ -2827,18 +2848,18 @@
     <file path="/Grade.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367267326265" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCore/CengageAnalyticsModel/target/generated-sources/annotations/com/cengage/analytics/model/activity/Activity_.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367269130836" ignored="false" />
     <file path="/CengageAnalyticsGrading.xsd" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367269772685" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentDataTools/src/main/scala/com/cengage/analytics/reports/selfassessment/data/SelfAssessmentTakeGenerator.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367272909866" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/scala/com/cengage/analytics/reports/selfassessment/services/SAATakeProcessor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366024914" ignored="false" />
-    <file path="/SAATakeProcessor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366024914" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentDataTools/src/main/scala/com/cengage/analytics/reports/selfassessment/data/SelfAssessmentTakeGenerator.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370566579781" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/scala/com/cengage/analytics/reports/selfassessment/services/SAATakeProcessor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370288199182" ignored="false" />
+    <file path="/SAATakeProcessor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370288198077" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/src/test/scala/com/cengage/analytics/itemreporting/model/attributes/DenormalizedItemTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367274443755" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367365574390" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingPersister/src/main/resources/META-INF/spring/analytics/iremreportingpersister/analytics-itemreporting-persister.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367274443754" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingPersister/src/main/scala/com/cengage/analytics/itemreporting/persister/processors/NodeData.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367274443754" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/src/main/java/com/cengage/analytics/itemreporting/model/RunningValueAggregate.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367274443754" ignored="false" />
     <file path="$PROJECT_DIR$/../../../cnow/cnow-head/services/src/com/ilrn/services/analytics/utils/uri/AnalyticsContentUriBuilder.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367275785261" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentIds/src/main/java/com/cengage/analytics/reports/selfassessment/ids/shared/SelfAssessmentIds.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367364517681" ignored="false" />
-    <file path="/SelfAssessmentIds.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367275823073" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/scala/com/cengage/analytics/reports/selfassessment/ServerRoutes.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367276849573" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentIds/src/main/java/com/cengage/analytics/reports/selfassessment/ids/shared/SelfAssessmentIds.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369956828084" ignored="false" />
+    <file path="/SelfAssessmentIds.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369956828084" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/scala/com/cengage/analytics/reports/selfassessment/ServerRoutes.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370292137025" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/test/resources/test-data/example-take.json" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367277379772" ignored="false" />
     <file path="/example-take.json" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367277194439" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/test/resources/test-data/example-takes.json" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367277608112" ignored="false" />
@@ -2846,7 +2867,7 @@
     <file path="/SAATakeProcessorTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367359059087" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentConfiguration/src/main/resources/META-INF/spring/analytics/template/analytics-saa-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369256620577" ignored="false" />
     <file path="/*.regexp" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367346944504" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367347201301" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267838" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.0.0-SNAPSHOT/ItemReportingModel-1.0.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/attributes/ItemKey.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366051449" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.0.0-SNAPSHOT/ItemReportingModel-1.0.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/attributes/types/DenormalizedAttributeType.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366051450" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.0.0-SNAPSHOT/ItemReportingModel-1.0.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/attributes/types/GeneralPropertyType.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366051449" ignored="false" />
@@ -2864,15 +2885,15 @@
     <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingPersister/1.0.0-SNAPSHOT/ItemReportingPersister-1.0.0-SNAPSHOT.jar!/META-INF/spring/analytics/iremreportingpersister/analytics-itemreporting-persister.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367363055569" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingPersister/1.0.0-SNAPSHOT/ItemReportingPersister-1.0.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/itemreporting-cache-config.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367363055570" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.0.0-SNAPSHOT/ItemReportingModel-1.0.0-SNAPSHOT.jar!/META-INF/spring/analytics/itemreportingmodel/analytics-iremreportingmodel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367283261654" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/test/resources/META-INF/test-data/example-saa-takes.json" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367288096910" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/test/resources/META-INF/test-data/example-saa-takes.json" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370471424230" ignored="false" />
     <file path="/example-saa-takes.json" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367285126174" ignored="false" />
-    <file path="/Dummy.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367342867293" ignored="false" />
+    <file path="/Dummy.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370558249393" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationModel/src/main/resources/META-INF/spring/analytics/templatemodel/analytics-templatemodel-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367343058683" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingTemplate/ReportingTemplate-Configuration/src/main/resources/META-INF/spring/analytics/template/analytics-reportingtemplate-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367343706203" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingTemplate/ReportingTemplate-Configuration/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367343706203" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingTemplate/ReportingTemplate-AggregationModel/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369257692832" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367344047869" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationModel/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367344053236" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationModel/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267839" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentContentModule/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367344078619" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentDataTools/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367344083556" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentIdsScalaSupport/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367344114821" ignored="false" />
@@ -2923,23 +2944,23 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingPersister/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-ItemReportingPersister-version-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366050280" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingPersister/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-ItemReportingPersister-version-defaults-mvn.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366050280" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.0.0-SNAPSHOT/ItemReportingModel-1.0.0-SNAPSHOT-tests.jar!/META-INF/spring-test/analytics/itemreportingmodel/analytics-itemreportingmodel-test.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366051449" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369174848205" ignored="false" />
-    <file path="/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369174821295" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/TakeReportItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369174800950" ignored="false" />
-    <file path="/TakeReportItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369174709912" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371230122390" ignored="false" />
+    <file path="/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371230112375" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/TakeReportItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370034370157" ignored="false" />
+    <file path="/TakeReportItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370035220018" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/entities/TakeItemInfo.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366750123" ignored="false" />
     <file path="/TakeItemInfo.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366743004" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt/com/cengage/analytics/reports/selfassessment/messages/SelfAssessmentAggregationMessagesSerializabilityTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366787060" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt-compatibility-testing/com/cengage/analytics/reports/selfassessment/messages/client/SelfAssessmentAggregationMessagesGwtCompatibilityTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366795166" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/scala/com/cengage/analytics/reports/selfassessment/actors/TakeReportGeneratorActor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369177078216" ignored="false" />
-    <file path="/TakeReportGeneratorActor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369177075505" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt/com/cengage/analytics/reports/selfassessment/messages/SelfAssessmentAggregationMessagesSerializabilityTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370558955398" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt-compatibility-testing/com/cengage/analytics/reports/selfassessment/messages/client/SelfAssessmentAggregationMessagesGwtCompatibilityTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370558955398" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/scala/com/cengage/analytics/reports/selfassessment/actors/TakeReportGeneratorActor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370555917201" ignored="false" />
+    <file path="/TakeReportGeneratorActor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370555791550" ignored="false" />
     <file path="/analytics-saa-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369256322364" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/src/main/scala/com/cengage/analytics/itemreporting/model/queries/DenormalizedItemQueries.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367375787599" ignored="false" />
     <file path="/DenormalizedItemQueries.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367375776035" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/src/main/scala/com/cengage/analytics/itemreporting/model/queries/DenormalizedItemAggregateQueries.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367436410416" ignored="false" />
     <file path="/DenormalizedItemAggregateQueries.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367436406757" ignored="false" />
     <file path="/ArtNetDomePlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369607060541" ignored="false" />
-    <file path="/DmxDomeMapping.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369607035447" ignored="false" />
+    <file path="/DmxDomeMapping.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370414119099" ignored="false" />
     <file path="/HttpReceiver.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369000738314" ignored="false" />
     <file path="/DomeAnimationServerMain.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369616696644" ignored="false" />
     <file path="/testMiniDome.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369617833335" ignored="false" />
@@ -2950,32 +2971,32 @@
     <file path="/atmosphere.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369004683521" ignored="false" />
     <file path="/Color.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369023785067" ignored="false" />
     <file path="/UdpDomeAnimationReceiver.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369127962896" ignored="false" />
-    <file path="/UdpDomeClient.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369607768322" ignored="false" />
+    <file path="/UdpDomeClient.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370242340143" ignored="false" />
     <file path="/HttpDomeAnimationReceiver.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369028263796" ignored="false" />
     <file path="/FirstDomeAudio.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369039096514" ignored="false" />
     <file path="/DomePixelCanvas.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369466402684" ignored="false" />
-    <file path="/FirstDomeSphere.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369787550879" ignored="false" />
+    <file path="/FirstDomeSphere.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370077488207" ignored="false" />
     <file path="/TrackballInput.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369104930050" ignored="false" />
     <file path="/DomeMath.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369341572273" ignored="false" />
     <file path="/ColorDemo.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369128421582" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/TakeReportWidgetPresenter.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369263626880" ignored="false" />
-    <file path="/TakeReportWidgetPresenter.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369263533155" ignored="false" />
-    <file path="/TakeReportWidgetViewImpl.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369263472547" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/TakeReportWidgetViewImpl.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369263504329" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/TakeReportConfiguration.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369263424634" ignored="false" />
-    <file path="/TakeReportConfiguration.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369263424634" ignored="false" />
-    <file path="/ItemCategorySummaryTable.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369166020247" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/ItemCategorySummaryTable.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369166049929" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/ItemCategorySummaryTable.ui.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369165905275" ignored="false" />
-    <file path="/ItemCategorySummaryTable.ui.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369165904851" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/authentication/AuthenticationPresenter.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369263172982" ignored="false" />
-    <file path="/AuthenticationPresenter.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369263172982" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/webapp/testFrame.html" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369425585498" ignored="false" />
-    <file path="/testFrame.html" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369425564308" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/TakeReportWidgetPresenter.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370298156428" ignored="false" />
+    <file path="/TakeReportWidgetPresenter.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370298137600" ignored="false" />
+    <file path="/TakeReportWidgetViewImpl.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370296038429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/TakeReportWidgetViewImpl.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370296041991" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/TakeReportConfiguration.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370294570907" ignored="false" />
+    <file path="/TakeReportConfiguration.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370294567182" ignored="false" />
+    <file path="/ItemCategorySummaryTable.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371258794217" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/ItemCategorySummaryTable.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371258811128" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/ItemCategorySummaryTable.ui.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371174016858" ignored="false" />
+    <file path="/ItemCategorySummaryTable.ui.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371174016858" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/authentication/AuthenticationPresenter.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370296200278" ignored="false" />
+    <file path="/AuthenticationPresenter.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370296198571" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/webapp/testFrame.html" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370293480266" ignored="false" />
+    <file path="/testFrame.html" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370293476785" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/widgets/take/takereport/TakeReportWidgetViewImpl.ui.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369168896622" ignored="false" />
     <file path="/TakeReportWidgetViewImpl.ui.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369168896047" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/test/scala/com/cengage/analytics/reports/selfassessment/SAATakeAggregationTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369177093136" ignored="false" />
-    <file path="/SAATakeAggregationTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369177090296" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/test/scala/com/cengage/analytics/reports/selfassessment/SAATakeAggregationTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370557526056" ignored="false" />
+    <file path="/SAATakeAggregationTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370557521578" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/src/main/java/com/cengage/analytics/itemreporting/model/DenormalizedItemAggregate.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369180314015" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/pages/authentication/AuthenticationViewImpl.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369181093777" ignored="false" />
     <file path="/AuthenticationViewImpl.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369181005613" ignored="false" />
@@ -2988,7 +3009,7 @@
     <file path="/MSAFluid.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369207824834" ignored="false" />
     <file path="/MSAFluidTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369289460512" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/server/GoogleAnalyticsHelper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369253210243" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/webapp/index.jsp" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369253685431" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/webapp/index.jsp" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370299023716" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/server/ServerConfigurationHelper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369253676642" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/java/com/cengage/analytics/reports/selfassessment/ui/client/services/SelfAssessmentGoogleAnalyticsNavigationTracker.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369253212531" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/resources/META-INF/spring/analytics/selfassessment-ui/analytics-bean-definitions.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369253550030" ignored="false" />
@@ -3005,14 +3026,14 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingTemplate/ReportingTemplate-AggregationModel/src/main/resources/META-INF/spring/analytics/reportingtemplatemodel/analytics-reportingtemplatemodel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369257692832" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingTemplate/ReportingTemplate-DataTools/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369257692832" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageSpringParent/1.15.0-SNAPSHOT/CengageSpringParent-1.15.0-SNAPSHOT.pom" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369258471497" ignored="false" />
-    <file path="/DomeImageMapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369607524338" ignored="false" />
+    <file path="/DomeImageMapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371268161959" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingTemplate/ReportingTemplate-AggregationMessages/src/main/java/com/cengage/analytics/reports/reportingtemplate/messages/shared/entities/UserCourseListBundleId.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369259526273" ignored="false" />
     <file path="/UserCourseListBundleId.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369259364758" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCommon/CengageAnalyticsCamelSupport/src/main/scala/com/cengage/analytics/camel/XmlEnabledMessageConverter.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369259819980" ignored="false" />
     <file path="/XmlEnabledMessageConverter.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369259818279" ignored="false" />
     <file path="/FFTVisualizationTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369279971750" ignored="false" />
     <file path="/AudioVisualizationTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369352936388" ignored="false" />
-    <file path="/AudioFluidTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369785900712" ignored="false" />
+    <file path="/AudioFluidTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371377052258" ignored="false" />
     <file path="/SimpleOSC.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369374245356" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentIntegrationTests/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369433499949" ignored="false" />
     <file path="/OSCProperties.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369441450943" ignored="false" />
@@ -3025,7 +3046,91 @@
     <file path="/VertexPlaying.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369698756124" ignored="false" />
     <file path="/SourceAwareOSCPortIn.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369780643440" ignored="false" />
     <file path="/MSAFluidSolver2D.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369785514821" ignored="false" />
-    <file path="/OscHelper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369788449161" ignored="false" />
+    <file path="/OscHelper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370076590511" ignored="false" />
+    <file path="/MiniMTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369803753030" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/.idea/workspace.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369859872771" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/scala/com/cengage/analytics/integration/mindtap/SelfAssessmentAggregationIntegrationTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369855633614" ignored="false" />
+    <file path="/SelfAssessmentAggregationIntegrationTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369866183511" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/data/messages/takes/cnow_take__user_22323896_assignmentresults_924791058.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369857378759" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/data/messages/takes/cnow_take__user_587315257_assignmentresults_1640348569.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369857431980" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/data/messages/takes/cnow_take__user_927053739_assignmentresults_475047985.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369857445625" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/data/messages/takes/cnow_take__user_1816575183_assignmentresults_1059855772.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369857459243" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/data/messages/takes/cnow_take__user_1816575183_assignmentresults_1545244560.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369857473378" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/scala/com/cengage/analytics/integration/selfassessment/SelfAssessmentAggregationIntegrationTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369866302211" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369872862688" ignored="false" />
+    <file path="/var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/cengage/analytics/reports/selfassessment/messages/shared/request/AuthenticatedRequestMessage.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369860120991" ignored="false" />
+    <file path="/var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/cengage/analytics/reports/selfassessment/messages/shared/request/report/ActivityTakeReportRequest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369860186817" ignored="false" />
+    <file path="/Core30TestSuite.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369862965189" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/target/surefire-reports/TEST-com.cengage.analytics.integration.selfassessment.SelfAssessmentAggregationIntegrationTest.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369868332932" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/resources/META-INF/comparexmls/take_report_for_saa-integration-test_externaltakeuri_generated_aee93143748ed1865baaac9265055779f56eb2b091104d86ec6d690a253564ef.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369939366108" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/target/reportoutput/take_report_for_saa-integration-test_externaltakeuri_generated_aee93143748ed1865baaac9265055779f56eb2b091104d86ec6d690a253564ef.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369868332932" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/target/classes/com/cengage/analytics/itemreporting/model/DenormalizedGradeBuilder.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369867178310" ignored="false" />
+    <file path="/a.less" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369867222903" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/scala/com/cengage/analytics/integration/selfassessment/SaaDataHolder.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369939231213" ignored="false" />
+    <file path="/SaaDataHolder.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369939227335" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/resources/META-INF/spring-test/integrationtest/client/analytics-selfassessment-aggregatorapi-integration-test-client.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369938812762" ignored="false" />
+    <file path="/analytics-selfassessment-aggregatorapi-integration-test-client.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369869097735" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/resources/META-INF/spring/analytics/selfassessment-integration/analytics-selfassessment-integrationtest.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369938823249" ignored="false" />
+    <file path="$USER_HOME$/Sites/processingTest.html" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369948139262" ignored="false" />
+    <file path="/processingTest.html" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369948095405" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoUI/src/main/java/com/cengage/analytics/reports/natgeo/ui/client/pages/views/desktop/user/institutionscoped/InstitutionHomeViewDesktop.ui.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957263350" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoUI/src/main/java/com/cengage/analytics/reports/natgeo/ui/client/pages/views/desktop/user/institutionscoped/InstitutionScienceCumulativeScoresReportViewDesktop.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267838" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267839" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingUtils/ReportingExport/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267840" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoUI/src/main/java/com/cengage/analytics/reports/natgeo/ui/client/pages/views/desktop/user/institutionscoped/InstitutionScienceCumulativeScoresReportViewDesktop.ui.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267840" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingPersister/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369958730842" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt-compatibility-testing/com/cengage/analytics/reports/selfassessment/messages/SelfAssessmentAggregationMessagesGwtCompatibilityTest.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370558955398" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/TakeReportSubItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370034398885" ignored="false" />
+    <file path="/TakeReportSubItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370034605750" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/TakeReportRejoinderSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369960860390" ignored="false" />
+    <file path="/TakeReportRejoinderSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369960577005" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/RejoinderSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369960513768" ignored="false" />
+    <file path="/RejoinderSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369960486723" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/ReportScope.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370909131696" ignored="false" />
+    <file path="/ReportScope.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370908594414" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentIds/src/main/java/com/cengage/analytics/reports/selfassessment/ids/shared/SelfAssessmentRejoinderUri.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371159789156" ignored="false" />
+    <file path="/SelfAssessmentRejoinderUri.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371159782888" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/CategoryItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370486826057" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/CategorySubItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371171962175" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/ExampleReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370034573318" ignored="false" />
+    <file path="/CategoryItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370486824198" ignored="false" />
+    <file path="/CategorySubItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371171948128" ignored="false" />
+    <file path="/KinectTEst.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370079921286" ignored="false" />
+    <file path="/OscSynapse.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370370175573" ignored="false" />
+    <file path="/a.css" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370077049087" ignored="false" />
+    <file path="/KinectTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370111551657" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/resources/META-INF/spring/analytics/selfassessment-aggregator/analytics-selfassessment-aggregator.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370291866548" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/target/SelfAssessmentAggregator-1.1.0-SNAPSHOT/WEB-INF/classes/META-INF/spring/analytics/selfassessment-aggregator/analytics-selfassessment-aggregator.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370292279744" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/src/main/scala/com/cengage/analytics/itemreporting/model/attributes/DenormalizedItemAttribute.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370305195150" ignored="false" />
+    <file path="/DenormalizedItemAttribute.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370305193495" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/src/main/java/com/cengage/analytics/itemreporting/model/attributes/DenormalizedItemAttribute.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370305220156" ignored="false" />
+    <file path="/DenormalizedItemAttribute.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370305210189" ignored="false" />
+    <file path="/struts.html" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370379130584" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/src/main/scala/com/cengage/analytics/itemreporting/model/attributes/types/DenormalizedAttributeType.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548127380" ignored="false" />
+    <file path="/DenormalizedAttributeType.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370463117590" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.1.0-SNAPSHOT/ItemReportingModel-1.1.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/attributes/types/ScaledFinalScoreType.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548154083" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.1.0-SNAPSHOT/ItemReportingModel-1.1.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/attributes/types/ActivityItemUriType.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548154083" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.1.0-SNAPSHOT/ItemReportingModel-1.1.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/attributes/types/DenormalizedAttributeType.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548154083" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.1.0-SNAPSHOT/ItemReportingModel-1.1.0-SNAPSHOT-sources.jar!/com/cengage/analytics/itemreporting/model/attributes/types/DenormalizedAttributeType.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548154083" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.1.0-SNAPSHOT/ItemReportingModel-1.1.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/attributes/types/KeyOnlyDenormalizedAttributeType.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548154083" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/test/resources/META-INF/test-data/example-saa-takes-with-rejoinder-data.json" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370470932550" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.1.0-SNAPSHOT/ItemReportingModel-1.1.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/queries/DenormalizedItemAggregatesByContainingDimension.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548154083" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.1.0-SNAPSHOT/ItemReportingModel-1.1.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/attributes/DenormalizedItemAttributeT.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548154083" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.1.0-SNAPSHOT/ItemReportingModel-1.1.0-SNAPSHOT.jar!/com/cengage/analytics/itemreporting/model/attributes/ItemKey.class" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548154083" ignored="false" />
+    <file path="/Fraction.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548545798" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingUtils/ReportingMetadata/src/main/java/com/cengage/analytics/reports/utils/metadata/util/Fraction.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370548550625" ignored="false" />
+    <file path="/SelfAssessmentTakeGenerator.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370566563994" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentIds/target/generated-test-sources/gwt-compatibility-testing/com/cengage/analytics/reports/selfassessment/ids/TemplateIdsGwtCompatibilityTest.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370568060060" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/target/SelfAssessmentUI-1.1.0-SNAPSHOT/WEB-INF/classes/META-INF/spring/analytics/selfassessment-ui/analytics-bean-definitions.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370568884752" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/target/SelfAssessmentUI-1.1.0-SNAPSHOT/WEB-INF/classes/com/cengage/analytics/reports/selfassessment/ui/SelfAssessmentUI.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370568884752" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsCxpIntegrationTests/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370891355823" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsNatGeoIntegrationTests/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370891355823" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/entities/TakenItemInfo.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371159818111" ignored="false" />
+    <file path="/TakenItemInfo.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371159801392" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/scala/com/cengage/analytics/reports/selfassessment/services/SelfAssessmentEntityResolver.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370979126712" ignored="false" />
+    <file path="/SelfAssessmentEntityResolver.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370979122300" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentUI/src/main/resources/com/cengage/analytics/reports/selfassessment/ui/public/selfassessment-standard.css" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371166063337" ignored="false" />
+    <file path="/selfassessment-standard.css" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371166063337" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -3045,6 +3150,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -3081,6 +3187,23 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.1/javaosc-core-0.1-sources.jar!/com/illposed/osc/OSCPortIn.java" line="71" class="com.illposed.osc.OSCPortIn" package="com.illposed.osc">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+      </breakpoint>
+    </line_breakpoints>
     <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint class_name="java.lang.ArrayIndexOutOfBoundsException" package_name="java.lang">
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -3100,24 +3223,6 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </exception_breakpoints>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.1/javaosc-core-0.1-sources.jar!/com/illposed/osc/OSCPortIn.java" line="71" class="com.illposed.osc.OSCPortIn" package="com.illposed.osc">
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="&#13;&#13;JAVA" />
-        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
-      </breakpoint>
-    </line_breakpoints>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -3131,165 +3236,116 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AudioFluidTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AudioFluidTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/AudioFluidTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="45" selection-start="4852" selection-end="4852" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="method#applyDouble#0;class#4597:4861" expanded="true" />
-                <element signature="method#applyDouble#0;class#4924:5187" expanded="true" />
-                <element signature="method#getValue#0;class#4924:5187" expanded="true" />
-                <element signature="method#updateFluid#0;class#AudioFluidTest#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MSAFluidSolver2D.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/msafluid/MSAFluidSolver2D.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="16" selection-start="4846" selection-end="4846" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="method#setDeltaT#0;class#MSAFluidSolver2D#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FirstDomeSphere.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/FirstDomeSphere.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="43" selection-start="2564" selection-end="2564" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="method#FirstDomeSphere#0;class#FirstDomeSphere#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GeoVector3.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GeoVector3.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="389" column="35" selection-start="8294" selection-end="8317" vertical-scroll-proportion="-23.8">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OscHelper.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="29" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.14876033">
+            <state line="270" column="67" selection-start="7899" selection-end="7899" vertical-scroll-proportion="0.51336896">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#start#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#start#1;class#OscHelper#0" expanded="true" />
-                <element signature="e#2168#3205#0" expanded="true" />
-                <element signature="e#3200#3201#0" expanded="true" />
-                <element signature="method#acceptMessage#0;class#3264:3617" expanded="true" />
-                <element signature="method#mapValue#0;class#OscHelper#0" expanded="true" />
-                <element signature="e#3786#3975#0" expanded="true" />
-                <element signature="e#3970#3971#0" expanded="true" />
-                <element signature="class#WritableOscValue#0;class#OscHelper#0" expanded="true" />
-                <element signature="class#ReadableOscValue#0;class#OscHelper#0" expanded="true" />
-                <element signature="class#BaseSimpleValue#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#BaseSimpleValue#0;class#BaseSimpleValue#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getCurrentAddressValues#0;class#BaseSimpleValue#0;class#OscHelper#0" expanded="true" />
-                <element signature="e#4939#4962#0" expanded="true" />
-                <element signature="class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#OscMultitouch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#applyValue#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getTouches#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#cullTouches#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#Touch#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#setXY#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getInitialX#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getInitialY#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getDeltaX#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getDeltaY#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getAngle#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getVelocity#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getCurrentX#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getCurrentY#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#isDead#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#multitouch#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#multitouch#1;class#OscHelper#0" expanded="true" />
-                <element signature="class#OscDouble#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#OscDouble#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#applyValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getCurrentOscValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#floatValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-                <element signature="class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#OscBoolean#0;class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#value#0;class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#applyValue#0;class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getCurrentOscValue#0;class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-                <element signature="class#OscXY#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#OscXY#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#applyValue#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getCurrentOscValue#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getX#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getY#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-                <element signature="class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#applyValue#0;class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getRawX#0;class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getRawY#0;class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#getRawZ#0;class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#doubleValue#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#xyValue#0;class#OscHelper#0" expanded="true" />
-                <element signature="method#booleanValue#0;class#OscHelper#0" expanded="true" />
+                <element signature="method#main#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#AudioFluidTest#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#applyDouble#0;class#4299:4563" expanded="true" />
+                <element signature="method#getValue#0;class#4299:4563" expanded="true" />
+                <element signature="method#applyDouble#0;class#4626:4889" expanded="true" />
+                <element signature="method#getValue#0;class#4626:4889" expanded="true" />
+                <element signature="method#run#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="initializer##0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#paint#0;class#5576:6170" expanded="true" />
+                <element signature="method#draw#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#emitDirectional#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#emitDirectional#1;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#emitRing#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="initializer##0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#analyze#0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="class#AccessibleFFT#0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#AccessibleFFT#0;class#AccessibleFFT#0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#getAverages#0;class#AccessibleFFT#0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="class#AudioAnalysisInfo#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#AudioAnalysisInfo#0;class#AudioAnalysisInfo#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#isAnyBeat#0;class#AudioAnalysisInfo#0;class#AudioFluidTest#0" expanded="true" />
+                <element signature="method#isAllBeats#0;class#AudioAnalysisInfo#0;class#AudioFluidTest#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OSCPort.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/illposed/osc/OSCPort.java">
+      <file leaf-file-name="DomeAnimationServerMain.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DomeAnimationServerMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="0" selection-end="47" vertical-scroll-proportion="0.0">
+            <state line="36" column="63" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SourceAwareOSCPortIn.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/SourceAwareOSCPortIn.java">
+      <file leaf-file-name="UdpDomeAnimationReceiver.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/UdpDomeAnimationReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="0" selection-start="2154" selection-end="2154" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#SourceAwareOSCPortIn#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-                <element signature="method#addSourceInfoTo#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-                <element signature="e#2968#3176#0" expanded="true" />
-                <element signature="e#3167#3168#0" expanded="true" />
-                <element signature="method#startListening#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-                <element signature="method#stopListening#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-                <element signature="method#isListening#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-                <element signature="method#addListener#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-                <element signature="class#SourceAwareOSCMessage#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-                <element signature="method#SourceAwareOSCMessage#0;class#SourceAwareOSCMessage#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-                <element signature="method#getSenderAddress#0;class#SourceAwareOSCMessage#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-                <element signature="method#getSenderPort#0;class#SourceAwareOSCMessage#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OSCJavaToByteArrayConverter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/illposed/osc/utility/OSCJavaToByteArrayConverter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
+            <state line="77" column="0" selection-start="2460" selection-end="2460" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Object.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../opensource/java/openjdk-6-src-b26-21_sep_2012/jdk/src/share/classes/java/lang/Object.java">
+      <file leaf-file-name="ArtNetDomePlayer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/ArtNetDomePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.0">
+            <state line="41" column="52" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DomeAnimationFrame.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/transport/shared/DomeAnimationFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="0" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DmxDomeMapping.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DmxDomeMapping.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="310" column="26" selection-start="9387" selection-end="9387" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DomeImageMapper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="140" column="37" selection-start="3862" selection-end="3862" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MSAFluidTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/MSAFluidTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="13" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KinectTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/KinectTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="157" column="34" selection-start="4985" selection-end="4985" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testMiniDome.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="18" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -3319,22 +3375,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DomeAnimationServerMain.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DiagnosticTool.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties" />
-        <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GeoVector3.java" />
-        <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GeoFace.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/linear/VertexPlaying.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/prototypeDome.properties" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/AlexPlay.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/SourceAwareOSCPortIn.java" />
-        <option value="/var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/illposed/osc/utility/OSCJavaToByteArrayConverter.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/msafluid/MSAFluidSolver2D.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/AudioFluidTest.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/FirstDomeSphere.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OSCValueMapper.java" />
         <option value="/var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/illposed/osc/OSCPort.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/pom.xml" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/MiniMTest.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/prototypeDome.properties" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/KinectTEst.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/FirstDomeSphere.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/linear/TestPlayer.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/UdpDomeClient.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscSynapse.java" />
+        <option value="$USER_HOME$/Sites/struts.html" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DmxDomeMapping.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/KinectTest.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/AudioFluidTest.java" />
       </list>
     </option>
   </component>
@@ -3358,8 +3414,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="2560" />
-    <option name="height" value="1414" />
+    <option name="width" value="1680" />
+    <option name="height" value="1024" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -3428,72 +3484,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: com.illposed.osc:javaosc-core:0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaosc-core-0.2.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GradienTeaParent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: com.illposed.osc:javaosc-core:0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaosc-core-0.2.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="osc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GradienTeaParent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: com.illposed.osc:javaosc-core:0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaosc-core-0.2.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="osc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GradienTeaParent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="&lt; 1.6 &gt;" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
@@ -3534,7 +3524,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="sun" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3556,11 +3546,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="sun" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="net" />
+              <option name="myItemId" value="dc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3582,11 +3576,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="sun" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lang" />
+              <option name="myItemId" value="dc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3649,38 +3643,8 @@
               <option name="myItemId" value="gradientea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GradienTeaParent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LightingModel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gradientea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="geometry" />
+              <option name="myItemId" value="transport" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3714,7 +3678,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="geometry" />
+              <option name="myItemId" value="transport" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -3732,6 +3696,72 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="LightingModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradientea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DomeController" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DomeController" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assembly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ArtNetPlayer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -3785,82 +3815,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="msafluid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GradienTeaParent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ArtNetPlayer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="player" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GradienTeaParent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ArtNetPlayer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="player" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="io" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3895,14 +3849,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="player" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="osc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3964,25 +3910,25 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="SDKs" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="272" />
-    <property name="OverrideImplement.combined" value="false" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="274" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="GOOGLE_APP_ENGINE_ACCOUNT_EMAIL" value="hypher@gmail.com" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="272" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ArtNetPlayer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../opensource/java/minim-java/pom.xml" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="276" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="782" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="782" />
@@ -3993,23 +3939,23 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/DomeController/src/main/java/org/hypher/gradientea" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/DomeController/src/main/java/org/hypher/gradientea" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="preferences.sourceCode.CSS" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -4019,13 +3965,14 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.hypher.gradientea.artnet.player.io.osc" />
       <recent name="org.hypher.gradientea.artnet.player.animations" />
       <recent name="org.hypher.gradientea.artnet.player" />
       <recent name="org.hypher.gradientea.ui.client.widgets" />
       <recent name="org.hypher.gradientea.lightingmodel.shared.dome" />
-      <recent name="net.blimster.gwt.threejs.materials" />
     </key>
     <key name="OPEN_URL_DIALOG">
+      <recent name="file://$USER_HOME$/Sites/struts.html" />
       <recent name="file://$PROJECT_DIR$/../../../analytics/CengageDeploymentTools/environment-links/clts-tomcat-sites.json" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -4053,8 +4000,8 @@
       <recent name="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FirstDomeSphere">
-    <configuration default="false" name="AudioFluidTest" type="Application" factoryName="Application" temporary="true">
+  <component name="RunManager" selected="Application.AudioFluidTest">
+    <configuration default="false" name="AudioFluidTest" type="Application" factoryName="Application" singleton="true" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="org.hypher.gradientea.artnet.player.animations.*" />
@@ -4062,80 +4009,6 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="org.hypher.gradientea.artnet.player.animations.AudioFluidTest" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ArtNetPlayer" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="JRebel Debug">
-        <option name="bootstrapPath" />
-        <option name="debugPort" value="" />
-        <option name="jrebelArgs" />
-        <option name="loggingEnabled" value="false" />
-        <option name="transport" value="0" />
-        <option name="useBootstrapDefaults" value="true" />
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
-    <configuration default="false" name="AlexPlay" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.hypher.gradientea.artnet.player.animations.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.hypher.gradientea.artnet.player.animations.AlexPlay" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ArtNetPlayer" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="JRebel Debug">
-        <option name="bootstrapPath" />
-        <option name="debugPort" value="" />
-        <option name="jrebelArgs" />
-        <option name="loggingEnabled" value="false" />
-        <option name="transport" value="0" />
-        <option name="useBootstrapDefaults" value="true" />
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
-    <configuration default="false" name="DiagnosticTool" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.hypher.gradientea.artnet.player.animations.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.hypher.gradientea.artnet.player.animations.DiagnosticTool" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -4239,10 +4112,56 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+    <configuration default="false" name="MiniMTest" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.hypher.gradientea.artnet.player.animations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.hypher.gradientea.artnet.player.animations.MiniMTest" />
+      <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ArtNetPlayer" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="KinectTest" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.hypher.gradientea.artnet.player.animations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.hypher.gradientea.artnet.player.animations.KinectTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ArtNetPlayer" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
@@ -4251,6 +4170,12 @@
       <option name="filePath" />
       <option name="scope" value="ALL" />
       <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
       <method />
     </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
@@ -4283,19 +4208,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -4324,6 +4236,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -4337,6 +4262,10 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GWT.ConfigurationType" factoryName="GWT Configuration">
+      <module name="" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -4360,8 +4289,11 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="GWT.ConfigurationType" factoryName="GWT Configuration">
-      <module name="" />
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="false" name="TestPlayer" type="Application" factoryName="Application" singleton="true">
@@ -4484,7 +4416,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="org.hypher.gradientea.artnet.player.DomeAnimationServerMain" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="255.255.255.255 prototypeDome.properties 192.168.33.255 testMiniDome.properties" />
+      <option name="PROGRAM_PARAMETERS" value="255.255.255.255 prototypeDome.properties minidomepi.local testMiniDome.properties" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/ArtNetPlayer" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
@@ -4548,18 +4480,18 @@
       <item index="4" class="java.lang.String" itemvalue="GWT Configuration.GradienTeaUI" />
       <item index="5" class="java.lang.String" itemvalue="Remote.RPi TestPlayer" />
       <item index="6" class="java.lang.String" itemvalue="Application.AudioFluidTest" />
-      <item index="7" class="java.lang.String" itemvalue="Application.AlexPlay" />
-      <item index="8" class="java.lang.String" itemvalue="Application.DiagnosticTool" />
-      <item index="9" class="java.lang.String" itemvalue="Application.VertexPlaying" />
-      <item index="10" class="java.lang.String" itemvalue="Application.FirstDomeSphere" />
+      <item index="7" class="java.lang.String" itemvalue="Application.VertexPlaying" />
+      <item index="8" class="java.lang.String" itemvalue="Application.FirstDomeSphere" />
+      <item index="9" class="java.lang.String" itemvalue="Application.MiniMTest" />
+      <item index="10" class="java.lang.String" itemvalue="Application.KinectTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.FirstDomeSphere" />
-        <item index="1" class="java.lang.String" itemvalue="Application.AudioFluidTest" />
-        <item index="2" class="java.lang.String" itemvalue="Application.AlexPlay" />
+        <item index="0" class="java.lang.String" itemvalue="Application.AudioFluidTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.KinectTest" />
+        <item index="2" class="java.lang.String" itemvalue="Application.FirstDomeSphere" />
         <item index="3" class="java.lang.String" itemvalue="Application.VertexPlaying" />
-        <item index="4" class="java.lang.String" itemvalue="Application.DiagnosticTool" />
+        <item index="4" class="java.lang.String" itemvalue="Application.MiniMTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -4567,7 +4499,12 @@
       <Port>5050</Port>
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <changelist date="1369804613957">
+      <option name="PATH" value="$USER_HOME$/Library/Preferences/IntelliJIdea12/shelf/Refactoring_and_improving_OSC_support.patch" />
+      <option name="DESCRIPTION" value="Refactoring and improving OSC support" />
+    </changelist>
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -4753,23 +4690,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1414" extended-state="6" />
+    <frame x="0" y="22" width="1680" height="1024" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32380217" sideWeight="0.7629276" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32300884" sideWeight="0.7629276" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.70170015" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33230293" sideWeight="0.7745918" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44026548" sideWeight="0.7745918" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.67387944" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35935086" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35730088" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -4777,15 +4713,16 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13762927" sideWeight="0.5276549" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19570406" sideWeight="0.6761978" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28029376" sideWeight="0.67699116" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30420354" sideWeight="0.9506173" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="925" y="513" width="755" height="443" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08870326" sideWeight="0.7774343" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08870326" sideWeight="0.7267699" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22488408" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19690265" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -4831,7 +4768,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating intellij project files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring and improving OSC support" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4845,7 +4782,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Updated rendering code" />
     <MESSAGE value="Added classes missing from last commit" />
     <MESSAGE value="Updating .idea project" />
     <MESSAGE value="Added three.js js file" />
@@ -4870,6 +4806,7 @@
     <MESSAGE value="Various changes for transport and demos" />
     <MESSAGE value="Changes and updates for the demo" />
     <MESSAGE value="Updating intellij project files" />
+    <MESSAGE value="Refactoring and improving OSC support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4902,205 +4839,129 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.2/javaosc-core-0.2-sources.jar!/com/illposed/osc/OSCPortOut.java">
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/UdpDomeClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="0" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.0">
+        <state line="70" column="0" selection-start="1861" selection-end="1861" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscSynapse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="249" column="0" selection-start="6333" selection-end="6333" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Sites/struts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="5" selection-start="3137" selection-end="3137" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/linear/TestPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="0" selection-start="3742" selection-end="3742" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/linear/VertexPlaying.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="13" selection-start="917" selection-end="917" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomePixelCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="0" selection-start="2343" selection-end="2343" vertical-scroll-proportion="0.33224756">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.2/javaosc-core-0.2-sources.jar!/com/illposed/osc/OSCListener.java">
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DomeAnimationServerMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="45" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0">
+        <state line="36" column="63" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../opensource/java/openjdk-6-src-b26-21_sep_2012/jdk/src/share/classes/java/lang/Object.java">
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/UdpDomeAnimationReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.0">
+        <state line="77" column="0" selection-start="2460" selection-end="2460" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/illposed/osc/OSCMessage.java">
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/ArtNetDomePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="41" column="52" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.2/javaosc-core-0.2.jar!/com/illposed/osc/utility/OSCJavaToByteArrayConverter.class">
+    <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/transport/shared/DomeAnimationFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="16" selection-start="479" selection-end="479" vertical-scroll-proportion="0.3014354">
-          <folding>
-            <element signature="method#appendNullCharToAlignStream#0;class#OSCJavaToByteArrayConverter#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.2/javaosc-core-0.2-sources.jar!/com/illposed/osc/OSCPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1101" selection-end="1101" vertical-scroll-proportion="0.76076555">
-          <folding>
-            <element signature="method#getByteArray#0;class#OSCPacket#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/illposed/osc/utility/OSCJavaToByteArrayConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
+        <state line="23" column="0" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/SourceAwareOSCPortIn.java">
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DmxDomeMapping.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="0" selection-start="2154" selection-end="2154" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#SourceAwareOSCPortIn#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-            <element signature="method#addSourceInfoTo#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-            <element signature="e#2968#3176#0" expanded="true" />
-            <element signature="e#3167#3168#0" expanded="true" />
-            <element signature="method#startListening#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-            <element signature="method#stopListening#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-            <element signature="method#isListening#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-            <element signature="method#addListener#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-            <element signature="class#SourceAwareOSCMessage#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-            <element signature="method#SourceAwareOSCMessage#0;class#SourceAwareOSCMessage#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-            <element signature="method#getSenderAddress#0;class#SourceAwareOSCMessage#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-            <element signature="method#getSenderPort#0;class#SourceAwareOSCMessage#0;class#SourceAwareOSCPortIn#0" expanded="true" />
-          </folding>
+        <state line="310" column="26" selection-start="9387" selection-end="9387" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/msafluid/MSAFluidSolver2D.java">
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="16" selection-start="4846" selection-end="4846" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="method#setDeltaT#0;class#MSAFluidSolver2D#0" expanded="true" />
-          </folding>
+        <state line="140" column="37" selection-start="3862" selection-end="3862" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/MSAFluidTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/KinectTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="34" selection-start="4985" selection-end="4985" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="18" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/AudioFluidTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="45" selection-start="4852" selection-end="4852" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="method#applyDouble#0;class#4597:4861" expanded="true" />
-            <element signature="method#applyDouble#0;class#4924:5187" expanded="true" />
-            <element signature="method#getValue#0;class#4924:5187" expanded="true" />
-            <element signature="method#updateFluid#0;class#AudioFluidTest#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.2/javaosc-core-0.2.jar!/com/illposed/osc/utility/OSCPacketDispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="16" selection-start="474" selection-end="474" vertical-scroll-proportion="-8.64">
-          <folding>
-            <element signature="method#dispatchPacket#0;class#OSCPacketDispatcher#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GeoVector3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="389" column="35" selection-start="8294" selection-end="8317" vertical-scroll-proportion="-23.8">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/FirstDomeSphere.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="43" selection-start="2564" selection-end="2564" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="method#FirstDomeSphere#0;class#FirstDomeSphere#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/illposed/osc/javaosc-core/0.2/javaosc-core-0.2.jar!/com/illposed/osc/OSCPort.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="22" selection-start="475" selection-end="475" vertical-scroll-proportion="0.27890345">
-          <folding>
-            <element signature="method#defaultSCOSCPort#0;class#OSCPort#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/illposed/osc/OSCPort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="0" selection-end="47" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="29" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.14876033">
+        <state line="270" column="67" selection-start="7899" selection-end="7899" vertical-scroll-proportion="0.51336896">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#start#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#start#1;class#OscHelper#0" expanded="true" />
-            <element signature="e#2168#3205#0" expanded="true" />
-            <element signature="e#3200#3201#0" expanded="true" />
-            <element signature="method#acceptMessage#0;class#3264:3617" expanded="true" />
-            <element signature="method#mapValue#0;class#OscHelper#0" expanded="true" />
-            <element signature="e#3786#3975#0" expanded="true" />
-            <element signature="e#3970#3971#0" expanded="true" />
-            <element signature="class#WritableOscValue#0;class#OscHelper#0" expanded="true" />
-            <element signature="class#ReadableOscValue#0;class#OscHelper#0" expanded="true" />
-            <element signature="class#BaseSimpleValue#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#BaseSimpleValue#0;class#BaseSimpleValue#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getCurrentAddressValues#0;class#BaseSimpleValue#0;class#OscHelper#0" expanded="true" />
-            <element signature="e#4939#4962#0" expanded="true" />
-            <element signature="class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#OscMultitouch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#applyValue#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getTouches#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#cullTouches#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#Touch#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#setXY#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getInitialX#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getInitialY#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getDeltaX#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getDeltaY#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getAngle#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getVelocity#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getCurrentX#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getCurrentY#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#isDead#0;class#Touch#0;class#OscMultitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#multitouch#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#multitouch#1;class#OscHelper#0" expanded="true" />
-            <element signature="class#OscDouble#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#OscDouble#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#applyValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getCurrentOscValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#floatValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
-            <element signature="class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#OscBoolean#0;class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#value#0;class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#applyValue#0;class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getCurrentOscValue#0;class#OscBoolean#0;class#OscHelper#0" expanded="true" />
-            <element signature="class#OscXY#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#OscXY#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#applyValue#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getCurrentOscValue#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getX#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getY#0;class#OscXY#0;class#OscHelper#0" expanded="true" />
-            <element signature="class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#applyValue#0;class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getRawX#0;class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getRawY#0;class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#getRawZ#0;class#OscAccelerometer#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#doubleValue#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#xyValue#0;class#OscHelper#0" expanded="true" />
-            <element signature="method#booleanValue#0;class#OscHelper#0" expanded="true" />
+            <element signature="method#main#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#AudioFluidTest#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#applyDouble#0;class#4299:4563" expanded="true" />
+            <element signature="method#getValue#0;class#4299:4563" expanded="true" />
+            <element signature="method#applyDouble#0;class#4626:4889" expanded="true" />
+            <element signature="method#getValue#0;class#4626:4889" expanded="true" />
+            <element signature="method#run#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="initializer##0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#paint#0;class#5576:6170" expanded="true" />
+            <element signature="method#draw#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#emitDirectional#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#emitDirectional#1;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#emitRing#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="initializer##0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#analyze#0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="class#AccessibleFFT#0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#AccessibleFFT#0;class#AccessibleFFT#0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#getAverages#0;class#AccessibleFFT#0;class#AudioAnalyzer#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="class#AudioAnalysisInfo#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#AudioAnalysisInfo#0;class#AudioAnalysisInfo#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#isAnyBeat#0;class#AudioAnalysisInfo#0;class#AudioFluidTest#0" expanded="true" />
+            <element signature="method#isAllBeats#0;class#AudioAnalysisInfo#0;class#AudioFluidTest#0" expanded="true" />
           </folding>
         </state>
       </provider>

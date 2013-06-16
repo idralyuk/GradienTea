@@ -43,7 +43,7 @@ import java.util.Map;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class TestPlayer {
-	public final static int PIXEL_COUNT = 50;
+	public final static int PIXEL_COUNT = 150;
 
 	interface GPIOMapping {
 		Pin SCROLL_CLK = RaspiPin.GPIO_02; // Marked 17
@@ -67,12 +67,7 @@ public class TestPlayer {
 			Constants.DEFAULT_ART_NET_UDP_PORT
 		);
 
-		strobe(
-			player,
-			PIXEL_COUNT,
-			0.001,
-			0.9
-		);
+		omniRainbow(player, PIXEL_COUNT);
 
 	}
 
@@ -115,7 +110,7 @@ public class TestPlayer {
 						return frame.render();
 					}
 				},
-					10
+					5
 				)
 			)
 		);

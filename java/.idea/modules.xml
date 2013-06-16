@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/GradienTeaParent.iml" filepath="$PROJECT_DIR$/GradienTeaParent.iml" />
       <module fileurl="file://$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" filepath="$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" />
       <module fileurl="file://$PROJECT_DIR$/LightingModel/LightingModel.iml" filepath="$PROJECT_DIR$/LightingModel/LightingModel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../opensource/java/minim-java/minim-java.iml" filepath="$PROJECT_DIR$/../../../opensource/java/minim-java/minim-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../opensource/java/ArtNetStack/stack.iml" filepath="$PROJECT_DIR$/../../../opensource/java/ArtNetStack/stack.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../opensource/java/three4g/three4g.iml" filepath="$PROJECT_DIR$/../../../opensource/java/three4g/three4g.iml" />
     </modules>

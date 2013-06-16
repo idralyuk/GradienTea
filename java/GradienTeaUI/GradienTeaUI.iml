@@ -6,7 +6,7 @@
         <setting name="additionalCompilerParameters" value="-Xmx512m -XX:MaxPermSize=512m" />
         <setting name="compilerMaxHeapSize" value="2048" />
         <setting name="gwtScriptOutputStyle" value="DETAILED" />
-        <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.5.0/" />
+        <setting name="gwtSdkUrl" value="file://$MAVEN_REPOSITORY$/com/google/gwt/gwt-dev/2.5.1/" />
         <setting name="gwtSdkType" value="maven" />
         <setting name="webFacet" value="Web" />
       </configuration>
@@ -43,6 +43,12 @@
     <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:1.3.9" level="project" />
     <orderEntry type="module" module-name="ArtNetPlayer" />
     <orderEntry type="module" module-name="stack" />
+    <orderEntry type="module" module-name="minim-java" />
+    <orderEntry type="library" name="Maven: com.googlecode.soundlibs:tritonus-share:0.3.7-2" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.soundlibs:jlayer:1.0.1-1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.9" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.soundlibs:mp3spi:1.9.5-1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-math:2.2" level="project" />
     <orderEntry type="library" name="Maven: edu.ucla.sspace:sspace:2.0.3" level="project" />
     <orderEntry type="library" name="Maven: net.sf.trove4j:trove4j:3.0.2" level="project" />
@@ -59,11 +65,9 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: net.java.jinput:jinput-platform:natives-windows:2.0.5" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: net.java.jinput:jinput-platform:natives-osx:2.0.5" level="project" />
     <orderEntry type="library" name="Maven: com.github.rwl:jtransforms:2.4.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.9" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.illposed.osc:javaosc-core:0.2" level="project" />
     <orderEntry type="module" module-name="three4g" />
-    <orderEntry type="library" name="Maven: com.google.gwt:gwt-user:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.gwt:gwt-user:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:sources:1.0.0.GA" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20090211" level="project" />

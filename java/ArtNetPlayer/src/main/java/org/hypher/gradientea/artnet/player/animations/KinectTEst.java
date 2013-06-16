@@ -1,13 +1,10 @@
 package org.hypher.gradientea.artnet.player.animations;
 
-import ddf.minim.AudioInput;
-import ddf.minim.Sound;
-import ddf.minim.analysis.BeatDetect;
-import ddf.minim.analysis.FFT;
 import org.hypher.gradientea.animation.shared.color.HsbColor;
 import org.hypher.gradientea.artnet.player.DomeAnimationServerMain;
 import org.hypher.gradientea.artnet.player.UdpDomeClient;
 import org.hypher.gradientea.artnet.player.io.osc.OscHelper;
+import org.hypher.gradientea.artnet.player.io.osc.OscSynapse;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
 import org.msafluid.MSAFluidSolver2D;
@@ -20,7 +17,7 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import static org.hypher.gradientea.artnet.player.io.osc.OscHelper.*;
+import static org.hypher.gradientea.artnet.player.io.osc.OscHelper.OscDouble;
 import static org.hypher.gradientea.geometry.shared.math.DomeMath.TWO_PI;
 import static org.hypher.gradientea.geometry.shared.math.DomeMath.f;
 
@@ -29,67 +26,22 @@ import static org.hypher.gradientea.geometry.shared.math.DomeMath.f;
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
-public class AudioFluidTest implements Runnable {
-	public final static int WIDTH = 64;
-	public final static int HEIGHT = 64;
+public class KinectTest implements Runnable {
+	public final static int WIDTH = 30;
+	public final static int HEIGHT = 30;
 	public final static float ASPECT_RATIO = (float)WIDTH/HEIGHT;
 	public static final int FREQUENCY_BANDS = 7;
 	public static final int LOW_FREQ_BUCKET = 4;
 	public static final int HIGH_FREQ_BUCKET = 128;
 	private static final int FPS = 30;
-	private OscHelper.OscXY circleEmitterTarget = xyValue("/gt/emitter/pad", .5, .5);
 
-	private OscHelper.OscDouble intensityDecayRate = doubleValue(
-		"/gt/emitter/intensityDecay",
-		0,
-		1.0,
-		0.85
-	);
-	private OscHelper.OscDouble fadeSpeedCoefficient = doubleValue(
-		"/gt/fluid/fadeBeatCoefficient",
-		0,
-		1.0,
-		.1
-	);
-	private OscHelper.OscDouble fadeSpeedBase = doubleValue("/gt/fluid/fade", 0.00, 0.10, .06);
-
-	private OscHelper.OscDouble velocityCoefficient = doubleValue(
-		"/gt/emitter/velocity",
-		0.1,
-		1.0,
-		0.5
-	);
-	private OscHelper.OscDouble intensityCoefficient = doubleValue(
-		"/gt/emitter/intensity",
-		0,
-		10,
-		2
-	);
-
-	private OscHelper.OscMultitouch manualEmitters = multitouch("/gt/manualEmitter");
-
-	private OscHelper.OscBoolean enableSoundEmitters = booleanValue("/gt/enableSoundEmitters", true);
-
-	private OscHelper.OscBoolean ballEnabled = booleanValue(
-		"/gt/vuBall/enabled",
-		true
-	);
-
-	private OscHelper.OscDouble ballRadius = doubleValue(
-		"/gt/vuBall/radius",
-		0,
-		Math.PI,
-		Math.PI / 4
-	);
-
-	private OscHelper.OscXY ballPosition = xyValue(
-		"/gt/vuBall/position",
-		0, 0
-	);
+	static {
+		OscSynapse.instance();
+	}
 
 
 	public static void main(String[] args) throws IOException {
-		new AudioFluidTest();
+		new KinectTest();
 	}
 	private UdpDomeClient prototypeDomeTransport = new UdpDomeClient();
 	private UdpDomeClient miniDomeTransport = new UdpDomeClient();
@@ -120,14 +72,12 @@ public class AudioFluidTest implements Runnable {
 
 	private MSAFluidSolver2D fluidSolver;
 
-	private AudioAnalyzer audioAnalyzer = new AudioAnalyzer();
-
-	public AudioFluidTest() throws IOException {
+	public KinectTest() throws IOException {
 		prototypeDomeTransport.connect("localhost", DomeAnimationServerMain.DOME_PORT);
 		miniDomeTransport.connect("localhost", DomeAnimationServerMain.DOME_PORT + 1);
 
 		fluidSolver = new MSAFluidSolver2D(WIDTH, HEIGHT);
-		fluidSolver.enableRGB(true).setFadeSpeed(0.015f).setDeltaT(0.8f).setVisc(0.00023f);
+		fluidSolver.enableRGB(true).setFadeSpeed(0.080f).setDeltaT(0.9f).setVisc(0.00013f);
 
 		image = new BufferedImage(fluidSolver.getWidth(), fluidSolver.getHeight(), BufferedImage.TYPE_INT_RGB);
 
@@ -146,7 +96,7 @@ public class AudioFluidTest implements Runnable {
 		);
 
 		OscHelper.instance().mapValue(
-			"/gt/fluid/dt", new OscHelper.OscDouble("/gt/fluid/dt", 0.1, 2.0, fluidSolver.getVisc()) {
+			"/gt/fluid/dt", new OscDouble("/gt/fluid/dt", 0.1, 2.0, fluidSolver.getVisc()) {
 			@Override
 			public void applyDouble(final double value) {
 				fluidSolver.setDeltaT(f(value));
@@ -205,7 +155,7 @@ public class AudioFluidTest implements Runnable {
 				}
 			}
 		};
-		frame.setSize(480*2, 480);
+		frame.setSize(480*4, 480*2);
 		frame.setLocation(0,520);
 		frame.setVisible(true);
 	}
@@ -247,86 +197,35 @@ public class AudioFluidTest implements Runnable {
 		frame.repaint();
 	}
 
+	OscSynapse.OscJoint rightHand = OscSynapse.jointScreen(OscSynapse.Joint.RIGHTHAND);
+	OscSynapse.OscJoint leftHand = OscSynapse.jointScreen(OscSynapse.Joint.LEFTHAND);
 
-	float[] intensities;
-	float[] angleOffsets;
-	float angleOffset = 0;
-	float overallBeatLevel = 0;
-	float rotationDirectionCounter = 100;
+	float leftHue = 0.0f;
+	float rightHue = 0.0f;
 
 	private void updateFluid() {
-		final AudioAnalysisInfo analysisInfo = audioAnalyzer.analyze();
-		if (intensities == null) {
-			intensities = new float[analysisInfo.bandIntensities.length];
-			angleOffsets = new float[analysisInfo.bandIntensities.length];
-		}
-
-		if (Float.isNaN(angleOffset)) angleOffset = 0;
-
-		if (analysisInfo.isAnyBeat()) {
-			int highestChannelIndex = -1;
-			double maxIntensity = 0;
-			for (int i=0; i<analysisInfo.bandIntensities.length; i++) {
-				if (analysisInfo.bandIntensities[i] > maxIntensity) {
-					maxIntensity = analysisInfo.bandIntensities[i];
-					highestChannelIndex = i;
-				}
-			}
-
-			intensities[highestChannelIndex] +=
-				Math.log(1+Math.abs(analysisInfo.bandIntensities[highestChannelIndex]) * velocityCoefficient.floatValue());
-			//intensities[highestChannelIndex] = Math.max(0, Math.min(intensities[highestChannelIndex], 0.9f));
-
-			overallBeatLevel += 0.1;
-		}
-
-		if (analysisInfo.kick) {
-			//emitRing(0.5f, 0.5f, 0.05f, 0.1f, (frameCount % 600) / 600f, 0.01f, 0.6f);
-		}
-
-		if (enableSoundEmitters.value()) {
-			for (int i=0; i<intensities.length; i++) {
-				float intensity = intensities[i];
-
-				angleOffsets[i] += (float) (intensities[i] * 0.03 * (rotationDirectionCounter<0?-1:1));
-				float angle = f((f(i)/intensities.length) * TWO_PI) + angleOffsets[i];
-
-				emitDirectional(
-					f(0.5 + Math.cos(angle)*0.45 * (1- overallBeatLevel *0.25)),
-					f(0.5 + Math.sin(angle)*0.45 * (1- overallBeatLevel *0.25)),
-
-					(float)circleEmitterTarget.getX(), (float)circleEmitterTarget.getY(),
-
-					(f(i)/intensities.length) + (frameCount % 1200) / 1200f,
-
-					intensity*0.008f,
-					intensity * intensityCoefficient.floatValue()
-				);
-
-				intensities[i] *= intensityDecayRate.floatValue();
-			}
-		}
-
-		overallBeatLevel *= 0.9;
-		angleOffset += overallBeatLevel*.2 * (rotationDirectionCounter<0?-1:1);
-
-		if (overallBeatLevel < 0.1) {
-			rotationDirectionCounter *= -1;
-		}
-
-		fluidSolver.setFadeSpeed(f(fadeSpeedBase.floatValue() - overallBeatLevel * 0.2 * fadeSpeedCoefficient.floatValue()));
-
-		// Add manual touches
-		for (OscHelper.OscMultitouch.Touch touch : manualEmitters.getTouches().values()) {
-			System.out.println(touch.getVelocity());
-
+		if (rightHand.getVelocity() > 0.01) {
 			emitDirectional(
-				(float) touch.getCurrentX(), (float) touch.getCurrentY(),
-				(float) touch.getAngle(),
-				(float) touch.getInitialY(),
-				(float) touch.getVelocity()*0.5f,
-				(float) touch.getVelocity()*1000
+				(float) rightHand.getX(), (float) rightHand.getY(),
+				(float) rightHand.getAngle(),
+				(float) (rightHue + rightHand.getVelocity()),
+				(float) rightHand.getVelocity()*0.5f,
+				(float) rightHand.getVelocity()*100
 			);
+		} else {
+			rightHue = (float) (rightHand.getY()/.7f) ;
+		}
+
+		if (leftHand.getVelocity() > 0.01) {
+			emitDirectional(
+				(float) leftHand.getX(), (float) leftHand.getY(),
+				(float) leftHand.getAngle(),
+				(float) (leftHue + leftHand.getVelocity()),
+				(float) leftHand.getVelocity()*0.5f,
+				(float) leftHand.getVelocity()*100
+			);
+		} else {
+			leftHue = (float) (leftHand.getY()/.7f);
 		}
 	}
 
@@ -411,67 +310,6 @@ public class AudioFluidTest implements Runnable {
 				f(Math.cos(angle) * velocity),
 				f(Math.sin(angle) * velocity)
 			);
-		}
-	}
-
-	public static class AudioAnalyzer {
-		final Sound sound = new Sound();
-		final AudioInput lineIn = sound.getLineIn();
-		final AccessibleFFT fft = new AccessibleFFT(1024, lineIn.sampleRate());
-		final BeatDetect beatDetect = new BeatDetect(1024, lineIn.sampleRate());
-		{
-			fft.logAverages(30, 1);
-		}
-
-		public AudioAnalysisInfo analyze() {
-			beatDetect.detect(lineIn.mix);
-			fft.forward(lineIn.mix);
-
-			return new AudioAnalysisInfo(
-				beatDetect.isHat(),
-				beatDetect.isSnare(),
-				beatDetect.isKick(),
-
-				fft.getAverages()
-			);
-		}
-
-		private class AccessibleFFT extends FFT {
-			public AccessibleFFT(final int timeSize, final float sampleRate) {
-				super(timeSize, sampleRate);
-			}
-
-			public float[] getAverages() {
-				return averages;
-			}
-		}
-	}
-
-	public static class AudioAnalysisInfo {
-		boolean hat;
-		boolean snare;
-		boolean kick;
-
-		float[] bandIntensities;
-
-		public AudioAnalysisInfo(
-			final boolean hat,
-			final boolean snare,
-			final boolean kick,
-			final float[] bandIntensities
-		) {
-			this.hat = hat;
-			this.snare = snare;
-			this.kick = kick;
-			this.bandIntensities = bandIntensities;
-		}
-
-		public boolean isAnyBeat() {
-			return hat || snare || kick;
-		}
-
-		public boolean isAllBeats() {
-			return hat && snare && kick;
 		}
 	}
 }

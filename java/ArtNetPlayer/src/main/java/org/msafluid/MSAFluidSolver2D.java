@@ -111,7 +111,7 @@ public class MSAFluidSolver2D {
 	 * (OPTIONAL SETUP) re-initialize solver and setup number of cells
 	 * @param NX number of cells in X direction
 	 * @param NY number of cells in X direction
-	 * @return instance of MSAFluidSolver2D for further configuration
+	 * @return touchOsch of MSAFluidSolver2D for further configuration
 	 */
 	public MSAFluidSolver2D setup(int NX, int NY) {
 
@@ -142,7 +142,7 @@ public class MSAFluidSolver2D {
 	/**
 	 * (OPTIONAL SETUP) set timestep
 	 * @param dt timestep
-	 * @return instance of MSAFluidSolver2D for further configuration
+	 * @return touchOsch of MSAFluidSolver2D for further configuration
 	 */
 	public MSAFluidSolver2D setDeltaT(float dt) {
 		_dt = dt;
@@ -157,7 +157,7 @@ public class MSAFluidSolver2D {
 	/**
 	 * (OPTIONAL SETUP) set how quickly the fluid dye dissipates and fades out 
 	 * @param fadeSpeed (0...1)
-	 * @return instance of MSAFluidSolver2D for further configuration
+	 * @return touchOsch of MSAFluidSolver2D for further configuration
 	 */
 	public MSAFluidSolver2D setFadeSpeed(float fadeSpeed) {
 		_fadeSpeed = fadeSpeed;
@@ -168,7 +168,7 @@ public class MSAFluidSolver2D {
 	/**
 	 * (OPTIONAL SETUP) set number of iterations for solver (higher is slower but more accurate) 
 	 * @param solverIterations
-	 * @return instance of MSAFluidSolver2D for further configuration
+	 * @return touchOsch of MSAFluidSolver2D for further configuration
 	 */
 	public MSAFluidSolver2D setSolverIterations(int solverIterations) {
 		_solverIterations = solverIterations;
@@ -178,7 +178,7 @@ public class MSAFluidSolver2D {
 	/**
 	 * (OPTIONAL SETUP) set whether solver should work with monochrome dye (default) or RGB
 	 * @param isRGB true or false
-	 * @return instance of MSAFluidSolver2D for further configuration
+	 * @return touchOsch of MSAFluidSolver2D for further configuration
 	 */
 	public MSAFluidSolver2D enableRGB(boolean isRGB) {
 		_isRGB = isRGB;
@@ -188,7 +188,7 @@ public class MSAFluidSolver2D {
 	/**
 	 * (OPTIONAL SETUP) set viscosity
 	 * @param newVisc
-	 * @return instance of MSAFluidSolver2D for further configuration
+	 * @return touchOsch of MSAFluidSolver2D for further configuration
 	 */
 	public MSAFluidSolver2D setVisc(float newVisc) {
 		visc = newVisc;

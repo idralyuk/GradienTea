@@ -297,12 +297,19 @@ public class DmxDomeMapping {
 			int intensityMin,
 			int intensityMax
 		) {
-			output[outputIndex+redOffset] =
-				(int) (intensityMin + ((rgbInput[rgbIndex] & 0xFF)/255d) * (intensityMax-intensityMin));
-			output[outputIndex+greenOffset] =
-				(int) (intensityMin + ((rgbInput[rgbIndex+1] & 0xFF)/255d) * (intensityMax-intensityMin));
-			output[outputIndex+blueOffset] =
-				(int) (intensityMin + ((rgbInput[rgbIndex+2] & 0xFF) / 255d) * (intensityMax-intensityMin));
+			output[outputIndex+redOffset] = scaleValue(rgbInput[rgbIndex] & 0xFF, intensityMin, intensityMax);
+			output[outputIndex+greenOffset] = scaleValue(rgbInput[rgbIndex+1] & 0xFF, intensityMin, intensityMax);
+			output[outputIndex+blueOffset] = scaleValue(rgbInput[rgbIndex+2] & 0xFF, intensityMin, intensityMax);
+		}
+
+		protected int scaleValue(
+			int input,
+			int intensityMin,
+			int intensityMax
+		) {
+			int output = (int) (intensityMin + (input/255d) * (intensityMax-intensityMin));
+			return output;
+//			return (int) (255 * (Math.log(input+1) / Math.log(255)));
 		}
 	}
 }

@@ -407,10 +407,10 @@ public class OscHelper {
 		public void applyValue(final String address, final Object[] params) {
 			if (
 				params.length == 3
-				&& params[0] instanceof Number
-				&& params[1] instanceof Number
-				&& params[2] instanceof Number
-			) {
+					&& params[0] instanceof Number
+					&& params[1] instanceof Number
+					&& params[2] instanceof Number
+				) {
 				rawX = ((Number) params[0]).doubleValue();
 				rawY = ((Number) params[1]).doubleValue();
 				rawZ = ((Number) params[2]).doubleValue();
