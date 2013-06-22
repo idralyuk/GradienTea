@@ -1,5 +1,6 @@
 package org.hypher.gradientea.transport.shared;
 
+import com.google.common.base.Preconditions;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 
 import java.io.Serializable;
@@ -12,18 +13,36 @@ import java.io.Serializable;
  */
 public class DomeAnimationFrame implements Serializable {
 	/**
-	 * The data to display. The order is assumed to be RGB in the order of the faces of the dome as defined by
-	 * {@link GradienTeaDomeGeometry#getLightedFaces()}.
+	 * The data to display on the faces of the dome. The order is assumed to be RGB in the order of the faces of the
+	 * dome as defined by {@link GradienTeaDomeGeometry#getLightedFaces()}.
 	 */
-	private /*final*/ byte[] pixelData;
+	private /*final*/ byte[] facePixelData;
+
+	/**
+	 * The data to display on the vertices of the dome. The order is assumed to be RGB in the order of the verticies
+	 * of the dome as defined by {@link GradienTeaDomeGeometry#getLightedVerticies()}.
+	 */
+	private /*final*/ byte[] vertexPixelData;
 
 	protected DomeAnimationFrame() { /* For Serialization Only */ }
 
-	public DomeAnimationFrame(final byte[] pixelData) {
-		this.pixelData = pixelData;
+	public DomeAnimationFrame(final byte[] facePixelData, final byte[] vertexPixelData) {
+		Preconditions.checkNotNull(facePixelData, "facePixelData cannot be null. Pass an empty array instead.");
+		Preconditions.checkNotNull(vertexPixelData, "vertexPixelData cannot be null. Pass an empty array instead.");
+
+		this.facePixelData = facePixelData;
+		this.vertexPixelData = vertexPixelData;
 	}
 
-	public byte[] getPixelData() {
-		return pixelData;
+	public DomeAnimationFrame(final byte[] facePixelData) {
+		this(facePixelData, new byte[0]);
+	}
+
+	public byte[] getFacePixelData() {
+		return facePixelData;
+	}
+
+	public byte[] getVertexPixelData() {
+		return vertexPixelData;
 	}
 }

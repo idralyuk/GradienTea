@@ -1,11 +1,13 @@
 package org.hypher.gradientea.geometry.shared;
 
 import com.google.common.base.Function;
+import com.google.common.base.Predicates;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.Sets;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
@@ -17,14 +19,22 @@ import java.util.SortedSet;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class GradienTeaDomeGeometry implements Serializable {
-	public static transient final Comparator<GeoFace> ROTATION_ABOUT_Z_COMPARATOR = new Comparator<GeoFace>() {
+	public static transient final Comparator<GeoFace> FACE_ROTATION_ABOUT_Z_COMPARATOR = new Comparator<GeoFace>() {
 		@Override
 		public int compare(
 			final GeoFace face1, final GeoFace face2
 		) {
-			GeoVector3 vertex1 = face1.center();
-			GeoVector3 vertex2 = face2.center();
+			return VERTEX_ROTATION_ABOUT_Z_COMPARATOR.compare(face1.center(), face2.center());
+		}
+	};
 
+
+	public static transient final Comparator<GeoVector3> VERTEX_ROTATION_ABOUT_Z_COMPARATOR = new Comparator<GeoVector3>() {
+		@Override
+		public int compare(
+			final GeoVector3 vertex1,
+			final GeoVector3 vertex2
+		) {
 			// Calculate angle around z axis
 			final double angle1 = Math.atan2(vertex1.getY(), vertex1.getX());
 			final double angle2 = Math.atan2(vertex2.getY(), vertex2.getX());
@@ -36,8 +46,10 @@ public class GradienTeaDomeGeometry implements Serializable {
 	protected GeodesicDomeGeometry domeGeometry;
 	protected GradienTeaDomeSpec spec;
 
-	private Set<GeoFace> lightedFaces;
-	private Double lightedPanelArc;
+	private transient Set<GeoFace> lightedFaces;
+	private transient LinkedHashSet<GeoVector3> lightedVertices;
+	private transient Double lightedPanelArc;
+	private transient Double vertexRadius;
 
 	protected GradienTeaDomeGeometry() {}
 
@@ -56,12 +68,49 @@ public class GradienTeaDomeGeometry implements Serializable {
 			lightedFaces = new LinkedHashSet<GeoFace>();
 
 			for(List<GeoFace> ring : domeGeometry.ringsFrom(GeodesicSphereGeometry.topVertex).subList(0, spec.getLightedLayers())) {
-				ring = Ordering.from(ROTATION_ABOUT_Z_COMPARATOR).sortedCopy(ring);
+				ring = Ordering.from(FACE_ROTATION_ABOUT_Z_COMPARATOR).sortedCopy(ring);
 				lightedFaces.addAll(ring);
 			}
 		}
 
 		return lightedFaces;
+	}
+
+	public Set<GeoVector3> getLightedVertices() {
+		if (lightedVertices == null) {
+			lightedVertices = new LinkedHashSet<GeoVector3>();
+
+			lightedVertices.add(domeGeometry.getHighestVertex());
+			Set<GeoFace> remainingFaces = Sets.newLinkedHashSet(lightedFaces);
+
+			Collection<GeoVector3> previousRingBottomVertices = Collections.singleton(domeGeometry.getHighestVertex());
+			while (! remainingFaces.isEmpty()) {
+				// Get the faces containing the current vertices
+				Collection<GeoFace> faceRing = FluentIterable.from(remainingFaces)
+					.filter(new GeoFace.ContainsVertex(previousRingBottomVertices))
+					.toImmutableSet();
+
+				// And remove them from the remaining faces...
+				remainingFaces.removeAll(faceRing);
+
+				// We want all the vertices in the ring that aren't also part of the last ring, sorted by angle
+				final Collection<GeoVector3> currentRingBottomVertices =
+					Ordering.from(VERTEX_ROTATION_ABOUT_Z_COMPARATOR).sortedCopy(
+						FluentIterable.from(faceRing)
+							.transformAndConcat(GeoFace.getVertices)
+							.filter(Predicates.not(Predicates.in(previousRingBottomVertices)))
+							.toImmutableSet()
+					);
+
+				// These are the next ring of vertices in the correct order. Add them to the set
+				lightedVertices.addAll(currentRingBottomVertices);
+
+				// And swap out the old list of bottom vertices
+				previousRingBottomVertices = currentRingBottomVertices;
+			}
+		}
+
+		return lightedVertices;
 	}
 
 	private static <T> void rotateList(List<T> list, boolean forward) {
@@ -139,6 +188,18 @@ public class GradienTeaDomeGeometry implements Serializable {
 		return lightedPanelArc;
 	}
 
+	public double getVertexRadius() {
+		if (vertexRadius == null) {
+			double sum = 0;
+			for (GeoEdge edge : domeGeometry.getEdges()) {
+				sum += Math.abs(edge.length());
+			}
+
+			vertexRadius = (sum / domeGeometry.getEdges().size()) * 0.3;
+		}
+		return vertexRadius;
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Generated Methods
 
@@ -152,8 +213,6 @@ public class GradienTeaDomeGeometry implements Serializable {
 	public GradienTeaDomeSpec getSpec() {
 		return spec;
 	}
-
-
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Inner Classes

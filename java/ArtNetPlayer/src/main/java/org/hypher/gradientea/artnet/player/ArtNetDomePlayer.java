@@ -39,7 +39,7 @@ public class ArtNetDomePlayer implements DomeAnimationTransport {
 			dmxBuffer = mapping.allocateBuffer();
 		}
 
-		mapping.map(frame.getPixelData(), dmxBuffer);
+		mapping.map(frame.getFacePixelData(), frame.getVertexPixelData(), dmxBuffer);
 
 		try {
 			for (int i=0; i<dmxBuffer.length; i++) {

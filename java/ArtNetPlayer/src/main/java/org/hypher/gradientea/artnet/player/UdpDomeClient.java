@@ -19,6 +19,7 @@ import java.net.UnknownHostException;
 public class UdpDomeClient implements DomeAnimationTransport {
 
 	private DatagramSocket socket;
+	private DomeIdentifier domeIdentifier = DomeIdentifier.Unknown;
 
 	public void connect(String host) throws SocketException, UnknownHostException {
 		connect(host, DomeAnimationServerMain.DOME_PORT);
@@ -31,6 +32,14 @@ public class UdpDomeClient implements DomeAnimationTransport {
 		socket.connect(InetAddress.getByName(host), port);
 	}
 
+	public DomeIdentifier getDomeIdentifier() {
+		return domeIdentifier;
+	}
+
+	public void setDomeIdentifier(final DomeIdentifier domeIdentifier) {
+		this.domeIdentifier = domeIdentifier;
+	}
+
 	private void disconnect() {
 		if (socket != null) {
 			socket.disconnect();
@@ -39,19 +48,28 @@ public class UdpDomeClient implements DomeAnimationTransport {
 	}
 
 	private int frameIndex = 0;
+
 	@Override
 	public void displayFrame(final DomeAnimationFrame frame) {
-		byte[] pixelData = frame.getPixelData();
-		byte[] buffer = new byte[pixelData.length + 6];
+		byte[] faceData = frame.getFacePixelData();
+		byte[] vertexData = frame.getVertexPixelData();
+
+		byte[] buffer = new byte[faceData.length + vertexData.length + 9];
 		buffer[0] = 'D';
 		buffer[1] = 'O';
 		buffer[2] = 'M';
 		buffer[3] = 'E';
 
-		buffer[4] = (byte) (pixelData.length << 8);
-		buffer[5] = (byte) (pixelData.length & 0xFF);
+		buffer[4] = (byte) (domeIdentifier.ordinal());
 
-		System.arraycopy(pixelData, 0, buffer, 6, pixelData.length);
+		buffer[5] = (byte) (faceData.length << 8);
+		buffer[6] = (byte) (faceData.length & 0xFF);
+
+		buffer[7] = (byte) (vertexData.length << 8);
+		buffer[8] = (byte) (vertexData.length & 0xFF);
+
+		System.arraycopy(faceData, 0, buffer, 9, faceData.length);
+		System.arraycopy(vertexData, 0, buffer, 9 + faceData.length, vertexData.length);
 
 		DatagramPacket packet = new DatagramPacket(buffer, 0, buffer.length);
 		try {

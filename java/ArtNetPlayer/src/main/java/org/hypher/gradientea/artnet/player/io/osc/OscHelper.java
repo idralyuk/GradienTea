@@ -10,10 +10,10 @@ import com.google.common.collect.Multimap;
 import com.illposed.osc.OSCBundle;
 import com.illposed.osc.OSCListener;
 import com.illposed.osc.OSCMessage;
-import com.illposed.osc.OSCPort;
 import com.illposed.osc.OSCPortOut;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.Arrays;
 import java.util.Date;
@@ -37,6 +37,8 @@ import java.util.regex.Pattern;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class OscHelper {
+	private static final int OSC_PORT = 4242;
+
 	private static OscHelper instance;
 	public static OscHelper instance() {
 		if (instance == null) {
@@ -47,13 +49,14 @@ public class OscHelper {
 		return instance;
 	}
 
+	private Map<String, OscHost> knownHosts = Maps.newHashMap();
 	private SourceAwareOSCPortIn receiver;
 	private Multimap<String, WritableOscValue> mappedValues = ArrayListMultimap.create();
 
 	public OscHelper() {}
 
 	private void start() {
-		start(OSCPort.defaultSCOSCPort());
+		start(OSC_PORT);
 	}
 
 	private void start(final int outgoingPort) {
@@ -63,54 +66,66 @@ public class OscHelper {
 			throw new RuntimeException(e);
 		}
 
-		// Add listeners where we need to send back data
-		receiver.addListener("/ping|/\\d+", new OSCListener() {
-			@Override
-			public void acceptMessage(final Date time, final OSCMessage message) {
-				try {
-					if (message instanceof SourceAwareOSCPortIn.SourceAwareOSCMessage) {
-						final OSCPortOut portOut = new OSCPortOut(
-							((SourceAwareOSCPortIn.SourceAwareOSCMessage) message).getSenderAddress(),
-							outgoingPort + 1
-						);
-
-						final OSCBundle bundle = new OSCBundle();
-
-						for (WritableOscValue value : mappedValues.values()) {
-							if (value instanceof ReadableOscValue) {
-								final Optional<Map<String, Object[]>> currentValues = ((ReadableOscValue) value).getCurrentAddressValues();
-
-								if (currentValues.isPresent()) {
-									for (Map.Entry<String, Object[]> entry : currentValues.get().entrySet()) {
-										bundle.addPacket(new OSCMessage(
-											entry.getKey(),
-											Arrays.asList(entry.getValue())
-										));
-									}
-								}
-							}
-						}
-
-						portOut.send(bundle);
-					}
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-				}
-			}
-		});
-
 		// Debug listener
 		receiver.addListener("/.*",  new OSCListener() {
+
 			private Set<String> ignoredAddresses = ImmutableSet.of(
 				"/accxyz"
 			);
 			public void acceptMessage(java.util.Date time, OSCMessage message) {
+				if (message instanceof SourceAwareOSCPortIn.SourceAwareOSCMessage) {
+					String hostname = ((SourceAwareOSCPortIn.SourceAwareOSCMessage) message).getSenderAddress().toString();
+
+					if (! knownHosts.containsKey(hostname)) {
+						knownHosts.put(
+							hostname, new OscHost(
+							((SourceAwareOSCPortIn.SourceAwareOSCMessage) message).getSenderAddress(),
+							outgoingPort + 1
+						)
+						);
+					}
+				}
+
+				if (message.getAddress().startsWith("/ping")) {
+					pushToKnownHosts();
+				}
+
 				if (! ignoredAddresses.contains(message.getAddress())) {
 					System.out.println("OSC: " + message.getAddress() + ": " + Joiner.on(", ").join(message.getArguments()));
 				}
 			}
 		});
 		receiver.startListening();
+	}
+
+	public void pushToKnownHosts() {
+		final OSCBundle bundle = new OSCBundle();
+
+		for (WritableOscValue value : mappedValues.values()) {
+			if (value instanceof ReadableOscValue) {
+				final Optional<Map<String, Object[]>> currentValues = ((ReadableOscValue) value).getCurrentAddressValues();
+
+				if (currentValues.isPresent()) {
+					for (Map.Entry<String, Object[]> entry : currentValues.get().entrySet()) {
+						bundle.addPacket(new OSCMessage(
+							entry.getKey(),
+							Arrays.asList(entry.getValue())
+						));
+					}
+				}
+			}
+		}
+
+		for (OscHost host : knownHosts.values()) {
+			final Optional<OSCPortOut> outPort = host.getOutPort();
+			if (outPort.isPresent()) {
+				try {
+					outPort.get().send(bundle);
+				} catch (IOException e) {
+					System.err.println("Failed to send to OSC Host " + host + ": " + e.getClass().getSimpleName() + ": " + e.getMessage());
+				}
+			}
+		}
 	}
 
 	public <T extends WritableOscValue> T mapValue(String addressPattern, final T mappedValue) {
@@ -123,6 +138,18 @@ public class OscHelper {
 		mappedValues.put(addressPattern, mappedValue);
 		return mappedValue;
 	}
+
+	public <T extends BaseSimpleValue> T mapValue(final T mappedValue) {
+		receiver.addListener(mappedValue.getAddress(), new OSCListener() {
+			@Override
+			public void acceptMessage(final Date time, final OSCMessage message) {
+				mappedValue.applyValue(message.getAddress(), message.getArguments());
+			}
+		});
+		mappedValues.put(mappedValue.getAddress(), mappedValue);
+		return mappedValue;
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//region// Generated Methods
 
@@ -149,6 +176,10 @@ public class OscHelper {
 		}
 
 		protected abstract Object[] getCurrentOscValue();
+
+		public String getAddress() {
+			return address;
+		}
 
 		@Override
 		public Optional<Map<String, Object[]>> getCurrentAddressValues() {
@@ -348,6 +379,10 @@ public class OscHelper {
 			return value;
 		}
 
+		public void setValue(final boolean value) {
+			this.value = value;
+		}
+
 		@Override
 		public void applyValue(final String address, final Object[] params) {
 			if (params.length >= 1) {
@@ -452,4 +487,49 @@ public class OscHelper {
 	}
 
 	public static OscAccelerometer accelerometer = OscHelper.instance().mapValue("/accxyz", new OscAccelerometer());
+
+	protected static class OscHost {
+		InetAddress address;
+		int outgoingPort;
+		OSCPortOut outPort;
+
+		public OscHost(final InetAddress address, final int outgoingPort) {
+			this.address = address;
+			this.outgoingPort = outgoingPort;
+		}
+
+		@Override
+		public boolean equals(final Object o) {
+			if (this == o) return true;
+			if (o == null || getClass() != o.getClass()) return false;
+
+			final OscHost oscHost = (OscHost) o;
+
+			if (outgoingPort != oscHost.outgoingPort) return false;
+			if (address != null ? !address.equals(oscHost.address) : oscHost.address != null) return false;
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int result = address != null ? address.hashCode() : 0;
+			result = 31 * result + outgoingPort;
+			return result;
+		}
+
+		public Optional<OSCPortOut> getOutPort() {
+			if (outPort == null) {
+				try {
+					outPort = new OSCPortOut(
+						address,
+						outgoingPort
+					);
+				} catch (SocketException e) {
+					return Optional.absent();
+				}
+			}
+			return Optional.of(outPort);
+		}
+	}
 }

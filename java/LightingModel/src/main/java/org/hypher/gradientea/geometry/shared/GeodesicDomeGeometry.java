@@ -28,7 +28,8 @@ public class GeodesicDomeGeometry implements Serializable {
 	protected GeoVector3 lowestVertex;
 	protected GeoVector3 highestVertex;
 
-	protected transient Map<GeoVector3, List<List<GeoFace>>> vertexRings;
+	protected transient Map<GeoVector3, List<List<GeoFace>>> computedFaceRings;
+	protected transient Map<GeoVector3, List<List<GeoVector3>>> computedVertexRings;
 
 	protected GeodesicDomeGeometry() { }
 
@@ -44,8 +45,8 @@ public class GeodesicDomeGeometry implements Serializable {
 	public List<List<GeoFace>> ringsFrom(GeoVector3 vertex) {
 		ensureBuilt();
 
-		if (vertexRings.containsKey(vertex)) {
-			return vertexRings.get(vertex);
+		if (computedFaceRings.containsKey(vertex)) {
+			return computedFaceRings.get(vertex);
 		}
 
 		List<List<GeoFace>> newRings =
@@ -69,7 +70,7 @@ public class GeodesicDomeGeometry implements Serializable {
 				)
 				.toImmutableList();
 
-		vertexRings.put(vertex, newRings);
+		computedFaceRings.put(vertex, newRings);
 		return newRings;
 	}
 
@@ -114,7 +115,7 @@ public class GeodesicDomeGeometry implements Serializable {
 		verticies = Sets.newHashSet();
 		faces = Sets.newHashSet();
 		edges = Sets.newHashSet();
-		vertexRings = Maps.newHashMap();
+		computedFaceRings = Maps.newHashMap();
 
 		for (List<GeoFace> ring : sphereGeometry.vertexFaceGroupings(GeodesicSphereGeometry.topVertex).getRings()) {
 			if (index++ >= spec.getLayers()) {

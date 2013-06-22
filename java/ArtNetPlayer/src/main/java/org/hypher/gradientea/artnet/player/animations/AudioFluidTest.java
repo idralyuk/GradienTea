@@ -30,8 +30,8 @@ import static org.hypher.gradientea.geometry.shared.math.DomeMath.f;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class AudioFluidTest implements Runnable {
-	public final static int WIDTH = 64;
-	public final static int HEIGHT = 64;
+	public final static int WIDTH = 40;
+	public final static int HEIGHT = 40;
 	public final static float ASPECT_RATIO = (float)WIDTH/HEIGHT;
 	public static final int FREQUENCY_BANDS = 7;
 	public static final int LOW_FREQ_BUCKET = 4;
@@ -51,7 +51,7 @@ public class AudioFluidTest implements Runnable {
 		1.0,
 		.1
 	);
-	private OscHelper.OscDouble fadeSpeedBase = doubleValue("/gt/fluid/fade", 0.00, 0.10, .06);
+	private OscHelper.OscDouble fadeSpeedBase = doubleValue("/gt/fluid/fade", 0.00, 0.10, .08);
 
 	private OscHelper.OscDouble velocityCoefficient = doubleValue(
 		"/gt/emitter/velocity",
@@ -168,10 +168,11 @@ public class AudioFluidTest implements Runnable {
 	public void run() {
 		long lastFrame = System.currentTimeMillis();
 		while (true) {
-
 			long frameStart = System.currentTimeMillis();
+
 			prototypeDomeCanvas.clear();
 			miniDomeCanvas.clear();
+
 			frameCount ++;
 			draw(prototypeDomeCanvas, frameStart - lastFrame);
 			lastFrame = frameStart;
@@ -180,7 +181,8 @@ public class AudioFluidTest implements Runnable {
 			miniDomeTransport.displayFrame(miniDomeCanvas.render());
 
 			try {
-				Thread.sleep(Math.max(0, (1000/FPS) - (System.currentTimeMillis() - lastFrame)));
+				final long sleepMillis = (1000 / FPS) - (System.currentTimeMillis() - frameStart);
+				Thread.sleep(Math.max(0, sleepMillis));
 			} catch (InterruptedException e) {}
 		}
 	}
@@ -192,21 +194,50 @@ public class AudioFluidTest implements Runnable {
 			public void paint(final Graphics graphics) {
 				if (image != null) {
 					Graphics2D g2 = (Graphics2D) graphics;
+					g2.fillRect(0, 0, getWidth(), getHeight());
+
 					g2.setRenderingHint(
 						RenderingHints.KEY_ANTIALIASING,
 						RenderingHints.VALUE_ANTIALIAS_ON
 					);
 
-					graphics.drawImage(image, 0, 0, getWidth()/2, getHeight(), null);
-					prototypeMapper.drawMask(g2, 0, 0, getWidth()/2, getHeight());
+					prototypeMapper.drawMask(g2, 0, 0, getWidth()/2, getHeight(), false, false);
 
+					final int[] pixelRgb = new int[3];
+					double circleWidth = (getWidth()/2) / image.getWidth();
+					double circleHeight = getHeight() / image.getHeight();
+
+					for (int x=0; x<image.getWidth(); x++) {
+						for (int y=0; y<image.getHeight(); y++) {
+							image.getData().getPixel(x, y, pixelRgb);
+
+							if (pixelRgb[0] > 0 || pixelRgb[1] > 0 || pixelRgb[2] > 0) {
+								g2.setColor(new Color(
+									pixelRgb[0] / 255f,
+									pixelRgb[1] / 255f,
+									pixelRgb[2] / 255f,
+									((pixelRgb[0] + pixelRgb[1] + pixelRgb[2])/3f) / 255f
+								));
+								g2.fillRect(
+									(int) (x*circleWidth),
+									(int) (y*circleHeight),
+									(int) circleWidth,
+									(int) circleHeight
+								);
+							}
+						}
+					}
+
+					//graphics.drawImage(image, 0, 0, getWidth()/2, getHeight(), null);
+
+					miniDomeMapper.drawMask(g2, getWidth()/2, 0, getWidth()/2, getHeight(), false, false);
 					graphics.drawImage(image, getWidth()/2, 0, getWidth()/2, getHeight(), null);
-					miniDomeMapper.drawMask(g2, getWidth()/2, 0, getWidth()/2, getHeight());
 				}
 			}
 		};
+
 		frame.setSize(480*2, 480);
-		frame.setLocation(0,520);
+		frame.setLocation(50, 50);
 		frame.setVisible(true);
 	}
 
@@ -229,7 +260,6 @@ public class AudioFluidTest implements Runnable {
 					(float) Math.min(1.0, fluidSolver.b[i]*2.5)
 				).getRGB());
 			} catch (Exception e) {
-				System.err.println(i + " " + x + " " + y);
 				break;
 			}
 		}
@@ -277,11 +307,7 @@ public class AudioFluidTest implements Runnable {
 				Math.log(1+Math.abs(analysisInfo.bandIntensities[highestChannelIndex]) * velocityCoefficient.floatValue());
 			//intensities[highestChannelIndex] = Math.max(0, Math.min(intensities[highestChannelIndex], 0.9f));
 
-			overallBeatLevel += 0.1;
-		}
-
-		if (analysisInfo.kick) {
-			//emitRing(0.5f, 0.5f, 0.05f, 0.1f, (frameCount % 600) / 600f, 0.01f, 0.6f);
+			overallBeatLevel += 0.3;
 		}
 
 		if (enableSoundEmitters.value()) {
@@ -291,13 +317,15 @@ public class AudioFluidTest implements Runnable {
 				angleOffsets[i] += (float) (intensities[i] * 0.03 * (rotationDirectionCounter<0?-1:1));
 				float angle = f((f(i)/intensities.length) * TWO_PI) + angleOffsets[i];
 
+				float timeHueOffset = (frameCount % 1200) / 1200f;
+
 				emitDirectional(
 					f(0.5 + Math.cos(angle)*0.45 * (1- overallBeatLevel *0.25)),
 					f(0.5 + Math.sin(angle)*0.45 * (1- overallBeatLevel *0.25)),
 
 					(float)circleEmitterTarget.getX(), (float)circleEmitterTarget.getY(),
 
-					(f(i)/intensities.length) + (frameCount % 1200) / 1200f,
+					(f(i)/intensities.length + timeHueOffset) * 3,
 
 					intensity*0.008f,
 					intensity * intensityCoefficient.floatValue()
@@ -318,8 +346,6 @@ public class AudioFluidTest implements Runnable {
 
 		// Add manual touches
 		for (OscHelper.OscMultitouch.Touch touch : manualEmitters.getTouches().values()) {
-			System.out.println(touch.getVelocity());
-
 			emitDirectional(
 				(float) touch.getCurrentX(), (float) touch.getCurrentY(),
 				(float) touch.getAngle(),

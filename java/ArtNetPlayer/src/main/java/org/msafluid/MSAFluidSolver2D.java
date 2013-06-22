@@ -149,7 +149,7 @@ public class MSAFluidSolver2D {
 		return this;
 	}
 
-	public double getDeltaT() {
+	public float getDeltaT() {
 		return _dt;
 	}
 
@@ -164,6 +164,9 @@ public class MSAFluidSolver2D {
 		return this;
 	}
 
+	public float getFadeSpeed() {
+		return _fadeSpeed;
+	}
 
 	/**
 	 * (OPTIONAL SETUP) set number of iterations for solver (higher is slower but more accurate) 

@@ -148,10 +148,10 @@ public class KinectTest implements Runnable {
 					);
 
 					graphics.drawImage(image, 0, 0, getWidth()/2, getHeight(), null);
-					prototypeMapper.drawMask(g2, 0, 0, getWidth()/2, getHeight());
+					prototypeMapper.drawMask(g2, 0, 0, getWidth()/2, getHeight(), false, false);
 
 					graphics.drawImage(image, getWidth()/2, 0, getWidth()/2, getHeight(), null);
-					miniDomeMapper.drawMask(g2, getWidth()/2, 0, getWidth()/2, getHeight());
+					miniDomeMapper.drawMask(g2, getWidth()/2, 0, getWidth()/2, getHeight(), false, false);
 				}
 			}
 		};

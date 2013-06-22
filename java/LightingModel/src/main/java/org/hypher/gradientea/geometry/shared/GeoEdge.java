@@ -71,4 +71,8 @@ public class GeoEdge implements Serializable {
 	public GeoVector3 getV2() {
 		return v2;
 	}
+
+	public double length() {
+		return v1.distanceTo(v2);
+	}
 }

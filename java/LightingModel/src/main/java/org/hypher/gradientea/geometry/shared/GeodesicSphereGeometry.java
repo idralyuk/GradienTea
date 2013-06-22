@@ -258,13 +258,13 @@ public class GeodesicSphereGeometry implements Serializable {
 			addRing(Lists.newArrayList(faces), Arrays.asList(vertex));
 		}
 
-		private void addRing(final ArrayList<GeoFace> remainingFaces, final List<GeoVector3> verticies) {
+		private void addRing(final ArrayList<GeoFace> remainingFaces, final List<GeoVector3> vertices) {
 			List<GeoFace> ringFaces = FluentIterable.from(remainingFaces)
-				.filter(new GeoFace.ContainsVertex(verticies))
+				.filter(new GeoFace.ContainsVertex(vertices))
 				.toImmutableList();
 
 			if (ringFaces.isEmpty()) {
-				throw new IllegalArgumentException("No faces contain any vertices in " + verticies);
+				throw new IllegalArgumentException("No faces contain any vertices in " + vertices);
 			}
 
 			rings.add(ringFaces);

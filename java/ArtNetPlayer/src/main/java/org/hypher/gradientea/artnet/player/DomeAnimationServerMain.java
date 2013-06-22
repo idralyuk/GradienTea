@@ -36,6 +36,8 @@ public class DomeAnimationServerMain {
 
 			UdpDomeAnimationReceiver udpReceiver = new UdpDomeAnimationReceiver(player);
 			udpReceiver.start(DOME_PORT+i/2);
+
+			System.out.println("Started UDP -> ArtNet DomeServer for " + domeMappingFilename + " on port " + DOME_PORT+(i/2));
 		}
 	}
 }

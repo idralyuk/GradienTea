@@ -6,6 +6,7 @@ import org.hypher.gradientea.artnet.player.DomeAnimationServerMain;
 import org.hypher.gradientea.artnet.player.UdpDomeClient;
 import org.hypher.gradientea.artnet.player.linear.animations.canvas.PixelCompositor;
 import org.hypher.gradientea.geometry.shared.GeoFace;
+import org.hypher.gradientea.geometry.shared.GeoVector3;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
 
@@ -18,17 +19,17 @@ import java.util.List;
  */
 public class DiagnosticTool implements Runnable {
 
-	public static final int FRAME_DURATION = 100;
+	public static final int FRAME_DURATION = 500;
 
 	public static void main(String[] args) throws SocketException, UnknownHostException {
 		new DiagnosticTool();
 	}
 
-	GradienTeaDomeGeometry geometry = new GradienTeaDomeGeometry(GradienTeaDomeSpecs.GRADIENTEA_DOME);
+	GradienTeaDomeGeometry geometry = new GradienTeaDomeGeometry(GradienTeaDomeSpecs.PROTOTYPE_DOME);
 	UdpDomeClient transport = new UdpDomeClient();
 
 	public DiagnosticTool() throws SocketException, UnknownHostException {
-		transport.connect("localhost", DomeAnimationServerMain.DOME_PORT+1);
+		transport.connect("localhost", DomeAnimationServerMain.DOME_PORT);
 
 		new Thread(this).start();
 	}
@@ -57,15 +58,18 @@ public class DiagnosticTool implements Runnable {
 	int frameCount = 0;
 
 	List<GeoFace> panels = ImmutableList.copyOf(geometry.getLightedFaces());
+	List<GeoVector3> vertices = ImmutableList.copyOf(geometry.getLightedVertices());
 	private void draw(final DomePixelCanvas canvas) {
-		frameCount ++;
-
 		canvas.draw(
 			panels.get(frameCount % panels.size()),
 			.33,
 			1,
 			1
 		);
+
+		canvas.draw(vertices.get(frameCount % vertices.size()),new HsbColor(0, 1, 1));
+
+		frameCount ++;
 	}
 
 	private HsbColor colorAt(double theta, double phi) {

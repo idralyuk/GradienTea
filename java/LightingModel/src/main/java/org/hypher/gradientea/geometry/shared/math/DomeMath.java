@@ -67,4 +67,20 @@ public class DomeMath {
 	public static float f(int n) {
 		return (float) n;
 	}
+
+	public static int clip(final int low, final int high, final int value) {
+		return Math.min(high, Math.max(low, value));
+	}
+
+	public static double clip(final double low, final double high, final double value) {
+		return Math.min(high, Math.max(low, value));
+	}
+
+	public static float clip(final float low, final float high, final float value) {
+		return Math.min(high, Math.max(low, value));
+	}
+
+	public static double log(final float value, final int base) {
+		return Math.log(value) / Math.log(base);
+	}
 }

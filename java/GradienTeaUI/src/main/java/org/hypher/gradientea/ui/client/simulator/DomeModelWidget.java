@@ -101,7 +101,7 @@ public class DomeModelWidget extends Composite implements RequiresResize, DmxInt
 
 	@Override
 	public void displayFrame(DomeAnimationFrame frame) {
-		byte[] pixelData = frame.getPixelData();
+		byte[] pixelData = frame.getFacePixelData();
 
 		for (int dataIndex=0, faceIndex=0; dataIndex<pixelData.length && faceIndex<faceList.size(); dataIndex+=3, faceIndex++) {
 			domeRenderer.applyFaceColor(

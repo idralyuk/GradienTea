@@ -89,7 +89,7 @@ public class MSAFluidTest implements Runnable {
 					);
 
 					graphics.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-					mapper.drawMask(g2, 0, 0, getWidth(), getHeight());
+					mapper.drawMask(g2, 0, 0, getWidth(), getHeight(), false, false);
 				}
 			}
 		};

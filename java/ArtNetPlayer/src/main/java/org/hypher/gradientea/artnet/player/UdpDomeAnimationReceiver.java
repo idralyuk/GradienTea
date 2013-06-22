@@ -43,45 +43,60 @@ public class UdpDomeAnimationReceiver {
 				byte[] packetBuffer = new byte[4096];
 				DatagramPacket packet = new DatagramPacket(packetBuffer, 0, packetBuffer.length);
 
-				Integer expectedLength = null;
+				Integer expectedDataLength = null;
+
+				int expectedFaceLength=0, expectedVertexLength=0;
+
 				int currentLength = 0;
+				DomeIdentifier domeIdentifier = DomeIdentifier.Unknown;
 
 				while (socket != null) {
 					try {
 						socket.receive(packet);
 
-						if (expectedLength == null) {
+						if (expectedDataLength == null) {
 							// new frame
-							if (packet.getLength() >= 6) {
+							if (packet.getLength() >= 8) {
 								if (packetBuffer[0] == 'D'
 									&& packetBuffer[1] == 'O'
 									&& packetBuffer[2] == 'M'
 									&& packetBuffer[3] == 'E'
 								) {
-									expectedLength = ((packetBuffer[4]<<8)&0xFF) | ((packetBuffer[5])&0xFF);
+									domeIdentifier = DomeIdentifier.values()[packetBuffer[4]];
 
-									baos.write(packet.getData(), 6, packet.getLength()-6);
-									currentLength += packet.getLength()-6;
+									expectedFaceLength = ((packetBuffer[5]<<8)&0xFF) | ((packetBuffer[6])&0xFF);
+									expectedVertexLength = ((packetBuffer[7]<<8)&0xFF) | ((packetBuffer[8])&0xFF);
+									expectedDataLength = expectedFaceLength + expectedVertexLength;
+
+									baos.write(packet.getData(), 9, packet.getLength()-9);
+									currentLength += packet.getLength()-9;
 								} else {
 									throw new IOException("Initial packet did not start with 'DOME'");
 								}
 							} else {
-								throw new IOException("Initial packet was less than 6 bytes long; could not read magic or length");
+								throw new IOException("Initial packet was less than 7 bytes long; could not read magic or length");
 							}
 						} else {
 							baos.write(packet.getData(), 0, packet.getLength());
 							currentLength += packet.getLength();
 						}
 
-						if (expectedLength != null && currentLength >= expectedLength) {
-							final byte[] data = baos.toByteArray();
+						if (expectedDataLength != null && currentLength >= expectedDataLength) {
+							final byte[] allData = baos.toByteArray();
+							final byte[] faceData = new byte[expectedFaceLength];
+							final byte[] vertexData = new byte[expectedVertexLength];
+
+							System.arraycopy(allData, 0, faceData, 0, expectedFaceLength);
+							System.arraycopy(allData, expectedFaceLength, vertexData, 0, expectedVertexLength);
+
 							animationTransport.displayFrame(new DomeAnimationFrame(
-								data
+								faceData,
+								vertexData
 							));
 
 							baos.reset();
 							currentLength = 0;
-							expectedLength = null;
+							expectedDataLength = null;
 						}
 					} catch (IOException e) {
 						e.printStackTrace();

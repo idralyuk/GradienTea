@@ -1,5 +1,7 @@
 package org.hypher.gradientea.artnet.player.animations;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import org.hypher.gradientea.animation.shared.color.RgbColor;
@@ -9,7 +11,6 @@ import org.hypher.gradientea.geometry.shared.GeodesicSphereGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.math.GeoPolarVector2;
 
-import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Composite;
@@ -17,6 +18,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 import java.util.List;
@@ -29,23 +31,34 @@ import static java.lang.Math.*;
 /**
 * @author Yona Appletree (yona@concentricsky.com)
 */
-class DomeImageMapper {
+public class DomeImageMapper {
 	public final static int POLYGON_SPACE_SIZE = 100;
 	private static ExecutorService executor = Executors.newCachedThreadPool();
 
 	private GradienTeaDomeGeometry geometry;
 	private List<GeoFace> lightedFaces;
-	private short[][] polySpaceMask = new short[POLYGON_SPACE_SIZE][POLYGON_SPACE_SIZE];
-	private Map<GeoFace,Polygon> facePolygonMap = Maps.newHashMap();
+	private List<GeoVector3> lightedVertices;
+	private short[][] polySpaceFaceMask = new short[POLYGON_SPACE_SIZE][POLYGON_SPACE_SIZE];
+	private short[][] polySpaceVertexMask = new short[POLYGON_SPACE_SIZE][POLYGON_SPACE_SIZE];
 
-	DomeImageMapper(final GradienTeaDomeGeometry geometry) {
+	private Map<GeoFace,Polygon> facePolygonMap = Maps.newHashMap();
+	private Map<GeoVector3,Ellipse2D> vertexShapeMap = Maps.newHashMap();
+
+	private int[][] faceRgbSums;
+	private int[][] vertexRgbSums;
+
+	public DomeImageMapper(final GradienTeaDomeGeometry geometry) {
 		this.geometry = geometry;
 		lightedFaces = ImmutableList.copyOf(geometry.getLightedFaces());
+		lightedVertices = ImmutableList.copyOf(geometry.getLightedVertices());
+
+		faceRgbSums = new int[lightedFaces.size()][4];
+		vertexRgbSums = new int[lightedVertices.size()][4];
 
 		buildPixelFaceMap();
 	}
 
-	private void buildPixelFaceMap() {
+	private synchronized void buildPixelFaceMap() {
 		for (GeoFace face : lightedFaces) {
 			double[] a = mercator(face.getA());
 			double[] b = mercator(face.getB());
@@ -69,43 +82,79 @@ class DomeImageMapper {
 			);
 		}
 
+		double polySpaceVertexRadius = normalToPoly(geometry.getVertexRadius());
+		for (GeoVector3 vertex : lightedVertices) {
+			double[] xyVertex = mercator(vertex);
+
+			vertexShapeMap.put(
+				vertex,
+				new Ellipse2D.Double(
+					normalToPoly(xyVertex[0]+0.5) - polySpaceVertexRadius/2,
+					normalToPoly(xyVertex[1]+0.5) - polySpaceVertexRadius/2,
+					polySpaceVertexRadius,
+					polySpaceVertexRadius
+				)
+			);
+		}
+
 		for (int x=0; x<POLYGON_SPACE_SIZE; x++) {
-			yLoop:
 			for (int y=0; y<POLYGON_SPACE_SIZE; y++) {
+
 				for (int i=0; i<lightedFaces.size(); i++) {
 					if (facePolygonMap.get(lightedFaces.get(i)).contains(x, y)) {
-						polySpaceMask[x][y] = (short) i;
-						continue yLoop;
+						polySpaceFaceMask[x][y] = (short) i;
+						break;
 					}
 
-					polySpaceMask[x][y] = -1;
+					polySpaceFaceMask[x][y] = -1;
+				}
+
+				for (int i=0; i<lightedVertices.size(); i++) {
+					if (vertexShapeMap.get(lightedVertices.get(i)).contains(x, y)) {
+						polySpaceVertexMask[x][y] = (short) i;
+						break;
+					}
+
+					polySpaceVertexMask[x][y] = -1;
 				}
 			}
 		}
 	}
 
-	public void drawImage(
+	public synchronized void drawImage(
 		final BufferedImage image,
 		final DomePixelCanvas canvas
 	) {
-		final int[][] faceRgbSums = new int[lightedFaces.size()][4];
-
 		final int[] pixelRgb = new int[3];
 		final Raster data = image.getData();
 
 		final int imageWidth = image.getWidth();
 		final int imageHeight = image.getHeight();
 
+		zeroArray(faceRgbSums);
+		zeroArray(vertexRgbSums);
+
 		for (int x=0; x<POLYGON_SPACE_SIZE; x++) {
 			for (int y=0; y<POLYGON_SPACE_SIZE; y++) {
-				int faceIndex = polySpaceMask[x][y];
+				int faceIndex = polySpaceFaceMask[x][y];
+				int vertexIndex = polySpaceVertexMask[x][y];
+
+				if (faceIndex >= 0 || vertexIndex >= 0) {
+					data.getPixel((int)polyToScaled(x, imageWidth), (int)polyToScaled(y, imageHeight), pixelRgb);
+				}
 
 				if (faceIndex >= 0) {
-					data.getPixel((int)polyToScaled(x, imageWidth), (int)polyToScaled(y, imageHeight), pixelRgb);
 					faceRgbSums[faceIndex][0] += pixelRgb[1];
 					faceRgbSums[faceIndex][1] += pixelRgb[0];
 					faceRgbSums[faceIndex][2] += pixelRgb[2];
 					faceRgbSums[faceIndex][3] ++;
+				}
+
+				if (vertexIndex >= 0) {
+					vertexRgbSums[vertexIndex][0] += pixelRgb[1];
+					vertexRgbSums[vertexIndex][1] += pixelRgb[0];
+					vertexRgbSums[vertexIndex][2] += pixelRgb[2];
+					vertexRgbSums[vertexIndex][3] ++;
 				}
 			}
 		}
@@ -122,75 +171,151 @@ class DomeImageMapper {
 				);
 			}
 		}
+
+		for (int i=0; i<lightedVertices.size(); i++) {
+			if (vertexRgbSums[i][3] > 0) {
+				canvas.draw(
+					lightedVertices.get(i),
+					new RgbColor(
+						(vertexRgbSums[i][0] / vertexRgbSums[i][3]) * 2,
+						(vertexRgbSums[i][1] / vertexRgbSums[i][3]) * 2,
+						(vertexRgbSums[i][2] / vertexRgbSums[i][3]) * 2
+					)
+				);
+			}
+		}
 	}
 
-	public void drawMask(final Graphics2D g, int x, int y, int width, int height) {
-		Composite oldComposite = g.getComposite();
-//		g.setColor(Color.white);
-//		g.fillRect(x, y, width, height);
+	private void zeroArray(final int[][] array) {
+		for (int i=0; i<array.length; i++) {
+			for (int j=0; j<array[i].length; j++) {
+				array[i][j] = 0;
+			}
+		}
+	}
+
+	Cache<String, BufferedImage> overlayCache = CacheBuilder.newBuilder()
+		.maximumSize(10)
+		.build();
+
+	public void drawMask(
+		final Graphics2D g2,
+		int x,
+		int y,
+		int width,
+		int height,
+		boolean drawLabels,
+		boolean drawVertices
+	) {
+		String key = (width/3) + "," + (height/3) + "," + drawLabels + "," + drawVertices;
+		BufferedImage overlayImage = overlayCache.getIfPresent(key);
+
+		if (overlayImage == null) {
+			overlayImage = new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);
+			overlayCache.put(key, overlayImage);
+
+			Graphics2D imageG = (Graphics2D) overlayImage.createGraphics();
+			Composite oldComposite = imageG.getComposite();
+	//		g.setColor(Color.white);
+	//		g.fillRect(x, y, width, height);
 
 
-		// Hack to make it prettier
-//		y += 15;
-//		height -= 15;
-//
-//		x += 15;
-//		width -= 15;
+			// Hack to make it prettier
+	//		y += 15;
+	//		height -= 15;
+	//
+	//		x += 15;
+	//		width -= 15;
 
-		g.setFont(new Font("Arial", Font.BOLD, 12));
-		g.setStroke(new BasicStroke(1));
-		g.setColor(Color.white);
-		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.5f));
+			imageG.setFont(new Font("Arial", Font.BOLD, 12));
+			imageG.setStroke(new BasicStroke(1));
+			imageG.setColor(new Color(1f, 1f, 1f, .1f));
 
-		final FontMetrics fontMetrics = g.getFontMetrics();
-		int textHeight = fontMetrics.getHeight();
+			final FontMetrics fontMetrics = imageG.getFontMetrics();
+			int textHeight = fontMetrics.getHeight();
 
-		for (Map.Entry<GeoFace, Polygon> entry : facePolygonMap.entrySet()) {
-			Polygon originalPolygon = entry.getValue();
-			Polygon imageSpacePolygon = new Polygon(
-				new int[] {
-					x + (int) polyToScaled(originalPolygon.xpoints[0], width),
-					x + (int) polyToScaled(originalPolygon.xpoints[1], width),
-					x + (int) polyToScaled(originalPolygon.xpoints[2], width),
-				},
-				new int[] {
-					y + (int) polyToScaled(originalPolygon.ypoints[0], height),
-					y + (int) polyToScaled(originalPolygon.ypoints[1], height),
-					y + (int) polyToScaled(originalPolygon.ypoints[2], height),
-				},
+			for (Map.Entry<GeoFace, Polygon> entry : facePolygonMap.entrySet()) {
+				Polygon originalPolygon = entry.getValue();
+				Polygon imageSpacePolygon = new Polygon(
+					new int[] {
+						x + (int) polyToScaled(originalPolygon.xpoints[0], width),
+						x + (int) polyToScaled(originalPolygon.xpoints[1], width),
+						x + (int) polyToScaled(originalPolygon.xpoints[2], width),
+					},
+					new int[] {
+						y + (int) polyToScaled(originalPolygon.ypoints[0], height),
+						y + (int) polyToScaled(originalPolygon.ypoints[1], height),
+						y + (int) polyToScaled(originalPolygon.ypoints[2], height),
+					},
 
-				3
-			);
+					3
+				);
 
-			final String numberStr = String.valueOf(lightedFaces.indexOf(entry.getKey()));
-			int textWidth = fontMetrics.charsWidth(numberStr.toCharArray(), 0, numberStr.length());
+				final String numberStr = String.valueOf(lightedFaces.indexOf(entry.getKey()));
+				int textWidth = fontMetrics.charsWidth(numberStr.toCharArray(), 0, numberStr.length());
 
+				if (drawLabels) {
+					imageG.drawString(
+						numberStr,
+						(imageSpacePolygon.xpoints[0] + imageSpacePolygon.xpoints[1] + imageSpacePolygon.xpoints[2])/3 - textWidth/2,
+						(imageSpacePolygon.ypoints[0] + imageSpacePolygon.ypoints[1] + imageSpacePolygon.ypoints[2])/3 + textHeight/2
+					);
+				}
 
-			g.drawString(
-				numberStr,
-				(imageSpacePolygon.xpoints[0] + imageSpacePolygon.xpoints[1] + imageSpacePolygon.xpoints[2])/3 - textWidth/2,
-				(imageSpacePolygon.ypoints[0] + imageSpacePolygon.ypoints[1] + imageSpacePolygon.ypoints[2])/3 + textHeight/2
-			);
+				imageG.drawPolygon(imageSpacePolygon);
+			}
 
-			g.drawPolygon(imageSpacePolygon);
+			if (drawVertices) {
+				for (Map.Entry<GeoVector3, Ellipse2D> entry : vertexShapeMap.entrySet()) {
+					Ellipse2D polySpaceCircle = entry.getValue();
+					Ellipse2D imageSpaceCircle = new Ellipse2D.Double(
+						x + polyToScaled(polySpaceCircle.getX(), width),
+						y + polyToScaled(polySpaceCircle.getY(), height),
+						polyToScaled(polySpaceCircle.getWidth(), width),
+						polyToScaled(polySpaceCircle.getWidth(), height)
+					);
+
+					final String numberStr = String.valueOf(lightedVertices.indexOf(entry.getKey()));
+					int textWidth = fontMetrics.charsWidth(numberStr.toCharArray(), 0, numberStr.length());
+
+					if (drawLabels) {
+						Color olderColor = imageG.getColor();
+						imageG.setColor(Color.black);
+						imageG.fill(imageSpaceCircle);
+						imageG.setColor(olderColor);
+					}
+
+					imageG.draw(imageSpaceCircle);
+
+					if (drawLabels) {
+						imageG.drawString(
+							numberStr,
+							(int) (imageSpaceCircle.getCenterX() - textWidth / 2),
+							(int) (imageSpaceCircle.getCenterY() + textHeight / 2)
+						);
+					}
+				}
+			}
+
+			imageG.setComposite(oldComposite);
 		}
 
-		g.setComposite(oldComposite);
+		g2.drawImage(overlayImage, x, y, width, height, null);
 	}
 
 	private int normalToPoly(double v) {
 		return (int) (v * POLYGON_SPACE_SIZE);
 	}
 
-	private double polyToNormal(int i) {
-		return (double) i / POLYGON_SPACE_SIZE;
+	private double polyToNormal(double i) {
+		return i / POLYGON_SPACE_SIZE;
 	}
 
-	private double polyToScaled(int i, double scale) {
-		return ((double)i / POLYGON_SPACE_SIZE) * scale;
+	private double polyToScaled(double i, double scale) {
+		return (i / POLYGON_SPACE_SIZE) * scale;
 	}
 
-	private double[] mercator(GeoVector3 point) {
+	public static double[] mercator(GeoVector3 point) {
 		GeoPolarVector2 polarPoint = point.toPolar();
 
 		final GeoPolarVector2 topVertex = GeodesicSphereGeometry.topVertex.toPolar();

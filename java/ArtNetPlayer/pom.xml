@@ -86,6 +86,25 @@
 			<artifactId>javaosc-core</artifactId>
 			<version>0.2</version>
 		</dependency>
+
+		<dependency>
+			<groupId>simple-open-ni</groupId>
+			<artifactId>simple-open-ni</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openni</groupId>
+			<artifactId>openni</artifactId>
+			<version>1.5.2.23</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openni</groupId>
+			<artifactId>openni</artifactId>
+			<version>1.5.2.23</version>
+			<classifier>natives-osx</classifier>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -37,6 +37,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: net.java.jinput:jinput-platform:natives-osx:2.0.5" level="project" />
     <orderEntry type="library" name="Maven: com.github.rwl:jtransforms:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.illposed.osc:javaosc-core:0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openni:openni:1.5.2.23" level="project" />
   </component>
 </module>
 

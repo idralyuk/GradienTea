@@ -2,9 +2,12 @@ package org.hypher.gradientea.artnet.player;
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Function;
+import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Collections2;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
 import org.hypher.gradientea.artnet.player.io.DomeProperties;
 import org.hypher.gradientea.transport.shared.DomeAnimationFrame;
 
@@ -53,18 +56,36 @@ import java.util.Map;
  * <h4>Pixel Range Mapping</h4>
  *
  * A pixel range mapping should be in the form {@code mapping.N-M=U:C} where {@code N} is the starting dome-pixel
- * address (inclusive), {@code M} is the ending dome-pixel address (exclusive), {@code U} is the DMX universe,
+ * address (inclusive), {@code M} is the ending dome-pixel address (inclusive), {@code U} is the DMX universe,
  * {@code C} is the starting DMX channel. DMX Channels C through C+(M-N)*3 will be consumed.
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class DmxDomeMapping {
+	public static final String METADATA = "metadata";
+	public static final String FACE_MAPPING = "faceMapping";
+	public static final String VERTEX_MAPPING = "vertexMapping";
+	public static final String METADATA_SHORT_NAME = "metadata.shortName";
+	public static final String METADATA_ID = "metadata.id";
+	public static final String METADATA_DOME_FREQUENCY = "metadata.dome.frequency";
+	public static final String METADATA_DOME_LIT_LAYERS = "metadata.dome.litLayers";
+	public static final String METADATA_HARDWARE_COLOR_ORDER = "metadata.hardware.colorOrder";
+	public static final String METADATA_HARDWARE_INTENSITY_MIN = "metadata.hardware.intensityMin";
+	public static final String METADATA_HARDWARE_INTENSITY_MAX = "metadata.hardware.intensityMax";
+	public static final String METADATA_HARDWARE_PIXELS_PER_VERTEX = "metadata.hardware.pixelsPerVertex";
+	public static final String METADATA_HARDWARE_VERTEX_COLOR_ORDER = "metadata.hardware.vertexColorOrder";
+
+	private DomeIdentifier id;
 	private String name;
 	private ColorChannelOrder colorOrder;
+	private ColorChannelOrder vertexColorOrder;
+
 	private int domeFrequency;
 	private int litLayers;
-	private Map<Integer, DmxAddress> pixelMapping = Maps.newHashMap();
+	private Map<Integer, DmxAddress> faceMapping = Maps.newHashMap();
+	private Multimap<Integer, DmxAddress> vertexMapping = HashMultimap.create();
 	private int pixelCount = 0;
+	private int vertexCount = 0;
 
 	private int firstUniverse = 0;
 	private int lastUniverse = 0;
@@ -72,6 +93,8 @@ public class DmxDomeMapping {
 
 	private int intensityMin = 0;
 	private int intensityMax = 255;
+
+	private int pixelsPerVertex = 0;;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//region// Interface Methods
@@ -85,36 +108,43 @@ public class DmxDomeMapping {
 	}
 
 	public void applyProperties(LinkedHashMap<String, String> properties) {
-		pixelMapping.clear();
+		faceMapping.clear();
 
 		for (Map.Entry<String, String> entry : properties.entrySet()) {
-			if (entry.getKey().startsWith("metadata")) {
+			if (entry.getKey().startsWith(METADATA)) {
 				handleMetadata(entry.getKey(), entry.getValue());
-			} else if (entry.getKey().startsWith("mapping")) {
-				handleMapping(entry.getKey(), entry.getValue());
+			} else if (entry.getKey().startsWith(FACE_MAPPING)) {
+				handleFaceMapping(entry.getKey(), entry.getValue());
+			} else if (entry.getKey().startsWith(VERTEX_MAPPING)) {
+				handleVertexMapping(entry.getKey(), entry.getValue());
 			}
 		}
 
 		firstUniverse = Collections.min(
 			Collections2.transform(
-				pixelMapping.values(),
+				faceMapping.values(),
 				DmxAddress.getUniverse
 			)
 		);
 
 		lastUniverse = Collections.max(
 			Collections2.transform(
-				pixelMapping.values(),
+				faceMapping.values(),
 				DmxAddress.getUniverse
 			)
 		) + 1;
 
 		universeCount = lastUniverse - firstUniverse;
 
-		pixelCount = Collections.max(pixelMapping.keySet());
+		pixelCount = faceMapping.isEmpty() ? 0 : (Collections.max(faceMapping.keySet())+1);
+		vertexCount = vertexMapping.isEmpty() ? 0 : (Collections.max(vertexMapping.keySet())+1);
 
 		for (int i=0; i<pixelCount; i++) {
-			System.out.println(i + ": " + pixelMapping.get(i));
+			System.out.println("Face " + i + ": " + Objects.firstNonNull(faceMapping.get(i), "NOT MAPPED"));
+		}
+
+		for (int i=0; i<vertexCount; i++) {
+			System.out.println("Vertex " + i + ": " + Objects.firstNonNull(vertexMapping.get(i), "NOT MAPPED"));
 		}
 	}
 
@@ -122,27 +152,58 @@ public class DmxDomeMapping {
 		return new int[universeCount][512];
 	}
 
-	public int[][] map(byte[] domePixelData, int[][] dmxData) {
+	public int[][] map(
+		byte[] facePixelData,
+		byte[] vertexPixelData,
+		int[][] dmxData
+	) {
 		for (int[] universeBuffer : dmxData) {
 			for (int i=0; i<universeBuffer.length; i++) {
 				universeBuffer[i] = 0;
 			}
 		}
 
-		for (int dataIndex=0, pixelIndex=0; dataIndex<domePixelData.length; dataIndex+=3, pixelIndex++) {
-			if (pixelMapping.containsKey(pixelIndex)) {
-				DmxAddress dmxAddress = pixelMapping.get(pixelIndex);
+		for (int dataIndex=0, faceIndex=0; dataIndex<facePixelData.length; dataIndex+=3, faceIndex++) {
+			if (faceMapping.containsKey(faceIndex)) {
+				DmxAddress dmxAddress = faceMapping.get(faceIndex);
 
 				colorOrder.mapFromRgb(
-					domePixelData,
+					facePixelData,
 					dataIndex,
 
 					dmxData[dmxAddress.universe-firstUniverse],
-					dmxAddress.channel-1, // DMX is 1-based,
+					dmxAddress.channel-1, // DMX is 1-based, but java arrays aren't
 
 					intensityMin,
 					intensityMax
 				);
+			} else {
+				// Oh well... we don't have a mapping for this pixel.
+			}
+		}
+
+		for (int dataIndex=0, vertexIndex=0; dataIndex<vertexPixelData.length; dataIndex+=3, vertexIndex++) {
+			if (vertexMapping.containsKey(vertexIndex)) {
+				for (DmxAddress dmxAddress : vertexMapping.get(vertexIndex)) {
+//				System.out.println(
+//					"Vertex " + vertexIndex + ": rgb(" +
+//						vertexPixelData[dataIndex] + "," +
+//						vertexPixelData[dataIndex+1] + "," +
+//						vertexPixelData[dataIndex+2] + "," +
+//					")"
+//				);
+
+					vertexColorOrder.mapFromRgb(
+						vertexPixelData,
+						dataIndex,
+
+						dmxData[dmxAddress.universe-firstUniverse],
+						dmxAddress.channel-1, // DMX is 1-based, but java arrays aren't
+
+						intensityMin,
+						intensityMax
+					);
+				}
 			} else {
 				// Oh well... we don't have a mapping for this pixel.
 			}
@@ -158,25 +219,34 @@ public class DmxDomeMapping {
 	//region// Internal Methods
 
 	private void handleMetadata(String key, String value) {
-		if (key.equals("metadata.shortName")) {
+		if (key.equals(METADATA_SHORT_NAME)) {
 			this.name = value;
-		} else if (key.equals("metadata.dome.frequency")) {
+		} else if (key.equals(METADATA_ID)) {
+			this.id = DomeIdentifier.valueOf(value);
+		} else if (key.equals(METADATA_DOME_FREQUENCY)) {
 			this.domeFrequency = Integer.parseInt(value);
-		} else if (key.equals("metadata.dome.litLayers")) {
+		} else if (key.equals(METADATA_DOME_LIT_LAYERS)) {
 			this.litLayers = Integer.parseInt(value);
-		} else if (key.equals("metadata.hardware.colorOrder")) {
+		} else if (key.equals(METADATA_HARDWARE_COLOR_ORDER)) {
 			this.colorOrder = ColorChannelOrder.valueOf(value.toUpperCase());
-		} else if (key.equals("metadata.hardware.intensityMin")) {
+		} else if (key.equals(METADATA_HARDWARE_VERTEX_COLOR_ORDER)) {
+			this.vertexColorOrder = ColorChannelOrder.valueOf(value.toUpperCase());
+		} else if (key.equals(METADATA_HARDWARE_INTENSITY_MIN)) {
 			this.intensityMin = Integer.parseInt(value);
-		} else if (key.equals("metadata.hardware.intensityMax")) {
+		} else if (key.equals(METADATA_HARDWARE_INTENSITY_MAX)) {
 			this.intensityMax = Integer.parseInt(value);
+		} else if (key.equals(METADATA_HARDWARE_PIXELS_PER_VERTEX)) {
+			this.pixelsPerVertex = Integer.parseInt(value);
 		}
 	}
 
-	private void handleMapping(String key, String value) {
+	private void handleFaceMapping(
+		String key,
+		String value
+	) {
 		DmxAddress dmxAddress = DmxAddress.parse(value);
 
-		String pixelKey = key.substring("mapping.".length());
+		String pixelKey = key.substring(FACE_MAPPING.length() + 1);
 
 		// Is this a range mapping?
 		if (pixelKey.contains("-")) {
@@ -184,12 +254,53 @@ public class DmxDomeMapping {
 			int startPixel = Integer.parseInt(parts[0]);
 			int endPixel = Integer.parseInt(parts[1]);
 
-			for (int i=startPixel; i<endPixel; i++) {
-				pixelMapping.put(i, dmxAddress);
-				dmxAddress = dmxAddress.next();
+			if (startPixel < endPixel) {
+				for (int i=startPixel; i<=endPixel; i++) {
+					faceMapping.put(i, dmxAddress);
+					dmxAddress = dmxAddress.next();
+				}
+			} else {
+				for (int i=startPixel; i>=endPixel; i--) {
+					faceMapping.put(i, dmxAddress);
+					dmxAddress = dmxAddress.next();
+				}
 			}
 		} else {
-			pixelMapping.put(Integer.parseInt(pixelKey), dmxAddress);
+			faceMapping.put(Integer.parseInt(pixelKey), dmxAddress);
+		}
+	}
+
+	private void handleVertexMapping(
+		String key,
+		String value
+	) {
+		DmxAddress dmxAddress = DmxAddress.parse(value);
+
+		String pixelKey = key.substring(VERTEX_MAPPING.length() + 1);
+
+		// Is this a range mapping?
+		if (pixelKey.contains("-")) {
+			String[] parts = pixelKey.split("-");
+			int startPixel = Integer.parseInt(parts[0]);
+			int endPixel = Integer.parseInt(parts[1]);
+
+			if (startPixel < endPixel) {
+				for (int i=startPixel; i<=endPixel; i++) {
+					for (int p=0; p<pixelsPerVertex; p++) {
+						vertexMapping.put(i, dmxAddress);
+						dmxAddress = dmxAddress.next();
+					}
+				}
+			} else {
+				for (int i=startPixel; i>=endPixel; i--) {
+					for (int p=0; p<pixelsPerVertex; p++) {
+						vertexMapping.put(i, dmxAddress);
+						dmxAddress = dmxAddress.next();
+					}
+				}
+			}
+		} else {
+			vertexMapping.put(Integer.parseInt(pixelKey), dmxAddress);
 		}
 	}
 
@@ -206,7 +317,7 @@ public class DmxDomeMapping {
 	@Override
 	public String toString() {
 		return "DmxDomeMapping{" +
-			"pixelMapping=" + pixelMapping +
+			"faceMapping=" + faceMapping +
 			'}';
 	}
 
@@ -214,6 +325,10 @@ public class DmxDomeMapping {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//region// Getters and Setters
+
+	public DomeIdentifier getId() {
+		return id;
+	}
 
 	public int getFirstUniverse() {
 		return firstUniverse;
@@ -308,8 +423,9 @@ public class DmxDomeMapping {
 			int intensityMax
 		) {
 			int output = (int) (intensityMin + (input/255d) * (intensityMax-intensityMin));
+			//output = (int) (Math.pow(256, output / 255) - 1);
 			return output;
-//			return (int) (255 * (Math.log(input+1) / Math.log(255)));
 		}
 	}
+
 }
