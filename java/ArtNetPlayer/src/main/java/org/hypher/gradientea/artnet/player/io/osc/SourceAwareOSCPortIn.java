@@ -42,6 +42,10 @@ public class SourceAwareOSCPortIn extends OSCPort implements Runnable {
 		super(new DatagramSocket(port), port);
 	}
 
+	public void dispatchPacket(OSCPacket packet) {
+		dispatcher.dispatchPacket(packet);
+	}
+
 	/**
 	 * Buffers were 1500 bytes in size, but were
 	 * increased to 1536, as this is a common MTU.

@@ -1,6 +1,5 @@
 package org.hypher.gradientea.artnet.player.io.osc;
 
-import com.google.common.base.Joiner;
 import com.google.common.base.Optional;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ImmutableMap;
@@ -11,10 +10,18 @@ import com.illposed.osc.OSCBundle;
 import com.illposed.osc.OSCListener;
 import com.illposed.osc.OSCMessage;
 import com.illposed.osc.OSCPortOut;
+import com.thoughtworks.xstream.XStream;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.SocketException;
+import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
@@ -53,6 +60,8 @@ public class OscHelper {
 	private SourceAwareOSCPortIn receiver;
 	private Multimap<String, WritableOscValue> mappedValues = ArrayListMultimap.create();
 
+	private OSCBundle defaultsBundle;
+
 	public OscHelper() {}
 
 	private void start() {
@@ -68,7 +77,6 @@ public class OscHelper {
 
 		// Debug listener
 		receiver.addListener("/.*",  new OSCListener() {
-
 			private Set<String> ignoredAddresses = ImmutableSet.of(
 				"/accxyz"
 			);
@@ -90,15 +98,40 @@ public class OscHelper {
 					pushToKnownHosts();
 				}
 
-				if (! ignoredAddresses.contains(message.getAddress())) {
-					System.out.println("OSC: " + message.getAddress() + ": " + Joiner.on(", ").join(message.getArguments()));
+				if (message.getAddress().equals("/dumpOscState/z") && message.getArguments()[0].equals(1f)) {
+					saveState(new File("/tmp/oscDump" + DateFormat.getTimeInstance().format(new Date()) + ".xml"));
 				}
+
+				if (message.getAddress().equals("/restoreDefaults/z") && message.getArguments()[0].equals(1f)) {
+					if (defaultsBundle != null) {
+						receiver.dispatchPacket(defaultsBundle);
+					}
+				}
+
+//				if (! ignoredAddresses.contains(message.getAddress())) {
+//					System.out.println("OSC: " + message.getAddress() + ": " + Joiner.on(", ").join(message.getArguments()));
+//				}
 			}
 		});
 		receiver.startListening();
 	}
 
 	public void pushToKnownHosts() {
+		final OSCBundle bundle = buildCurrentStateBundle();
+
+		for (OscHost host : knownHosts.values()) {
+			final Optional<OSCPortOut> outPort = host.getOutPort();
+			if (outPort.isPresent()) {
+				try {
+					outPort.get().send(bundle);
+				} catch (IOException e) {
+					System.err.println("Failed to send to OSC Host " + host + ": " + e.getClass().getSimpleName() + ": " + e.getMessage());
+				}
+			}
+		}
+	}
+
+	private OSCBundle buildCurrentStateBundle() {
 		final OSCBundle bundle = new OSCBundle();
 
 		for (WritableOscValue value : mappedValues.values()) {
@@ -116,16 +149,7 @@ public class OscHelper {
 			}
 		}
 
-		for (OscHost host : knownHosts.values()) {
-			final Optional<OSCPortOut> outPort = host.getOutPort();
-			if (outPort.isPresent()) {
-				try {
-					outPort.get().send(bundle);
-				} catch (IOException e) {
-					System.err.println("Failed to send to OSC Host " + host + ": " + e.getClass().getSimpleName() + ": " + e.getMessage());
-				}
-			}
-		}
+		return bundle;
 	}
 
 	public <T extends WritableOscValue> T mapValue(String addressPattern, final T mappedValue) {
@@ -136,6 +160,7 @@ public class OscHelper {
 			}
 		});
 		mappedValues.put(addressPattern, mappedValue);
+		saveDefaults();
 		return mappedValue;
 	}
 
@@ -147,7 +172,39 @@ public class OscHelper {
 			}
 		});
 		mappedValues.put(mappedValue.getAddress(), mappedValue);
+		saveDefaults();
 		return mappedValue;
+	}
+
+	private void saveDefaults() {
+		defaultsBundle = buildCurrentStateBundle();
+	}
+
+	public void saveState(OutputStream outputStream) {
+		new XStream().toXML(buildCurrentStateBundle(), outputStream);
+	}
+
+	public void readState(InputStream inputStream) {
+		OSCBundle bundle = (OSCBundle) new XStream().fromXML(inputStream);
+		receiver.dispatchPacket(bundle);
+	}
+
+	public void saveState(final File file) {
+		try {
+			FileOutputStream stream = new FileOutputStream(file);
+			saveState(stream);
+			stream.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void restoreState(final File file) {
+		try {
+			readState(new FileInputStream(file));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

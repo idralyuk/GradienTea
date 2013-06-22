@@ -43,6 +43,9 @@
 
 		<!-- SimpleOpenNI -->
 		<version.simple-open-ni>0.27.0</version.simple-open-ni>
+
+		<!-- XStream -->
+		<version.xstream>1.4.4</version.xstream>
 	</properties>
 
 	<repositories>
@@ -155,6 +158,12 @@
 				<groupId>simple-open-ni</groupId>
 				<artifactId>simple-open-ni</artifactId>
 				<version>${version.simple-open-ni}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+				<version>${version.xstream}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -2,7 +2,6 @@ package org.hypher.gradientea.artnet.player;
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Function;
-import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.HashMultimap;
@@ -139,13 +138,13 @@ public class DmxDomeMapping {
 		pixelCount = faceMapping.isEmpty() ? 0 : (Collections.max(faceMapping.keySet())+1);
 		vertexCount = vertexMapping.isEmpty() ? 0 : (Collections.max(vertexMapping.keySet())+1);
 
-		for (int i=0; i<pixelCount; i++) {
-			System.out.println("Face " + i + ": " + Objects.firstNonNull(faceMapping.get(i), "NOT MAPPED"));
-		}
-
-		for (int i=0; i<vertexCount; i++) {
-			System.out.println("Vertex " + i + ": " + Objects.firstNonNull(vertexMapping.get(i), "NOT MAPPED"));
-		}
+//		for (int i=0; i<pixelCount; i++) {
+//			System.out.println("Face " + i + ": " + Objects.firstNonNull(faceMapping.get(i), "NOT MAPPED"));
+//		}
+//
+//		for (int i=0; i<vertexCount; i++) {
+//			System.out.println("Vertex " + i + ": " + Objects.firstNonNull(vertexMapping.get(i), "NOT MAPPED"));
+//		}
 	}
 
 	public int[][] allocateBuffer() {
@@ -163,7 +162,7 @@ public class DmxDomeMapping {
 			}
 		}
 
-		for (int dataIndex=0, faceIndex=0; dataIndex<facePixelData.length; dataIndex+=3, faceIndex++) {
+		for (int dataIndex=0, faceIndex=0; dataIndex<facePixelData.length-2; dataIndex+=3, faceIndex++) {
 			if (faceMapping.containsKey(faceIndex)) {
 				DmxAddress dmxAddress = faceMapping.get(faceIndex);
 
@@ -418,13 +417,13 @@ public class DmxDomeMapping {
 		}
 
 		protected int scaleValue(
-			int input,
+			int value,
 			int intensityMin,
 			int intensityMax
 		) {
-			int output = (int) (intensityMin + (input/255d) * (intensityMax-intensityMin));
-			//output = (int) (Math.pow(256, output / 255) - 1);
-			return output;
+			value = (int) (Math.pow(256, value / 255.0) - 1);
+			value = (int) (intensityMin + (value/255d) * (intensityMax-intensityMin));
+			return value;
 		}
 	}
 

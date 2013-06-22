@@ -64,8 +64,8 @@ public class UdpDomeAnimationReceiver {
 								) {
 									domeIdentifier = DomeIdentifier.values()[packetBuffer[4]];
 
-									expectedFaceLength = ((packetBuffer[5]<<8)&0xFF) | ((packetBuffer[6])&0xFF);
-									expectedVertexLength = ((packetBuffer[7]<<8)&0xFF) | ((packetBuffer[8])&0xFF);
+									expectedFaceLength = (packetBuffer[5]&0xFF)<<8 | packetBuffer[6]&0xFF;
+									expectedVertexLength = (packetBuffer[7]&0xFF)<<8 | packetBuffer[8]&0xFF;
 									expectedDataLength = expectedFaceLength + expectedVertexLength;
 
 									baos.write(packet.getData(), 9, packet.getLength()-9);

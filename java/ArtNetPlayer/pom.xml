@@ -88,11 +88,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>simple-open-ni</groupId>
-			<artifactId>simple-open-ni</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.openni</groupId>
 			<artifactId>openni</artifactId>
 			<version>1.5.2.23</version>
@@ -104,6 +99,11 @@
 			<version>1.5.2.23</version>
 			<classifier>natives-osx</classifier>
 			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
 		</dependency>
 	</dependencies>
 

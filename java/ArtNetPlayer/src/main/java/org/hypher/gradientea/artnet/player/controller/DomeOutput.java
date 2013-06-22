@@ -58,4 +58,8 @@ public class DomeOutput {
 	public DomeImageMapper getImageMapper() {
 		return imageMapper;
 	}
+
+	public void send() {
+		transport.displayFrame(canvas.render());
+	}
 }

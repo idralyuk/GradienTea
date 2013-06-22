@@ -125,7 +125,7 @@ public class DomeImageMapper {
 		final BufferedImage image,
 		final DomePixelCanvas canvas
 	) {
-		final int[] pixelRgb = new int[3];
+		final int[] pixelArgb = new int[4];
 		final Raster data = image.getData();
 
 		final int imageWidth = image.getWidth();
@@ -140,20 +140,20 @@ public class DomeImageMapper {
 				int vertexIndex = polySpaceVertexMask[x][y];
 
 				if (faceIndex >= 0 || vertexIndex >= 0) {
-					data.getPixel((int)polyToScaled(x, imageWidth), (int)polyToScaled(y, imageHeight), pixelRgb);
+					data.getPixel((int)polyToScaled(x, imageWidth), (int)polyToScaled(y, imageHeight), pixelArgb);
 				}
 
 				if (faceIndex >= 0) {
-					faceRgbSums[faceIndex][0] += pixelRgb[1];
-					faceRgbSums[faceIndex][1] += pixelRgb[0];
-					faceRgbSums[faceIndex][2] += pixelRgb[2];
+					faceRgbSums[faceIndex][0] += pixelArgb[1];
+					faceRgbSums[faceIndex][1] += pixelArgb[0];
+					faceRgbSums[faceIndex][2] += pixelArgb[2];
 					faceRgbSums[faceIndex][3] ++;
 				}
 
 				if (vertexIndex >= 0) {
-					vertexRgbSums[vertexIndex][0] += pixelRgb[1];
-					vertexRgbSums[vertexIndex][1] += pixelRgb[0];
-					vertexRgbSums[vertexIndex][2] += pixelRgb[2];
+					vertexRgbSums[vertexIndex][0] += pixelArgb[1];
+					vertexRgbSums[vertexIndex][1] += pixelArgb[0];
+					vertexRgbSums[vertexIndex][2] += pixelArgb[2];
 					vertexRgbSums[vertexIndex][3] ++;
 				}
 			}

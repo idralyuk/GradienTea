@@ -51,6 +51,8 @@ public class UdpDomeClient implements DomeAnimationTransport {
 
 	@Override
 	public void displayFrame(final DomeAnimationFrame frame) {
+		if (socket == null) return;
+
 		byte[] faceData = frame.getFacePixelData();
 		byte[] vertexData = frame.getVertexPixelData();
 
@@ -62,10 +64,10 @@ public class UdpDomeClient implements DomeAnimationTransport {
 
 		buffer[4] = (byte) (domeIdentifier.ordinal());
 
-		buffer[5] = (byte) (faceData.length << 8);
+		buffer[5] = (byte) (faceData.length >> 8);
 		buffer[6] = (byte) (faceData.length & 0xFF);
 
-		buffer[7] = (byte) (vertexData.length << 8);
+		buffer[7] = (byte) (vertexData.length >> 8);
 		buffer[8] = (byte) (vertexData.length & 0xFF);
 
 		System.arraycopy(faceData, 0, buffer, 9, faceData.length);

@@ -100,6 +100,10 @@ public class DomeFluidCanvas {
 				rgb[2] = DomeMath.clip(0, 255, (int) (rgb[2] * 2.5));
 				int average = Math.max(rgb[0], Math.max(rgb[1], rgb[2]));
 
+				rgb[0] = rgb[0] < 5 ? 0 : rgb[0];
+				rgb[1] = rgb[1] < 5 ? 0 : rgb[1];
+				rgb[2] = rgb[2] < 5 ? 0 : rgb[2];
+
 				image.setRGB(
 					x,
 					y,

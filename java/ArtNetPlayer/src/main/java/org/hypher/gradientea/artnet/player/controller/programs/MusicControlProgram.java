@@ -37,8 +37,12 @@ public class MusicControlProgram extends BaseDomeProgram {
 		OscConstants.Control.Music.FREQ_HIGH, 0, 1, .8
 	);
 
+	private OscHelper.OscDouble oscSensitivity = OscHelper.doubleValue(
+		OscConstants.Control.Music.SENSITIVITY, 1, 0, .4
+	);
+
 	private OscHelper.OscDouble oscVelocity = OscHelper.doubleValue(
-		OscConstants.Control.Music.VELOCITY, 0, 1.0, 0.3
+		OscConstants.Control.Music.VELOCITY, 0, 3.0, 0.8
 	);
 
 	private OscHelper.OscDouble oscIntensity = OscHelper.doubleValue(
@@ -191,14 +195,14 @@ public class MusicControlProgram extends BaseDomeProgram {
 		}
 
 		public void draw(final DomeFluidCanvas canvas) {
-			if (currentPower > 0.2) {
+			if (currentPower > oscSensitivity.getValue()) {
 				float effectiveHue = f(hue + hueOffset());
 
 				double emitterRadius = oscEmitterRadius.getValue();
 
 				final float fromX = f(0.5 + Math.cos(currentAngle) * emitterRadius);
 				final float fromY = f(0.5 + Math.sin(currentAngle) * emitterRadius);
-				final float velocity = f(oscVelocity.getValue()*0.04 + clip(0, 2, currentPower) * 0.1 * oscVelocity.getValue());
+				final float velocity = f(oscVelocity.getValue()*0.01 + clip(0, 2, currentPower) * 0.02 * oscVelocity.getValue());
 				final float intensity = f(oscIntensity.getValue() + clip(0, 2, currentPower) * 1000 * oscIntensity.getValue());
 
 				if (emitterRadius > 0.25) {

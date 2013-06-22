@@ -21,6 +21,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.io.File;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,7 @@ import static org.hypher.gradientea.artnet.player.io.osc.OscHelper.booleanValue;
  */
 public class PrototypeController implements Runnable, DomeController {
 	public static final int FPS = 30;
+	public static final File STATE_FILE = new File("/tmp/gradienTeaConfig.xml");
 
 	private String domeControllerHost;
 	private DomeFluidCanvas fluidCanvas;
@@ -182,8 +184,10 @@ public class PrototypeController implements Runnable, DomeController {
 
 	@Override
 	public void run() {
+		initOutput();
 		initPrograms();
 		createStatusWindow();
+		initOsc();
 
 		while (true) {
 			long frameStart = System.currentTimeMillis();
@@ -205,6 +209,18 @@ public class PrototypeController implements Runnable, DomeController {
 				final long sleepMillis = (1000 / FPS) - (System.currentTimeMillis() - frameStart);
 				Thread.sleep(Math.max(0, sleepMillis));
 			} catch (InterruptedException e) {}
+		}
+	}
+
+	private void initOsc() {
+		if (STATE_FILE.exists()) {
+			OscHelper.instance().restoreState(STATE_FILE);
+		}
+	}
+
+	private void initOutput() {
+		for (DomeOutput output : outputs) {
+			output.start(domeControllerHost);
 		}
 	}
 
@@ -230,6 +246,7 @@ public class PrototypeController implements Runnable, DomeController {
 		if (frameCounter % FPS == 0) {
 			oscHeartBeat.setValue(! oscHeartBeat.value());
 			OscHelper.instance().pushToKnownHosts();
+			OscHelper.instance().saveState(STATE_FILE);
 		}
 	}
 
@@ -246,6 +263,19 @@ public class PrototypeController implements Runnable, DomeController {
 			kinectWidget.updateDepth();
 			kinectWidget.repaint();
 		}
+
+		sendFrame();
+	}
+
+	private void sendFrame() {
+		//for (DomeOutput output : outputs) {
+		DomeOutput output = outputs.get(1);
+			output.getImageMapper().drawImage(
+				fluidCanvas.getImage(),
+				output.getCanvas()
+			);
+			output.send();
+//		}
 	}
 
 	private void checkForProgramChange() {

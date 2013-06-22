@@ -17,7 +17,6 @@ public class DomeAnimationServerMain {
 	public static final short DOME_PORT = 2314;
 
 	public static void main(String[] args) throws IOException {
-
 		for (int i=0; i<args.length; i+=2) {
 			String domeMappingFilename = args[i + 1];
 
@@ -26,7 +25,7 @@ public class DomeAnimationServerMain {
 
 			ArtNetDomePlayer player = new ArtNetDomePlayer(mapping);
 			player.start(
-				InetAddress.getLocalHost(),
+				InetAddress.getLoopbackAddress(),
 				InetAddress.getByName(args[i]),
 				Constants.DEFAULT_ART_NET_UDP_PORT
 			);
