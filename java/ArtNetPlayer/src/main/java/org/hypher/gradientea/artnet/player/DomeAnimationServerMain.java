@@ -25,7 +25,7 @@ public class DomeAnimationServerMain {
 
 			ArtNetDomePlayer player = new ArtNetDomePlayer(mapping);
 			player.start(
-				InetAddress.getLoopbackAddress(),
+				InetAddress.getByName("127.0.0.1"),
 				InetAddress.getByName(args[i]),
 				Constants.DEFAULT_ART_NET_UDP_PORT
 			);
