@@ -355,7 +355,7 @@ public class DmxDomeMapping {
 		private int channel;
 
 		public DmxAddress(final int universe, final int channel) {
-			Preconditions.checkArgument(channel > 0 && channel < 510, "Channel (" + channel + ") must be between 1 and 510 inclusive.");
+			Preconditions.checkArgument(channel > 0 && channel <= 510, "Channel (" + channel + ") must be between 1 and 510 inclusive.");
 
 			this.universe = universe;
 			this.channel = channel;
