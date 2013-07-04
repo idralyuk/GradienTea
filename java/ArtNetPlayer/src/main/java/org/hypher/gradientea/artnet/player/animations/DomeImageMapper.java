@@ -18,6 +18,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.RenderingHints;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
@@ -33,6 +34,7 @@ import static java.lang.Math.*;
 */
 public class DomeImageMapper {
 	public final static int POLYGON_SPACE_SIZE = 100;
+
 	private static ExecutorService executor = Executors.newCachedThreadPool();
 
 	private GradienTeaDomeGeometry geometry;
@@ -198,23 +200,35 @@ public class DomeImageMapper {
 		.maximumSize(10)
 		.build();
 
+	private final static int maskSizeIntervalPx = 25;
+
 	public void drawMask(
 		final Graphics2D g2,
 		int x,
 		int y,
-		int width,
-		int height,
+		int drawWidth,
+		int drawHeight,
 		boolean drawLabels,
 		boolean drawVertices
 	) {
-		String key = (width/3) + "," + (height/3) + "," + drawLabels + "," + drawVertices;
+		// Snap the given width and height to the next integer that is divisible by maskSizeIntervalPx
+		int imageWidth = (drawWidth + maskSizeIntervalPx - drawWidth % maskSizeIntervalPx);
+		int imageHeight = (drawHeight + maskSizeIntervalPx - drawHeight % maskSizeIntervalPx);
+
+		String key = imageWidth + "," + imageHeight + "," + drawLabels + "," + drawVertices;
 		BufferedImage overlayImage = overlayCache.getIfPresent(key);
 
 		if (overlayImage == null) {
-			overlayImage = new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);
+			overlayImage = new BufferedImage(imageWidth, imageHeight, BufferedImage.TYPE_4BYTE_ABGR);
 			overlayCache.put(key, overlayImage);
 
 			Graphics2D imageG = (Graphics2D) overlayImage.createGraphics();
+
+			imageG.setRenderingHint(
+				RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON
+			);
+
 			Composite oldComposite = imageG.getComposite();
 	//		g.setColor(Color.white);
 	//		g.fillRect(x, y, width, height);
@@ -228,8 +242,8 @@ public class DomeImageMapper {
 	//		width -= 15;
 
 			imageG.setFont(new Font("Arial", Font.BOLD, 12));
-			imageG.setStroke(new BasicStroke(1));
-			imageG.setColor(new Color(1f, 1f, 1f, .1f));
+			imageG.setStroke(new BasicStroke(2));
+			imageG.setColor(new Color(1f, 1f, 1f, .4f));
 
 			final FontMetrics fontMetrics = imageG.getFontMetrics();
 			int textHeight = fontMetrics.getHeight();
@@ -238,14 +252,14 @@ public class DomeImageMapper {
 				Polygon originalPolygon = entry.getValue();
 				Polygon imageSpacePolygon = new Polygon(
 					new int[] {
-						x + (int) polyToScaled(originalPolygon.xpoints[0], width),
-						x + (int) polyToScaled(originalPolygon.xpoints[1], width),
-						x + (int) polyToScaled(originalPolygon.xpoints[2], width),
+						x + (int) polyToScaled(originalPolygon.xpoints[0], imageWidth),
+						x + (int) polyToScaled(originalPolygon.xpoints[1], imageWidth),
+						x + (int) polyToScaled(originalPolygon.xpoints[2], imageWidth),
 					},
 					new int[] {
-						y + (int) polyToScaled(originalPolygon.ypoints[0], height),
-						y + (int) polyToScaled(originalPolygon.ypoints[1], height),
-						y + (int) polyToScaled(originalPolygon.ypoints[2], height),
+						y + (int) polyToScaled(originalPolygon.ypoints[0], imageHeight),
+						y + (int) polyToScaled(originalPolygon.ypoints[1], imageHeight),
+						y + (int) polyToScaled(originalPolygon.ypoints[2], imageHeight),
 					},
 
 					3
@@ -269,10 +283,10 @@ public class DomeImageMapper {
 				for (Map.Entry<GeoVector3, Ellipse2D> entry : vertexShapeMap.entrySet()) {
 					Ellipse2D polySpaceCircle = entry.getValue();
 					Ellipse2D imageSpaceCircle = new Ellipse2D.Double(
-						x + polyToScaled(polySpaceCircle.getX(), width),
-						y + polyToScaled(polySpaceCircle.getY(), height),
-						polyToScaled(polySpaceCircle.getWidth(), width),
-						polyToScaled(polySpaceCircle.getWidth(), height)
+						x + polyToScaled(polySpaceCircle.getX(), imageWidth),
+						y + polyToScaled(polySpaceCircle.getY(), imageHeight),
+						polyToScaled(polySpaceCircle.getWidth(), imageWidth),
+						polyToScaled(polySpaceCircle.getWidth(), imageHeight)
 					);
 
 					final String numberStr = String.valueOf(lightedVertices.indexOf(entry.getKey()));
@@ -300,7 +314,7 @@ public class DomeImageMapper {
 			imageG.setComposite(oldComposite);
 		}
 
-		g2.drawImage(overlayImage, x, y, width, height, null);
+		g2.drawImage(overlayImage, x, y, drawWidth, drawHeight, null);
 	}
 
 	private int normalToPoly(double v) {

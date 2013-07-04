@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import org.atmosphere.cpr.Broadcaster;
 import org.atmosphere.gwt.server.AtmosphereGwtHandler;
 import org.atmosphere.gwt.server.GwtAtmosphereResource;
+import org.hypher.gradientea.artnet.player.DomeAnimationServerMain;
 import org.hypher.gradientea.artnet.player.HttpDomeAnimationReceiver;
 import org.hypher.gradientea.artnet.player.UdpDomeAnimationReceiver;
 import org.hypher.gradientea.transport.shared.DomeAnimationFrame;
@@ -48,8 +49,8 @@ public class DomeAnimationAtmosphereHandler extends AtmosphereGwtHandler {
 				}
 			};
 
-			new HttpDomeAnimationReceiver(animationTransport).start();
-			new UdpDomeAnimationReceiver(animationTransport).start();
+			new HttpDomeAnimationReceiver(animationTransport).start(DomeAnimationServerMain.DOME_PORT+1);
+			new UdpDomeAnimationReceiver(animationTransport).start(DomeAnimationServerMain.DOME_PORT+1);
 
 		} catch (IOException e) {
 			throw new RuntimeException(e);

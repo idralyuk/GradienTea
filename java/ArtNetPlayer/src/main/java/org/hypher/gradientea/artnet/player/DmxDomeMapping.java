@@ -73,6 +73,7 @@ public class DmxDomeMapping {
 	public static final String METADATA_HARDWARE_INTENSITY_MAX = "metadata.hardware.intensityMax";
 	public static final String METADATA_HARDWARE_PIXELS_PER_VERTEX = "metadata.hardware.pixelsPerVertex";
 	public static final String METADATA_HARDWARE_VERTEX_COLOR_ORDER = "metadata.hardware.vertexColorOrder";
+	public static final String METADATA_HARDWARE_EXPONENTIAL_SCALING = "metadata.hardware.exponentialScaling";
 
 	private DomeIdentifier id;
 	private String name;
@@ -93,7 +94,9 @@ public class DmxDomeMapping {
 	private int intensityMin = 0;
 	private int intensityMax = 255;
 
-	private int pixelsPerVertex = 0;;
+	private int pixelsPerVertex = 0;
+
+	private boolean exponentialScaling = false;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//region// Interface Methods
@@ -174,7 +177,9 @@ public class DmxDomeMapping {
 					dmxAddress.channel-1, // DMX is 1-based, but java arrays aren't
 
 					intensityMin,
-					intensityMax
+					intensityMax,
+
+					exponentialScaling
 				);
 			} else {
 				// Oh well... we don't have a mapping for this pixel.
@@ -200,7 +205,9 @@ public class DmxDomeMapping {
 						dmxAddress.channel-1, // DMX is 1-based, but java arrays aren't
 
 						intensityMin,
-						intensityMax
+						intensityMax,
+
+						exponentialScaling
 					);
 				}
 			} else {
@@ -236,6 +243,8 @@ public class DmxDomeMapping {
 			this.intensityMax = Integer.parseInt(value);
 		} else if (key.equals(METADATA_HARDWARE_PIXELS_PER_VERTEX)) {
 			this.pixelsPerVertex = Integer.parseInt(value);
+		} else if (key.equals(METADATA_HARDWARE_EXPONENTIAL_SCALING)) {
+			this.exponentialScaling = Boolean.parseBoolean(value);
 		}
 	}
 
@@ -409,19 +418,24 @@ public class DmxDomeMapping {
 			int[] output,
 			int outputIndex,
 			int intensityMin,
-			int intensityMax
+			int intensityMax,
+			boolean exponential
 		) {
-			output[outputIndex+redOffset] = scaleValue(rgbInput[rgbIndex] & 0xFF, intensityMin, intensityMax);
-			output[outputIndex+greenOffset] = scaleValue(rgbInput[rgbIndex+1] & 0xFF, intensityMin, intensityMax);
-			output[outputIndex+blueOffset] = scaleValue(rgbInput[rgbIndex+2] & 0xFF, intensityMin, intensityMax);
+			output[outputIndex+redOffset] = scaleValue(rgbInput[rgbIndex] & 0xFF, intensityMin, intensityMax, exponential);
+			output[outputIndex+greenOffset] = scaleValue(rgbInput[rgbIndex+1] & 0xFF, intensityMin, intensityMax, exponential);
+			output[outputIndex+blueOffset] = scaleValue(rgbInput[rgbIndex+2] & 0xFF, intensityMin, intensityMax, exponential);
 		}
 
 		protected int scaleValue(
 			int value,
 			int intensityMin,
-			int intensityMax
+			int intensityMax,
+			boolean exponential
 		) {
-			value = (int) (Math.pow(256, value / 255.0) - 1);
+			if (exponential) {
+				value = (int) (Math.pow(256, value / 255.0) - 1);
+			}
+
 			value = (int) (intensityMin + (value/255d) * (intensityMax-intensityMin));
 			return value;
 		}

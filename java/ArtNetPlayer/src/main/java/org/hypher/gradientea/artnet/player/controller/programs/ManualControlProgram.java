@@ -47,7 +47,7 @@ public class ManualControlProgram extends BaseDomeProgram {
 			lastTouchAt = System.currentTimeMillis();
 		}
 
-		return (System.currentTimeMillis() - lastTouchAt) < 2000;
+		return (System.currentTimeMillis() - lastTouchAt) < 5000;
 	}
 
 	@Override

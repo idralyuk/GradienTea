@@ -19,8 +19,10 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.image.VolatileImage;
 import java.io.File;
 import java.util.Collection;
 import java.util.List;
@@ -98,17 +100,53 @@ public class PrototypeController implements Runnable, DomeController {
 		statusWindow.setVisible(true);
 
 		statusWidget = new Component() {
+			private VolatileImage createBackBuffer() {
+				return getGraphicsConfiguration().createCompatibleVolatileImage(getWidth(), getHeight());
+			}
+
 			@Override
 			public void paint(final Graphics g) {
-				Graphics2D g2 = (Graphics2D) g;
+				// Hardware accelerated code from http://www.javalobby.org/forums/thread.jspa?threadID=16840&tstart=0
 
-				g2.setRenderingHint(
+				// create the hardware accelerated image.
+				final VolatileImage volatileImg = createBackBuffer();
+
+				// Main rendering loop. Volatile images may lose their contents.
+				// This loop will continually render to (and produce if neccessary) volatile images
+				// until the rendering was completed successfully.
+
+				do {
+
+					// Validate the volatile image for the graphics configuration of this
+					// component. If the volatile image doesn't apply for this graphics configuration
+					// (in other words, the hardware acceleration doesn't apply for the new device)
+					// then we need to re-create it.
+					GraphicsConfiguration gc = this.getGraphicsConfiguration();
+					int valCode = volatileImg.validate(gc);
+
+					// This means the device doesn't match up to this hardware accelerated image.
+					if(valCode == VolatileImage.IMAGE_INCOMPATIBLE){
+						createBackBuffer(); // recreate the hardware accelerated image.
+					}
+
+					Graphics offscreenGraphics = volatileImg.getGraphics();
+
+					offscreenPaint((Graphics2D) offscreenGraphics);
+
+					// paint back buffer to main graphics
+					g.drawImage(volatileImg, 0, 0, this);
+					// Test if content is lost
+				} while(volatileImg.contentsLost());
+			}
+
+			private void offscreenPaint(final Graphics2D g) {
+				g.setRenderingHint(
 					RenderingHints.KEY_ANTIALIASING,
 					RenderingHints.VALUE_ANTIALIAS_ON
 				);
-				g2.setRenderingHint(
+				g.setRenderingHint(
 					RenderingHints.KEY_INTERPOLATION,
-					RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR
+					RenderingHints.VALUE_INTERPOLATION_BILINEAR
 				);
 
 				g.setColor(Color.black);
@@ -128,7 +166,7 @@ public class PrototypeController implements Runnable, DomeController {
 
 				if (oscShowDome1Overlay.value() && outputs.size() >= 1) {
 					outputs.get(0).getImageMapper().drawMask(
-						g2,
+						g,
 						0,
 						0,
 						getWidth(),
@@ -141,7 +179,7 @@ public class PrototypeController implements Runnable, DomeController {
 
 				if (oscShowDome2Overlay.value() && outputs.size() >= 2) {
 					outputs.get(1).getImageMapper().drawMask(
-						g2,
+						g,
 						0,
 						0,
 						getWidth(),
@@ -161,13 +199,17 @@ public class PrototypeController implements Runnable, DomeController {
 				);
 			}
 
+			public void update(Graphics g) {
+				paint(g);
+			}
+
 			public Dimension getPreferredSize() {
 				return new Dimension(480, 480);
 			}
 		};
 
 		statusWindow.setLayout(new BorderLayout());
-		statusWindow.add(statusWidget, BorderLayout.WEST);
+		statusWindow.add(statusWidget, BorderLayout.CENTER);
 
 		if (KinectInput.instance().isKinectEnabled()) {
 			kinectWidget = new KinectDisplay();
@@ -268,14 +310,13 @@ public class PrototypeController implements Runnable, DomeController {
 	}
 
 	private void sendFrame() {
-		//for (DomeOutput output : outputs) {
-		DomeOutput output = outputs.get(1);
+		for (DomeOutput output : outputs) {
 			output.getImageMapper().drawImage(
 				fluidCanvas.getImage(),
 				output.getCanvas()
 			);
 			output.send();
-//		}
+		}
 	}
 
 	private void checkForProgramChange() {

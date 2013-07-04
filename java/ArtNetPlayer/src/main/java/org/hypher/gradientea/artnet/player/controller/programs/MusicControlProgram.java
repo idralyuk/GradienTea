@@ -1,5 +1,6 @@
 package org.hypher.gradientea.artnet.player.controller.programs;
 
+import com.google.common.base.Optional;
 import ddf.minim.AudioInput;
 import ddf.minim.Sound;
 import ddf.minim.analysis.BeatDetect;
@@ -9,9 +10,10 @@ import org.hypher.gradientea.artnet.player.controller.OscConstants;
 import org.hypher.gradientea.artnet.player.io.osc.OscHelper;
 import org.hypher.gradientea.geometry.shared.math.DomeMath;
 
-import static org.hypher.gradientea.geometry.shared.math.DomeMath.TWO_PI;
-import static org.hypher.gradientea.geometry.shared.math.DomeMath.clip;
-import static org.hypher.gradientea.geometry.shared.math.DomeMath.f;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Mixer;
+
+import static org.hypher.gradientea.geometry.shared.math.DomeMath.*;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)
@@ -113,7 +115,7 @@ public class MusicControlProgram extends BaseDomeProgram {
 			audioAnalyzer.fft.logAverages(10, (int) (1 + newBandsFraction*3));
 
 			int freqCount = audioAnalyzer.fft.avgSize();
-			int emitterStart = (int) (freqCount * currentFreqLowFraction);
+			int emitterStart = (int) (freqCount * currentFreqLowFraction) + 1;
 			int emitterEnd = (int) (freqCount * currentFreqHighFraction);
 
 			if (emitterStart > freqCount - 2) {
@@ -226,13 +228,49 @@ public class MusicControlProgram extends BaseDomeProgram {
 		}
 	}
 
+
 	public static class AudioAnalyzer {
-		final Sound sound = new Sound();
-		final AudioInput lineIn = sound.getLineIn();
-		final AccessibleFFT fft = new AccessibleFFT(1024, lineIn.sampleRate());
-		final BeatDetect beatDetect = new BeatDetect(1024, lineIn.sampleRate());
+		final Sound sound;
+		final AudioInput lineIn;
+		final AccessibleFFT fft;
+		final BeatDetect beatDetect;
+
 		{
+			sound = new Sound();
+			final Optional<Mixer> desiredInputMixer = getDesiredInputMixer();
+			if (desiredInputMixer.isPresent()) {
+				System.out.println("Using Audio Mixer: " + desiredInputMixer.get().getMixerInfo());
+				sound.setInputMixer(desiredInputMixer.get());
+			} else {
+				System.out.println("Using Default Audio Mixer");
+			}
+
+			lineIn = sound.getLineIn(Sound.MONO);
+			fft = new AccessibleFFT(1024, lineIn.sampleRate());
+			beatDetect = new BeatDetect(1024, lineIn.sampleRate());
 			fft.logAverages(30, 1);
+		}
+
+		/**
+		 * @return The desired mixer for dome audio input. {@link Optional#absent()} indicates no particular preference
+		 * in mixer, allowing the implementation to use the default.
+		 */
+		public static Optional<Mixer> getDesiredInputMixer() {
+			String[] DESIRED_MIXERS = new String[]{
+				"fast", // FastTrack USB Audio
+				"display audio", // Display Input
+				"usb" // Any other USB audio device
+			};
+
+			for (String desiredMixerName : DESIRED_MIXERS) {
+				for (Mixer.Info mixerInfo :  AudioSystem.getMixerInfo()) {
+					if (mixerInfo.toString().toLowerCase().contains(desiredMixerName)) {
+						return Optional.of(AudioSystem.getMixer(mixerInfo));
+					}
+				}
+			}
+
+			return Optional.absent();
 		}
 
 		public AudioAnalysisInfo analyze() {

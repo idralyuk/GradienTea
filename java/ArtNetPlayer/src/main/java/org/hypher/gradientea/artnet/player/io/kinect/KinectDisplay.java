@@ -39,6 +39,8 @@ public class KinectDisplay extends Component {
 	private BufferedImage bimg;
 
 	private int kinectDataWidth, kinectDataHeight;
+	private double kinectWidthScale;
+	private double kinectHeightScale;
 
 	public KinectDisplay() {
 		kinectDataWidth = kinectInput.getWidth();
@@ -50,6 +52,9 @@ public class KinectDisplay extends Component {
 	Color colors[] = {Color.RED, Color.BLUE, Color.GREEN, Color.MAGENTA, Color.PINK, Color.YELLOW, Color.WHITE, Color.CYAN};
 	public void paint(Graphics g)
 	{
+		this.kinectWidthScale = (double) getWidth() / kinectDataWidth;
+		this.kinectHeightScale = (double) getHeight() / kinectDataHeight;
+
 		if (drawPixels)
 		{
 			if (bimg == null) {
@@ -57,8 +62,8 @@ public class KinectDisplay extends Component {
 
 				WritableRaster raster = Raster.createInterleavedRaster(
 					dataBuffer,
-					kinectDataWidth,
-					kinectDataHeight,
+					(int) (kinectDataWidth),
+					(int) (kinectDataHeight),
 					kinectDataWidth * 3,
 					3,
 					new int[]{0, 1, 2},
@@ -70,7 +75,7 @@ public class KinectDisplay extends Component {
 				bimg = new BufferedImage(colorModel, raster, false, null);
 			}
 
-			g.drawImage(bimg, 0, 0, null);
+			g.drawImage(bimg, 0, 0, getWidth(), getHeight(), null);
 		}
 
 		try
@@ -90,8 +95,7 @@ public class KinectDisplay extends Component {
 				if (printID)
 				{
 					Point3D com = kinectInput.getDepthGen().convertRealWorldToProjective(
-						kinectInput.getUserGen()
-							.getUserCoM(users[i])
+						kinectInput.getUserGen().getUserCoM(users[i])
 					);
 					String label = null;
 					if (!printState)
@@ -114,7 +118,11 @@ public class KinectDisplay extends Component {
 						label = new String(users[i] + " - Looking for pose (" + kinectInput.getCalibPose() + ")");
 					}
 
-					g.drawString(label, (int)com.getX(), (int)com.getY());
+					g.drawString(
+						label,
+						(int) (com.getX() * kinectWidthScale),
+						(int) (com.getY() * kinectHeightScale)
+					);
 				}
 			}
 		} catch (StatusException e)
@@ -179,7 +187,12 @@ public class KinectDisplay extends Component {
 		if (jointHash.get(joint1).getConfidence() < 0.4 || jointHash.get(joint2).getConfidence() < 0.4)
 			return;
 
-		g.drawLine((int)pos1.getX(), (int)pos1.getY(), (int)pos2.getX(), (int)pos2.getY());
+		g.drawLine(
+			(int) (pos1.getX() * kinectWidthScale),
+			(int) (pos1.getY() * kinectHeightScale),
+			(int) (pos2.getX() * kinectWidthScale),
+			(int) (pos2.getY() * kinectHeightScale)
+		);
 	}
 
 	public void drawSkeleton(Graphics g, int userId) throws StatusException
