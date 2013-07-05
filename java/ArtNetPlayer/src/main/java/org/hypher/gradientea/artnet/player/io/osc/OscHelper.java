@@ -38,8 +38,8 @@ import java.util.regex.Pattern;
  * <p>Sending Data</p>
  * By default, {@link OscHelper} will detect "ping" type messages, and upon receiving them, will send the current
  * state of all variables to the sender of that message. The helper assumes that the data sender is configured to
- * listen one port higher than it is sending data on. For example, if using the default port 57120, data will be
- * sent to 57121.
+ * listen one port higher than it is sending data on. For example, if using the default port 4242, data will be
+ * sent to 4242.
  *
  * @author Yona Appletree (yona@concentricsky.com)
  */
@@ -421,6 +421,10 @@ public class OscHelper {
 
 		public float floatValue() {
 			return (float) getValue();
+		}
+
+		public void setValue(double value) {
+			this.value = value;
 		}
 	}
 

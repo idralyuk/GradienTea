@@ -2,7 +2,10 @@ package org.hypher.gradientea.artnet.player.controller;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.util.concurrent.Uninterruptibles;
+import org.hypher.gradientea.artnet.player.controller.programs.DebugProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.DomeAnimationProgram;
+import org.hypher.gradientea.artnet.player.controller.programs.DoorLightAnimation;
 import org.hypher.gradientea.artnet.player.controller.programs.ManualControlProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.MotionControlProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.MusicControlProgram;
@@ -24,9 +27,9 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.image.VolatileImage;
 import java.io.File;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static org.hypher.gradientea.artnet.player.io.osc.OscHelper.booleanValue;
 
@@ -56,7 +59,14 @@ public class PrototypeController implements Runnable, DomeController {
 	private OscHelper.OscBoolean oscShowDome1Overlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_DOME_OVERLAY_1, true);
 	private OscHelper.OscBoolean oscShowDome2Overlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_DOME_OVERLAY_2, false);
 
+	private OscHelper.OscBoolean oscShowOverlayAddresses = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_OVERLAY_ADDRESSES, true);
+	private OscHelper.OscBoolean oscShowOutputOverlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_OUTPUT_OVERLAY, true);
+	private OscHelper.OscBoolean oscShowFluidOverlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_FLUID_OVERLAY, true);
+	private OscHelper.OscBoolean oscShowVertices = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_VERTICES, true);
+
 	private long frameCounter = 0;
+
+	private DoorLightAnimation doorProgram = new DoorLightAnimation();
 
 	public static void main(String[] args) {
 		new PrototypeController(args.length > 0 ? args[0] : "localhost").start();
@@ -70,6 +80,7 @@ public class PrototypeController implements Runnable, DomeController {
 		outputs.add(new DomeOutput(GradienTeaDomeSpecs.GRADIENTEA_DOME, 1));
 
 		addProgram(new OffProgram());
+		addProgram(new DebugProgram());
 		addProgram(new ManualControlProgram());
 		addProgram(new MusicControlProgram());
 
@@ -112,11 +123,10 @@ public class PrototypeController implements Runnable, DomeController {
 				final VolatileImage volatileImg = createBackBuffer();
 
 				// Main rendering loop. Volatile images may lose their contents.
-				// This loop will continually render to (and produce if neccessary) volatile images
-				// until the rendering was completed successfully.
+				// This loop will continually render to (and produce if necessary) volatile images
+				// until the rendering is completed successfully.
 
 				do {
-
 					// Validate the volatile image for the graphics configuration of this
 					// component. If the volatile image doesn't apply for this graphics configuration
 					// (in other words, the hardware acceleration doesn't apply for the new device)
@@ -164,39 +174,47 @@ public class PrototypeController implements Runnable, DomeController {
 
 				Image scaledFluid = fluidCanvas.getImage();
 
-				if (oscShowDome1Overlay.value() && outputs.size() >= 1) {
-					outputs.get(0).getImageMapper().drawMask(
-						g,
-						0,
-						0,
-						getWidth(),
-						getHeight(),
-						false,
-						true
-					);
+				for (int i=0; i<outputs.size(); i++) {
+					if ((i==0 && oscShowDome1Overlay.value()) || (i==1 && oscShowDome2Overlay.value())) {
+						outputs.get(i).getImageMapper().drawMask(
+							g,
+							0,
+							0,
+							getWidth(),
+							getHeight(),
+							oscShowOverlayAddresses.value(),
+							oscShowVertices.value()
+						);
+
+						if (oscShowOutputOverlay.value()) {
+							outputs.get(i).getImageMapper().drawPanelState(
+								outputs.get(i).getCanvas(),
+								g,
+								0,
+								0,
+								getWidth(),
+								getHeight(),
+								oscShowVertices.value(),
+								0.5f
+							);
+						}
+					}
 				}
 
-
-				if (oscShowDome2Overlay.value() && outputs.size() >= 2) {
-					outputs.get(1).getImageMapper().drawMask(
-						g,
-						0,
-						0,
-						getWidth(),
-						getHeight(),
-						false,
-						true
-					);
+				if (oscShowFluidOverlay.value()) {
+					try {
+						((Graphics2D) g).drawImage(
+							scaledFluid,
+							0,
+							0,
+							getWidth(),
+							getHeight(),
+							null
+						);
+					} catch (Exception e) {
+						/* This happens sometimes. Oh well. */
+					}
 				}
-
-				((Graphics2D) g).drawImage(
-					scaledFluid,
-					0,
-					0,
-					getWidth(),
-					getHeight(),
-					null
-				);
 			}
 
 			public void update(Graphics g) {
@@ -231,6 +249,8 @@ public class PrototypeController implements Runnable, DomeController {
 		createStatusWindow();
 		initOsc();
 
+		doorProgram.init(this);
+
 		while (true) {
 			long frameStart = System.currentTimeMillis();
 
@@ -244,6 +264,8 @@ public class PrototypeController implements Runnable, DomeController {
 					renderFrame();
 				} catch (Exception e) {
 					System.err.println("Failed to render frame; " + e.getClass().getSimpleName() + ": " + e.getMessage());
+					e.printStackTrace();
+					Uninterruptibles.sleepUninterruptibly(10, TimeUnit.SECONDS);
 				}
 			}
 
@@ -299,7 +321,6 @@ public class PrototypeController implements Runnable, DomeController {
 		activeProgram().update();
 
 		fluidCanvas.update();
-		statusWidget.repaint();
 
 		if (KinectInput.instance().isKinectEnabled()) {
 			kinectWidget.updateDepth();
@@ -307,14 +328,25 @@ public class PrototypeController implements Runnable, DomeController {
 		}
 
 		sendFrame();
+
+		if (activeProgramId != DomeAnimationProgram.ProgramId.DEBUG) {
+			// Run the door program after the panels have been calculated so it can use the rendered data
+			doorProgram.update();
+		}
+
+		// Update the status widget after sending the frame so we can display the current state of all the panels
+		statusWidget.repaint();
 	}
 
 	private void sendFrame() {
 		for (DomeOutput output : outputs) {
-			output.getImageMapper().drawImage(
-				fluidCanvas.getImage(),
-				output.getCanvas()
-			);
+			if (activeProgram().getProgramId().isFluidBased()) {
+				output.getImageMapper().drawImage(
+					fluidCanvas.getImage(),
+					output.getCanvas()
+				);
+			}
+
 			output.send();
 		}
 	}
@@ -331,7 +363,7 @@ public class PrototypeController implements Runnable, DomeController {
 	}
 
 	@Override
-	public Collection<DomeOutput> getOutputs() {
+	public List<DomeOutput> getOutputs() {
 		return outputs;
 	}
 

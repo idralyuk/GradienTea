@@ -10,6 +10,7 @@ import org.hypher.gradientea.geometry.shared.GeoVector3;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.transport.shared.DomeAnimationFrame;
 
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -90,9 +91,22 @@ public class DomePixelCanvas {
 		}
 	}
 
+	public void drawVertices(final Iterable<GeoVector3> lightedVertices, final PixelColor color) {
+		for (GeoVector3 vertex : lightedVertices) {
+			draw(vertex, color);
+		}
+	}
 	public void clear() {
 		faceColorMap.clear();
 		vertexColorMap.clear();
+	}
+
+	public Map<GeoFace, PixelColor> getFaceColorMap() {
+		return Collections.unmodifiableMap(faceColorMap);
+	}
+
+	public Map<GeoVector3, PixelColor> getVertexColorMap() {
+		return Collections.unmodifiableMap(vertexColorMap);
 	}
 
 	public DomeAnimationFrame render() {
@@ -130,4 +144,5 @@ public class DomePixelCanvas {
 			vertexColorData
 		);
 	}
+
 }

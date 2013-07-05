@@ -4,6 +4,8 @@ package org.hypher.gradientea.animation.shared.color;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class RgbColor implements PixelColor {
+	private final static double lowestNonBlackValue = (1.0 / 255) / 2;
+
 	private /*final*/ double red;
 	private /*final*/ double green;
 	private /*final*/ double blue;
@@ -29,6 +31,11 @@ public class RgbColor implements PixelColor {
 	@Override
 	public int[] asRgb() {
 		return new int[] { (int)red, (int)green, (int)blue };
+	}
+
+	@Override
+	public boolean isBlack() {
+		return red < lowestNonBlackValue && blue < lowestNonBlackValue && green < lowestNonBlackValue;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

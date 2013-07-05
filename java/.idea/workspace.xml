@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="Java 6 compatibility">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DmxDomeMapping.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DmxDomeMapping.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/server/DomeAnimationAtmosphereHandler.java" afterPath="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/server/DomeAnimationAtmosphereHandler.java" />
+    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DebugProgram.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/BaseDomeProgram.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/BaseDomeProgram.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DomeAnimationProgram.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DomeAnimationProgram.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/DomeController.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/DomeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaParent.iml" afterPath="$PROJECT_DIR$/GradienTeaParent.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/kinect/KinectDisplay.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/kinect/KinectDisplay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/ManualControlProgram.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/ManualControlProgram.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/MusicControlProgram.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/MusicControlProgram.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomePixelCanvas.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomePixelCanvas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/animation/shared/color/HsbColor.java" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/animation/shared/color/HsbColor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/OscConstants.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/OscConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/animation/shared/color/PixelColor.java" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/animation/shared/color/PixelColor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/PrototypeController.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/PrototypeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/prototypeDome.properties" afterPath="$PROJECT_DIR$/ArtNetPlayer/prototypeDome.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/animation/shared/color/RgbColor.java" afterPath="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/animation/shared/color/RgbColor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties" afterPath="$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -21,21 +23,21 @@
     <file path="/PixelGroup.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357528144378" ignored="false" />
     <file path="/PixelValue.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357527384910" ignored="false" />
     <file path="/PixelColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358122848170" ignored="false" />
-    <file path="/RgbColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363594194549" ignored="false" />
+    <file path="/RgbColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372929981547" ignored="false" />
     <file path="/a.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372891308661" ignored="false" />
-    <file path="/HsbColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369109886704" ignored="false" />
+    <file path="/HsbColor.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372930674765" ignored="false" />
     <file path="/DmxPixel.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1358114446851" ignored="false" />
     <file path="/ListPixelGroup.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357533698311" ignored="false" />
     <file path="/PixelAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536093755" ignored="false" />
     <file path="/HsbTween.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357535010699" ignored="false" />
     <file path="/BaseSingleGroupAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357534728786" ignored="false" />
     <file path="/AnimationFunctionWrapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357543461670" ignored="false" />
-    <file path="/Dummy.txt" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372893338408" ignored="false" />
+    <file path="/Dummy.txt" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372986165967" ignored="false" />
     <file path="/StandalonePlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357538183729" ignored="false" />
     <file path="/RenderableAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536703553" ignored="false" />
     <file path="/DefinedAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536205196" ignored="false" />
     <file path="/PixelGroupAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536091994" ignored="false" />
-    <file path="/fragment.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372722921903" ignored="false" />
+    <file path="/fragment.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372986864862" ignored="false" />
     <file path="/SingleDefinedAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357536205688" ignored="false" />
     <file path="/AnimationScene.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1357537025011" ignored="false" />
     <file path="/ArtNetAnimationPlayer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1363475928724" ignored="false" />
@@ -2807,7 +2809,7 @@
     <file path="/tmp/archetype-play/BNEIntegration/BNEIntegration-AggregationMessages/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1366148184894" ignored="false" />
     <file path="/tmp/archetype-play/BNEIntegration/BNEIntegration-AggregationMessages/target/generated-test-sources/gwt-compatibility-testing/com/cengage/analytics/reports/bne/messages/BNEAggregationMessagesGwtCompatibilityTest.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1366148184894" ignored="false" />
     <file path="/tmp/archetype-play/BNEIntegration/BNEIntegration-Aggregator/src/main/assembly/deployment-caddis.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1366148184894" ignored="false" />
-    <file path="/DomeController.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371862556205" ignored="false" />
+    <file path="/DomeController.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372974107323" ignored="false" />
     <file path="/DomeAnimationTransport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1368835824900" ignored="false" />
     <file path="/DomeAnimationFrame.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371536049649" ignored="false" />
     <file path="/AnimationTransport.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1366580776346" ignored="false" />
@@ -2926,14 +2928,14 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingPersister/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-ItemReportingPersister-version-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366050280" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingPersister/target/generated-sources/versioning/META-INF/spring/analytics/versioning/analytics-ItemReportingPersister-version-defaults-mvn.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366050280" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/items/ItemReportingModel/1.0.0-SNAPSHOT/ItemReportingModel-1.0.0-SNAPSHOT-tests.jar!/META-INF/spring-test/analytics/itemreportingmodel/analytics-itemreportingmodel-test.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366051449" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372363272901" ignored="false" />
-    <file path="/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371849503774" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372985932513" ignored="false" />
+    <file path="/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372985929244" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/TakeReportItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370034370157" ignored="false" />
     <file path="/TakeReportItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370035220018" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/entities/TakeItemInfo.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366750123" ignored="false" />
     <file path="/TakeItemInfo.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1367366743004" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt/com/cengage/analytics/reports/selfassessment/messages/SelfAssessmentAggregationMessagesSerializabilityTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371765995619" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt-compatibility-testing/com/cengage/analytics/reports/selfassessment/messages/client/SelfAssessmentAggregationMessagesGwtCompatibilityTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371765978153" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt/com/cengage/analytics/reports/selfassessment/messages/SelfAssessmentAggregationMessagesSerializabilityTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125356" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt-compatibility-testing/com/cengage/analytics/reports/selfassessment/messages/client/SelfAssessmentAggregationMessagesGwtCompatibilityTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125356" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/scala/com/cengage/analytics/reports/selfassessment/actors/TakeReportGeneratorActor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372898423561" ignored="false" />
     <file path="/TakeReportGeneratorActor.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372456263665" ignored="false" />
     <file path="/analytics-saa-defaults.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369256322364" ignored="false" />
@@ -2945,7 +2947,7 @@
     <file path="/DmxDomeMapping.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371962957976" ignored="false" />
     <file path="/HttpReceiver.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369000738314" ignored="false" />
     <file path="/DomeAnimationServerMain.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371943377520" ignored="false" />
-    <file path="/testMiniDome.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371962861358" ignored="false" />
+    <file path="/testMiniDome.properties" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372989326667" ignored="false" />
     <file path="/CometTransport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369007609243" ignored="false" />
     <file path="/EventSerializer.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369003071320" ignored="false" />
     <file path="/GradienTeaModule.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369003853231" ignored="false" />
@@ -2956,7 +2958,7 @@
     <file path="/UdpDomeClient.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371892283837" ignored="false" />
     <file path="/HttpDomeAnimationReceiver.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369028263796" ignored="false" />
     <file path="/FirstDomeAudio.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369039096514" ignored="false" />
-    <file path="/DomePixelCanvas.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371705839731" ignored="false" />
+    <file path="/DomePixelCanvas.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372977650687" ignored="false" />
     <file path="/FirstDomeSphere.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370077488207" ignored="false" />
     <file path="/TrackballInput.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369104930050" ignored="false" />
     <file path="/DomeMath.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371873724049" ignored="false" />
@@ -3008,7 +3010,7 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingTemplate/ReportingTemplate-AggregationModel/src/main/resources/META-INF/spring/analytics/reportingtemplatemodel/analytics-reportingtemplatemodel.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369257692832" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingTemplate/ReportingTemplate-DataTools/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369257692832" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/com/cengage/standards/CengageSpringParent/1.15.0-SNAPSHOT/CengageSpringParent-1.15.0-SNAPSHOT.pom" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369258471497" ignored="false" />
-    <file path="/DomeImageMapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372200569227" ignored="false" />
+    <file path="/DomeImageMapper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372931775202" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingTemplate/ReportingTemplate-AggregationMessages/src/main/java/com/cengage/analytics/reports/reportingtemplate/messages/shared/entities/UserCourseListBundleId.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369259526273" ignored="false" />
     <file path="/UserCourseListBundleId.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369259364758" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCommon/CengageAnalyticsCamelSupport/src/main/scala/com/cengage/analytics/camel/XmlEnabledMessageConverter.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369259819980" ignored="false" />
@@ -3028,7 +3030,7 @@
     <file path="/VertexPlaying.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369698756124" ignored="false" />
     <file path="/SourceAwareOSCPortIn.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371898406648" ignored="false" />
     <file path="/MSAFluidSolver2D.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371798817719" ignored="false" />
-    <file path="/OscHelper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371899757044" ignored="false" />
+    <file path="/OscHelper.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372978105449" ignored="false" />
     <file path="/MiniMTest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369803753030" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/.idea/workspace.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369859872771" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/scala/com/cengage/analytics/integration/mindtap/SelfAssessmentAggregationIntegrationTest.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369855633614" ignored="false" />
@@ -3044,7 +3046,7 @@
     <file path="/var/folders/w4/jf2tlfhs50zcz1pypk7szw840000gp/T/intellijad/com/cengage/analytics/reports/selfassessment/messages/shared/request/report/ActivityTakeReportRequest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369860186817" ignored="false" />
     <file path="/Core30TestSuite.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369862965189" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/target/surefire-reports/TEST-com.cengage.analytics.integration.selfassessment.SelfAssessmentAggregationIntegrationTest.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369868332932" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/resources/META-INF/comparexmls/take_report_for_saa-integration-test_externaltakeuri_generated_aee93143748ed1865baaac9265055779f56eb2b091104d86ec6d690a253564ef.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372901603921" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/resources/META-INF/comparexmls/take_report_for_saa-integration-test_externaltakeuri_generated_aee93143748ed1865baaac9265055779f56eb2b091104d86ec6d690a253564ef.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372967802554" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/target/reportoutput/take_report_for_saa-integration-test_externaltakeuri_generated_aee93143748ed1865baaac9265055779f56eb2b091104d86ec6d690a253564ef.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369868332932" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingModel/target/classes/com/cengage/analytics/itemreporting/model/DenormalizedGradeBuilder.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369867178310" ignored="false" />
     <file path="/a.less" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372891347962" ignored="false" />
@@ -3061,7 +3063,7 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsReportingUtils/ReportingExport/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267840" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsNatGeoIntegration/NatGeoUI/src/main/java/com/cengage/analytics/reports/natgeo/ui/client/pages/views/desktop/user/institutionscoped/InstitutionScienceCumulativeScoresReportViewDesktop.ui.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369957267840" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsItemReporting/ItemReportingPersister/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369958730842" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt-compatibility-testing/com/cengage/analytics/reports/selfassessment/messages/SelfAssessmentAggregationMessagesGwtCompatibilityTest.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372723997355" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/target/generated-test-sources/gwt-compatibility-testing/com/cengage/analytics/reports/selfassessment/messages/SelfAssessmentAggregationMessagesGwtCompatibilityTest.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125356" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/TakeReportSubItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370034398885" ignored="false" />
     <file path="/TakeReportSubItemSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1370034605750" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregationMessages/src/main/java/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/TakeReportRejoinderSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1369960860390" ignored="false" />
@@ -3139,17 +3141,17 @@
     <file path="/SaaCategoryUri.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371774127111" ignored="false" />
     <file path="/KinectDebugger.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371795994491" ignored="false" />
     <file path="/KinectDebugDisplay.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371796272983" ignored="false" />
-    <file path="/PrototypeController.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372200804183" ignored="false" />
-    <file path="/DomeFluidCanvas.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371893780019" ignored="false" />
-    <file path="/OscConstants.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371896869529" ignored="false" />
+    <file path="/PrototypeController.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372990081280" ignored="false" />
+    <file path="/DomeFluidCanvas.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372932720719" ignored="false" />
+    <file path="/OscConstants.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372989812756" ignored="false" />
     <file path="/SaaCategoryInfo.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371848497767" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsSelfAssessmentReporting/SelfAssessmentAggregator/src/main/scala/com/cengage/analytics/reports/selfassessment/SaaIds.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372363272902" ignored="false" />
     <file path="/SaaIds.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371851292426" ignored="false" />
     <file path="/AnimationProgram.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371863154690" ignored="false" />
     <file path="/ManualControlProgram.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371874187469" ignored="false" />
-    <file path="/BaseDomeProgram.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371883142173" ignored="false" />
+    <file path="/BaseDomeProgram.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372927334697" ignored="false" />
     <file path="/OffProgram.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371867687886" ignored="false" />
-    <file path="/DomeAnimationProgram.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371868075659" ignored="false" />
+    <file path="/DomeAnimationProgram.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372978493697" ignored="false" />
     <file path="/MusicControlProgram.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372127593842" ignored="false" />
     <file path="/KinectInput.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371882626045" ignored="false" />
     <file path="/KinectDisplay.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1371961334525" ignored="false" />
@@ -3270,6 +3272,24 @@
     <file path="/a.sql" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372891328517" ignored="false" />
     <file path="/private/tmp/test.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372896834199" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/data/messages/takes/take4.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372897000026" ignored="false" />
+    <file path="/BaseDomeAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372927382833" ignored="false" />
+    <file path="/PrototypeDoorLightAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372927900397" ignored="false" />
+    <file path="/DoorLightAnimation.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372989962884" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/target/reportoutput/take_report_for_saa-integration-test_externaltakeuri_generated_df1aaa943cd9e82cd16cc9d4b824cae57402c0455b1de0769b867fa59eb33826.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372976972888" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsIntegrationTestCore/src/main/scala/com/cengage/analytics/integration/validators/XMLReportValidator.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372969331654" ignored="false" />
+    <file path="/XMLReportValidator.scala" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372969328823" ignored="false" />
+    <file path="/DebugProgram.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372978805130" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsRemoteIntegrationTest/CengageAnalyticsSelfAssessmentReportingTests/src/test/resources/META-INF/comparexmls/take_report_for_saa-integration-test_externaltakeuri_generated_df1aaa943cd9e82cd16cc9d4b824cae57402c0455b1de0769b867fa59eb33826.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372985446335" ignored="false" />
+    <file path="/take_report_for_saa-integration-test_externaltakeuri_generated_df1aaa943cd9e82cd16cc9d4b824cae57402c0455b1de0769b867fa59eb33826.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372977361903" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/selfassessment/SelfAssessmentAggregationMessages/1.2.0-SNAPSHOT/SelfAssessmentAggregationMessages-1.2.0-SNAPSHOT.jar!/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/CategoryUsageSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125816" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/selfassessment/SelfAssessmentAggregationMessages/1.2.0-SNAPSHOT/SelfAssessmentAggregationMessages-1.2.0-SNAPSHOT.jar!/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/ItemUsageSummary.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125815" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/selfassessment/SelfAssessmentAggregationMessages/1.2.0-SNAPSHOT/SelfAssessmentAggregationMessages-1.2.0-SNAPSHOT.jar!/com/cengage/analytics/reports/selfassessment/messages/shared/report/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125815" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/selfassessment/SelfAssessmentAggregationMessages/1.2.0-SNAPSHOT/SelfAssessmentAggregationMessages-1.2.0-SNAPSHOT.jar!/com/cengage/analytics/reports/selfassessment/messages/shared/report/AbstractReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125815" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/selfassessment/SelfAssessmentAggregationMessages/1.2.0-SNAPSHOT/SelfAssessmentAggregationMessages-1.2.0-SNAPSHOT.jar!/com/cengage/analytics/reports/selfassessment/messages/shared/report/summaries/ReportScope.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125815" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/selfassessment/SelfAssessmentAggregationMessages/1.2.0-SNAPSHOT/SelfAssessmentAggregationMessages-1.2.0-SNAPSHOT.jar!/com/cengage/analytics/reports/selfassessment/messages/shared/RequestUiInfo.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125816" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/selfassessment/SelfAssessmentAggregationMessages/1.2.0-SNAPSHOT/SelfAssessmentAggregationMessages-1.2.0-SNAPSHOT.jar!/com/cengage/analytics/reports/selfassessment/messages/shared/UiAwareRequest.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125816" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/selfassessment/SelfAssessmentAggregationMessages/1.2.0-SNAPSHOT/SelfAssessmentAggregationMessages-1.2.0-SNAPSHOT-sources.jar!/com/cengage/analytics/reports/selfassessment/messages/shared/report/ActivityTakeReport.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125816" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/com/cengage/analytics/reports/selfassessment/SelfAssessmentAggregationMessages/1.2.0-SNAPSHOT/SelfAssessmentAggregationMessages-1.2.0-SNAPSHOT.jar!/com/cengage/analytics/reports/selfassessment/messages/SelfAssessmentAggregationMessages.gwt.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1372981125816" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -3315,7 +3335,7 @@
       <breakpoint class_name="java.lang.NullPointerException" package_name="java.lang">
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="true" />
+        <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
         <option name="REMOVE_AFTER_HIT" value="false" />
@@ -3326,8 +3346,8 @@
         <option name="CONDITION_ENABLED" value="true" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </exception_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
@@ -3397,100 +3417,109 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PrototypeController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/PrototypeController.java">
+      <file leaf-file-name="DomeAnimationProgram.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DomeAnimationProgram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="31" selection-start="5447" selection-end="5447" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseDomeProgram.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/BaseDomeProgram.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="61" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+            <state line="27" column="0" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#BaseDomeProgram#0;class#BaseDomeProgram#0" expanded="true" />
-                <element signature="method#getProgramId#0;class#BaseDomeProgram#0" expanded="true" />
-                <element signature="method#init#0;class#BaseDomeProgram#0" expanded="true" />
-                <element signature="method#fluidCanvas#0;class#BaseDomeProgram#0" expanded="true" />
-                <element signature="method#selectThisProgram#0;class#BaseDomeProgram#0" expanded="true" />
-                <element signature="method#now#0;class#BaseDomeProgram#0" expanded="true" />
+                <element signature="method#ProgramId#0;class#ProgramId#0;class#DomeAnimationProgram#0" expanded="true" />
+                <element signature="method#isFluidBased#0;class#ProgramId#0;class#DomeAnimationProgram#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DomeAnimationProgram.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DomeAnimationProgram.java">
+      <file leaf-file-name="testMiniDome.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.84705883">
+            <state line="35" column="0" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="File.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/src.zip!/java/io/File.java">
+      <file leaf-file-name="DoorLightAnimation.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DoorLightAnimation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="250" column="0" selection-start="10168" selection-end="10168" vertical-scroll-proportion="0.0">
+            <state line="38" column="8" selection-start="965" selection-end="1430" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#update#0;class#DoorLightAnimation#0" expanded="true" />
+                <element signature="class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+                <element signature="method#SingleDomeControl#0;class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+                <element signature="method#update#0;class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+                <element signature="method#updateCurrentColor#0;class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+                <element signature="method#updateTargetColor#0;class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrototypeController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/PrototypeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="251" column="29" selection-start="8416" selection-end="8416" vertical-scroll-proportion="0.39175257">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#main#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#PrototypeController#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#addProgram#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#initPrograms#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#activeProgram#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#createStatusWindow#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#createBackBuffer#0;class#4662:7939" expanded="true" />
+                <element signature="method#paint#0;class#4662:7939" expanded="true" />
+                <element signature="method#offscreenPaint#0;class#4662:7939" expanded="true" />
+                <element signature="method#update#0;class#4662:7939" expanded="true" />
+                <element signature="method#getPreferredSize#0;class#4662:7939" expanded="true" />
+                <element signature="method#start#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#initOsc#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#initOutput#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#selectProgram#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#heartbeat#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#renderFrame#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#sendFrame#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#checkForProgramChange#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#getOutputs#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#getFluidCanvas#0;class#PrototypeController#0" expanded="true" />
+                <element signature="class#ProgramEntry#0;class#PrototypeController#0" expanded="true" />
+                <element signature="method#ProgramEntry#0;class#ProgramEntry#0;class#PrototypeController#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DomeController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/DomeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="15" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OscHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java">
+      <file leaf-file-name="DomeAnimation.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DomeAnimation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="13" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.0">
+            <state line="2" column="69" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OGLDrawImage.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/rt.jar!/sun/java2d/opengl/OGLDrawImage.class">
+      <file leaf-file-name="OscConstants.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/OscConstants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="19" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JComponent.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/src.zip!/javax/swing/JComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="916" column="0" selection-start="34781" selection-end="34781" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DomeAnimationAtmosphereHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/server/DomeAnimationAtmosphereHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="41" selection-start="1981" selection-end="1981" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DomeImageMapper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="53" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Transparency.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/src.zip!/java/awt/Transparency.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="28" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="95" column="26" selection-start="3522" selection-end="3522" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="class#Status#0;class#OscConstants#0" expanded="true" />
+                <element signature="class#Controller#0;class#Status#0;class#OscConstants#0" expanded="true" />
+                <element signature="class#Presets#0;class#Control#0;class#OscConstants#0" expanded="true" />
+                <element signature="class#Fluid#0;class#Control#0;class#OscConstants#0" expanded="true" />
+                <element signature="class#Music#0;class#Control#0;class#OscConstants#0" expanded="true" />
+                <element signature="class#Motion#0;class#Control#0;class#OscConstants#0" expanded="true" />
+                <element signature="class#Debug#0;class#Control#0;class#OscConstants#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -3519,21 +3548,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/MotionControlProgram.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/pom.xml" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/SourceAwareOSCPortIn.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/OscConstants.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DomeAnimationServerMain.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/kinect/KinectDisplay.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/prototypeDome.properties" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DmxDomeMapping.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/ManualControlProgram.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/MusicControlProgram.java" />
-        <option value="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/server/DomeAnimationAtmosphereHandler.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/PrototypeDoorLightAnimation.java" />
+        <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/animation/shared/color/PixelColor.java" />
+        <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/animation/shared/color/RgbColor.java" />
+        <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/animation/shared/color/HsbColor.java" />
+        <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GradienTeaDomeSpecs.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/DomeFluidCanvas.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/DomeController.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomePixelCanvas.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DomeAnimationProgram.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DebugProgram.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/OscConstants.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DoorLightAnimation.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/PrototypeController.java" />
       </list>
     </option>
@@ -3558,8 +3587,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="2560" />
-    <option name="height" value="1414" />
+    <option name="width" value="1680" />
+    <option name="height" value="1024" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -3607,7 +3636,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3671,6 +3699,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; 1.8 Beta &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rt.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; 1.8 Beta &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rt.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3913,6 +3997,36 @@
               <option name="myItemId" value="GradienTeaParent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; 1.8 Beta &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rt.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="awt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="image" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -3921,6 +4035,236 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LightingModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LightingModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradientea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LightingModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradientea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geometry" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LightingModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradientea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geometry" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LightingModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradientea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="animation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LightingModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradientea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="animation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LightingModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradientea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="animation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="color" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4335,9 +4679,48 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="player" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="animations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArtNetPlayer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4384,11 +4767,11 @@
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.hypher.gradientea.lightingmodel.shared.dome" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.hypher.gradientea.artnet.player.controller.programs" />
@@ -4397,8 +4780,10 @@
       <recent name="org.hypher.gradientea.artnet.player.animations" />
       <recent name="org.hypher.gradientea.artnet.player" />
     </key>
-    <key name="GwtCreateUiBinderDialog.RecentRootElementType">
-      <recent name="com.google.gwt.user.client.ui.Composite" />
+    <key name="OPEN_URL_DIALOG">
+      <recent name="file:///usr/local/Cellar/openni/stable-1.5.2.23/sample/UserTracker.java/org/OpenNI/Samples/UserTracker/UserTracker.java" />
+      <recent name="file://$USER_HOME$/Sites/struts.html" />
+      <recent name="file://$PROJECT_DIR$/../../../analytics/CengageDeploymentTools/environment-links/clts-tomcat-sites.json" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ArtNetPlayer" />
@@ -4407,10 +4792,14 @@
       <recent name="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/transport" />
       <recent name="$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/client/simulator" />
     </key>
-    <key name="OPEN_URL_DIALOG">
-      <recent name="file:///usr/local/Cellar/openni/stable-1.5.2.23/sample/UserTracker.java/org/OpenNI/Samples/UserTracker/UserTracker.java" />
-      <recent name="file://$USER_HOME$/Sites/struts.html" />
-      <recent name="file://$PROJECT_DIR$/../../../analytics/CengageDeploymentTools/environment-links/clts-tomcat-sites.json" />
+    <key name="GwtCreateUiBinderDialog.RecentRootElementType">
+      <recent name="com.google.gwt.user.client.ui.Composite" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="org.hypher.gradientea.artnet.player.controller.programs" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="org.hypher.gradientea.artnet.player.io.DomeProperties" />
     </key>
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="org.hypher.gradientea.artnet.player.animations.DomeImageMapper" />
@@ -4418,20 +4807,17 @@
       <recent name="org.hypher.gradientea.artnet.player.controller.PrototypeController" />
       <recent name="org.hypher.gradientea.artnet.player.controller.OscConstants.Control.Fluid" />
     </key>
-    <key name="MoveMembersDialog.RECENTS_KEY">
-      <recent name="org.hypher.gradientea.artnet.player.io.DomeProperties" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.hypher.gradientea.artnet.player.controller" />
       <recent name="org.hypher.gradientea.ui.client.comet" />
       <recent name="org.hypher.gradientea.lightingmodel.shared.animation" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.hypher.gradientea.lightingmodel.shared.dome" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ArtNetPlayer/src" />
       <recent name="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/lightingmodel" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="org.hypher.gradientea.lightingmodel.shared.dome" />
     </key>
   </component>
   <component name="RunManager" selected="Application.PrototypeController">
@@ -5146,40 +5532,40 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1414" extended-state="6" />
+    <frame x="0" y="22" width="1680" height="1024" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32148376" sideWeight="0.7629276" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.5707965" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22565688" sideWeight="0.7629276" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.5707965" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.70170015" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20942813" sideWeight="0.7745918" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29977876" sideWeight="0.7745918" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.67387944" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3561947" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975337" sideWeight="0.67387944" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21638331" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28029376" sideWeight="0.119469024" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13762927" sideWeight="0.5276549" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16945107" sideWeight="0.6785162" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13762927" sideWeight="0.5276549" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2607099" sideWeight="0.70022124" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30420354" sideWeight="0.9506173" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="807" y="276" width="873" height="770" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08812729" sideWeight="0.5707965" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="soapUI Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08790772" sideWeight="0.64451313" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="soapUI Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2805255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2805255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="soapUI Navigator" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21439937" sideWeight="0.7658424" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -5226,7 +5612,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added run script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Various minor changes to controller" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -5240,7 +5626,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Added GAE web.xml and logging properties" />
     <MESSAGE value="Reverted to threejs, started work on layer removal" />
     <MESSAGE value="New model working, some improvements" />
     <MESSAGE value="Removed old geometry; added docs; tweaked test animation" />
@@ -5265,6 +5650,7 @@
     <MESSAGE value="Fixing DMX address" />
     <MESSAGE value="DMX address again" />
     <MESSAGE value="Added run script" />
+    <MESSAGE value="Various minor changes to controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -5297,119 +5683,184 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/MusicControlProgram.java">
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/MotionControlProgram.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="77" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/HttpDomeAnimationReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="16" selection-start="2702" selection-end="2702" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="method#start#0;class#HttpDomeAnimationReceiver#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/generics/parser/SignatureParser.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="156" selection-end="156" vertical-scroll-proportion="0.10810811" />
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/rt.jar!/sun/java2d/SunGraphics2D.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="302" column="96" selection-start="13807" selection-end="13807" vertical-scroll-proportion="0.21902655" />
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/rt.jar!/sun/java2d/pipe/DrawImage.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="19" selection-start="1624" selection-end="1624" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/rt.jar!/sun/misc/Unsafe.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="321" column="23" selection-start="10159" selection-end="10159" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/rt.jar!/sun/java2d/opengl/OGLDrawImage.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="19" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/src.zip!/javax/swing/JComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="916" column="0" selection-start="34781" selection-end="34781" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GradienTeaUI/src/main/java/org/hypher/gradientea/ui/server/DomeAnimationAtmosphereHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="41" selection-start="1981" selection-end="1981" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="53" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/src.zip!/java/awt/Transparency.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="28" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.0">
+        <state line="38" column="116" selection-start="1476" selection-end="1590" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/osc/OscHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="13" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.0">
+        <state line="439" column="0" selection-start="11829" selection-end="11829" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="class#OscDouble#0;class#OscHelper#0" expanded="true" />
+            <element signature="method#getValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
+            <element signature="method#setValue#0;class#OscDouble#0;class#OscHelper#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/DomeOutput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="method#getCanvas#0;class#DomeOutput#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/RotarySwitchReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/src.zip!/java/io/File.java">
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DebugProgram.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="0" selection-start="10168" selection-end="10168" vertical-scroll-proportion="0.0">
+        <state line="31" column="134" selection-start="1737" selection-end="1869" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#DebugProgram#0;class#DebugProgram#0" expanded="true" />
+            <element signature="method#isFocusDesired#0;class#DebugProgram#0" expanded="true" />
+            <element signature="method#update#0;class#DebugProgram#0" expanded="true" />
+            <element signature="method#paintSinglePanel#0;class#DebugProgram#0" expanded="true" />
+            <element signature="method#paintAllPanels#0;class#DebugProgram#0" expanded="true" />
+            <element signature="method#paintSingleVertex#0;class#DebugProgram#0" expanded="true" />
+            <element signature="method#paintAllVertices#0;class#DebugProgram#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GradienTeaDomeGeometry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="23" selection-start="1987" selection-end="1996" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="method#getLightedFaces#0;class#GradienTeaDomeGeometry#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomePixelCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="0" selection-start="1966" selection-end="1966" vertical-scroll-proportion="0.6115906">
+          <folding>
+            <element signature="method#draw#0;class#DomePixelCanvas#0" expanded="true" />
+            <element signature="method#draw#4;class#DomePixelCanvas#0" expanded="true" />
+            <element signature="method#drawVertices#0;class#DomePixelCanvas#0" expanded="true" />
+            <element signature="method#clear#0;class#DomePixelCanvas#0" expanded="true" />
+            <element signature="method#getFaceColorMap#0;class#DomePixelCanvas#0" expanded="true" />
+            <element signature="method#getVertexColorMap#0;class#DomePixelCanvas#0" expanded="true" />
+            <element signature="method#render#0;class#DomePixelCanvas#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/BaseDomeProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="1" selection-start="505" selection-end="505" vertical-scroll-proportion="0.3107275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DomeAnimationProgram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="method#ProgramId#0;class#ProgramId#0;class#DomeAnimationProgram#0" expanded="true" />
+            <element signature="method#isFluidBased#0;class#ProgramId#0;class#DomeAnimationProgram#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre/lib/rt.jar!/sun/nio/ch/KQueueArrayWrapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="23" selection-start="1470" selection-end="1534" vertical-scroll-proportion="0.6727273">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/testMiniDome.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/OscConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="26" selection-start="3522" selection-end="3522" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="class#Status#0;class#OscConstants#0" expanded="true" />
+            <element signature="class#Controller#0;class#Status#0;class#OscConstants#0" expanded="true" />
+            <element signature="class#Presets#0;class#Control#0;class#OscConstants#0" expanded="true" />
+            <element signature="class#Fluid#0;class#Control#0;class#OscConstants#0" expanded="true" />
+            <element signature="class#Music#0;class#Control#0;class#OscConstants#0" expanded="true" />
+            <element signature="class#Motion#0;class#Control#0;class#OscConstants#0" expanded="true" />
+            <element signature="class#Debug#0;class#Control#0;class#OscConstants#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DoorLightAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="8" selection-start="965" selection-end="1430" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#update#0;class#DoorLightAnimation#0" expanded="true" />
+            <element signature="class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+            <element signature="method#SingleDomeControl#0;class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+            <element signature="method#update#0;class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+            <element signature="method#updateCurrentColor#0;class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+            <element signature="method#updateTargetColor#0;class#SingleDomeControl#0;class#DoorLightAnimation#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DomeAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="69" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/DomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="15" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/PrototypeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="31" selection-start="5447" selection-end="5447" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/BaseDomeProgram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="61" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+        <state line="251" column="29" selection-start="8416" selection-end="8416" vertical-scroll-proportion="0.39175257">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#BaseDomeProgram#0;class#BaseDomeProgram#0" expanded="true" />
-            <element signature="method#getProgramId#0;class#BaseDomeProgram#0" expanded="true" />
-            <element signature="method#init#0;class#BaseDomeProgram#0" expanded="true" />
-            <element signature="method#fluidCanvas#0;class#BaseDomeProgram#0" expanded="true" />
-            <element signature="method#selectThisProgram#0;class#BaseDomeProgram#0" expanded="true" />
-            <element signature="method#now#0;class#BaseDomeProgram#0" expanded="true" />
+            <element signature="method#main#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#PrototypeController#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#addProgram#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#initPrograms#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#activeProgram#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#createStatusWindow#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#createBackBuffer#0;class#4662:7939" expanded="true" />
+            <element signature="method#paint#0;class#4662:7939" expanded="true" />
+            <element signature="method#offscreenPaint#0;class#4662:7939" expanded="true" />
+            <element signature="method#update#0;class#4662:7939" expanded="true" />
+            <element signature="method#getPreferredSize#0;class#4662:7939" expanded="true" />
+            <element signature="method#start#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#initOsc#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#initOutput#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#selectProgram#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#heartbeat#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#renderFrame#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#sendFrame#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#checkForProgramChange#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#getOutputs#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#getFluidCanvas#0;class#PrototypeController#0" expanded="true" />
+            <element signature="class#ProgramEntry#0;class#PrototypeController#0" expanded="true" />
+            <element signature="method#ProgramEntry#0;class#ProgramEntry#0;class#PrototypeController#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/DomeAnimationProgram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.84705883">
-          <folding />
         </state>
       </provider>
     </entry>

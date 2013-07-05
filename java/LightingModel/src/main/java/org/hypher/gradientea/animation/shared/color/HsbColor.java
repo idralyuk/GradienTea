@@ -4,6 +4,8 @@ package org.hypher.gradientea.animation.shared.color;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class HsbColor implements PixelColor {
+	private final static double lowestNonBlackValue = (1.0 / 255) / 2;
+
 	private double hue;
 	private double saturation;
 	private double brightness;
@@ -130,6 +132,11 @@ public class HsbColor implements PixelColor {
 		);
 	}
 
+	@Override
+	public boolean isBlack() {
+		return brightness < lowestNonBlackValue;
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Generated Methods
 
@@ -151,6 +158,27 @@ public class HsbColor implements PixelColor {
 	@Override
 	public double getPriority() {
 		return 1.0;
+	}
+
+	public static HsbColor hsbColor(final PixelColor color) {
+		if (color instanceof HsbColor) {
+			return (HsbColor) color;
+		}
+		else {
+			int[] rgb = color.asRgb();
+			final float[] hsb = RGBtoHSB(rgb[0], rgb[1], rgb[2]);
+			return new HsbColor(hsb[0], hsb[1], hsb[2]);
+		}
+	}
+
+	public HsbColor withBrightness(final double newBrightness) {
+		if (newBrightness == brightness) {
+			return this;
+		} else {
+			return new HsbColor(
+				hue, saturation, brightness
+			);
+		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

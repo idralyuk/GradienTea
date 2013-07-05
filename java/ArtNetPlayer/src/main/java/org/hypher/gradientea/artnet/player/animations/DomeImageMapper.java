@@ -4,11 +4,14 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
+import org.hypher.gradientea.animation.shared.color.HsbColor;
+import org.hypher.gradientea.animation.shared.color.PixelColor;
 import org.hypher.gradientea.animation.shared.color.RgbColor;
 import org.hypher.gradientea.geometry.shared.GeoFace;
 import org.hypher.gradientea.geometry.shared.GeoVector3;
 import org.hypher.gradientea.geometry.shared.GeodesicSphereGeometry;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
+import org.hypher.gradientea.geometry.shared.math.DomeMath;
 import org.hypher.gradientea.geometry.shared.math.GeoPolarVector2;
 
 import java.awt.BasicStroke;
@@ -146,15 +149,15 @@ public class DomeImageMapper {
 				}
 
 				if (faceIndex >= 0) {
-					faceRgbSums[faceIndex][0] += pixelArgb[1];
-					faceRgbSums[faceIndex][1] += pixelArgb[0];
+					faceRgbSums[faceIndex][0] += pixelArgb[0];
+					faceRgbSums[faceIndex][1] += pixelArgb[1];
 					faceRgbSums[faceIndex][2] += pixelArgb[2];
 					faceRgbSums[faceIndex][3] ++;
 				}
 
 				if (vertexIndex >= 0) {
-					vertexRgbSums[vertexIndex][0] += pixelArgb[1];
-					vertexRgbSums[vertexIndex][1] += pixelArgb[0];
+					vertexRgbSums[vertexIndex][0] += pixelArgb[0];
+					vertexRgbSums[vertexIndex][1] += pixelArgb[1];
 					vertexRgbSums[vertexIndex][2] += pixelArgb[2];
 					vertexRgbSums[vertexIndex][3] ++;
 				}
@@ -315,6 +318,77 @@ public class DomeImageMapper {
 		}
 
 		g2.drawImage(overlayImage, x, y, drawWidth, drawHeight, null);
+	}
+
+	public void drawPanelState(
+		DomePixelCanvas pixelCanvas,
+		final Graphics2D g2,
+		int x,
+		int y,
+		int drawWidth,
+		int drawHeight,
+		boolean drawVertices,
+		float opacity
+	) {
+		final Map<GeoFace, PixelColor> faceColorMap = pixelCanvas.getFaceColorMap();
+		final Map<GeoVector3, PixelColor> vertexColorMap = pixelCanvas.getVertexColorMap();
+
+		for (Map.Entry<GeoFace, Polygon> entry : facePolygonMap.entrySet()) {
+			final PixelColor pixelColor = faceColorMap.get(entry.getKey());
+
+			if (pixelColor != null && !pixelColor.isBlack()) {
+				Polygon originalPolygon = entry.getValue();
+				Polygon imageSpacePolygon = new Polygon(
+					new int[] {
+						x + (int) polyToScaled(originalPolygon.xpoints[0], drawWidth),
+						x + (int) polyToScaled(originalPolygon.xpoints[1], drawWidth),
+						x + (int) polyToScaled(originalPolygon.xpoints[2], drawWidth),
+					},
+					new int[] {
+						y + (int) polyToScaled(originalPolygon.ypoints[0], drawHeight),
+						y + (int) polyToScaled(originalPolygon.ypoints[1], drawHeight),
+						y + (int) polyToScaled(originalPolygon.ypoints[2], drawHeight),
+					},
+
+					3
+				);
+
+				g2.setColor(fillColorFor(pixelColor, opacity*3));
+				g2.fillPolygon(imageSpacePolygon);
+			}
+		}
+
+		if (drawVertices) {
+			for (Map.Entry<GeoVector3, Ellipse2D> entry : vertexShapeMap.entrySet()) {
+				final PixelColor pixelColor = vertexColorMap.get(entry.getKey());
+				if (pixelColor != null && !pixelColor.isBlack()) {
+					Ellipse2D polySpaceCircle = entry.getValue();
+					Ellipse2D imageSpaceCircle = new Ellipse2D.Double(
+						x + polyToScaled(polySpaceCircle.getX(), drawWidth),
+						y + polyToScaled(polySpaceCircle.getY(), drawHeight),
+						polyToScaled(polySpaceCircle.getWidth(), drawWidth),
+						polyToScaled(polySpaceCircle.getWidth(), drawHeight)
+					);
+
+					g2.setColor(fillColorFor(pixelColor, opacity));
+					g2.fill(imageSpaceCircle);
+				}
+			}
+		}
+	}
+
+	private Color fillColorFor(PixelColor color, final float opacity) {
+		if (color == null) {
+			return new Color(0,0,0,0);
+		} else {
+			HsbColor baseColor = HsbColor.hsbColor(color);
+			int[] fullBrightness = baseColor.withBrightness(1.0).asRgb();
+
+			return new Color(
+				fullBrightness[0], fullBrightness[1], fullBrightness[2],
+				DomeMath.clip(0, 255, (int) (baseColor.getBrightness() * 255 * opacity))
+			);
+		}
 	}
 
 	private int normalToPoly(double v) {

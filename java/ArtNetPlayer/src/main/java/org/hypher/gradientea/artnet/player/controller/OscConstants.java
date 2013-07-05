@@ -12,6 +12,7 @@ public interface OscConstants {
 			String MANUAL = "/gt/status/controller/manual";
 			String MOTION = "/gt/status/controller/motion";
 			String MUSIC = "/gt/status/controller/music";
+			String DEBUG = "/gt/status/controller/debug";
 		}
 	}
 
@@ -32,6 +33,10 @@ public interface OscConstants {
 
 			String SHOW_DOME_OVERLAY_1 = "/gt/control/fluid/overlay/1";
 			String SHOW_DOME_OVERLAY_2 = "/gt/control/fluid/overlay/2";
+			String SHOW_OVERLAY_ADDRESSES = "/gt/control/fluid/overlay/addresses";
+			String SHOW_OUTPUT_OVERLAY = "/gt/control/fluid/overlay/output";
+			String SHOW_FLUID_OVERLAY = "/gt/control/fluid/overlay/fluid";
+			String SHOW_VERTICES = "/gt/control/fluid/overlay/vertices";
 		}
 
 		interface Music {
@@ -63,6 +68,32 @@ public interface OscConstants {
 
 			String CUTOFF = "/gt/control/motion/cutoff";
 			String COLOR_ROTATION = "/gt/control/motion/colorRotation";
+		}
+
+		interface Debug {
+			String ENABLED = "/gt/control/debug/enabled";
+
+			String ENABLE_1 = "/gt/control/debug/enable/1";
+			String ENABLE_2 = "/gt/control/debug/enable/2";
+
+			String SINGLE_PANEL_INDEX = "/gt/control/debug/single-panel";
+			String SINGLE_PANEL_LABEL = "/gt/control/debug/single-panel/label";
+			String ALL_PANELS_RED = "/gt/control/debug/all-panels/red";
+			String ALL_PANELS_GREEN = "/gt/control/debug/all-panels/green";
+			String ALL_PANELS_BLUE = "/gt/control/debug/all-panels/blue";
+
+			String SINGLE_VERTEX_INDEX = "/gt/control/debug/single-vertex";
+			String SINGLE_VERTEX_LABEL = "/gt/control/debug/single-vertex/label";
+			String ALL_VERTICES_RED = "/gt/control/debug/all-vertices/red";
+			String ALL_VERTICES_GREEN = "/gt/control/debug/all-vertices/green";
+			String ALL_VERTICES_BLUE = "/gt/control/debug/all-vertices/blue";
+		}
+
+		interface Door {
+			String INDEX_1 = "/gt/control/door/1/index";
+			String INDEX_1_LABEL = "/gt/control/door/1/index-label";
+			String INDEX_2 = "/gt/control/door/2/index";
+			String INDEX_2_LABEL = "/gt/control/door/2/index-label";
 		}
 	}
 }

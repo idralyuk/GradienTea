@@ -16,4 +16,6 @@ public interface PixelColor {
 	double getPriority();
 
 	int[] asRgb();
+
+	boolean isBlack();
 }
