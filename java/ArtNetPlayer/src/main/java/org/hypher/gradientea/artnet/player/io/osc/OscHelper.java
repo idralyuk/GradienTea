@@ -185,8 +185,12 @@ public class OscHelper {
 	}
 
 	public void readState(InputStream inputStream) {
-		OSCBundle bundle = (OSCBundle) new XStream().fromXML(inputStream);
-		receiver.dispatchPacket(bundle);
+		try {
+			OSCBundle bundle = (OSCBundle) new XStream().fromXML(inputStream);
+			receiver.dispatchPacket(bundle);
+		} catch (Exception e) {
+			/* NOP */
+		}
 	}
 
 	public void saveState(final File file) {

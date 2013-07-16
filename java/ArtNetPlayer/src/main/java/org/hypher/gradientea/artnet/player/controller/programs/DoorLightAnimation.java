@@ -21,19 +21,24 @@ public class DoorLightAnimation extends BaseDomeAnimation {
 	private static final double FADE_FRACTION = 0.1;
 
 	private List<SingleDomeControl> domeControls;
+	private OscHelper.OscDouble door1Index = OscHelper.doubleValue(OscConstants.Control.Door.INDEX_1, 0, 1, 0);
+	private OscHelper.OscDouble door1Label = OscHelper.doubleValue(OscConstants.Control.Door.INDEX_1_LABEL, 0, 1, 0);
+
+	private OscHelper.OscDouble door2Index = OscHelper.doubleValue(OscConstants.Control.Door.INDEX_2, 0, 1, 0);
+	private OscHelper.OscDouble door2Label = OscHelper.doubleValue(OscConstants.Control.Door.INDEX_2_LABEL, 0, 1, 0);
 
 	@Override
 	protected void initialize() {
 		domeControls = ImmutableList.of(
 			new SingleDomeControl(
-				OscHelper.doubleValue(OscConstants.Control.Door.INDEX_1, 0, 1, 0),
-				OscHelper.doubleValue(OscConstants.Control.Door.INDEX_1_LABEL, 0, 1, 0),
+				door1Index,
+				door1Label,
 				controller.getOutputs().get(0)
 			),
 
 			new SingleDomeControl(
-				OscHelper.doubleValue(OscConstants.Control.Door.INDEX_2, 0, 1, 0),
-				OscHelper.doubleValue(OscConstants.Control.Door.INDEX_2_LABEL, 0, 1, 0),
+				door2Index,
+				door2Label,
 				controller.getOutputs().get(1)
 			)
 		);
@@ -88,7 +93,11 @@ public class DoorLightAnimation extends BaseDomeAnimation {
 					domeOutput.getGeometry().getLightedFaces(),
 					index
 				),
-				new RgbColor(currentColor[0], currentColor[1], currentColor[2])
+				new RgbColor(
+					currentColor[0]*.25,
+					currentColor[2]*.25,
+					currentColor[1]*.25
+				)
 			);
 		}
 

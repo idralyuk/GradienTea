@@ -12,6 +12,10 @@ import org.hypher.gradientea.geometry.shared.math.DomeMath;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Mixer;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 import static org.hypher.gradientea.geometry.shared.math.DomeMath.*;
 
@@ -26,6 +30,7 @@ public class MusicControlProgram extends BaseDomeProgram {
 	private double currentFreqHighFraction;
 
 	private Emitter[] emitters;
+	private BandHistogram bandHistogram;
 
 	private OscHelper.OscDouble oscBandsFraction = OscHelper.doubleValue(
 		OscConstants.Control.Music.FREQ_BANDS, 0, 1, 0.3
@@ -129,11 +134,33 @@ public class MusicControlProgram extends BaseDomeProgram {
 			int emitterCount = emitterEnd - emitterStart;
 
 			emitters = new Emitter[emitterCount];
+			bandHistogram = null;
 
 			for (int i=0; i<emitters.length; i++) {
 				emitters[i] = new Emitter(emitterStart + i, (double)i/emitters.length);
 			}
 		}
+	}
+
+	@Override
+	public void drawOverlay(final Graphics2D g, final int width, final int height) {
+
+		// Draw each emitter
+		if (emitters != null) {
+			for (Emitter emitter : emitters) {
+				emitter.drawOverlay(g, width, height);
+			}
+		}
+
+		if (bandHistogram == null || bandHistogram.width != width) {
+			bandHistogram = new BandHistogram(width, (int) (height * 0.2));
+		}
+
+		bandHistogram.update(emitters);
+
+		bandHistogram.draw(g, width / 2, height - bandHistogram.height);
+
+		super.drawOverlay(g, width, height);
 	}
 
 	@Override
@@ -154,14 +181,14 @@ public class MusicControlProgram extends BaseDomeProgram {
 		double currentPower;
 
 		boolean clockwiseRotation;
-		double rotationFlipCounter = -1;
+		int rotationFlipCounter = -1;
 
 		public Emitter(
 			final int freqIndex,
 			final double bandPosition
 		) {
 			this.freqIndex = freqIndex;
-			this.hue = bandPosition;
+			this.hue = bandPosition*3;
 			this.bandPosition = bandPosition;
 			this.currentAngle = this.initialAngle = bandPosition * TWO_PI;
 			this.clockwiseRotation = true;
@@ -187,27 +214,25 @@ public class MusicControlProgram extends BaseDomeProgram {
 				clockwiseRotation = !clockwiseRotation;
 			}
 
-			if (highest) {
-				rotationFlipCounter = rotationStepCount;
+			if (fractionalPower() > oscSensitivity.getValue()) {
+				rotationFlipCounter =  (int) rotationStepCount;
 			}
 
 			if (currentPower > 0.01) {
-				currentAngle += TWO_PI * .1 * currentPower * emitterRotationFraction.getValue();
+				currentAngle += TWO_PI * .1 * currentPower * emitterRotationFraction.getValue() * (clockwiseRotation?1:-1);
 			}
 		}
 
 		public void draw(final DomeFluidCanvas canvas) {
-			if (currentPower > oscSensitivity.getValue()) {
-				float effectiveHue = f(hue + hueOffset());
+			if (fractionalPower() > oscSensitivity.getValue()) {
+				float effectiveHue = effectiveHue();
 
-				double emitterRadius = oscEmitterRadius.getValue();
+				final float fromX = getFractionalX();
+				final float fromY = getFractionalY();
+				final float velocity = f(oscVelocity.getValue()*0.01 + fractionalPower() * 0.02 * oscVelocity.getValue());
+				final float intensity = f(oscIntensity.getValue() + fractionalPower() * 1000 * oscIntensity.getValue());
 
-				final float fromX = f(0.5 + Math.cos(currentAngle) * emitterRadius);
-				final float fromY = f(0.5 + Math.sin(currentAngle) * emitterRadius);
-				final float velocity = f(oscVelocity.getValue()*0.01 + clip(0, 2, currentPower) * 0.02 * oscVelocity.getValue());
-				final float intensity = f(oscIntensity.getValue() + clip(0, 2, currentPower) * 1000 * oscIntensity.getValue());
-
-				if (emitterRadius > 0.25) {
+				if (oscEmitterRadius.getValue() > 0.25) {
 					// Project inwards
 					canvas.emitDirectional(fromX, fromY, 0.5f, 0.5f, effectiveHue, velocity, intensity);
 				} else {
@@ -215,6 +240,44 @@ public class MusicControlProgram extends BaseDomeProgram {
 					canvas.emitDirectional(fromX, fromY, (float) currentAngle, effectiveHue, velocity, intensity);
 				}
 			}
+		}
+
+		private float effectiveHue() {
+			return f(hue + hueOffset());
+		}
+
+		private float getFractionalY() {
+			return f(0.5 + Math.sin(currentAngle) * oscEmitterRadius.getValue());
+		}
+
+		private float getFractionalX() {
+			return f(0.5 + Math.cos(currentAngle) * oscEmitterRadius.getValue());
+		}
+
+		public void drawOverlay(final Graphics2D g, final int width, final int height) {
+			if (fractionalPower() > 0.01) {
+				double radiusMultiplier = Math.min(width, height) * 0.05;
+
+				int centerX = (int) (getFractionalX() * width);
+				int centerY = (int) (getFractionalY() * height);
+
+				int radius = (int) (fractionalPower() * radiusMultiplier);
+				int maxRadius = (int) radiusMultiplier;
+
+				int sensitivityRadius = (int) (oscSensitivity.getValue() * radiusMultiplier);
+
+				g.setStroke(new BasicStroke(2f));
+				g.setColor(Color.getHSBColor(effectiveHue(), 1f, 1f));
+				g.fillOval(centerX-radius, centerY-radius, radius*2, radius*2);
+
+				g.setStroke(new BasicStroke(1f));
+				g.setColor(Color.getHSBColor(effectiveHue(), 1f, 0.5f));
+				g.drawOval(centerX-sensitivityRadius, centerY-sensitivityRadius, sensitivityRadius*2, sensitivityRadius*2);
+			}
+		}
+
+		private float fractionalPower() {
+			return (float) DomeMath.clip(0, 2, currentPower) / 2;
 		}
 	}
 
@@ -336,6 +399,49 @@ public class MusicControlProgram extends BaseDomeProgram {
 			}
 
 			return highestChannelIndex;
+		}
+	}
+
+	public static class BandHistogram {
+		int width, height;
+		BufferedImage bufferImage;
+		int currentPos = 0;
+		int sampleWidth = 2;
+
+		public BandHistogram(final int width, final int height) {
+			this.width = width;
+			this.height = height;
+
+			bufferImage = new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);
+		}
+
+		public void update(Emitter[] emitters) {
+			int bandHeight = height / emitters.length;
+
+			Graphics2D g = (Graphics2D) bufferImage.getGraphics();
+
+			g.clearRect(currentPos, 0, sampleWidth, height);
+
+			int y = 0;
+			for (Emitter emitter : emitters) {
+				g.setColor(Color.getHSBColor(emitter.effectiveHue(), 1f, emitter.fractionalPower()));
+				g.fillRect(currentPos, y, sampleWidth, bandHeight);
+
+				y += bandHeight;
+			}
+
+			currentPos += sampleWidth;
+			if (currentPos >= width) {
+				currentPos = 0;
+			}
+		}
+
+		public void draw(Graphics2D g, int x, int y) {
+			g.drawImage(bufferImage, x - currentPos, y, x, y+height, 0, 0, currentPos, height, null);
+
+			if (currentPos < x) {
+				g.drawImage(bufferImage, x - width, y, x - currentPos, y+height, currentPos, 0, width, height, null);
+			}
 		}
 	}
 }

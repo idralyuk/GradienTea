@@ -3,7 +3,7 @@ package org.hypher.gradientea.artnet.player.controller.programs;
 import org.hypher.gradientea.artnet.player.io.osc.OscHelper;
 
 import static org.hypher.gradientea.artnet.player.io.osc.OscHelper.multitouch;
-import static org.hypher.gradientea.geometry.shared.math.DomeMath.TWO_PI;
+import static org.hypher.gradientea.geometry.shared.math.DomeMath.f;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)
@@ -31,10 +31,11 @@ public class ManualControlProgram extends BaseDomeProgram {
 			fluidCanvas().emitDirectional(
 				(float) touch.getCurrentX(), (float) touch.getCurrentY(),
 				(float) touch.getAngle(),
-				(float) (
-					Math.sin(touch.getInitialX() * TWO_PI) *
-						Math.sin(touch.getInitialY() * TWO_PI)
-				),
+//				(float) (
+//					Math.sin(touch.getInitialX() * TWO_PI) *
+//						Math.sin(touch.getInitialY() * TWO_PI)
+//				),
+				f(touch.getInitialY() * 2),
 				(float) touch.getVelocity() * 0.5f,
 				(float) touch.getVelocity() * 100
 			);

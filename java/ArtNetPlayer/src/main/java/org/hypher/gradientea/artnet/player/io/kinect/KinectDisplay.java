@@ -7,10 +7,13 @@ import org.OpenNI.SkeletonJoint;
 import org.OpenNI.SkeletonJointPosition;
 import org.OpenNI.StatusException;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
@@ -50,10 +53,15 @@ public class KinectDisplay extends Component {
 	}
 
 	Color colors[] = {Color.RED, Color.BLUE, Color.GREEN, Color.MAGENTA, Color.PINK, Color.YELLOW, Color.WHITE, Color.CYAN};
-	public void paint(Graphics g)
+	public void paint(Graphics graphics)
 	{
-		this.kinectWidthScale = (double) getWidth() / kinectDataWidth;
-		this.kinectHeightScale = (double) getHeight() / kinectDataHeight;
+		Graphics2D g = (Graphics2D) graphics;
+
+		//this.kinectWidthScale = (double) getWidth() / kinectDataWidth;
+		//this.kinectHeightScale = (double) getHeight() / kinectDataHeight;
+
+		this.kinectWidthScale = 1.0;
+		this.kinectHeightScale = 1.0;
 
 		if (drawPixels)
 		{
@@ -75,7 +83,18 @@ public class KinectDisplay extends Component {
 				bimg = new BufferedImage(colorModel, raster, false, null);
 			}
 
-			g.drawImage(bimg, 0, 0, getWidth(), getHeight(), null);
+
+			((Graphics2D)g).setRenderingHint(
+				RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON
+			);
+			((Graphics2D)g).setRenderingHint(
+				RenderingHints.KEY_INTERPOLATION,
+				RenderingHints.VALUE_INTERPOLATION_BILINEAR
+			);
+			g.setColor(Color.black);
+			g.fillRect(0, 0, getWidth(), getHeight());
+			g.drawImage(bimg, 0, 0, kinectDataWidth, kinectDataHeight, null);
 		}
 
 		try
@@ -86,7 +105,9 @@ public class KinectDisplay extends Component {
 				Color c = colors[users[i]%colors.length];
 				c = new Color(255-c.getRed(), 255-c.getGreen(), 255-c.getBlue());
 
+				g.setStroke(new BasicStroke(2f));
 				g.setColor(c);
+
 				if (drawSkeleton && kinectInput.getSkeletonCap().isSkeletonTracking(users[i]))
 				{
 					drawSkeleton(g, users[i]);
@@ -98,6 +119,7 @@ public class KinectDisplay extends Component {
 						kinectInput.getUserGen().getUserCoM(users[i])
 					);
 					String label = null;
+
 					if (!printState)
 					{
 						label = new String(""+users[i]);

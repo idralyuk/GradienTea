@@ -2,6 +2,8 @@ package org.hypher.gradientea.artnet.player.controller.programs;
 
 import org.hypher.gradientea.artnet.player.controller.DomeController;
 
+import java.awt.Graphics2D;
+
 /**
  * @author Yona Appletree (yona@concentricsky.com)
  */
@@ -26,4 +28,13 @@ public interface DomeAnimation {
 	 * to allow other programs to use the resources.
 	 */
 	void stop();
+
+	/**
+	 * Gives the program an opportunity to draw onto the status window.
+	 *
+	 * @param g
+	 * @param width
+	 * @param height
+	 */
+	void drawOverlay(Graphics2D g, int width, int height);
 }

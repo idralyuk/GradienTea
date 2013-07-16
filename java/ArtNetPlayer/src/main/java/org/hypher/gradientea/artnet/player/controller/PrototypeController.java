@@ -144,7 +144,9 @@ public class PrototypeController implements Runnable, DomeController {
 					offscreenPaint((Graphics2D) offscreenGraphics);
 
 					// paint back buffer to main graphics
-					g.drawImage(volatileImg, 0, 0, this);
+					if (! volatileImg.contentsLost()) {
+						g.drawImage(volatileImg, 0, 0, this);
+					}
 					// Test if content is lost
 				} while(volatileImg.contentsLost());
 			}
@@ -215,6 +217,9 @@ public class PrototypeController implements Runnable, DomeController {
 						/* This happens sometimes. Oh well. */
 					}
 				}
+
+				// Let the current program draw if it would like
+				activeProgram().drawOverlay(g, getWidth(), getHeight());
 			}
 
 			public void update(Graphics g) {
@@ -329,11 +334,6 @@ public class PrototypeController implements Runnable, DomeController {
 
 		sendFrame();
 
-		if (activeProgramId != DomeAnimationProgram.ProgramId.DEBUG) {
-			// Run the door program after the panels have been calculated so it can use the rendered data
-			doorProgram.update();
-		}
-
 		// Update the status widget after sending the frame so we can display the current state of all the panels
 		statusWidget.repaint();
 	}
@@ -346,7 +346,14 @@ public class PrototypeController implements Runnable, DomeController {
 					output.getCanvas()
 				);
 			}
+		}
 
+		if (activeProgramId != DomeAnimationProgram.ProgramId.DEBUG) {
+			// Run the door program after the panels have been calculated so it can use the rendered data
+			doorProgram.update();
+		}
+
+		for (DomeOutput output : outputs) {
 			output.send();
 		}
 	}

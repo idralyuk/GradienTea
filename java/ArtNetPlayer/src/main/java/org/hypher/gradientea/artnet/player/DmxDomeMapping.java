@@ -96,6 +96,8 @@ public class DmxDomeMapping {
 
 	private int pixelsPerVertex = 0;
 
+	private double maxPowerCoefficient = 1.0;
+
 	private boolean exponentialScaling = false;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

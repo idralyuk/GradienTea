@@ -52,22 +52,34 @@ public class DomeImageMapper {
 	private int[][] faceRgbSums;
 	private int[][] vertexRgbSums;
 
+	private double rotationRadians = Math.PI/2.2;
+
 	public DomeImageMapper(final GradienTeaDomeGeometry geometry) {
 		this.geometry = geometry;
 		lightedFaces = ImmutableList.copyOf(geometry.getLightedFaces());
 		lightedVertices = ImmutableList.copyOf(geometry.getLightedVertices());
 
-		faceRgbSums = new int[lightedFaces.size()][4];
-		vertexRgbSums = new int[lightedVertices.size()][4];
+		buildPixelFaceMap();
+	}
+
+	public double getRotationRadians() {
+		return rotationRadians;
+	}
+
+	public void setRotationRadians(final double rotationRadians) {
+		this.rotationRadians = rotationRadians;
 
 		buildPixelFaceMap();
 	}
 
 	private synchronized void buildPixelFaceMap() {
+		faceRgbSums = new int[lightedFaces.size()][4];
+		vertexRgbSums = new int[lightedVertices.size()][4];
+
 		for (GeoFace face : lightedFaces) {
-			double[] a = mercator(face.getA());
-			double[] b = mercator(face.getB());
-			double[] c = mercator(face.getC());
+			double[] a = mercator(face.getA(), rotationRadians);
+			double[] b = mercator(face.getB(), rotationRadians);
+			double[] c = mercator(face.getC(), rotationRadians);
 
 			facePolygonMap.put(
 				face,
@@ -89,7 +101,7 @@ public class DomeImageMapper {
 
 		double polySpaceVertexRadius = normalToPoly(geometry.getVertexRadius());
 		for (GeoVector3 vertex : lightedVertices) {
-			double[] xyVertex = mercator(vertex);
+			double[] xyVertex = mercator(vertex, rotationRadians);
 
 			vertexShapeMap.put(
 				vertex,
@@ -403,7 +415,7 @@ public class DomeImageMapper {
 		return (i / POLYGON_SPACE_SIZE) * scale;
 	}
 
-	public static double[] mercator(GeoVector3 point) {
+	public static double[] mercator(GeoVector3 point, double rotationRadians) {
 		GeoPolarVector2 polarPoint = point.toPolar();
 
 		final GeoPolarVector2 topVertex = GeodesicSphereGeometry.topVertex.toPolar();
@@ -432,6 +444,25 @@ public class DomeImageMapper {
 //		result[0] = point.getX()*0.4;
 //		result[1] = point.getY()*0.4;
 
+		// Now rotate
+
+		rotate(result, rotationRadians);
 		return result;
+	}
+
+	private static void rotate(final double[] result, final double rotationRadians) {
+		double cx = 0, cy = 0;
+
+		double s = sin(rotationRadians);
+		double c = cos(rotationRadians);
+
+		result[0] -= cx;
+		result[1] -= cy;
+
+		double newX = result[0] * c - result[1] * s;
+		double newY = result[0] * s + result[1] * c;
+
+		result[0] = newX + cx;
+		result[1] = newY + cy;
 	}
 }
