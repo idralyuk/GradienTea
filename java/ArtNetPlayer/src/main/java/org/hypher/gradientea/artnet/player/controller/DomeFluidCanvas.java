@@ -211,6 +211,7 @@ public class DomeFluidCanvas {
 			(float) (Math.cos(angle) * velocity),
 			(float) (Math.sin(angle) * velocity)
 		);
+
 	}
 
 	public void emitRing(

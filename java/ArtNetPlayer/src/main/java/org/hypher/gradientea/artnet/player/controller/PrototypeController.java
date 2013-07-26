@@ -1,5 +1,6 @@
 package org.hypher.gradientea.artnet.player.controller;
 
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.util.concurrent.Uninterruptibles;
@@ -10,21 +11,14 @@ import org.hypher.gradientea.artnet.player.controller.programs.ManualControlProg
 import org.hypher.gradientea.artnet.player.controller.programs.MotionControlProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.MusicControlProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.OffProgram;
+import org.hypher.gradientea.artnet.player.io.ArduinoLedPanelOutput;
 import org.hypher.gradientea.artnet.player.io.kinect.KinectDisplay;
 import org.hypher.gradientea.artnet.player.io.kinect.KinectInput;
 import org.hypher.gradientea.artnet.player.io.osc.OscHelper;
 import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
 
-import javax.swing.JFrame;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.Image;
-import java.awt.RenderingHints;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.VolatileImage;
 import java.io.File;
 import java.util.List;
@@ -63,6 +57,8 @@ public class PrototypeController implements Runnable, DomeController {
 	private OscHelper.OscBoolean oscShowOutputOverlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_OUTPUT_OVERLAY, true);
 	private OscHelper.OscBoolean oscShowFluidOverlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_FLUID_OVERLAY, true);
 	private OscHelper.OscBoolean oscShowVertices = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_VERTICES, true);
+
+	private Optional<ArduinoLedPanelOutput> arduinoOutput = ArduinoLedPanelOutput.getInstance();
 
 	private long frameCounter = 0;
 
@@ -336,6 +332,11 @@ public class PrototypeController implements Runnable, DomeController {
 
 		// Update the status widget after sending the frame so we can display the current state of all the panels
 		statusWidget.repaint();
+
+		// Send data to arduino if possible
+		if (arduinoOutput.isPresent()) {
+			arduinoOutput.get().writeImage(fluidCanvas.getImage());
+		}
 	}
 
 	private void sendFrame() {

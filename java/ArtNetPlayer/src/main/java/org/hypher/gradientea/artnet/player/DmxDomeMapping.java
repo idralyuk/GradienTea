@@ -8,6 +8,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import org.hypher.gradientea.artnet.player.io.DomeProperties;
+import org.hypher.gradientea.geometry.shared.math.DomeMath;
 import org.hypher.gradientea.transport.shared.DomeAnimationFrame;
 
 import java.io.InputStream;
@@ -435,7 +436,7 @@ public class DmxDomeMapping {
 			boolean exponential
 		) {
 			if (exponential) {
-				value = (int) (Math.pow(256, value / 255.0) - 1);
+				value = (int) DomeMath.exponentialScale(value, 255);
 			}
 
 			value = (int) (intensityMin + (value/255d) * (intensityMax-intensityMin));

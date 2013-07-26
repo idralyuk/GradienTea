@@ -83,4 +83,16 @@ public class DomeMath {
 	public static double log(final float value, final int base) {
 		return Math.log(value) / Math.log(base);
 	}
+
+	public static double exponentialScale(final double value, final double max) {
+		return Math.pow(max+1, value / max) - 1;
+	}
+
+	public static double exponentialScale(final double value, final double max, final double exponentialWeight) {
+		return (value + exponentialWeight*(Math.pow(max+1, value / max) - 1)) / (exponentialWeight+1);
+	}
+
+	public static int exponentialScale(final int value, final int max) {
+		return (int) exponentialScale((double)value, (double)max);
+	}
 }
