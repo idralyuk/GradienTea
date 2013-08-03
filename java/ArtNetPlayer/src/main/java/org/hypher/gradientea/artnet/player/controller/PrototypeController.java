@@ -4,6 +4,8 @@ import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.util.concurrent.Uninterruptibles;
+import org.hypher.gradientea.artnet.player.DomeColorManager;
+import org.hypher.gradientea.artnet.player.aurora.AuroraPaletteManager;
 import org.hypher.gradientea.artnet.player.controller.programs.DebugProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.DomeAnimationProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.DoorLightAnimation;
@@ -50,6 +52,10 @@ public class PrototypeController implements Runnable, DomeController {
 	private DomeAnimationProgram.ProgramId activeProgramId;
 	private DomeAnimationProgram.ProgramId defaultProgramId = DomeAnimationProgram.ProgramId.MUSIC;
 
+	private OscHelper.OscDouble oscPalette = OscHelper.doubleValue(OscConstants.Control.Color.PALETTE_INDEX, 0, 1, 0);
+
+	private OscHelper.OscDouble oscOverallFluidIntensity = OscHelper.doubleValue(OscConstants.Control.Fluid.INTENTISTY_MULTIPLIER, .1, 20, 3);
+
 	private OscHelper.OscBoolean oscShowDome1Overlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_DOME_OVERLAY_1, true);
 	private OscHelper.OscBoolean oscShowDome2Overlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_DOME_OVERLAY_2, false);
 
@@ -57,6 +63,7 @@ public class PrototypeController implements Runnable, DomeController {
 	private OscHelper.OscBoolean oscShowOutputOverlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_OUTPUT_OVERLAY, true);
 	private OscHelper.OscBoolean oscShowFluidOverlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_FLUID_OVERLAY, true);
 	private OscHelper.OscBoolean oscShowVertices = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_VERTICES, true);
+	private OscHelper.OscBoolean oscShowOutline = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_OUTLINE, true);
 
 	private Optional<ArduinoLedPanelOutput> arduinoOutput = ArduinoLedPanelOutput.getInstance();
 
@@ -147,7 +154,7 @@ public class PrototypeController implements Runnable, DomeController {
 				} while(volatileImg.contentsLost());
 			}
 
-			private void offscreenPaint(final Graphics2D g) {
+			private synchronized void offscreenPaint(final Graphics2D g) {
 				g.setRenderingHint(
 					RenderingHints.KEY_ANTIALIASING,
 					RenderingHints.VALUE_ANTIALIAS_ON
@@ -165,8 +172,10 @@ public class PrototypeController implements Runnable, DomeController {
 
 				final int outputCount = outputs.size();
 
-				double pixelWidth = getWidth() / fluidCanvasWidth;
-				double pixelHeight = getHeight() / fluidCanvasHeight;
+				final int simDrawSize = Math.min(getWidth(), getHeight());
+
+				double pixelWidth = simDrawSize / fluidCanvasWidth;
+				double pixelHeight = simDrawSize / fluidCanvasHeight;
 
 				float[] rgb = new float[3];
 
@@ -174,15 +183,17 @@ public class PrototypeController implements Runnable, DomeController {
 
 				for (int i=0; i<outputs.size(); i++) {
 					if ((i==0 && oscShowDome1Overlay.value()) || (i==1 && oscShowDome2Overlay.value())) {
-						outputs.get(i).getImageMapper().drawMask(
-							g,
-							0,
-							0,
-							getWidth(),
-							getHeight(),
-							oscShowOverlayAddresses.value(),
-							oscShowVertices.value()
-						);
+						if (oscShowOutline.value()) {
+							outputs.get(i).getImageMapper().drawMask(
+								g,
+								0,
+								0,
+								simDrawSize,
+								simDrawSize,
+								oscShowOverlayAddresses.value(),
+								oscShowVertices.value()
+							);
+						}
 
 						if (oscShowOutputOverlay.value()) {
 							outputs.get(i).getImageMapper().drawPanelState(
@@ -190,8 +201,8 @@ public class PrototypeController implements Runnable, DomeController {
 								g,
 								0,
 								0,
-								getWidth(),
-								getHeight(),
+								simDrawSize,
+								simDrawSize,
 								oscShowVertices.value(),
 								0.5f
 							);
@@ -205,13 +216,26 @@ public class PrototypeController implements Runnable, DomeController {
 							scaledFluid,
 							0,
 							0,
-							getWidth(),
-							getHeight(),
+							simDrawSize,
+							simDrawSize,
 							null
 						);
 					} catch (Exception e) {
 						/* This happens sometimes. Oh well. */
 					}
+				}
+
+				// Draw the current color palette
+				AuroraPaletteManager.Palette palette = DomeColorManager.instance().getPalette(oscPalette.floatValue());
+				int swatchHeight = simDrawSize / palette.getColors().length;
+				for (int i=0; i<palette.getColors().length; i++) {
+					g.setColor(
+						palette.getColors()[i]
+					);
+					g.fillRect(
+						0, i*swatchHeight,
+						20, swatchHeight
+					);
 				}
 
 				// Let the current program draw if it would like
@@ -321,7 +345,7 @@ public class PrototypeController implements Runnable, DomeController {
 		heartbeat();
 		activeProgram().update();
 
-		fluidCanvas.update();
+		fluidCanvas.update(oscOverallFluidIntensity.getValue());
 
 		if (KinectInput.instance().isKinectEnabled()) {
 			kinectWidget.updateDepth();
@@ -378,6 +402,14 @@ public class PrototypeController implements Runnable, DomeController {
 	@Override
 	public DomeFluidCanvas getFluidCanvas() {
 		return fluidCanvas;
+	}
+
+	@Override
+	public Color getColor(final float color) {
+		return DomeColorManager.instance().getColor(
+			oscPalette.floatValue(),
+			color
+		);
 	}
 
 	protected class ProgramEntry {

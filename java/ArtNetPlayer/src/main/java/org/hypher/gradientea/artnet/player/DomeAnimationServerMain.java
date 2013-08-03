@@ -30,8 +30,8 @@ public class DomeAnimationServerMain {
 				Constants.DEFAULT_ART_NET_UDP_PORT
 			);
 
-			HttpDomeAnimationReceiver httpReceiver = new HttpDomeAnimationReceiver(player);
-			httpReceiver.start(DOME_PORT+i/2);
+//			HttpDomeAnimationReceiver httpReceiver = new HttpDomeAnimationReceiver(player);
+//			httpReceiver.start(DOME_PORT+i/2);
 
 			UdpDomeAnimationReceiver udpReceiver = new UdpDomeAnimationReceiver(player);
 			udpReceiver.start(DOME_PORT+i/2);

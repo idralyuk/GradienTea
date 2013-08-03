@@ -53,7 +53,7 @@ public class MusicControlProgram extends BaseDomeProgram {
 	);
 
 	private OscHelper.OscDouble oscIntensity = OscHelper.doubleValue(
-		OscConstants.Control.Music.INTENSITY, 0, 1.0, 0.5
+		OscConstants.Control.Music.INTENSITY, 0, .4, 0.05
 	);
 
 	private OscHelper.OscDouble oscSustain = OscHelper.doubleValue(
@@ -72,6 +72,9 @@ public class MusicControlProgram extends BaseDomeProgram {
 		OscConstants.Control.Music.EMITTER_ROTATION, 0, 1.0, 0.1
 	);
 
+	private OscHelper.OscDouble emitterMovementFraction = OscHelper.doubleValue(
+		OscConstants.Control.Music.EMITTER_MOVEMENT, 0, .1, 0.01
+	);
 
 	public MusicControlProgram() {
 		super(ProgramId.MUSIC);
@@ -180,6 +183,8 @@ public class MusicControlProgram extends BaseDomeProgram {
 		double currentAngle;
 		double currentPower;
 
+		double radiusOffset = 0;
+
 		boolean clockwiseRotation;
 		int rotationFlipCounter = -1;
 
@@ -196,7 +201,24 @@ public class MusicControlProgram extends BaseDomeProgram {
 
 		public void update(float intensity, boolean highest) {
 			updateRotation(highest);
+			updateRadius(intensity, highest);
 			updatePower(intensity, highest);
+		}
+
+		private void updateRadius(float intensity, boolean highest) {
+			if (highest) {
+				radiusOffset += emitterMovementFraction.floatValue()*intensity;
+			} else {
+				radiusOffset -= emitterMovementFraction.floatValue();
+			}
+
+			if (radiusOffset < 0) {
+				radiusOffset = 0;
+			}
+
+			if (radiusOffset > 1) {
+				radiusOffset = 1;
+			}
 		}
 
 		private void updatePower(final float intensity, final boolean highest) {
@@ -232,14 +254,18 @@ public class MusicControlProgram extends BaseDomeProgram {
 				final float velocity = f(oscVelocity.getValue()*0.01 + fractionalPower() * 0.02 * oscVelocity.getValue());
 				final float intensity = f(oscIntensity.getValue() + fractionalPower() * 1000 * oscIntensity.getValue());
 
-				if (oscEmitterRadius.getValue() > 0.25) {
+				if (effectiveRadius() > 0.25) {
 					// Project inwards
-					canvas.emitDirectional(fromX, fromY, 0.5f, 0.5f, effectiveHue, velocity, intensity);
+					canvas.emitDirectional(fromX, fromY, 0.5f, 0.5f, controller.getColor(effectiveHue), velocity, intensity);
 				} else {
 					// Project outwards
-					canvas.emitDirectional(fromX, fromY, (float) currentAngle, effectiveHue, velocity, intensity);
+					canvas.emitDirectional(fromX, fromY, (float) currentAngle, controller.getColor(effectiveHue), velocity, intensity);
 				}
 			}
+		}
+
+		private double effectiveRadius() {
+			return (oscEmitterRadius.getValue() + (DomeMath.exponentialScale(radiusOffset, 1f)-.5f)*.5)%1f;
 		}
 
 		private float effectiveHue() {
@@ -247,11 +273,11 @@ public class MusicControlProgram extends BaseDomeProgram {
 		}
 
 		private float getFractionalY() {
-			return f(0.5 + Math.sin(currentAngle) * oscEmitterRadius.getValue());
+			return f(0.5 + Math.sin(currentAngle) * effectiveRadius());
 		}
 
 		private float getFractionalX() {
-			return f(0.5 + Math.cos(currentAngle) * oscEmitterRadius.getValue());
+			return f(0.5 + Math.cos(currentAngle) * effectiveRadius());
 		}
 
 		public void drawOverlay(final Graphics2D g, final int width, final int height) {

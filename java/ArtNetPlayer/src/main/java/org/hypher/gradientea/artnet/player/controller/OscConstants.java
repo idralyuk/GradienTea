@@ -37,6 +37,8 @@ public interface OscConstants {
 			String SHOW_OUTPUT_OVERLAY = "/gt/control/fluid/overlay/output";
 			String SHOW_FLUID_OVERLAY = "/gt/control/fluid/overlay/fluid";
 			String SHOW_VERTICES = "/gt/control/fluid/overlay/vertices";
+			String SHOW_OUTLINE = "/gt/control/fluid/overlay/outline";
+			String INTENTISTY_MULTIPLIER = "/gt/control/fluid/intensityMultiplier";
 		}
 
 		interface Music {
@@ -52,6 +54,7 @@ public interface OscConstants {
 			String EMITTER_RADIUS = "/gt/control/music/emitterRadius";
 			String EMITTER_ROTATION = "/gt/control/music/emitterRotation";
 			String COLOR_ROTATION = "/gt/control/music/colorRotation";
+			String EMITTER_MOVEMENT = "/gt/control/music/emitterMovement";
 		}
 
 		interface Motion {
@@ -94,6 +97,10 @@ public interface OscConstants {
 			String INDEX_1_LABEL = "/gt/control/door/1/index-label";
 			String INDEX_2 = "/gt/control/door/2/index";
 			String INDEX_2_LABEL = "/gt/control/door/2/index-label";
+		}
+
+		interface Color {
+			String PALETTE_INDEX = "/gt/control/color/paletteIndex";
 		}
 	}
 }

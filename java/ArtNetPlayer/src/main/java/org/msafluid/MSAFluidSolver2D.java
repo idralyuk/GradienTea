@@ -33,6 +33,8 @@
 
 package org.msafluid;
 
+import org.hypher.gradientea.geometry.shared.math.DomeMath;
+
 /**
  * this is a class for solving real-time fluid dynamics simulations based on Navier-Stokes equations 
  * and code from Jos Stam's paper "Real-Time Fluid Dynamics for Games" http://www.dgp.toronto.edu/people/stam/reality/Research/pdf/GDC03.pdf
@@ -412,15 +414,20 @@ public class MSAFluidSolver2D {
 	}
 
 	public void addColorAtCell(int i, int j, float r, float g, float b) {
-		//	if(safeToRun()){
 		int index = FLUID_IX(i, j);
 		rOld[index] += r;
 		if(_isRGB) {
 			gOld[index] += g;
 			bOld[index] += b;
 		}
-		//		unlock();
-		//	}
+
+		// Scale the color if needed.
+		float max = DomeMath.max(rOld[index], gOld[index], bOld[index]);
+		if (max > 1f) {
+			rOld[index] /= max;
+			gOld[index] /= max;
+			bOld[index] /= max;
+		}
 	}
 
 

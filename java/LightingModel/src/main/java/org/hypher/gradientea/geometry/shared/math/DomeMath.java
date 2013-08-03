@@ -95,4 +95,12 @@ public class DomeMath {
 	public static int exponentialScale(final int value, final int max) {
 		return (int) exponentialScale((double)value, (double)max);
 	}
+
+	public static float max(final float a, final float b, final float c) {
+		return Math.max(Math.max(a, b), c);
+	}
+
+	public static float max(final float a, final float b, final float c, final float d) {
+		return Math.max(max(a,b,c), d);
+	}
 }

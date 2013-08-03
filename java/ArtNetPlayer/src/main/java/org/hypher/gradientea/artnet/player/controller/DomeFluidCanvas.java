@@ -5,6 +5,7 @@ import org.hypher.gradientea.artnet.player.io.osc.OscHelper;
 import org.hypher.gradientea.geometry.shared.math.DomeMath;
 import org.msafluid.MSAFluidSolver2D;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import static org.hypher.gradientea.geometry.shared.math.DomeMath.TWO_PI;
@@ -82,12 +83,16 @@ public class DomeFluidCanvas {
 		);
 	}
 
-	public void update() {
+	public void update(double intensityMultiplier) {
 		fluidSolver.update();
-		updateImage();
+		updateImage(intensityMultiplier);
 	}
 
-	private void updateImage() {
+	public void update() {
+		update(2.5);
+	}
+
+	private void updateImage(double intensityMultiplier) {
 		int width = getWidth();
 		int height = getHeight();
 		int rgb[] = new int[3];
@@ -95,9 +100,9 @@ public class DomeFluidCanvas {
 		for (int x=0; x<width; x++) {
 			for (int y=0; y<height; y++) {
 				rgbAt(x, y, rgb);
-				rgb[0] = DomeMath.clip(0, 255, (int) (rgb[0] * 2.5));
-				rgb[1] = DomeMath.clip(0, 255, (int) (rgb[1] * 2.5));
-				rgb[2] = DomeMath.clip(0, 255, (int) (rgb[2] * 2.5));
+				rgb[0] = DomeMath.clip(0, 255, (int) (rgb[0] * intensityMultiplier));
+				rgb[1] = DomeMath.clip(0, 255, (int) (rgb[1] * intensityMultiplier));
+				rgb[2] = DomeMath.clip(0, 255, (int) (rgb[2] * intensityMultiplier));
 				int average = Math.max(rgb[0], Math.max(rgb[1], rgb[2]));
 
 				rgb[0] = rgb[0] < 5 ? 0 : rgb[0];
@@ -155,9 +160,14 @@ public class DomeFluidCanvas {
 
 	public void rgbAt(int x, int y, int[] rgbOut) {
 		int i = y * fluidSolver.getWidth() + x;
-		rgbOut[0] = DomeMath.clip(0, 255, (int) ((fluidSolver.r[i] < 0.0001 ? 0.000f : fluidSolver.r[i]) * 255));
-		rgbOut[1] = DomeMath.clip(0, 255, (int) ((fluidSolver.g[i] < 0.0001 ? 0.000f : fluidSolver.g[i]) * 255));
-		rgbOut[2] = DomeMath.clip(0, 255, (int) ((fluidSolver.b[i] < 0.0001 ? 0.000f : fluidSolver.b[i]) * 255));
+
+		final float r = fluidSolver.r[i] < 0.0001 ? 0.000f : fluidSolver.r[i];
+		final float g = fluidSolver.g[i] < 0.0001 ? 0.000f : fluidSolver.g[i];
+		final float b = fluidSolver.b[i] < 0.0001 ? 0.000f : fluidSolver.b[i];
+
+		rgbOut[0] = DomeMath.clip(0, 255, (int) (r * 255));
+		rgbOut[1] = DomeMath.clip(0, 255, (int) (g * 255));
+		rgbOut[2] = DomeMath.clip(0, 255, (int) (b * 255));
 	}
 
 	public void rgbAt(int x, int y, float[] rgbOut) {
@@ -189,13 +199,53 @@ public class DomeFluidCanvas {
 		float fromX,
 		float fromY,
 
+		float toX,
+		float toY,
+
+		Color color,
+		float velocity,
+		float intensity
+	) {
+		emitDirectional(
+			fromX, fromY,
+			f(Math.atan2(toY - fromY, toX - fromX)),
+			color, velocity, intensity
+		);
+	}
+
+
+	public void emitDirectional(
+		float fromX,
+		float fromY,
+
 		float angle,
 
 		float hue,
 		float velocity,
 		float intensity
 	) {
-		int[] drawColor = new HsbColor(hue, 1.0, 1.0).asRgb();
+		emitDirectional(
+			fromX, fromY, angle,
+			Color.getHSBColor(hue, 1f, 1f),
+			velocity, intensity
+		);
+	}
+
+	public void emitDirectional(
+		float fromX,
+		float fromY,
+
+		float angle,
+
+		Color color,
+		float velocity,
+		float intensity
+	) {
+		int[] drawColor = new int[] {
+			color.getRed(),
+			color.getGreen(),
+			color.getBlue()
+		};
 
 		fluidSolver.addColorAtPos(
 			fromX,

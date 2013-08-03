@@ -14,14 +14,8 @@ import org.hypher.gradientea.geometry.shared.GradienTeaDomeGeometry;
 import org.hypher.gradientea.geometry.shared.math.DomeMath;
 import org.hypher.gradientea.geometry.shared.math.GeoPolarVector2;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Composite;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.RenderingHints;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
@@ -53,6 +47,13 @@ public class DomeImageMapper {
 	private int[][] vertexRgbSums;
 
 	private double rotationRadians = Math.PI/2.2;
+
+	/**
+	 * The amount to scale the vertex circles when drawing overlays and data
+	 */
+	private double vertexScaleFactor = .4;
+
+	private double faceScaleFactor = .6;
 
 	public DomeImageMapper(final GradienTeaDomeGeometry geometry) {
 		this.geometry = geometry;
@@ -283,15 +284,22 @@ public class DomeImageMapper {
 				final String numberStr = String.valueOf(lightedFaces.indexOf(entry.getKey()));
 				int textWidth = fontMetrics.charsWidth(numberStr.toCharArray(), 0, numberStr.length());
 
+				final int centerX =
+					(imageSpacePolygon.xpoints[0] + imageSpacePolygon.xpoints[1] + imageSpacePolygon.xpoints[2]) / 3;
+				final int centerY =
+					(imageSpacePolygon.ypoints[0] + imageSpacePolygon.ypoints[1] + imageSpacePolygon.ypoints[2]) / 3;
+
 				if (drawLabels) {
 					imageG.drawString(
 						numberStr,
-						(imageSpacePolygon.xpoints[0] + imageSpacePolygon.xpoints[1] + imageSpacePolygon.xpoints[2])/3 - textWidth/2,
-						(imageSpacePolygon.ypoints[0] + imageSpacePolygon.ypoints[1] + imageSpacePolygon.ypoints[2])/3 + textHeight/2
+						centerX - textWidth/2,
+						centerY + textHeight/2
 					);
 				}
 
-				imageG.drawPolygon(imageSpacePolygon);
+				imageG.draw(
+					translateAndScale(imageSpacePolygon, centerX, centerY, faceScaleFactor)
+				);
 			}
 
 			if (drawVertices) {
@@ -314,7 +322,7 @@ public class DomeImageMapper {
 						imageG.setColor(olderColor);
 					}
 
-					imageG.draw(imageSpaceCircle);
+					imageG.draw(translateAndScale(imageSpaceCircle, imageSpaceCircle.getCenterX(), imageSpaceCircle.getCenterY(), vertexScaleFactor));
 
 					if (drawLabels) {
 						imageG.drawString(
@@ -330,6 +338,15 @@ public class DomeImageMapper {
 		}
 
 		g2.drawImage(overlayImage, x, y, drawWidth, drawHeight, null);
+	}
+
+	private Shape translateAndScale(final Shape shape, final double centerX, final double centerY, double scaleFactor) {
+		return
+			AffineTransform.getTranslateInstance(centerX, centerY).createTransformedShape(
+				AffineTransform.getScaleInstance(scaleFactor, scaleFactor).createTransformedShape(
+					AffineTransform.getTranslateInstance(-centerX, -centerY).createTransformedShape(shape)
+				)
+			);
 	}
 
 	public void drawPanelState(
@@ -365,8 +382,14 @@ public class DomeImageMapper {
 					3
 				);
 
+				final int centerX =
+					(imageSpacePolygon.xpoints[0] + imageSpacePolygon.xpoints[1] + imageSpacePolygon.xpoints[2]) / 3;
+				final int centerY =
+					(imageSpacePolygon.ypoints[0] + imageSpacePolygon.ypoints[1] + imageSpacePolygon.ypoints[2]) / 3;
+
+
 				g2.setColor(fillColorFor(pixelColor, opacity*3));
-				g2.fillPolygon(imageSpacePolygon);
+				g2.fill(translateAndScale(imageSpacePolygon, centerX, centerY, faceScaleFactor));
 			}
 		}
 
@@ -375,15 +398,18 @@ public class DomeImageMapper {
 				final PixelColor pixelColor = vertexColorMap.get(entry.getKey());
 				if (pixelColor != null && !pixelColor.isBlack()) {
 					Ellipse2D polySpaceCircle = entry.getValue();
+					final double ellipsePxWidth = polyToScaled(polySpaceCircle.getWidth(), drawWidth);
+					final double ellipsePxHeight = polyToScaled(polySpaceCircle.getWidth(), drawHeight);
+
 					Ellipse2D imageSpaceCircle = new Ellipse2D.Double(
 						x + polyToScaled(polySpaceCircle.getX(), drawWidth),
 						y + polyToScaled(polySpaceCircle.getY(), drawHeight),
-						polyToScaled(polySpaceCircle.getWidth(), drawWidth),
-						polyToScaled(polySpaceCircle.getWidth(), drawHeight)
+						ellipsePxWidth,
+						ellipsePxHeight
 					);
 
 					g2.setColor(fillColorFor(pixelColor, opacity));
-					g2.fill(imageSpaceCircle);
+					g2.fill(translateAndScale(imageSpaceCircle, imageSpaceCircle.getCenterX(), imageSpaceCircle.getCenterY(), vertexScaleFactor));
 				}
 			}
 		}

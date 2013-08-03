@@ -28,17 +28,23 @@ public class ManualControlProgram extends BaseDomeProgram {
 	public void update() {
 		// Add manual touches
 		for (OscHelper.OscMultitouch.Touch touch : oscManualEmitters.getTouches().values()) {
-			fluidCanvas().emitDirectional(
-				(float) touch.getCurrentX(), (float) touch.getCurrentY(),
-				(float) touch.getAngle(),
+
+			for (int x=0; x<=1; x++) {
+				for (int y=0; y<=1; y++) {
+					fluidCanvas().emitDirectional(
+						(float) touch.getCurrentX() + x*.03f,
+						(float) touch.getCurrentY() + y*.03f,
+						(float) touch.getAngle(),
 //				(float) (
 //					Math.sin(touch.getInitialX() * TWO_PI) *
 //						Math.sin(touch.getInitialY() * TWO_PI)
 //				),
-				f(touch.getInitialY() * 2),
-				(float) touch.getVelocity() * 0.5f,
-				(float) touch.getVelocity() * 100
-			);
+						controller.getColor(f(touch.getInitialY())),
+						(float) touch.getVelocity() * 0.2f,
+						(float) touch.getVelocity() * 10
+					);
+				}
+			}
 		}
 	}
 

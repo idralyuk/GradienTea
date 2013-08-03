@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: toxiblibs:core:0020">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/toxiblibs/core/0020/core-0020.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/toxiblibs/core/0020/core-0020-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/toxiblibs/core/0020/core-0020-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

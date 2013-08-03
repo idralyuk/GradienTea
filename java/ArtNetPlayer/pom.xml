@@ -52,6 +52,18 @@
 		</dependency>
 
 		<dependency>
+			<groupId>toxiblibs</groupId>
+			<artifactId>colorutils</artifactId>
+			<version>0020</version>
+		</dependency>
+
+		<dependency>
+			<groupId>toxiblibs</groupId>
+			<artifactId>core</artifactId>
+			<version>0020</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 		</dependency>
