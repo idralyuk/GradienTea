@@ -53,7 +53,7 @@ public class DomeImageMapper {
 	 */
 	private double vertexScaleFactor = .4;
 
-	private double faceScaleFactor = .6;
+	private double faceScaleFactor = .5;
 
 	public DomeImageMapper(final GradienTeaDomeGeometry geometry) {
 		this.geometry = geometry;

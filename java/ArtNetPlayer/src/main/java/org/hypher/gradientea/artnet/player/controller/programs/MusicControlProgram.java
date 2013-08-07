@@ -12,12 +12,11 @@ import org.hypher.gradientea.geometry.shared.math.DomeMath;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Mixer;
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import static org.hypher.gradientea.geometry.shared.math.DomeMath.*;
+import static org.hypher.gradientea.geometry.shared.math.DomeMath.TWO_PI;
+import static org.hypher.gradientea.geometry.shared.math.DomeMath.f;
 
 /**
  * @author Yona Appletree (yona@concentricsky.com)
@@ -53,7 +52,7 @@ public class MusicControlProgram extends BaseDomeProgram {
 	);
 
 	private OscHelper.OscDouble oscIntensity = OscHelper.doubleValue(
-		OscConstants.Control.Music.INTENSITY, 0, .4, 0.05
+		OscConstants.Control.Music.INTENSITY, 0, .1, 0.05
 	);
 
 	private OscHelper.OscDouble oscSustain = OscHelper.doubleValue(
@@ -75,6 +74,10 @@ public class MusicControlProgram extends BaseDomeProgram {
 	private OscHelper.OscDouble emitterMovementFraction = OscHelper.doubleValue(
 		OscConstants.Control.Music.EMITTER_MOVEMENT, 0, .1, 0.01
 	);
+
+	private OscHelper.OscBoolean oscShowEmitters = OscHelper.booleanValue(OscConstants.Control.Music.SHOW_EMITTERS, true);
+	private OscHelper.OscBoolean oscShowHistogram = OscHelper.booleanValue(OscConstants.Control.Music.SHOW_HISTOGRAM, true);
+
 
 	public MusicControlProgram() {
 		super(ProgramId.MUSIC);
@@ -149,7 +152,7 @@ public class MusicControlProgram extends BaseDomeProgram {
 	public void drawOverlay(final Graphics2D g, final int width, final int height) {
 
 		// Draw each emitter
-		if (emitters != null) {
+		if (emitters != null && oscShowEmitters.value()) {
 			for (Emitter emitter : emitters) {
 				emitter.drawOverlay(g, width, height);
 			}
@@ -159,9 +162,10 @@ public class MusicControlProgram extends BaseDomeProgram {
 			bandHistogram = new BandHistogram(width, (int) (height * 0.2));
 		}
 
-		bandHistogram.update(emitters);
-
-		bandHistogram.draw(g, width / 2, height - bandHistogram.height);
+		if (oscShowHistogram.value()) {
+			bandHistogram.update(emitters);
+			bandHistogram.draw(g, width / 2, height - bandHistogram.height);
+		}
 
 		super.drawOverlay(g, width, height);
 	}
@@ -265,7 +269,12 @@ public class MusicControlProgram extends BaseDomeProgram {
 		}
 
 		private double effectiveRadius() {
-			return (oscEmitterRadius.getValue() + (DomeMath.exponentialScale(radiusOffset, 1f)-.5f)*.5)%1f;
+			if (oscEmitterRadius.getValue() < 0.25) {
+				return oscEmitterRadius.getValue() + DomeMath.exponentialScale(radiusOffset, 1f)/2;
+			} else {
+				return oscEmitterRadius.getValue() - DomeMath.exponentialScale(radiusOffset, 1f)/2;
+			}
+
 		}
 
 		private float effectiveHue() {
@@ -293,11 +302,11 @@ public class MusicControlProgram extends BaseDomeProgram {
 				int sensitivityRadius = (int) (oscSensitivity.getValue() * radiusMultiplier);
 
 				g.setStroke(new BasicStroke(2f));
-				g.setColor(Color.getHSBColor(effectiveHue(), 1f, 1f));
+				g.setColor(controller.getColor(effectiveHue()));
 				g.fillOval(centerX-radius, centerY-radius, radius*2, radius*2);
 
 				g.setStroke(new BasicStroke(1f));
-				g.setColor(Color.getHSBColor(effectiveHue(), 1f, 0.5f));
+				g.setColor(controller.getColor(effectiveHue()));
 				g.drawOval(centerX-sensitivityRadius, centerY-sensitivityRadius, sensitivityRadius*2, sensitivityRadius*2);
 			}
 		}

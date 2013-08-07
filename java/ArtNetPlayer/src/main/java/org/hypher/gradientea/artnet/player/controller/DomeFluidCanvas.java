@@ -83,26 +83,34 @@ public class DomeFluidCanvas {
 		);
 	}
 
-	public void update(double intensityMultiplier) {
+	public void update(float intensityMultiplier) {
 		fluidSolver.update();
 		updateImage(intensityMultiplier);
 	}
 
 	public void update() {
-		update(2.5);
+		update(2.5f);
 	}
 
-	private void updateImage(double intensityMultiplier) {
+	private void updateImage(float intensityMultiplier) {
 		int width = getWidth();
 		int height = getHeight();
+		float frgb[] = new float[3];
 		int rgb[] = new int[3];
 
 		for (int x=0; x<width; x++) {
 			for (int y=0; y<height; y++) {
-				rgbAt(x, y, rgb);
-				rgb[0] = DomeMath.clip(0, 255, (int) (rgb[0] * intensityMultiplier));
-				rgb[1] = DomeMath.clip(0, 255, (int) (rgb[1] * intensityMultiplier));
-				rgb[2] = DomeMath.clip(0, 255, (int) (rgb[2] * intensityMultiplier));
+				rgbAt(x, y, frgb);
+
+				frgb[0] *= intensityMultiplier;
+				frgb[1] *= intensityMultiplier;
+				frgb[2] *= intensityMultiplier;
+
+				float max = DomeMath.max(1f, frgb[0], frgb[1], frgb[2]);
+				rgb[0] = (int) ((frgb[0] / max) * 255);
+				rgb[1] = (int) ((frgb[1] / max) * 255);
+				rgb[2] = (int) ((frgb[2] / max) * 255);
+
 				int average = Math.max(rgb[0], Math.max(rgb[1], rgb[2]));
 
 				rgb[0] = rgb[0] < 5 ? 0 : rgb[0];
@@ -172,9 +180,9 @@ public class DomeFluidCanvas {
 
 	public void rgbAt(int x, int y, float[] rgbOut) {
 		int i = y * fluidSolver.getWidth() + x;
-		rgbOut[0] = DomeMath.clip(0f, 1f, (fluidSolver.r[i] < 0.0001 ? 0.000f : fluidSolver.r[i]) * 2.5f);
-		rgbOut[1] = DomeMath.clip(0f, 1f, (fluidSolver.g[i] < 0.0001 ? 0.000f : fluidSolver.g[i]) * 2.5f);
-		rgbOut[2] = DomeMath.clip(0f, 1f, (fluidSolver.b[i] < 0.0001 ? 0.000f : fluidSolver.b[i]) * 2.5f);
+		rgbOut[0] = DomeMath.clip(0f, 1f, (fluidSolver.r[i] < 0.0001 ? 0.000f : fluidSolver.r[i]));
+		rgbOut[1] = DomeMath.clip(0f, 1f, (fluidSolver.g[i] < 0.0001 ? 0.000f : fluidSolver.g[i]));
+		rgbOut[2] = DomeMath.clip(0f, 1f, (fluidSolver.b[i] < 0.0001 ? 0.000f : fluidSolver.b[i]));
 	}
 
 	public void emitDirectional(

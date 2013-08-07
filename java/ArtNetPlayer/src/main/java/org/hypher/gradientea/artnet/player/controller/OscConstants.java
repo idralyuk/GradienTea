@@ -55,6 +55,8 @@ public interface OscConstants {
 			String EMITTER_ROTATION = "/gt/control/music/emitterRotation";
 			String COLOR_ROTATION = "/gt/control/music/colorRotation";
 			String EMITTER_MOVEMENT = "/gt/control/music/emitterMovement";
+			String SHOW_HISTOGRAM = "/gt/control/music/showHistogram";
+			String SHOW_EMITTERS = "/gt/control/music/showEmitters";
 		}
 
 		interface Motion {
@@ -100,7 +102,13 @@ public interface OscConstants {
 		}
 
 		interface Color {
-			String PALETTE_INDEX = "/gt/control/color/paletteIndex";
+			String PALETTE_TYPE = "/gt/control/color/paletteType";
+			String PALETTE_HUE = "/gt/control/color/paletteHue";
+
+			String PALETTE_TYPE_LABEL = "/gt/control/color/paletteTypeLabel";
+			String PALETTE_HUE_LABEL = "/gt/control/color/paletteHueLabel";
+
+			String PALETTE_COLOR_COUNT = "/gt/control/color/paletteColorCount";
 		}
 	}
 }

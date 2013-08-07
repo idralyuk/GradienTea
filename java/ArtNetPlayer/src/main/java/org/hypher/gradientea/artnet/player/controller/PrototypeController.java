@@ -5,7 +5,6 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.util.concurrent.Uninterruptibles;
 import org.hypher.gradientea.artnet.player.DomeColorManager;
-import org.hypher.gradientea.artnet.player.aurora.AuroraPaletteManager;
 import org.hypher.gradientea.artnet.player.controller.programs.DebugProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.DomeAnimationProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.DoorLightAnimation;
@@ -52,7 +51,13 @@ public class PrototypeController implements Runnable, DomeController {
 	private DomeAnimationProgram.ProgramId activeProgramId;
 	private DomeAnimationProgram.ProgramId defaultProgramId = DomeAnimationProgram.ProgramId.MUSIC;
 
-	private OscHelper.OscDouble oscPalette = OscHelper.doubleValue(OscConstants.Control.Color.PALETTE_INDEX, 0, 1, 0);
+	private OscHelper.OscDouble oscPaletteType = OscHelper.doubleValue(OscConstants.Control.Color.PALETTE_TYPE, 0, 1, 0);
+	private OscHelper.OscDouble oscPaletteHue = OscHelper.doubleValue(OscConstants.Control.Color.PALETTE_HUE, 0, 1, 0);
+	private OscHelper.OscDouble oscPaletteSize = OscHelper.doubleValue(OscConstants.Control.Color.PALETTE_COLOR_COUNT, 5, 35, 20);
+
+
+	private OscHelper.OscText oscPaletteTypeLabel = OscHelper.textValue(OscConstants.Control.Color.PALETTE_TYPE_LABEL);
+	private OscHelper.OscText oscPaletteHueLabel = OscHelper.textValue(OscConstants.Control.Color.PALETTE_HUE_LABEL);
 
 	private OscHelper.OscDouble oscOverallFluidIntensity = OscHelper.doubleValue(OscConstants.Control.Fluid.INTENTISTY_MULTIPLIER, .1, 20, 3);
 
@@ -64,6 +69,10 @@ public class PrototypeController implements Runnable, DomeController {
 	private OscHelper.OscBoolean oscShowFluidOverlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_FLUID_OVERLAY, true);
 	private OscHelper.OscBoolean oscShowVertices = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_VERTICES, true);
 	private OscHelper.OscBoolean oscShowOutline = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_OUTLINE, true);
+
+	private DomeColorManager.DomePaletteSpec currentPaletteSpec = DomeColorManager.instance().specFor(0, 0, 10);
+	private DomeColorManager.DomePalette currentPalette = DomeColorManager.instance().paletteFor(currentPaletteSpec);
+
 
 	private Optional<ArduinoLedPanelOutput> arduinoOutput = ArduinoLedPanelOutput.getInstance();
 
@@ -226,15 +235,16 @@ public class PrototypeController implements Runnable, DomeController {
 				}
 
 				// Draw the current color palette
-				AuroraPaletteManager.Palette palette = DomeColorManager.instance().getPalette(oscPalette.floatValue());
-				int swatchHeight = simDrawSize / palette.getColors().length;
-				for (int i=0; i<palette.getColors().length; i++) {
+				double swatchHeight = (double) (simDrawSize) / currentPalette.getColors().length;
+				for (int i=0; i<currentPalette.getColors().length; i++) {
 					g.setColor(
-						palette.getColors()[i]
+						currentPalette.getColors()[i]
 					);
 					g.fillRect(
-						0, i*swatchHeight,
-						20, swatchHeight
+						0,
+						(int) (i*swatchHeight),
+						20,
+						(int) (swatchHeight + 1)
 					);
 				}
 
@@ -341,11 +351,12 @@ public class PrototypeController implements Runnable, DomeController {
 
 	private void renderFrame() {
 		checkForProgramChange();
+		updatePalette();
 
 		heartbeat();
 		activeProgram().update();
 
-		fluidCanvas.update(oscOverallFluidIntensity.getValue());
+		fluidCanvas.update((float) oscOverallFluidIntensity.getValue());
 
 		if (KinectInput.instance().isKinectEnabled()) {
 			kinectWidget.updateDepth();
@@ -404,12 +415,27 @@ public class PrototypeController implements Runnable, DomeController {
 		return fluidCanvas;
 	}
 
+
+	private void updatePalette() {
+		DomeColorManager.DomePaletteSpec newSpec = DomeColorManager.instance().specFor(
+			oscPaletteType.floatValue(),
+			oscPaletteHue.floatValue(),
+			oscPaletteSize.intValue()
+		);
+
+		if (! newSpec.equals(currentPaletteSpec)) {
+			currentPaletteSpec = newSpec;
+			currentPalette = DomeColorManager.instance().paletteFor(currentPaletteSpec);
+
+			oscPaletteTypeLabel.setValue(newSpec.getStrategyName());
+			oscPaletteHueLabel.setValue(newSpec.getHueName());
+			OscHelper.instance().pushToKnownHosts();
+		}
+	}
+
 	@Override
 	public Color getColor(final float color) {
-		return DomeColorManager.instance().getColor(
-			oscPalette.floatValue(),
-			color
-		);
+		return currentPalette.getColor(color);
 	}
 
 	protected class ProgramEntry {

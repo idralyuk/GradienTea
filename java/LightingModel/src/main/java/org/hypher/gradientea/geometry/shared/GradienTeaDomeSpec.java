@@ -1,5 +1,7 @@
 package org.hypher.gradientea.geometry.shared;
 
+import java.util.Arrays;
+
 /**
  * Specifies the parameters that are needed to build a dome model.
  *
@@ -23,7 +25,31 @@ public class GradienTeaDomeSpec extends GeodesicDomeSpec {
 
 	protected int lightedLayers;
 
+	protected int[] emptyFaces;
+	protected int[] emptyVertices;
+
 	protected GradienTeaDomeSpec() {}
+
+
+	public GradienTeaDomeSpec(
+		final int frequency,
+		final int layers,
+		final int lightedLayers,
+		final double radius,
+		final double maxPanelHeight,
+		final double panelThickness,
+		final int[] emptyFaces,
+		final int[] emptyVertices
+	) {
+		super(frequency, layers);
+
+		this.lightedLayers = lightedLayers;
+		this.radius = radius;
+		this.maxPanelHeight = maxPanelHeight;
+		this.panelThickness = panelThickness;
+		this.emptyFaces = Arrays.copyOf(emptyFaces, emptyFaces.length);
+		this.emptyVertices = Arrays.copyOf(emptyVertices, emptyVertices.length);
+	}
 
 	public GradienTeaDomeSpec(
 		final int frequency,
@@ -33,12 +59,16 @@ public class GradienTeaDomeSpec extends GeodesicDomeSpec {
 		final double maxPanelHeight,
 		final double panelThickness
 	) {
-		super(frequency, layers);
-
-		this.lightedLayers = lightedLayers;
-		this.radius = radius;
-		this.maxPanelHeight = maxPanelHeight;
-		this.panelThickness = panelThickness;
+		this(
+			frequency,
+			layers,
+			lightedLayers,
+			radius,
+			maxPanelHeight,
+			panelThickness,
+			new int[0],
+			new int[0]
+		);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

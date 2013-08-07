@@ -125,7 +125,7 @@ public class OscHelper {
 				try {
 					outPort.get().send(bundle);
 				} catch (IOException e) {
-					System.err.println("Failed to send to OSC Host " + host + ": " + e.getClass().getSimpleName() + ": " + e.getMessage());
+					System.err.println("Failed to send to OSC Host " + host.address + ": " + e.getClass().getSimpleName() + ": " + e.getMessage());
 				}
 			}
 		}
@@ -248,6 +248,8 @@ public class OscHelper {
 				address, getCurrentOscValue()
 			));
 		}
+
+
 	}
 
 	public static class OscMultitouch implements WritableOscValue {
@@ -430,6 +432,10 @@ public class OscHelper {
 		public void setValue(double value) {
 			this.value = value;
 		}
+
+		public int intValue() {
+			return (int) getValue();
+		}
 	}
 
 	public static class OscBoolean extends BaseSimpleValue {
@@ -463,6 +469,39 @@ public class OscHelper {
 		@Override
 		protected Object[] getCurrentOscValue() {
 			return new Object[] { value ? 1f : 0f };
+		}
+	}
+
+	public static class OscText extends BaseSimpleValue {
+		private String value;
+
+		public OscText(final String address, final String value) {
+			super(address);
+			this.value = value;
+		}
+
+		public OscText(final String address) {
+			this(address, "");
+		}
+
+		public String value() {
+			return value;
+		}
+
+		public void setValue(final String value) {
+			this.value = value;
+		}
+
+		@Override
+		public void applyValue(final String address, final Object[] params) {
+			if (params.length >= 1) {
+				this.value = String.valueOf(params[0]);
+			}
+		}
+
+		@Override
+		protected Object[] getCurrentOscValue() {
+			return new Object[] { value };
 		}
 	}
 
@@ -537,6 +576,13 @@ public class OscHelper {
 		final double value
 	) {
 		return OscHelper.instance().mapValue(address, new OscDouble(address, minValue, maxValue, value));
+	}
+
+
+	public static OscText textValue(
+		String address
+	) {
+		return OscHelper.instance().mapValue(address, new OscText(address));
 	}
 
 	public static OscXY xyValue(

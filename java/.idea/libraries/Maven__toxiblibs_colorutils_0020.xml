@@ -4,7 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/toxiblibs/colorutils/0020/colorutils-0020.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/toxiblibs/colorutils/0020/colorutils-0020-javadoc.jar!/" />
+      <root url="file://$PROJECT_DIR$/static-libs/toxiclibs-0020/colorutils/docs" />
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/toxiblibs/colorutils/0020/colorutils-0020-sources.jar!/" />

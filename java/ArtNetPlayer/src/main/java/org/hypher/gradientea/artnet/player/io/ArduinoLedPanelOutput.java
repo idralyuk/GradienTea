@@ -4,6 +4,7 @@ import com.google.common.base.Optional;
 import com.google.common.util.concurrent.Uninterruptibles;
 import gnu.io.NRSerialPort;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
@@ -178,23 +179,51 @@ public class ArduinoLedPanelOutput {
 		}
 	}
 
+	JFrame frame = new JFrame() {
+		{
+			setSize(200, 200);
+			setLocation(800, 0);
+			add(new Component() {
+				{
+					setSize(200, 200);
+				}
+				@Override
+				public void paint(final Graphics g) {
+					g.setColor(Color.black);
+					g.fillRect(0, 0, getWidth(), getHeight());
+					BufferedImage back = new BufferedImage(ARRAY_WIDTH, ARRAY_HEIGHT, BufferedImage.TYPE_4BYTE_ABGR);
+					back.getGraphics().drawImage(bufferedImage, 0, 0, null);
+					if (bufferedImage != null) {
+						synchronized (bufferedImage) {
+							g.drawImage(back, 0, 0, getWidth(), getHeight(), null);
+						}
+					}
+				}
+			});
+			setVisible(true);
+		}
+	};
+
 	public void writeImage(Image image) {
-		final Graphics2D g = (Graphics2D) bufferedImage.getGraphics();
+		synchronized (bufferedImage) {
+			final Graphics2D g = (Graphics2D) bufferedImage.getGraphics();
 
-		g.setRenderingHint(
-			RenderingHints.KEY_ANTIALIASING,
-			RenderingHints.VALUE_ANTIALIAS_ON
-		);
-		g.setRenderingHint(
-			RenderingHints.KEY_INTERPOLATION,
-			RenderingHints.VALUE_INTERPOLATION_BILINEAR
-		);
+			g.setRenderingHint(
+				RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON
+			);
+			g.setRenderingHint(
+				RenderingHints.KEY_INTERPOLATION,
+				RenderingHints.VALUE_INTERPOLATION_BILINEAR
+			);
 
-		g.setColor(Color.black);
-		g.fillRect(0, 0, ARRAY_WIDTH, ARRAY_HEIGHT);
-		g.drawImage(
-			image, 0, 0, ARRAY_WIDTH, ARRAY_HEIGHT, null
-		);
+			g.setColor(Color.black);
+			g.fillRect(0, 0, ARRAY_WIDTH, ARRAY_HEIGHT);
+			g.drawImage(
+				image, 0, 0, ARRAY_WIDTH, ARRAY_HEIGHT, null
+			);
+		}
+		frame.repaint();
 		writeImageBuffer();
 	}
 
