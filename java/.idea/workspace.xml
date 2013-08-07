@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" />
     </list>
     <ignored path="GradienTeaParent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -3530,10 +3530,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ArduinoLedPanelOutput.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ArduinoLedPanelOutput.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="9" selection-start="4053" selection-end="4053" vertical-scroll-proportion="0.54761904">
+            <state line="136" column="9" selection-start="4053" selection-end="4053" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="initializer##0;class#ArduinoLedPanelOutput#0" expanded="true" />
@@ -3548,6 +3548,31 @@
                 <element signature="method#fail#0;class#ArduinoLedPanelOutput#0" expanded="true" />
                 <element signature="method#isConnected#0;class#ArduinoLedPanelOutput#0" expanded="true" />
                 <element signature="method#disconnect#0;class#ArduinoLedPanelOutput#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DomeImageMapper.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="317" column="20" selection-start="9601" selection-end="9787" vertical-scroll-proportion="0.30116472">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#DomeImageMapper#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#getRotationRadians#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#setRotationRadians#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#buildPixelFaceMap#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#drawImage#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#zeroArray#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#translateAndScale#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#drawPanelState#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#fillColorFor#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#normalToPoly#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#polyToNormal#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#polyToScaled#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#mercator#0;class#DomeImageMapper#0" expanded="true" />
+                <element signature="method#rotate#0;class#DomeImageMapper#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -3616,15 +3641,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DomeColorManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DomeColorManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="0" selection-start="2576" selection-end="2576" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PrototypeController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/PrototypeController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -3663,7 +3679,6 @@
         <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/math/DomeMath.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/msafluid/MSAFluidSolver2D.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/ManualControlProgram.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/DomeFluidCanvas.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/aurora/AuroraPaletteManager.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/OscConstants.java" />
@@ -3674,6 +3689,7 @@
         <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GradienTeaDomeSpec.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/pom.xml" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java" />
       </list>
     </option>
   </component>
@@ -4102,6 +4118,44 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="programs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArtNetPlayer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="player" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="animations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -5093,11 +5147,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="44" selection-start="1369" selection-end="1369" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/DomeFluidCanvas.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="185" column="5" selection-start="4866" selection-end="4866" vertical-scroll-proportion="0.0">
@@ -5204,7 +5253,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="9" selection-start="4053" selection-end="4053" vertical-scroll-proportion="0.54761904">
+        <state line="136" column="9" selection-start="4053" selection-end="4053" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="initializer##0;class#ArduinoLedPanelOutput#0" expanded="true" />
@@ -5219,6 +5268,29 @@
             <element signature="method#fail#0;class#ArduinoLedPanelOutput#0" expanded="true" />
             <element signature="method#isConnected#0;class#ArduinoLedPanelOutput#0" expanded="true" />
             <element signature="method#disconnect#0;class#ArduinoLedPanelOutput#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/animations/DomeImageMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="317" column="20" selection-start="9601" selection-end="9787" vertical-scroll-proportion="0.30116472">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#DomeImageMapper#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#getRotationRadians#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#setRotationRadians#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#buildPixelFaceMap#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#drawImage#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#zeroArray#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#translateAndScale#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#drawPanelState#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#fillColorFor#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#normalToPoly#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#polyToNormal#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#polyToScaled#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#mercator#0;class#DomeImageMapper#0" expanded="true" />
+            <element signature="method#rotate#0;class#DomeImageMapper#0" expanded="true" />
           </folding>
         </state>
       </provider>

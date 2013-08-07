@@ -315,12 +315,12 @@ public class DomeImageMapper {
 					final String numberStr = String.valueOf(lightedVertices.indexOf(entry.getKey()));
 					int textWidth = fontMetrics.charsWidth(numberStr.toCharArray(), 0, numberStr.length());
 
-					if (drawLabels) {
-						Color olderColor = imageG.getColor();
-						imageG.setColor(Color.black);
-						imageG.fill(imageSpaceCircle);
-						imageG.setColor(olderColor);
-					}
+//					if (drawLabels) {
+//						Color olderColor = imageG.getColor();
+//						imageG.setColor(Color.black);
+//						imageG.fill(imageSpaceCircle);
+//						imageG.setColor(olderColor);
+//					}
 
 					imageG.draw(translateAndScale(imageSpaceCircle, imageSpaceCircle.getCenterX(), imageSpaceCircle.getCenterY(), vertexScaleFactor));
 
