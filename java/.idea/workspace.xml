@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jssc_jssc_2_6_0.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/ArtNetPlayer.iml" afterPath="$PROJECT_DIR$/ArtNetPlayer/ArtNetPlayer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" afterPath="$PROJECT_DIR$/GradienTeaUI/GradienTeaUI.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/GradienTeaUI_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/GradienTeaUI_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__toxiblibs_colorutils_0020.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__toxiblibs_colorutils_0020.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/pom.xml" afterPath="$PROJECT_DIR$/ArtNetPlayer/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="" />
     <ignored path="GradienTeaParent.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1375066133160" ignored="false" />
@@ -3564,7 +3555,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ArtNetPlayer/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="0" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.27454242">
+            <state line="57" column="0" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.63394344">
               <folding />
             </state>
           </provider>
@@ -3782,6 +3773,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="colorutils-0020.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: toxiblibs:colorutils:0020" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="colorutils-0020.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="color" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GradienTeaParent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: toxiblibs:colorutils:0020" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="colorutils-0020.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="color" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4895,7 +4934,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="1024" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31916538" sideWeight="0.7629276" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -4918,7 +4957,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13762927" sideWeight="0.5276549" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29375765" sideWeight="0.61393803" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29375765" sideWeight="0.61393803" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37004405" sideWeight="0.9094247" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="807" y="276" width="873" height="770" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -5179,7 +5218,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ArtNetPlayer/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.27454242">
+        <state line="57" column="0" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.63394344">
           <folding />
         </state>
       </provider>
