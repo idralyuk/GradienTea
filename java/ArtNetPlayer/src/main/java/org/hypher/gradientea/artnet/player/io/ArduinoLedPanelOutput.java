@@ -37,7 +37,7 @@ public class ArduinoLedPanelOutput {
 	private static final int LED_COUNT = ARRAY_WIDTH * ARRAY_HEIGHT;
 	private static final int BUFFER_SIZE = 63;
 	public static String[] DESIRED_SERIAL_PORT_NAMES = new String[]{
-		"usbmodemfd"
+		"usbmodem"
 	};
 
 	private String devicePath;
