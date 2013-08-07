@@ -1,10 +1,10 @@
 package org.hypher.gradientea.artnet.player.io;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Optional;
 import com.google.common.util.concurrent.Uninterruptibles;
 import gnu.io.NRSerialPort;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
@@ -37,7 +37,7 @@ public class ArduinoLedPanelOutput {
 	private static final int LED_COUNT = ARRAY_WIDTH * ARRAY_HEIGHT;
 	private static final int BUFFER_SIZE = 63;
 	public static String[] DESIRED_SERIAL_PORT_NAMES = new String[]{
-		"usb"
+		"usbmodemfd"
 	};
 
 	private String devicePath;
@@ -66,9 +66,6 @@ public class ArduinoLedPanelOutput {
 		ColorModel colorModel = new ComponentColorModel(ColorSpace.getInstance(ColorSpace.CS_sRGB), new int[]{8, 8, 8}, false, false, ComponentColorModel.OPAQUE, DataBuffer.TYPE_BYTE);
 		bufferedImage = new BufferedImage(colorModel, raster, false, null);
 	}
-
-	private JFrame jFrame;
-
 
 	public static void main(String[] args) {
 		ArduinoLedPanelOutput output = getInstance().get();
@@ -139,11 +136,9 @@ public class ArduinoLedPanelOutput {
 			}
 		}
 
-		if (availableSerialPorts.isEmpty()) {
-			return Optional.absent();
-		}
+		System.err.println("Could not find a desired serial port (one containing one of: " + Joiner.on(",").join(DESIRED_SERIAL_PORT_NAMES) + "). Available ports are: " + availableSerialPorts);
 
-		return Optional.of(availableSerialPorts.iterator().next());
+		return Optional.absent();
 	}
 
 	private void connect() {
@@ -181,8 +176,6 @@ public class ArduinoLedPanelOutput {
 		}
 	}
 
-	JFrame frame = jFrame;
-
 	public void writeImage(Image image) {
 		synchronized (bufferedImage) {
 			final Graphics2D g = (Graphics2D) bufferedImage.getGraphics();
@@ -202,7 +195,6 @@ public class ArduinoLedPanelOutput {
 				image, 0, 0, ARRAY_WIDTH, ARRAY_HEIGHT, null
 			);
 		}
-		frame.repaint();
 		writeImageBuffer();
 	}
 

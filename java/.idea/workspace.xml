@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="" />
+    <list default="true" id="4bd66c1d-e2c3-415c-984c-e43557eba75f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java" afterPath="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java" />
+    </list>
     <ignored path="GradienTeaParent.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/pom.xml" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1375066133160" ignored="false" />
@@ -3377,7 +3379,7 @@
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCNowOutcomesReporting/CNowOutcomesUI/src/main/webapp/js/gen/main-1374526178127.min.js" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1374532626312" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCNowOutcomesReporting/CNowOutcomesUI/src/main/webapp/content/mockups/report.html" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1375389171029" ignored="false" />
     <file path="/report.html" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1375389167203" ignored="false" />
-    <file path="/ArduinoLedPanelOutput.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1375693958170" ignored="false" />
+    <file path="/ArduinoLedPanelOutput.java" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1375863722538" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCNowOutcomesReporting/CNowOutcomesUI/src/main/webapp/js/vendor/less/less.js" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1374701583611" ignored="false" />
     <file path="$PROJECT_DIR$/../../../analytics/CengageAnalyticsCNowOutcomesReporting/CNowOutcomesUI/src/main/webapp/js/vendor/less/less.min.js" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1374701583612" ignored="false" />
     <file path="localhost:8080/CNowOutcomesUI/js/app/controllers/reportMockup.js" changelist="4bd66c1d-e2c3-415c-984c-e43557eba75f" time="1374704826431" ignored="false" />
@@ -3528,17 +3530,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ArduinoLedPanelOutput.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ArduinoLedPanelOutput.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="184" column="0" selection-start="5108" selection-end="5108" vertical-scroll-proportion="0.0">
+            <state line="136" column="9" selection-start="4053" selection-end="4053" vertical-scroll-proportion="0.54761904">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="initializer##0;class#ArduinoLedPanelOutput#0" expanded="true" />
                 <element signature="method#main#0;class#ArduinoLedPanelOutput#0" expanded="true" />
                 <element signature="method#getInstance#0;class#ArduinoLedPanelOutput#0" expanded="true" />
                 <element signature="method#ArduinoLedPanelOutput#0;class#ArduinoLedPanelOutput#0" expanded="true" />
-                <element signature="method#selectSerialPort#0;class#ArduinoLedPanelOutput#0" expanded="true" />
                 <element signature="method#connect#0;class#ArduinoLedPanelOutput#0" expanded="true" />
                 <element signature="method#waitForReady#0;class#ArduinoLedPanelOutput#0" expanded="true" />
                 <element signature="method#writeImage#0;class#ArduinoLedPanelOutput#0" expanded="true" />
@@ -3552,10 +3553,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ArtNetPlayer/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="0" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.63394344">
+            <state line="50" column="17" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -3671,8 +3672,8 @@
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/DomeColorManager.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/controller/programs/MusicControlProgram.java" />
         <option value="$PROJECT_DIR$/LightingModel/src/main/java/org/hypher/gradientea/geometry/shared/GradienTeaDomeSpec.java" />
-        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java" />
         <option value="$PROJECT_DIR$/ArtNetPlayer/pom.xml" />
+        <option value="$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java" />
       </list>
     </option>
   </component>
@@ -5194,16 +5195,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="17" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ArtNetPlayer/src/main/java/org/hypher/gradientea/artnet/player/io/ArduinoLedPanelOutput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="0" selection-start="5108" selection-end="5108" vertical-scroll-proportion="0.0">
+        <state line="136" column="9" selection-start="4053" selection-end="4053" vertical-scroll-proportion="0.54761904">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="initializer##0;class#ArduinoLedPanelOutput#0" expanded="true" />
             <element signature="method#main#0;class#ArduinoLedPanelOutput#0" expanded="true" />
             <element signature="method#getInstance#0;class#ArduinoLedPanelOutput#0" expanded="true" />
             <element signature="method#ArduinoLedPanelOutput#0;class#ArduinoLedPanelOutput#0" expanded="true" />
-            <element signature="method#selectSerialPort#0;class#ArduinoLedPanelOutput#0" expanded="true" />
             <element signature="method#connect#0;class#ArduinoLedPanelOutput#0" expanded="true" />
             <element signature="method#waitForReady#0;class#ArduinoLedPanelOutput#0" expanded="true" />
             <element signature="method#writeImage#0;class#ArduinoLedPanelOutput#0" expanded="true" />
@@ -5213,13 +5220,6 @@
             <element signature="method#isConnected#0;class#ArduinoLedPanelOutput#0" expanded="true" />
             <element signature="method#disconnect#0;class#ArduinoLedPanelOutput#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArtNetPlayer/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="0" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.63394344">
-          <folding />
         </state>
       </provider>
     </entry>
