@@ -67,6 +67,8 @@ public class ArduinoLedPanelOutput {
 		bufferedImage = new BufferedImage(colorModel, raster, false, null);
 	}
 
+	private JFrame jFrame;
+
 
 	public static void main(String[] args) {
 		ArduinoLedPanelOutput output = getInstance().get();
@@ -179,30 +181,7 @@ public class ArduinoLedPanelOutput {
 		}
 	}
 
-	JFrame frame = new JFrame() {
-		{
-			setSize(200, 200);
-			setLocation(800, 0);
-			add(new Component() {
-				{
-					setSize(200, 200);
-				}
-				@Override
-				public void paint(final Graphics g) {
-					g.setColor(Color.black);
-					g.fillRect(0, 0, getWidth(), getHeight());
-					BufferedImage back = new BufferedImage(ARRAY_WIDTH, ARRAY_HEIGHT, BufferedImage.TYPE_4BYTE_ABGR);
-					back.getGraphics().drawImage(bufferedImage, 0, 0, null);
-					if (bufferedImage != null) {
-						synchronized (bufferedImage) {
-							g.drawImage(back, 0, 0, getWidth(), getHeight(), null);
-						}
-					}
-				}
-			});
-			setVisible(true);
-		}
-	};
+	JFrame frame = jFrame;
 
 	public void writeImage(Image image) {
 		synchronized (bufferedImage) {
