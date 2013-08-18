@@ -1,6 +1,7 @@
 package org.hypher.gradientea.artnet.player.controller;
 
 import org.hypher.gradientea.animation.shared.color.HsbColor;
+import org.hypher.gradientea.artnet.player.DomeColorManager;
 import org.hypher.gradientea.artnet.player.io.osc.OscHelper;
 import org.hypher.gradientea.geometry.shared.math.DomeMath;
 import org.msafluid.MSAFluidSolver2D;
@@ -30,17 +31,18 @@ public class DomeFluidCanvas {
 	}
 
 	private void setupOsc() {
-		OscHelper.instance().mapValue(new OscHelper.OscDouble(OscConstants.Control.Fluid.FLUID_SIZE, 16, 80, fluidSolver.getVisc()) {
-			@Override
-			public void applyDouble(final double value) {
-				setSize((int) value);
-			}
+		OscHelper.instance().mapValue(
+			new OscHelper.OscDouble(OscConstants.Control.Fluid.FLUID_SIZE, 16, 80, fluidSolver.getVisc()) {
+				@Override
+				public void applyDouble(final double value) {
+					setSize((int) value);
+				}
 
-			@Override
-			public double getValue() {
-				return currentSize;
+				@Override
+				public double getValue() {
+					return currentSize;
+				}
 			}
-		}
 		);
 
 		OscHelper.instance().mapValue(new OscHelper.OscDouble(OscConstants.Control.Fluid.VISCOSITY, 0.000005, 0.00500, fluidSolver.getVisc()) {
@@ -69,17 +71,18 @@ public class DomeFluidCanvas {
 		}
 		);
 
-		OscHelper.instance().mapValue(new OscHelper.OscDouble(OscConstants.Control.Fluid.FADE, 0.0001, 0.10, fluidSolver.getVisc()) {
-			@Override
-			public void applyDouble(final double value) {
-				fluidSolver.setFadeSpeed((float) value);
-			}
+		OscHelper.instance().mapValue(
+			new OscHelper.OscDouble(OscConstants.Control.Fluid.FADE, 0.0001, 0.10, fluidSolver.getVisc()) {
+				@Override
+				public void applyDouble(final double value) {
+					fluidSolver.setFadeSpeed((float) value);
+				}
 
-			@Override
-			public double getValue() {
-				return fluidSolver.getFadeSpeed();
+				@Override
+				public double getValue() {
+					return fluidSolver.getFadeSpeed();
+				}
 			}
-		}
 		);
 	}
 
@@ -88,8 +91,45 @@ public class DomeFluidCanvas {
 		updateImage(intensityMultiplier);
 	}
 
+	public void update(float intensityMultiplier, DomeColorManager.DomePalette palette) {
+		fluidSolver.update();
+		updateImage(intensityMultiplier, palette);
+	}
+
 	public void update() {
 		update(2.5f);
+	}
+
+	private void updateImage(float intensityMultiplier, DomeColorManager.DomePalette palette) {
+		int width = getWidth();
+		int height = getHeight();
+		float frgb[] = new float[3];
+		int rgb[] = new int[3];
+
+		for (int x=0; x<width; x++) {
+			for (int y=0; y<height; y++) {
+				rgbAt(x, y, frgb);
+
+				frgb[0] *= intensityMultiplier;
+				frgb[1] *= intensityMultiplier;
+				frgb[2] *= intensityMultiplier;
+
+				float max = DomeMath.max(1f, frgb[0], frgb[1], frgb[2]);
+				rgb[0] = (int) ((frgb[0] / max) * 255);
+				rgb[1] = (int) ((frgb[1] / max) * 255);
+				rgb[2] = (int) ((frgb[2] / max) * 255);
+
+				int average = Math.max(rgb[0], Math.max(rgb[1], rgb[2]));
+
+				Color color = palette.getColor(average / 255f);
+
+				image.setRGB(
+					x,
+					y,
+					(average << 24) | (color.getRed() << 16) | (color.getGreen() << 8) | (color.getBlue() << 0)
+				);
+			}
+		}
 	}
 
 	private void updateImage(float intensityMultiplier) {

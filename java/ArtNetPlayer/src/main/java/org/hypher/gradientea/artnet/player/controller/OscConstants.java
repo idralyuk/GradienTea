@@ -42,6 +42,7 @@ public interface OscConstants {
 			String SHOW_FLUID_OVERLAY = "/gt/control/fluid/overlay/fluid";
 			String SHOW_VERTICES = "/gt/control/fluid/overlay/vertices";
 			String SHOW_OUTLINE = "/gt/control/fluid/overlay/outline";
+			String BRIGHTNESS_PALETTE = "/gt/control/fluid/brightnessPalette";
 		}
 
 		interface Music {

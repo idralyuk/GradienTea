@@ -64,6 +64,8 @@ public class PrototypeController implements Runnable, DomeController {
 
 	private OscHelper.OscDouble oscOverallFluidIntensity = OscHelper.doubleValue(OscConstants.Control.OVERALL_BRIGHTNESS, .1, 6, 3);
 
+	private OscHelper.OscBoolean oscBrightnessPalette = OscHelper.booleanValue(OscConstants.Control.Fluid.BRIGHTNESS_PALETTE, true);
+
 	private OscHelper.OscBoolean oscShowDome1Overlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_DOME_OVERLAY_1, true);
 	private OscHelper.OscBoolean oscShowDome2Overlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_DOME_OVERLAY_2, false);
 
@@ -380,7 +382,12 @@ public class PrototypeController implements Runnable, DomeController {
 		heartbeat();
 		activeProgram().update();
 
-		fluidCanvas.update((float) oscOverallFluidIntensity.getValue());
+		if (oscBrightnessPalette.value()) {
+			fluidCanvas.update((float) oscOverallFluidIntensity.getValue(), currentPalette);
+		}
+		else {
+			fluidCanvas.update((float) oscOverallFluidIntensity.getValue());
+		}
 
 		if (KinectInput.instance().isKinectEnabled()) {
 			kinectWidget.updateDepth();
