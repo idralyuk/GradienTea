@@ -6,7 +6,9 @@ import java.util.List;
  * @author Yona Appletree (yona@concentricsky.com)
  */
 public class DomeMath {
+	public static final float FPI = (float) Math.PI;
 	public static final double TWO_PI = Math.PI * 2;
+	public static final float FTWO_PI = (float) TWO_PI;
 
 	public static double normalizeAngle(double radians) {
 		return radians % (2 * Math.PI);
@@ -68,6 +70,14 @@ public class DomeMath {
 		return (float) n;
 	}
 
+	public static int floor(float f) {
+		return (int) f;
+	}
+
+	public static int ceil(float f) {
+		return (int) (f+.5f);
+	}
+
 	public static int clip(final int low, final int high, final int value) {
 		return Math.min(high, Math.max(low, value));
 	}
@@ -102,5 +112,21 @@ public class DomeMath {
 
 	public static float max(final float a, final float b, final float c, final float d) {
 		return Math.max(max(a,b,c), d);
+	}
+
+	public static float radians(float deg) {
+		return deg * (FPI/180f);
+	}
+
+	public static float degrees(float radians) {
+		return radians * (180f/FPI);
+	}
+
+	public static float dist(float x1, float y1, float x2, float y2) {
+		return (float) Math.sqrt(sq(x2 - x1) + sq(y2 - y1));
+	}
+
+	private static float sq(final float v) {
+		return v*v;
 	}
 }

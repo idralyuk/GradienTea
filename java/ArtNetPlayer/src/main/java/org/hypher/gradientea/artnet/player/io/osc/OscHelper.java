@@ -436,6 +436,14 @@ public class OscHelper {
 		public int intValue() {
 			return (int) getValue();
 		}
+
+		public double getMinValue() {
+			return minValue;
+		}
+
+		public double getMaxValue() {
+			return maxValue;
+		}
 	}
 
 	public static class OscBoolean extends BaseSimpleValue {

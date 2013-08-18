@@ -19,6 +19,7 @@ public class E131Socket {
 
 	private static final int E131_PACKET_LEN = 638;
 	public static final int E131_PORT = 5568;
+	private static volatile int sequenceNumber = 0;
 
 	private DatagramSocket socket;
 
@@ -105,7 +106,7 @@ public class E131Socket {
 		data[108]=100;                          // Priority, Data priority if multiple sources 0-200
 		data[109]=0x00;                         // Reserved, Transmitter Shall Send 0 (high)
 		data[110]=0x00;                         // Reserved, Transmitter Shall Send 0 (low)
-		data[111]=0x00;                         // Sequence Number, To detect duplicate or out of order packets.
+		data[111]=(byte)(++sequenceNumber % 255);                         // Sequence Number, To detect duplicate or out of order packets.
 		data[112]=0x00;                         // Options Flags, Bit 7 = Preview_Data, Bit 6 = Stream_Terminated
 		data[113]=(byte)(universe >> 8);        // Universe Number (high)
 		data[114]=(byte)(universe & 255);       // Universe Number (low)

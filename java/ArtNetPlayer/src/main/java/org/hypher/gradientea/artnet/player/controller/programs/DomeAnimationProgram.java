@@ -20,6 +20,8 @@ public interface DomeAnimationProgram extends DomeAnimation {
 		OFF(OscConstants.Status.Controller.OFF, false),
 		MANUAL(OscConstants.Status.Controller.MANUAL, true),
 		MUSIC(OscConstants.Status.Controller.MUSIC, true),
+		FIRE(OscConstants.Status.Controller.FIRE, false),
+		PERLIN(OscConstants.Status.Controller.PERLIN, false),
 		MOTION(OscConstants.Status.Controller.MOTION, true),
 		DEBUG(OscConstants.Status.Controller.DEBUG, false);
 

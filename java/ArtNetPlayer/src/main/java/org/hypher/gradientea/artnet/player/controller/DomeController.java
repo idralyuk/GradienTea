@@ -3,6 +3,7 @@ package org.hypher.gradientea.artnet.player.controller;
 import org.hypher.gradientea.artnet.player.controller.programs.DomeAnimationProgram;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.List;
 
 /**
@@ -14,4 +15,6 @@ public interface DomeController {
 	public Color getColor(float color);
 ;
 	void selectProgram(DomeAnimationProgram.ProgramId newProgramId);
+
+	void displayImage(BufferedImage image);
 }

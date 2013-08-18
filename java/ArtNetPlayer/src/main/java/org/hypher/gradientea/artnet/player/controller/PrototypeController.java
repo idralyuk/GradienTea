@@ -8,10 +8,12 @@ import org.hypher.gradientea.artnet.player.DomeColorManager;
 import org.hypher.gradientea.artnet.player.controller.programs.DebugProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.DomeAnimationProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.DoorLightAnimation;
+import org.hypher.gradientea.artnet.player.controller.programs.FireProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.ManualControlProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.MotionControlProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.MusicControlProgram;
 import org.hypher.gradientea.artnet.player.controller.programs.OffProgram;
+import org.hypher.gradientea.artnet.player.controller.programs.PerlinNoiseProgram;
 import org.hypher.gradientea.artnet.player.io.ArduinoLedPanelOutput;
 import org.hypher.gradientea.artnet.player.io.kinect.KinectDisplay;
 import org.hypher.gradientea.artnet.player.io.kinect.KinectInput;
@@ -20,6 +22,7 @@ import org.hypher.gradientea.geometry.shared.GradienTeaDomeSpecs;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.awt.image.VolatileImage;
 import java.io.File;
 import java.util.List;
@@ -59,7 +62,7 @@ public class PrototypeController implements Runnable, DomeController {
 	private OscHelper.OscText oscPaletteTypeLabel = OscHelper.textValue(OscConstants.Control.Color.PALETTE_TYPE_LABEL);
 	private OscHelper.OscText oscPaletteHueLabel = OscHelper.textValue(OscConstants.Control.Color.PALETTE_HUE_LABEL);
 
-	private OscHelper.OscDouble oscOverallFluidIntensity = OscHelper.doubleValue(OscConstants.Control.Fluid.INTENTISTY_MULTIPLIER, .1, 20, 3);
+	private OscHelper.OscDouble oscOverallFluidIntensity = OscHelper.doubleValue(OscConstants.Control.OVERALL_BRIGHTNESS, .1, 6, 3);
 
 	private OscHelper.OscBoolean oscShowDome1Overlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_DOME_OVERLAY_1, true);
 	private OscHelper.OscBoolean oscShowDome2Overlay = OscHelper.booleanValue(OscConstants.Control.Fluid.SHOW_DOME_OVERLAY_2, false);
@@ -94,6 +97,8 @@ public class PrototypeController implements Runnable, DomeController {
 		addProgram(new OffProgram());
 		addProgram(new DebugProgram());
 		addProgram(new ManualControlProgram());
+		addProgram(new PerlinNoiseProgram());
+		addProgram(new FireProgram());
 		addProgram(new MusicControlProgram());
 
 		if (KinectInput.instance().isKinectEnabled()) {
@@ -125,6 +130,11 @@ public class PrototypeController implements Runnable, DomeController {
 		statusWidget = new Component() {
 			private VolatileImage createBackBuffer() {
 				return getGraphicsConfiguration().createCompatibleVolatileImage(getWidth(), getHeight());
+			}
+
+			@Override
+			public void repaint() {
+				paint(getGraphics());
 			}
 
 			@Override
@@ -341,6 +351,20 @@ public class PrototypeController implements Runnable, DomeController {
 		}
 	}
 
+	@Override
+	public void displayImage(final BufferedImage image) {
+		for (DomeOutput output : outputs) {
+			output.getImageMapper().drawImage(
+				image,
+				output.getCanvas()
+			);
+		}
+
+		if (arduinoOutput.isPresent()) {
+			arduinoOutput.get().writeImage(image);
+		}
+	}
+
 	private void heartbeat() {
 		if (frameCounter % FPS == 0) {
 			oscHeartBeat.setValue(! oscHeartBeat.value());
@@ -369,7 +393,7 @@ public class PrototypeController implements Runnable, DomeController {
 		statusWidget.repaint();
 
 		// Send data to arduino if possible
-		if (arduinoOutput.isPresent()) {
+		if (arduinoOutput.isPresent() && activeProgramId.isFluidBased()) {
 			arduinoOutput.get().writeImage(fluidCanvas.getImage());
 		}
 	}

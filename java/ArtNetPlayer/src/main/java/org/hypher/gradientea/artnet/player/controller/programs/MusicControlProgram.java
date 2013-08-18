@@ -72,7 +72,7 @@ public class MusicControlProgram extends BaseDomeProgram {
 	);
 
 	private OscHelper.OscDouble emitterMovementFraction = OscHelper.doubleValue(
-		OscConstants.Control.Music.EMITTER_MOVEMENT, 0, .1, 0.01
+		OscConstants.Control.Music.EMITTER_MOVEMENT, 0, .03, 0.001
 	);
 
 	private OscHelper.OscBoolean oscShowEmitters = OscHelper.booleanValue(OscConstants.Control.Music.SHOW_EMITTERS, true);
@@ -210,7 +210,7 @@ public class MusicControlProgram extends BaseDomeProgram {
 		}
 
 		private void updateRadius(float intensity, boolean highest) {
-			if (highest) {
+			if (intensity > (emitterMovementFraction.getMaxValue() - emitterMovementFraction.floatValue()) * 100) {
 				radiusOffset += emitterMovementFraction.floatValue()*intensity;
 			} else {
 				radiusOffset -= emitterMovementFraction.floatValue();

@@ -30,7 +30,7 @@ public class DomeFluidCanvas {
 	}
 
 	private void setupOsc() {
-		OscHelper.instance().mapValue(new OscHelper.OscDouble(OscConstants.Control.Fluid.FLUID_SIZE, 20, 80, fluidSolver.getVisc()) {
+		OscHelper.instance().mapValue(new OscHelper.OscDouble(OscConstants.Control.Fluid.FLUID_SIZE, 16, 80, fluidSolver.getVisc()) {
 			@Override
 			public void applyDouble(final double value) {
 				setSize((int) value);

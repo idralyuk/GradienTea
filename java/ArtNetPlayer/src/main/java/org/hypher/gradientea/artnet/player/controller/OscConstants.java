@@ -12,11 +12,15 @@ public interface OscConstants {
 			String MANUAL = "/gt/status/controller/manual";
 			String MOTION = "/gt/status/controller/motion";
 			String MUSIC = "/gt/status/controller/music";
+			String PERLIN = "/gt/status/controller/perlin";
+			String FIRE = "/gt/status/controller/fire";
 			String DEBUG = "/gt/status/controller/debug";
 		}
 	}
 
 	interface Control {
+		String OVERALL_BRIGHTNESS = "/gt/control/fluid/intensityMultiplier";
+
 		interface Presets {
 			String OFF = "/gt/control/presets/off";
 			String SOFT_MUSIC = "/gt/control/presets/softMusic";
@@ -38,7 +42,6 @@ public interface OscConstants {
 			String SHOW_FLUID_OVERLAY = "/gt/control/fluid/overlay/fluid";
 			String SHOW_VERTICES = "/gt/control/fluid/overlay/vertices";
 			String SHOW_OUTLINE = "/gt/control/fluid/overlay/outline";
-			String INTENTISTY_MULTIPLIER = "/gt/control/fluid/intensityMultiplier";
 		}
 
 		interface Music {
@@ -57,6 +60,22 @@ public interface OscConstants {
 			String EMITTER_MOVEMENT = "/gt/control/music/emitterMovement";
 			String SHOW_HISTOGRAM = "/gt/control/music/showHistogram";
 			String SHOW_EMITTERS = "/gt/control/music/showEmitters";
+		}
+
+		interface Perlin {
+			String ENABLE = "/gt/control/perlin/enable";
+			String ZOOM = "/gt/control/perlin/zoom";
+			String MULTIPLER = "/gt/control/perlin/multipler";
+			String DETAIL = "/gt/control/perlin/detail";
+			String PAD = "/gt/control/perlin/pad";
+		}
+
+		interface Fire {
+			String ENABLE = "/gt/control/fire/enable";
+			String CLUSTER_SIZE = "/gt/control/fire/clusterSize";
+			String DOWNWARDS = "/gt/control/fire/downwards";
+			String SPEED = "/gt/control/fire/speed";
+			String USE_GLOBAL_COLOR = "/gt/control/fire/globalColor";
 		}
 
 		interface Motion {
